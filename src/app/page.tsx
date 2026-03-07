@@ -1,65 +1,129 @@
-import Image from "next/image";
+import { getAllArticles } from '@/lib/content';
+import ArticleCard from '@/components/ArticleCard';
+import SubscribeForm from '@/components/SubscribeForm';
 
 export default function Home() {
+  const articles = getAllArticles();
+  const roasts = articles.filter(a => a.type === 'roast');
+  const picks = articles.filter(a => a.type === 'pick');
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="mx-auto max-w-5xl px-6">
+      {/* Hero */}
+      <section className="py-20 md:py-28">
+        <p className="text-accent font-mono text-sm tracking-widest mb-4">
+          AI-POWERED STOCK ANALYSIS
+        </p>
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight max-w-3xl">
+          Stock picks shouldn&apos;t come from a{' '}
+          <span className="text-accent">black box.</span>
+        </h1>
+        <p className="text-muted text-lg md:text-xl mt-6 max-w-2xl leading-relaxed">
+          We audit popular stock recommendations with AI, show every stock we considered,
+          every stock we rejected, and exactly why. Full reasoning. No paywall.
+        </p>
+        <div className="mt-8" id="subscribe">
+          <SubscribeForm />
+          <p className="text-muted text-xs font-mono mt-3">
+            Free weekly newsletter. Unsubscribe anytime. We don&apos;t sell your data.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* The Roast */}
+      <section id="roasts" className="py-12">
+        <div className="flex items-center gap-3 mb-8">
+          <h2 className="text-2xl font-bold font-mono">The Roast</h2>
+          <span className="text-xs font-mono text-red bg-red/10 px-2 py-1 rounded">
+            AUDIT
+          </span>
         </div>
-      </main>
+        <p className="text-muted mb-8 max-w-2xl">
+          We take popular stock recommendations and put them through an AI-powered audit.
+          What did they get right? What did they miss? What should they have recommended instead?
+        </p>
+        {roasts.length > 0 ? (
+          <div className="grid gap-6">
+            {roasts.map(article => (
+              <ArticleCard key={article.slug} article={article} />
+            ))}
+          </div>
+        ) : (
+          <div className="border border-dashed border-card-border rounded-lg p-8 text-center">
+            <p className="text-muted font-mono text-sm">First roast dropping soon. Subscribe to get it first.</p>
+          </div>
+        )}
+      </section>
+
+      {/* AI Picks */}
+      <section id="picks" className="py-12">
+        <div className="flex items-center gap-3 mb-8">
+          <h2 className="text-2xl font-bold font-mono">AI Picks</h2>
+          <span className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded">
+            ANALYSIS
+          </span>
+        </div>
+        <p className="text-muted mb-8 max-w-2xl">
+          Our AI scans US and Canadian markets, evaluates 10-15 candidates,
+          eliminates them one by one, and shows you the full tournament.
+          Every stock. Every reason. Every time.
+        </p>
+        {picks.length > 0 ? (
+          <div className="grid gap-6">
+            {picks.map(article => (
+              <ArticleCard key={article.slug} article={article} />
+            ))}
+          </div>
+        ) : (
+          <div className="border border-dashed border-card-border rounded-lg p-8 text-center">
+            <p className="text-muted font-mono text-sm">First AI pick analysis coming soon.</p>
+          </div>
+        )}
+      </section>
+
+      {/* How it works */}
+      <section className="py-12">
+        <h2 className="text-2xl font-bold font-mono mb-8">How It Works</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="border border-card-border bg-card-bg rounded-lg p-6">
+            <p className="text-accent font-mono font-bold text-3xl mb-3">01</p>
+            <h3 className="font-semibold mb-2">AI Scans Markets</h3>
+            <p className="text-muted text-sm leading-relaxed">
+              Our AI searches pre-market movers, news, sector trends, earnings,
+              and analyst reports across US and Canadian markets.
+            </p>
+          </div>
+          <div className="border border-card-border bg-card-bg rounded-lg p-6">
+            <p className="text-accent font-mono font-bold text-3xl mb-3">02</p>
+            <h3 className="font-semibold mb-2">Elimination Tournament</h3>
+            <p className="text-muted text-sm leading-relaxed">
+              10-15 candidates enter. Each one is scored on valuation, catalysts,
+              risk, volume, and momentum. You see every elimination and why.
+            </p>
+          </div>
+          <div className="border border-card-border bg-card-bg rounded-lg p-6">
+            <p className="text-accent font-mono font-bold text-3xl mb-3">03</p>
+            <h3 className="font-semibold mb-2">Full Reasoning Published</h3>
+            <p className="text-muted text-sm leading-relaxed">
+              The winner (or &quot;no pick&quot;) is published with the complete
+              reasoning chain. No black box. No &quot;trust us.&quot;
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="py-16 text-center">
+        <h2 className="text-2xl font-bold mb-4">
+          Stop paying for stock picks from a <span className="text-accent">black box.</span>
+        </h2>
+        <p className="text-muted mb-8 max-w-lg mx-auto">
+          Get AI-driven analysis that shows its work. Every week. For free.
+        </p>
+        <div className="flex justify-center">
+          <SubscribeForm />
+        </div>
+      </section>
     </div>
   );
 }
