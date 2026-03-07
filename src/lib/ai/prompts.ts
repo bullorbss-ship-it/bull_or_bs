@@ -1,7 +1,6 @@
-import Anthropic from '@anthropic-ai/sdk';
-import { Article } from './types';
+import { siteConfig } from '@/config/site';
 
-const ROAST_PROMPT = `You are the lead analyst at NotSoFoolAI — an AI-driven stock analysis newsletter that fact-checks popular financial media recommendations.
+export const ROAST_PROMPT = `You are the lead analyst at ${siteConfig.name} — an AI-driven stock analysis newsletter that fact-checks popular financial media recommendations.
 
 Your job: Take a stock recommendation from a popular financial publication and audit it with rigorous, data-driven analysis. Show your full reasoning. Be fair but ruthless with the facts.
 
@@ -37,7 +36,7 @@ RULES:
 - Write for a smart retail investor. No jargon without explanation.
 - Be entertaining. This is satire meets analysis.`;
 
-const PICK_PROMPT = `You are the lead analyst at NotSoFoolAI — an AI-driven stock analysis newsletter.
+export const PICK_PROMPT = `You are the lead analyst at ${siteConfig.name} — an AI-driven stock analysis newsletter.
 
 Your job: Scan today's market conditions and find the single best stock opportunity. Show your FULL reasoning tournament — every stock you considered, why you eliminated it, and why the winner survived.
 
@@ -80,74 +79,3 @@ RULES:
 - Cover both US (NYSE/NASDAQ) and Canadian (TSX) stocks.
 - "No pick this week" is valid if nothing qualifies. In that case, set winner to null.
 - Write for a smart retail investor. Be entertaining but rigorous.`;
-
-export async function generateRoast(claim: string, ticker: string, source: string): Promise<Article['content']> {
-  const client = new Anthropic();
-
-  const response = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
-    max_tokens: 4000,
-    system: ROAST_PROMPT,
-    tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-    messages: [{
-      role: 'user',
-      content: `Audit this recommendation:
-
-PUBLICATION CLAIM: "${claim}"
-TICKER: ${ticker}
-SOURCE: ${source}
-DATE: ${new Date().toISOString().split('T')[0]}
-
-Search for current data on this stock — price, fundamentals, analyst targets, recent news. Then audit the recommendation thoroughly. Compare to alternatives.
-
-Return ONLY valid JSON.`
-    }],
-  });
-
-  const text = response.content
-    .filter(block => block.type === 'text')
-    .map(block => block.text)
-    .join('');
-
-  const jsonMatch = text.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) throw new Error('Failed to parse AI response as JSON');
-
-  return JSON.parse(jsonMatch[0]);
-}
-
-export async function generatePick(): Promise<Article['content']> {
-  const client = new Anthropic();
-  const today = new Date().toISOString().split('T')[0];
-  const dayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-
-  const response = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
-    max_tokens: 4000,
-    system: PICK_PROMPT,
-    tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-    messages: [{
-      role: 'user',
-      content: `Today is ${today} (${dayName}).
-
-Search for:
-1. US pre-market movers and overnight news
-2. TSX pre-market movers and Canadian market news
-3. Sector trends and money flows
-4. Upcoming catalysts (earnings, FDA decisions, contract announcements)
-
-Then run your elimination tournament and pick the best opportunity (or declare no pick).
-
-Return ONLY valid JSON.`
-    }],
-  });
-
-  const text = response.content
-    .filter(block => block.type === 'text')
-    .map(block => block.text)
-    .join('');
-
-  const jsonMatch = text.match(/\{[\s\S]*\}/);
-  if (!jsonMatch) throw new Error('Failed to parse AI response as JSON');
-
-  return JSON.parse(jsonMatch[0]);
-}

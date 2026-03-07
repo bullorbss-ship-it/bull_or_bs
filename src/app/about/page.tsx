@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import SubscribeForm from '@/components/SubscribeForm';
+import SubscribeForm from '@/components/forms/SubscribeForm';
 
 export const metadata: Metadata = {
   title: 'About NotSoFoolAI',

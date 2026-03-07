@@ -20,7 +20,7 @@ export default function SubscribeForm() {
 
       if (res.ok) {
         setStatus('success');
-        setMessage('You\'re in. Watch your inbox.');
+        setMessage('You\'re in. Check your inbox.');
         setEmail('');
       } else {
         const data = await res.json();
@@ -34,24 +34,24 @@ export default function SubscribeForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-lg">
       <input
         type="email"
         required
-        placeholder="your@email.com"
+        placeholder="you@email.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="flex-1 bg-background border border-card-border rounded px-4 py-3 text-foreground font-mono text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+        className="flex-1 border border-card-border bg-background rounded-lg px-4 py-3 text-foreground text-sm placeholder:text-muted-light focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all"
       />
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="bg-accent text-background font-mono font-bold px-6 py-3 rounded hover:bg-accent-dim transition-colors disabled:opacity-50 text-sm"
+        className="bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent-dim transition-colors disabled:opacity-50 text-sm whitespace-nowrap"
       >
-        {status === 'loading' ? 'Joining...' : 'Subscribe'}
+        {status === 'loading' ? 'Joining...' : 'Get Free Analysis'}
       </button>
       {status !== 'idle' && (
-        <p className={`text-sm font-mono mt-1 sm:mt-0 sm:self-center ${status === 'success' ? 'text-accent' : 'text-red'}`}>
+        <p className={`text-sm mt-1 sm:mt-0 sm:self-center ${status === 'success' ? 'text-green' : 'text-red'}`}>
           {message}
         </p>
       )}

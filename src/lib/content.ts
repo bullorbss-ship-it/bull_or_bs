@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { Article } from './types';
 
-const CONTENT_DIR = path.join(process.cwd(), 'src/content');
+const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 export function getAllArticles(): Article[] {
   const articles: Article[] = [];

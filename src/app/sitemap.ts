@@ -1,35 +1,51 @@
 import { getAllArticles } from '@/lib/content';
+import { ALL_TICKERS, tickerToSlug } from '@/lib/tickers';
+import { siteConfig } from '@/config/site';
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles();
 
   const articleEntries = articles.map(a => ({
-    url: `https://notsofoolai.com/article/${a.slug}`,
+    url: `${siteConfig.url}/article/${a.slug}`,
     lastModified: new Date(a.date),
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
 
+  const stockEntries = ALL_TICKERS.map(t => ({
+    url: `${siteConfig.url}/stock/${tickerToSlug(t.ticker)}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }));
+
   return [
     {
-      url: 'https://notsofoolai.com',
+      url: siteConfig.url,
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 1,
     },
     {
-      url: 'https://notsofoolai.com/about',
+      url: `${siteConfig.url}/stock`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
+      url: `${siteConfig.url}/about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
-      url: 'https://notsofoolai.com/disclaimer',
+      url: `${siteConfig.url}/disclaimer`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.3,
     },
     ...articleEntries,
+    ...stockEntries,
   ];
 }

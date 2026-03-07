@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { generateRoast, generatePick } from '@/lib/generate';
+import { generateRoast, generatePick } from '@/lib/ai/generate';
 import { saveArticle } from '@/lib/content';
 import { Article } from '@/lib/types';
 
