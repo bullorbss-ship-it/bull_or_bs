@@ -88,10 +88,25 @@ export default function Home() {
             </div>
           </div>
           {roasts.length > 0 ? (
-            <div className="space-y-3">
-              {roasts.slice(0, 3).map(article => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
+            <div className="relative">
+              <div className="space-y-3">
+                {roasts.slice(0, 3).map((article, i) => (
+                  <div key={article.slug} className={roasts.length > 3 && i === 2 ? 'opacity-60' : ''}>
+                    <ArticleCard article={article} />
+                  </div>
+                ))}
+              </div>
+              {roasts.length > 3 && (
+                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
+                  <Link
+                    href="/roasts"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+                  >
+                    View all {roasts.length} roasts
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              )}
             </div>
           ) : (
             <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
@@ -113,10 +128,25 @@ export default function Home() {
             </div>
           </div>
           {picks.length > 0 ? (
-            <div className="space-y-3">
-              {picks.slice(0, 3).map(article => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
+            <div className="relative">
+              <div className="space-y-3">
+                {picks.slice(0, 3).map((article, i) => (
+                  <div key={article.slug} className={picks.length > 3 && i === 2 ? 'opacity-60' : ''}>
+                    <ArticleCard article={article} />
+                  </div>
+                ))}
+              </div>
+              {picks.length > 3 && (
+                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
+                  <Link
+                    href="/picks"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+                  >
+                    View all {picks.length} picks
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              )}
             </div>
           ) : (
             <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
