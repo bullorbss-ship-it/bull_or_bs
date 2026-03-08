@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ALL_TICKERS, tickerToSlug, slugToTicker, getTickerInfo, getTickersBySector } from '@/lib/tickers';
 import { getAllArticles } from '@/lib/content';
+import { getStockData } from '@/lib/stock-data';
 import { siteConfig } from '@/config/site';
 import { faqSchema, breadcrumbSchema, corporationSchema } from '@/config/seo';
 import ArticleCard from '@/components/article/ArticleCard';
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const info = getTickerInfo(ticker);
   if (!info) return {};
 
+  const stockData = getStockData(info.ticker);
   const title = `${info.ticker} Stock Analysis — ${info.company} | ${siteConfig.name}`;
-  const description = `AI-powered analysis of ${info.company} (${info.exchange}:${info.ticker}). Full reasoning, data points, and transparent AI research. Should you buy ${info.ticker}?`;
+  const description = stockData?.seoDescription || `AI-powered analysis of ${info.company} (${info.exchange}:${info.ticker}). Full reasoning, data points, and transparent AI research. Should you buy ${info.ticker}?`;
 
   return {
     title,
@@ -63,6 +65,8 @@ export default async function StockPage({ params }: PageProps) {
   const articles = getAllArticles().filter(
     a => a.ticker?.toUpperCase() === info.ticker.toUpperCase()
   );
+
+  const stockData = getStockData(info.ticker);
 
   const sectorPeers = getTickersBySector(info.sector)
     .filter(t => t.ticker !== info.ticker)
@@ -149,12 +153,66 @@ export default async function StockPage({ params }: PageProps) {
       <section className="mb-10">
         <h2 className="text-xl font-bold mb-3">About {info.company}</h2>
         <p className="text-muted leading-relaxed">
-          {info.company} ({info.exchange}:{info.ticker}) is a {info.country === 'CA' ? 'Canadian' : 'US'} company
-          in the {info.sector} sector, listed on the {info.exchange}. Our AI analyzes {info.ticker} as
-          part of our regular stock coverage, comparing it against sector peers and evaluating
-          it on valuation, catalysts, risks, and momentum.
+          {stockData?.overview || `${info.company} (${info.exchange}:${info.ticker}) is a ${info.country === 'CA' ? 'Canadian' : 'US'} company in the ${info.sector} sector, listed on the ${info.exchange}. Our AI analyzes ${info.ticker} as part of our regular stock coverage.`}
         </p>
       </section>
+
+      {/* Key Metrics + Bull/Bear */}
+      {stockData && (
+        <>
+          <section className="mb-10">
+            <h2 className="text-xl font-bold mb-4">Key Metrics</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="border border-card-border rounded-xl p-4 text-center">
+                <p className="text-xs text-muted-light uppercase tracking-wide">Market Cap</p>
+                <p className="font-bold mt-1">{stockData.keyMetrics.marketCap}</p>
+              </div>
+              <div className="border border-card-border rounded-xl p-4 text-center">
+                <p className="text-xs text-muted-light uppercase tracking-wide">P/E Ratio</p>
+                <p className="font-bold mt-1">{stockData.keyMetrics.peRatio}</p>
+              </div>
+              <div className="border border-card-border rounded-xl p-4 text-center">
+                <p className="text-xs text-muted-light uppercase tracking-wide">Dividend Yield</p>
+                <p className="font-bold mt-1">{stockData.keyMetrics.dividendYield}</p>
+              </div>
+              <div className="border border-card-border rounded-xl p-4 text-center">
+                <p className="text-xs text-muted-light uppercase tracking-wide">Sector</p>
+                <p className="font-bold mt-1">{stockData.keyMetrics.sector}</p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mb-10 grid sm:grid-cols-2 gap-4">
+            <div className="border border-green-500/20 bg-green-500/5 rounded-xl p-5">
+              <h3 className="font-bold text-green-600 dark:text-green-400 mb-3">Bull Case</h3>
+              <ul className="space-y-2">
+                {stockData.bullCase.map((point, i) => (
+                  <li key={i} className="text-sm text-muted flex gap-2">
+                    <span className="text-green-500 mt-0.5 shrink-0">+</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="border border-red-500/20 bg-red-500/5 rounded-xl p-5">
+              <h3 className="font-bold text-red-600 dark:text-red-400 mb-3">Bear Case</h3>
+              <ul className="space-y-2">
+                {stockData.bearCase.map((point, i) => (
+                  <li key={i} className="text-sm text-muted flex gap-2">
+                    <span className="text-red-500 mt-0.5 shrink-0">-</span>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-xl font-bold mb-3">Analyst Summary</h2>
+            <p className="text-muted leading-relaxed">{stockData.analystSummary}</p>
+          </section>
+        </>
+      )}
 
       {/* AI Analysis */}
       <section className="mb-10">

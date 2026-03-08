@@ -1,0 +1,28 @@
+{
+  "ticker": "CNR",
+  "company": "Canadian National Railway",
+  "exchange": "TSX",
+  "sector": "Industrials",
+  "country": "CA",
+  "overview": "Canadian National Railway (CNR) is a leading North American transportation and logistics company, operating the largest railway network in Canada. The company provides rail and intermodal transportation services, connecting customers to key markets across Canada and the United States. CNR plays a crucial role in the supply chain, transporting a diverse range of goods including automotive, forest products, and agricultural products.\n\nIn recent developments, CNR has focused on enhancing its operational efficiency and sustainability initiatives. The company has invested in technology to improve its service reliability and reduce its carbon footprint, positioning itself as a leader in environmentally responsible transportation. Additionally, CNR's strong financial performance and strategic acquisitions have solidified its market position, making it a key player in the North American rail industry.",
+  "bullCase": [
+    "Strong demand for freight transportation driven by economic recovery and e-commerce growth.",
+    "Continued investment in technology and infrastructure to enhance operational efficiency.",
+    "Commitment to sustainability initiatives may attract environmentally conscious investors."
+  ],
+  "bearCase": [
+    "Potential disruptions from labor strikes or regulatory changes affecting operations.",
+    "Economic downturns could lead to decreased freight volumes and lower revenues.",
+    "Rising fuel costs may impact profit margins and operational expenses."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximate market cap of CAD 100 billion",
+    "peRatio": "approximately 20",
+    "dividendYield": "approximately 1.8%",
+    "sector": "Industrials"
+  },
+  "analystSummary": "Analysts generally view CNR as a stable investment with growth potential, though they caution about economic uncertainties.",
+  "seoDescription": "Should I buy CNR? Explore our CNR stock analysis for insights on performance and investment potential.",
+  "generatedAt": "2026-03-08T04:48:09.432Z",
+  "generatedBy": "gpt-4o-mini"
+}

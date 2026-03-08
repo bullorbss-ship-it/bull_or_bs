@@ -1,0 +1,28 @@
+{
+  "ticker": "KO",
+  "company": "Coca-Cola Co.",
+  "exchange": "NYSE",
+  "sector": "Consumer Staples",
+  "country": "US",
+  "overview": "Coca-Cola Co. is a leading global beverage company, best known for its flagship soft drink, Coca-Cola. The company operates in more than 200 countries and offers a diverse portfolio of beverages, including sparkling and still drinks, juices, teas, and coffees. Coca-Cola has a strong market position, being one of the most recognized brands worldwide, and continues to innovate with new product offerings and healthier options to meet changing consumer preferences. Recently, the company has focused on sustainability initiatives and expanding its presence in the non-alcoholic beverage market, which has contributed to its resilience in a competitive landscape.",
+  "bullCase": [
+    "Strong brand recognition and global distribution network.",
+    "Continued innovation in product offerings and health-conscious beverages.",
+    "Potential for growth in emerging markets and e-commerce sales."
+  ],
+  "bearCase": [
+    "Increasing competition from healthier beverage alternatives.",
+    "Potential impact of inflation on raw material costs and pricing strategies.",
+    "Regulatory challenges and changing consumer preferences could affect sales."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately $240 billion",
+    "peRatio": "approximately 25",
+    "dividendYield": "approximately 3.1%",
+    "sector": "Consumer Staples"
+  },
+  "analystSummary": "Analysts generally view Coca-Cola as a stable investment with potential for moderate growth, though they caution about market challenges.",
+  "seoDescription": "Should I buy KO? Explore our KO stock analysis for insights on Coca-Cola Co.'s market position and investment potential.",
+  "generatedAt": "2026-03-08T04:54:32.182Z",
+  "generatedBy": "gpt-4o-mini"
+}

@@ -1,0 +1,28 @@
+{
+  "ticker": "RY",
+  "company": "Royal Bank of Canada",
+  "exchange": "TSX",
+  "sector": "Financials",
+  "country": "CA",
+  "overview": "Royal Bank of Canada (RY) is one of the largest financial institutions in Canada, offering a diverse range of financial services including personal and commercial banking, wealth management, insurance, and capital markets. With a strong presence in both domestic and international markets, RY has established itself as a leader in the Canadian banking sector. The bank has been focusing on digital transformation and enhancing customer experience, which has positioned it well to adapt to changing market dynamics. Recently, RY has reported solid earnings growth driven by strong mortgage lending and robust capital markets performance.",
+  "bullCase": [
+    "Strong earnings growth driven by diversified revenue streams.",
+    "Continued expansion in digital banking services attracting younger customers.",
+    "Stable dividend payouts and potential for increases as profitability improves."
+  ],
+  "bearCase": [
+    "Economic downturns could impact loan performance and increase defaults.",
+    "Regulatory changes may impose additional costs or limit profitability.",
+    "Intense competition in the financial sector could pressure margins."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 150 billion",
+    "peRatio": "approximately 12-14",
+    "dividendYield": "approximately 3.5%",
+    "sector": "Financials"
+  },
+  "analystSummary": "Analysts generally view RY as a solid investment with a stable outlook, though caution is advised due to potential economic headwinds.",
+  "seoDescription": "Should I buy RY? Explore our RY stock analysis and insights on Royal Bank of Canada.",
+  "generatedAt": "2026-03-08T04:47:29.226Z",
+  "generatedBy": "gpt-4o-mini"
+}

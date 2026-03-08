@@ -1,0 +1,28 @@
+{
+  "ticker": "BN",
+  "company": "Brookfield Corp.",
+  "exchange": "TSX",
+  "sector": "Financials",
+  "country": "CA",
+  "overview": "Brookfield Corp. is a global alternative asset manager with a focus on real estate, renewable power, infrastructure, and private equity. The company operates through various subsidiaries and has a diversified portfolio of assets across multiple sectors, positioning itself as a leader in the investment management space. Recently, Brookfield has been expanding its renewable energy investments, aligning with global trends towards sustainability and green energy, which could enhance its long-term growth prospects.",
+  "bullCase": [
+    "Strong growth potential in renewable energy investments.",
+    "Diversified portfolio reduces risk and enhances stability.",
+    "Increasing global demand for alternative investments may boost asset management fees."
+  ],
+  "bearCase": [
+    "Economic downturns could impact asset valuations and management fees.",
+    "Regulatory changes in the financial sector may pose challenges.",
+    "High competition in the asset management industry could pressure margins."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 80 billion",
+    "peRatio": "N/A",
+    "dividendYield": "approximately 1.5%",
+    "sector": "Financials"
+  },
+  "analystSummary": "Analysts generally view Brookfield Corp. positively, citing its strong market position and growth potential, particularly in renewable energy.",
+  "seoDescription": "Should I buy BN? Explore our comprehensive BN stock analysis and insights on Brookfield Corp.'s investment potential.",
+  "generatedAt": "2026-03-08T04:51:52.253Z",
+  "generatedBy": "gpt-4o-mini"
+}

@@ -1,0 +1,28 @@
+{
+  "ticker": "TRP",
+  "company": "TC Energy Corp.",
+  "exchange": "TSX",
+  "sector": "Energy",
+  "country": "CA",
+  "overview": "TC Energy Corp. is a leading energy infrastructure company based in Canada, primarily engaged in the development and operation of pipelines and power generation facilities. The company operates through three main segments: Natural Gas Pipelines, Liquids Pipelines, and Power and Storage. With a vast network of pipelines across North America, TC Energy plays a crucial role in the transportation of natural gas and liquids, positioning itself as a key player in the energy sector amidst the ongoing transition towards cleaner energy sources. Recently, TC Energy has been focusing on expanding its renewable energy portfolio, including investments in solar and wind projects, which aligns with global sustainability trends.",
+  "bullCase": [
+    "Strong demand for natural gas and renewable energy could drive revenue growth.",
+    "Strategic investments in infrastructure and renewable projects may enhance long-term profitability.",
+    "Stable dividend payments and a solid financial position make it attractive for income-focused investors."
+  ],
+  "bearCase": [
+    "Regulatory challenges and environmental concerns could hinder project approvals.",
+    "Fluctuations in energy prices may impact revenue and profitability.",
+    "Increased competition in the energy sector could pressure market share and margins."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 60 billion",
+    "peRatio": "approximately 18",
+    "dividendYield": "approximately 5.5%",
+    "sector": "Energy"
+  },
+  "analystSummary": "Analysts generally view TC Energy as a stable investment with potential for growth, particularly in renewable energy, but caution against regulatory risks.",
+  "seoDescription": "Explore TC Energy Corp. (TRP) stock analysis and find out if you should buy TRP for your investment portfolio.",
+  "generatedAt": "2026-03-08T04:48:46.601Z",
+  "generatedBy": "gpt-4o-mini"
+}

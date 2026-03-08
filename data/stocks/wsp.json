@@ -1,0 +1,28 @@
+{
+  "ticker": "WSP",
+  "company": "WSP Global Inc.",
+  "exchange": "TSX",
+  "sector": "Industrials",
+  "country": "CA",
+  "overview": "WSP Global Inc. is a leading engineering and professional services firm providing solutions in engineering, design, and consulting across various sectors, including infrastructure, environment, and buildings. With a strong presence in North America and Europe, WSP has established itself as a key player in the industrial sector, focusing on sustainable development and innovation. Recently, the company has expanded its portfolio through strategic acquisitions, enhancing its capabilities in environmental services and digital solutions, which positions it well for future growth.",
+  "bullCase": [
+    "Strong demand for infrastructure development and environmental services could drive revenue growth.",
+    "Recent acquisitions may enhance service offerings and market share, leading to increased profitability.",
+    "Focus on sustainability and digital transformation aligns with global trends, attracting more clients."
+  ],
+  "bearCase": [
+    "Economic downturns could lead to reduced spending on infrastructure projects, impacting revenues.",
+    "Increased competition in the engineering sector may pressure margins and market share.",
+    "Regulatory changes and environmental policies could pose challenges to project execution and profitability."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 10 billion",
+    "peRatio": "approximately 20",
+    "dividendYield": "approximately 1.5%",
+    "sector": "Industrials"
+  },
+  "analystSummary": "Analysts generally view WSP Global Inc. positively, citing its strong market position and growth potential, although they caution about economic uncertainties.",
+  "seoDescription": "Explore WSP Global Inc. stock analysis and find out if you should buy WSP for your portfolio.",
+  "generatedAt": "2026-03-08T04:52:08.460Z",
+  "generatedBy": "gpt-4o-mini"
+}
