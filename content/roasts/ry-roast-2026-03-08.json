@@ -1,0 +1,152 @@
+{
+  "slug": "ry-roast-2026-03-08",
+  "type": "roast",
+  "title": "RY's 3.8% Yield? Try 2.9%. This 'Buy Forever' Call Starts With a Math Error.",
+  "description": "The newsletter's core claim is factually wrong\u2014Royal Bank's dividend yield is 2.9%, not 3.8%, per March 2026 data. While RBC remains a quality bank with record Q1 earnings and a solid track record, it's trading at a premium valuation (P/E of 16.1x vs. sector average of 12.8x) and offers the *lowest* dividend yield among Big 5 Canadian banks. Bank of Nova Scotia delivers 4.6% yield at better value, while National Bank offers superior growth. The recommendation isn't terrible, but it's lazy\u2014ignoring superior alternatives and starting with incorrect data.",
+  "date": "2026-03-08",
+  "ticker": "RY",
+  "verdict": "**Grade: D+**\n\nThe recommendation fails on multiple levels. First, the central claim is factually incorrect\u2014RY's yield is 2.9%, not 3.8%, making this a 30% error on the core thesis for \"income investors.\" Second, the analysis completely ignores superior alternatives: Bank of Nova Scotia offers 4.6% yield (58% higher) at a discount valuation, while National Bank delivered 62% returns with better growth prospects. Third, RBC trades at a significant premium (P/E of 15.5x vs. peer average of 12.8x), meaning investors pay more for essentially the same risk-return profile available elsewhere in Canadian banking.\n\nRBC isn't a *bad* stock\u2014it's a quality bank with record earnings, strong capital ratios, and a long dividend history. But \"buy and hold forever\" requires more than brand recognition. When you can get 58% more income from Scotiabank or 60% capital appreciation from TD's 2025 rebound, recommending RBC as a \"no-brainer\" is lazy analysis that ignores basic comparative research.\n\n**For income investors:** BNS at 4.6% yield is objectively superior.\n**For total return investors:** National Bank's growth trajectory and TD's rebound offer better risk-adjusted returns.\n**For RBC specifically:** It's fairly valued to slightly expensive, making it a \"hold if you own it\" but not a \"rush to buy it\" situation.\n\nThe D+ grade reflects factual errors, lack of comparative analysis, and a recommendation that prioritizes brand name over actual investor outcomes. If you're paying for stock advice, you deserve better than math errors and incomplete research.",
+  "tags": [
+    "RY",
+    "roast",
+    "stock analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "RY's 3.8% Yield? Try 2.9%. This 'Buy Forever' Call Starts With a Math Error.",
+    "summary": "The newsletter's core claim is factually wrong\u2014Royal Bank's dividend yield is 2.9%, not 3.8%, per March 2026 data. While RBC remains a quality bank with record Q1 earnings and a solid track record, it's trading at a premium valuation (P/E of 16.1x vs. sector average of 12.8x) and offers the *lowest* dividend yield among Big 5 Canadian banks. Bank of Nova Scotia delivers 4.6% yield at better value, while National Bank offers superior growth. The recommendation isn't terrible, but it's lazy\u2014ignoring superior alternatives and starting with incorrect data.",
+    "foolClaim": "Royal Bank of Canada is a top dividend stock to buy and hold forever \u2014 its 3.8% yield, consistent dividend growth, and dominant market position make it a no-brainer for income investors",
+    "candidates": [
+      {
+        "ticker": "RY",
+        "company": "Royal Bank of Canada",
+        "status": "selected",
+        "reasonConsidered": "Canada's largest bank by market cap, recommended by the publication as a 'buy forever' dividend stock",
+        "reasonEliminated": null,
+        "score": 6.5
+      },
+      {
+        "ticker": "BNS",
+        "company": "Bank of Nova Scotia",
+        "status": "eliminated",
+        "reasonConsidered": "Big 5 Canadian bank with highest dividend yield among peers at 4.6% and undervalued position",
+        "reasonEliminated": "Not mentioned in publication's recommendation despite offering 58% higher yield than RY's actual 2.9%",
+        "score": 8
+      },
+      {
+        "ticker": "NA",
+        "company": "National Bank of Canada",
+        "status": "eliminated",
+        "reasonConsidered": "Top-performing Canadian bank with 62% returns over 12 months, 2.6% yield, strong growth trajectory",
+        "reasonEliminated": "Ignored by publication despite being best growth story among Canadian banks in 2025",
+        "score": 7.5
+      },
+      {
+        "ticker": "TD",
+        "company": "Toronto-Dominion Bank",
+        "status": "eliminated",
+        "reasonConsidered": "Second-largest Canadian bank, rebounded 60% in 2025, similar yield profile to RY at better valuation",
+        "reasonEliminated": "Not considered despite being 2025's runaway winner and offering comparable dividends at discount pricing",
+        "score": 7
+      },
+      {
+        "ticker": "CM",
+        "company": "Canadian Imperial Bank of Commerce",
+        "status": "eliminated",
+        "reasonConsidered": "Big 5 bank with second-highest yield in sector, dividend-focused profile",
+        "reasonEliminated": "Overlooked despite offering significantly higher yield than RY for income-focused investors",
+        "score": 6.5
+      }
+    ],
+    "analysis": "## The 3.8% Yield That Never Was\n\nLet's start with the most glaring problem: **Royal Bank of Canada's dividend yield is 2.92% as of March 7, 2026, not 3.8%.** Multiple sources confirm this\u2014the actual quarterly dividend is C$1.64, translating to roughly 2.8-2.9% depending on which price you use. The publication's claim is off by nearly 30%, which is either sloppy research or outdated data from a different market cycle.\n\nFor a recommendation premised on \"income investors,\" getting the yield wrong isn't a typo\u2014it's malpractice.\n\n## What They Got Right\n\nTo be fair, RBC isn't a *bad* bank. The company just reported record Q1 2026 earnings of $5.8 billion (up 13% YoY), with adjusted EPS of $4.08 beating estimates by 6%. Revenue hit $18 billion, return on equity stands at 17.6%, and the CET1 capital ratio improved to 13.7%. RBC's diversified business model\u2014spanning wealth management (32% earnings growth), personal banking (18% growth), and capital markets\u2014delivered positive operating leverage of 5.1%.\n\nThe bank returned $3.3 billion to shareholders via dividends and buybacks in Q1 alone. It's dominant (#1 in Canada by market cap), well-capitalized, and has paid dividends for over a century. Management just created a new AI Group targeting $1 billion in enterprise value from AI by 2027.\n\n**These are legitimate strengths.** But they're also table stakes for any Big 5 Canadian bank.\n\n## The Valuation Problem\n\nHere's where the \"no-brainer\" claim falls apart: **RBC is trading at a premium to both its own history and its peer group.**\n\n- **P/E ratio: 15.5-16.1x** (depending on source), compared to the Canadian banking peer average of 12.8x and U.S. banks at 11.4x\n- RBC's 10-year average P/E is just 13.5x\u2014meaning it's currently 18% *more expensive* than its historical norm\n- The stock trades at a P/E of 15.5x vs. an estimated fair P/E of 14.4x, making it overvalued by traditional metrics\n\nSimply put: You're paying a premium for RBC's \"quality\" and brand dominance. That's fine if you believe in perpetual outperformance, but it's the opposite of a \"no-brainer\" for value-oriented dividend investors.\n\n## The Alternatives They Ignored\n\n### Bank of Nova Scotia (BNS): The Actual Income Play\n- **Yield: 4.6%**\u2014literally 58% higher than RY's real yield\n- Trading at a discount after lagging peers due to Latin America exposure repositioning\n- Q4 2025: 21% profit growth, beating estimates, targeting double-digit Canadian banking growth in 2026\n- **Why it matters:** If you're truly buying for income, Scotiabank delivers meaningfully more cash flow today while management executes a credible turnaround\n\n### National Bank of Canada (NA): The Growth Story\n- **62% total return over 12 months**\u2014crushed RY's performance\n- Just acquired Canadian Western Bank, expanding national footprint\n- 2.6% yield is lower, but total return potential is superior for long-term holders\n- **Why it matters:** \"Buy and hold forever\" should consider capital appreciation, not just yield. National Bank has been the standout performer.\n\n### Toronto-Dominion Bank (TD): The Comeback Kid\n- **60% return in 2025** after regulatory penalties depressed 2024 performance\n- Similar yield profile to RY but trading at better valuation\n- Dominant digital banking franchise, extensive U.S. exposure\n- **Why it matters:** If you want a \"dominant\" bank at a reasonable price with rebound momentum, TD checks more boxes\n\n## Risk Factors the Publication Glossed Over\n\n1. **Credit Quality Deterioration:** Gross impaired loans rose $485M quarter-over-quarter to $9.2B, with provisions up in Capital Markets and Personal Banking. Management flagged \"localized retail weakness in Ontario\" and mortgage renewal pressures.\n\n2. **Net Interest Margin Compression:** NIM fell 7 basis points sequentially due to capital markets activity and competitive pricing pressure. This directly impacts profitability.\n\n3. **Valuation Risk:** At 15.5x earnings when peers trade at 12.8x, RBC has limited upside unless it continues beating estimates. A multiple compression would hurt more than peers.\n\n4. **Concentration Risk:** Despite international presence, RBC is still heavily exposed to Canadian residential real estate and commercial markets facing headwinds from immigration policy shifts and affordability challenges.\n\n5. **Trade Policy Uncertainty:** Q1 earnings call repeatedly mentioned \"tariff uncertainty\" and its impact on commercial loan growth and wholesale volatility.\n\n## The Actual Catalysts vs. The Claimed Ones\n\n**Publication Claims:**\n- 3.8% yield (False)\n- Consistent dividend growth (True, but industry-wide trait)\n- Dominant market position (True, but priced in)\n\n**Real Catalysts:**\n- AI monetization: $1B enterprise value target by 2027 from new AI Group\n- HSBC Canada integration: Completed, adding scale\n- Wealth Management momentum: Record quarter, benefiting from market appreciation\n- Capital deployment: Strong buyback activity with 4.2M shares repurchased in Q1\n\n**Missing Catalysts the Publication Should Discuss:**\n- Interest rate normalization timeline (Bank of Canada at 2.25%, holding steady)\n- Provision cycle trajectory: When do credit losses peak?\n- U.S. expansion opportunities vs. domestic market saturation\n\n## The Verdict: Not Wrong, Just Lazy\n\nRBC is a perfectly fine bank. It's not going bankrupt. It will likely keep raising dividends. But:\n\n1. **The yield claim is factually incorrect**\n2. **The valuation is expensive relative to history and peers**\n3. **Superior alternatives exist** for both income (BNS) and total return (NA, TD)\n4. **The analysis lacks depth**\u2014no comparison to alternatives, no discussion of valuation or risks\n\nThis recommendation reeks of \"default to the biggest name\" syndrome. For a sophisticated income investor, Scotiabank's 4.6% yield at a discount valuation is objectively more compelling. For a growth-oriented long-term holder, National Bank's track record speaks for itself.\n\n**Would I sell RBC if I owned it?** No. It's fine.\n\n**Would I buy it today as a new position over alternatives?** Absolutely not.\n\nThe recommendation isn't dangerous\u2014it's just intellectually lazy. When you're charging readers for advice, getting basic facts wrong (the yield) and ignoring obviously better alternatives (BNS for income, NA for growth) is inexcusable.",
+    "risks": [
+      "Gross impaired loans increased $485M to $9.2B with higher provisions in Capital Markets and Personal Banking, signaling credit cycle deterioration",
+      "Net interest margin compressed 7 basis points quarter-over-quarter due to capital markets seasonality and competitive pricing pressure",
+      "Valuation premium (15.5x P/E vs 12.8x peer average) leaves limited upside and significant multiple compression risk if earnings disappoint",
+      "Concentrated exposure to Canadian residential real estate and commercial markets facing headwinds from affordability crisis and immigration policy shifts",
+      "Trade policy uncertainty explicitly flagged by management as risk to commercial loan growth and wholesale volatility",
+      "Mortgage renewal pressures in Ontario/Greater Toronto Area creating localized retail portfolio stress through 2026"
+    ],
+    "catalysts": [
+      "AI Group launch targeting $1 billion in enterprise value creation by 2027, with veteran tech executive leading centralized AI monetization",
+      "Record Wealth Management earnings ($1.3B, up 32% YoY) benefiting from market appreciation and net sales momentum",
+      "HSBC Canada integration completed, adding scale and deposit base to Personal & Commercial Banking franchise",
+      "Capital deployment strength: $3.3B returned to shareholders in Q1 via dividends and 4.2M share buyback",
+      "Strong capital generation: CET1 ratio improved 20bps to 13.7% on 17.6% ROE, enabling continued shareholder returns",
+      "Pre-provision, pre-tax earnings of $8.5B (up 14% YoY) demonstrating operating leverage and earnings power"
+    ],
+    "dataPoints": [
+      {
+        "label": "Actual Dividend Yield",
+        "value": "2.92% (CAD), 2.78% (USD)",
+        "source": "Multiple sources, March 2026"
+      },
+      {
+        "label": "Claimed Yield (Publication)",
+        "value": "3.8%",
+        "source": "Newsletter recommendation"
+      },
+      {
+        "label": "Q1 2026 Net Income",
+        "value": "$5.8B CAD (up 13% YoY)",
+        "source": "RBC earnings release, Feb 26, 2026"
+      },
+      {
+        "label": "Q1 2026 Adjusted EPS",
+        "value": "$4.08 (beat estimate of $3.85 by 6%)",
+        "source": "RBC earnings release, Feb 26, 2026"
+      },
+      {
+        "label": "Return on Equity (ROE)",
+        "value": "17.6%",
+        "source": "RBC Q1 2026 report"
+      },
+      {
+        "label": "P/E Ratio (Current)",
+        "value": "15.5-16.1x",
+        "source": "Multiple sources, March 2026"
+      },
+      {
+        "label": "P/E Ratio (Peer Average)",
+        "value": "12.8x",
+        "source": "Simply Wall St, March 2026"
+      },
+      {
+        "label": "P/E Ratio (10-Year Average)",
+        "value": "13.5x",
+        "source": "Financial data aggregators"
+      },
+      {
+        "label": "Scotiabank Yield",
+        "value": "4.6%",
+        "source": "Globe and Mail, Dec 2025"
+      },
+      {
+        "label": "National Bank 12-Month Return",
+        "value": "62%",
+        "source": "Morningstar, Feb 2026"
+      },
+      {
+        "label": "TD 2025 Return",
+        "value": "60%",
+        "source": "Globe and Mail, Dec 2025"
+      },
+      {
+        "label": "Gross Impaired Loans",
+        "value": "$9.2B CAD (up $485M QoQ)",
+        "source": "RBC Q1 2026 report"
+      },
+      {
+        "label": "CET1 Capital Ratio",
+        "value": "13.7% (up 20bps QoQ)",
+        "source": "RBC Q1 2026 report"
+      },
+      {
+        "label": "Quarterly Dividend",
+        "value": "$1.64 CAD per share",
+        "source": "RBC investor relations, March 2026"
+      }
+    ],
+    "finalVerdict": "**Grade: D+**\n\nThe recommendation fails on multiple levels. First, the central claim is factually incorrect\u2014RY's yield is 2.9%, not 3.8%, making this a 30% error on the core thesis for \"income investors.\" Second, the analysis completely ignores superior alternatives: Bank of Nova Scotia offers 4.6% yield (58% higher) at a discount valuation, while National Bank delivered 62% returns with better growth prospects. Third, RBC trades at a significant premium (P/E of 15.5x vs. peer average of 12.8x), meaning investors pay more for essentially the same risk-return profile available elsewhere in Canadian banking.\n\nRBC isn't a *bad* stock\u2014it's a quality bank with record earnings, strong capital ratios, and a long dividend history. But \"buy and hold forever\" requires more than brand recognition. When you can get 58% more income from Scotiabank or 60% capital appreciation from TD's 2025 rebound, recommending RBC as a \"no-brainer\" is lazy analysis that ignores basic comparative research.\n\n**For income investors:** BNS at 4.6% yield is objectively superior.\n**For total return investors:** National Bank's growth trajectory and TD's rebound offer better risk-adjusted returns.\n**For RBC specifically:** It's fairly valued to slightly expensive, making it a \"hold if you own it\" but not a \"rush to buy it\" situation.\n\nThe D+ grade reflects factual errors, lack of comparative analysis, and a recommendation that prioritizes brand name over actual investor outcomes. If you're paying for stock advice, you deserve better than math errors and incomplete research."
+  }
+}
