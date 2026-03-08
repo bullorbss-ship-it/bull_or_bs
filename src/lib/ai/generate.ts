@@ -40,8 +40,8 @@ export async function generatePick(): Promise<ArticleContent> {
   const dayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
 
   const response = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
-    max_tokens: 4000,
+    model: 'claude-sonnet-4-5-20250929',
+    max_tokens: 8000,
     system: PICK_PROMPT,
     tools: [{ type: 'web_search_20250305', name: 'web_search' }],
     messages: [{
