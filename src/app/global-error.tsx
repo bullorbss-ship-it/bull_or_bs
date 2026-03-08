@@ -43,6 +43,7 @@ export default function GlobalError({
               Try Again
             </button>
 
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- global-error has no Next.js providers */}
             <a
               href="/"
               className="text-muted hover:text-foreground transition-colors underline underline-offset-4"

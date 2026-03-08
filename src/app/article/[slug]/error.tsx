@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 
@@ -13,6 +14,10 @@ const ROAST_LINES = [
   "This page is performing worse than a SPAC in 2022.",
 ];
 
+function pickRoast() {
+  return ROAST_LINES[Math.floor(Math.random() * ROAST_LINES.length)];
+}
+
 export default function ArticleError({
   error,
   reset,
@@ -20,7 +25,7 @@ export default function ArticleError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  const roastLine = ROAST_LINES[Math.floor(Math.random() * ROAST_LINES.length)];
+  const [roastLine] = useState(pickRoast);
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-16 text-center">
