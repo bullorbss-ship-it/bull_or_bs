@@ -8,28 +8,52 @@ export function extractText(response: Anthropic.Message): string {
     .join('');
 }
 
+function repairJson(raw: string): string {
+  let s = raw;
+  // Remove trailing commas before ] or }
+  s = s.replace(/,\s*([}\]])/g, '$1');
+  // Escape unescaped control characters inside strings
+  s = s.replace(/(["'])(?:(?=(\\?))\2[\s\S])*?\1/g, (match) => {
+    return match.replace(/[\n\r\t]/g, (ch) => {
+      if (ch === '\n') return '\\n';
+      if (ch === '\r') return '\\r';
+      if (ch === '\t') return '\\t';
+      return ch;
+    });
+  });
+  // Remove any remaining raw control chars outside strings
+  s = s.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f]/g, '');
+  return s;
+}
+
 export function parseArticleContent(text: string): ArticleContent {
   const jsonMatch = text.match(/\{[\s\S]*\}/);
   if (!jsonMatch) {
     throw new Error('Failed to parse AI response as JSON');
   }
 
-  let jsonStr = jsonMatch[0];
-
-  // Fix common AI JSON issues
-  // Remove trailing commas before ] or }
-  jsonStr = jsonStr.replace(/,\s*([}\]])/g, '$1');
-  // Fix unescaped newlines inside strings
-  jsonStr = jsonStr.replace(/(?<=":[ ]*"[^"]*)\n(?=[^"]*")/g, '\\n');
-
+  // Try raw first
   try {
-    return JSON.parse(jsonStr);
+    return JSON.parse(jsonMatch[0]);
   } catch {
-    // Second pass: more aggressive cleanup
-    jsonStr = jsonStr
-      .replace(/[\x00-\x1f]/g, (ch) => ch === '\n' || ch === '\t' ? ch : '')
-      .replace(/,\s*([}\]])/g, '$1');
-    return JSON.parse(jsonStr);
+    // Try repaired
+    const repaired = repairJson(jsonMatch[0]);
+    try {
+      return JSON.parse(repaired);
+    } catch (e) {
+      // Last resort: try to find the outermost balanced braces
+      let depth = 0;
+      let start = -1;
+      let end = -1;
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] === '{') { if (start === -1) start = i; depth++; }
+        if (text[i] === '}') { depth--; if (depth === 0) { end = i + 1; break; } }
+      }
+      if (start >= 0 && end > start) {
+        return JSON.parse(repairJson(text.slice(start, end)));
+      }
+      throw e;
+    }
   }
 }
 
