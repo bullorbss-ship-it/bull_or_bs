@@ -11,7 +11,7 @@ export async function generateRoast(
   const client = new Anthropic();
 
   const response = await client.messages.create({
-    model: 'claude-sonnet-4-6-20250514',
+    model: 'claude-sonnet-4-5-20241022',
     max_tokens: 4000,
     system: ROAST_PROMPT,
     tools: [{ type: 'web_search_20250305', name: 'web_search' }],
