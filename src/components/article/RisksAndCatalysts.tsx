@@ -1,15 +1,17 @@
 interface RisksAndCatalystsProps {
   risks: string[];
   catalysts: string[];
+  /** When true, skip section wrapper (used inside Collapsible) */
+  inline?: boolean;
 }
 
-export default function RisksAndCatalysts({ risks, catalysts }: RisksAndCatalystsProps) {
+export default function RisksAndCatalysts({ risks, catalysts, inline }: RisksAndCatalystsProps) {
   if ((!risks || risks.length === 0) && (!catalysts || catalysts.length === 0)) return null;
 
-  return (
-    <div className="grid md:grid-cols-2 gap-4 mb-10">
+  const content = (
+    <div className="grid sm:grid-cols-2 gap-4">
       {risks && risks.length > 0 && (
-        <div className="border border-card-border bg-red-light rounded-xl p-6">
+        <div className="border border-card-border bg-red-light rounded-xl p-4 sm:p-6">
           <h3 className="text-sm font-bold text-red mb-3">Risks They Missed</h3>
           <ul className="space-y-2">
             {risks.map((r, i) => (
@@ -22,7 +24,7 @@ export default function RisksAndCatalysts({ risks, catalysts }: RisksAndCatalyst
         </div>
       )}
       {catalysts && catalysts.length > 0 && (
-        <div className="border border-card-border bg-green-light rounded-xl p-6">
+        <div className="border border-card-border bg-green-light rounded-xl p-4 sm:p-6">
           <h3 className="text-sm font-bold text-green mb-3">Catalysts</h3>
           <ul className="space-y-2">
             {catalysts.map((c, i) => (
@@ -34,6 +36,14 @@ export default function RisksAndCatalysts({ risks, catalysts }: RisksAndCatalyst
           </ul>
         </div>
       )}
+    </div>
+  );
+
+  if (inline) return content;
+
+  return (
+    <div className="mb-10">
+      {content}
     </div>
   );
 }

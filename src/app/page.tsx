@@ -11,286 +11,241 @@ export default function Home() {
   const totalStocks = TSX_TICKERS.length + US_TICKERS.length;
 
   return (
-    <div className="mx-auto max-w-6xl px-6">
-      {/* Hero */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs font-mono font-semibold text-accent bg-accent-light px-3 py-1.5 rounded-full tracking-wide">
+    <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      {/* Hero — condensed on mobile, punchy */}
+      <section className="py-10 sm:py-16 md:py-20">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-[10px] sm:text-xs font-mono font-semibold text-accent bg-accent-light px-2.5 py-1 rounded-full tracking-wide">
               AI-POWERED
             </span>
-            <span className="text-xs font-mono text-muted-light tracking-wide">
+            <span className="text-[10px] sm:text-xs font-mono text-muted-light tracking-wide">
               MADE IN CANADA
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold leading-[1.1] tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
             Popular stock picks,
             <br />
             <span className="text-accent">fact-checked by AI.</span>
           </h1>
-          <p className="text-muted text-lg mt-6 leading-relaxed max-w-xl">
+          <p className="text-muted text-sm sm:text-base mt-4 sm:mt-6 leading-relaxed max-w-xl">
             We audit recommendations from Motley Fool, Seeking Alpha, and others.
-            Every claim checked. Every grade earned. Full reasoning published.
+            Every claim checked. Every grade earned.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
-              href="/stock"
-              className="inline-flex items-center justify-center bg-accent text-white font-semibold px-8 py-3.5 rounded-lg hover:bg-accent-dim transition-colors text-sm"
+              href="#latest"
+              className="inline-flex items-center justify-center bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent-dim transition-colors text-sm"
             >
-              Browse {totalStocks}+ Stock Analyses
+              See Latest Analysis
             </Link>
             <Link
               href="#subscribe"
-              className="inline-flex items-center justify-center border border-card-border text-foreground font-semibold px-8 py-3.5 rounded-lg hover:bg-card-bg transition-colors text-sm"
+              className="inline-flex items-center justify-center border border-card-border text-foreground font-semibold px-6 py-3 rounded-lg hover:bg-card-bg transition-colors text-sm"
             >
-              Get Free Weekly Analysis
+              Get Free Weekly Email
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="py-6 border-y border-card-border">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {/* Stats bar — compact */}
+      <section className="py-4 border-y border-card-border">
+        <div className="grid grid-cols-4 gap-3 sm:gap-6 text-center">
           <div>
-            <p className="text-2xl font-bold font-mono text-accent">{totalStocks}+</p>
-            <p className="text-xs text-muted mt-1">Stocks Covered</p>
+            <p className="text-lg sm:text-2xl font-bold font-mono text-accent">{totalStocks}+</p>
+            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Stocks</p>
           </div>
           <div>
-            <p className="text-2xl font-bold font-mono text-foreground">TSX + US</p>
-            <p className="text-xs text-muted mt-1">Markets Analyzed</p>
+            <p className="text-lg sm:text-2xl font-bold font-mono text-foreground">TSX+US</p>
+            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Markets</p>
           </div>
           <div>
-            <p className="text-2xl font-bold font-mono text-foreground">A-F</p>
-            <p className="text-xs text-muted mt-1">Grade Every Pick</p>
+            <p className="text-lg sm:text-2xl font-bold font-mono text-foreground">A-F</p>
+            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Graded</p>
           </div>
           <div>
-            <p className="text-2xl font-bold font-mono text-accent">100%</p>
-            <p className="text-xs text-muted mt-1">Free &amp; Transparent</p>
+            <p className="text-lg sm:text-2xl font-bold font-mono text-accent">Free</p>
+            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Always</p>
           </div>
         </div>
       </section>
 
-      {/* What We Do — two columns */}
-      <section id="roasts" className="py-14">
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Roast card */}
-          <div className="border border-card-border rounded-2xl p-8 hover:border-red/30 transition-colors">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-lg">
+      {/* Latest Analysis — THE CONTENT HOOK (shows immediately after hero) */}
+      <section id="latest" className="py-10 sm:py-14">
+        <div id="roasts" className="mb-10 sm:mb-12">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
                 F
               </span>
               <div>
-                <h2 className="text-xl font-bold">The Roast</h2>
-                <p className="text-xs text-muted">Auditing popular recommendations</p>
+                <h2 className="text-lg sm:text-xl font-bold">The Roast</h2>
+                <p className="text-[10px] sm:text-xs text-muted">Auditing popular recommendations</p>
               </div>
             </div>
-            <p className="text-muted text-sm leading-relaxed mb-6">
-              Someone recommended a stock? We fact-check every claim, grade it A-F,
-              and show what they missed. No sacred cows.
-            </p>
-            <div className="space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-accent">&#10003;</span>
-                <span className="text-muted">Data points verified against real sources</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-accent">&#10003;</span>
-                <span className="text-muted">Risks the recommender didn&apos;t mention</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-accent">&#10003;</span>
-                <span className="text-muted">Better alternatives compared head-to-head</span>
-              </div>
-            </div>
-            {roasts.length > 0 ? (
-              <div className="space-y-3">
-                {roasts.slice(0, 2).map(article => (
-                  <ArticleCard key={article.slug} article={article} />
-                ))}
-              </div>
-            ) : (
-              <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
-                <p className="text-muted text-sm">First roast dropping soon.</p>
-              </div>
-            )}
           </div>
+          {roasts.length > 0 ? (
+            <div className="space-y-3">
+              {roasts.slice(0, 3).map(article => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+          ) : (
+            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
+              <p className="text-muted text-sm">First roast dropping soon.</p>
+            </div>
+          )}
+        </div>
 
-          {/* Pick card */}
-          <div id="picks" className="border border-card-border rounded-2xl p-8 hover:border-accent/30 transition-colors">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-lg">
+        <div id="picks">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
                 A
               </span>
               <div>
-                <h2 className="text-xl font-bold">AI Picks</h2>
-                <p className="text-xs text-muted">Weekly elimination tournament</p>
+                <h2 className="text-lg sm:text-xl font-bold">AI Picks</h2>
+                <p className="text-[10px] sm:text-xs text-muted">Weekly elimination tournament</p>
               </div>
             </div>
-            <p className="text-muted text-sm leading-relaxed mb-6">
-              Every week: 10-15 candidates enter, 1 survives. Scored on valuation,
-              catalysts, risk, and momentum. You see every cut.
-            </p>
-            <div className="space-y-2 mb-6">
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-accent">&#10003;</span>
-                <span className="text-muted">10-15 stocks evaluated each week</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-accent">&#10003;</span>
-                <span className="text-muted">Elimination reasoning for every cut</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-accent">&#10003;</span>
-                <span className="text-muted">Winner scored with full data breakdown</span>
-              </div>
-            </div>
-            {picks.length > 0 ? (
-              <div className="space-y-3">
-                {picks.slice(0, 2).map(article => (
-                  <ArticleCard key={article.slug} article={article} />
-                ))}
-              </div>
-            ) : (
-              <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
-                <p className="text-muted text-sm">First AI pick coming soon.</p>
-              </div>
-            )}
           </div>
+          {picks.length > 0 ? (
+            <div className="space-y-3">
+              {picks.slice(0, 3).map(article => (
+                <ArticleCard key={article.slug} article={article} />
+              ))}
+            </div>
+          ) : (
+            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
+              <p className="text-muted text-sm">First AI pick coming soon.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-14">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-3">How It Works</h2>
-          <p className="text-muted max-w-lg mx-auto">
-            Three steps. Full transparency. No black boxes.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="border border-card-border rounded-xl p-6 text-center">
-            <div className="w-12 h-12 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center mx-auto mb-4 text-lg">
+      {/* How it works — simplified for mobile */}
+      <section className="py-10 sm:py-14">
+        <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center">How It Works</h2>
+        <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="border border-card-border rounded-xl p-5 sm:p-6 text-center">
+            <div className="w-10 h-10 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center mx-auto mb-3 text-base">
               1
             </div>
-            <h3 className="font-semibold mb-2">AI Scans Markets</h3>
-            <p className="text-muted text-sm leading-relaxed">
-              Searches pre-market movers, earnings, analyst reports, and news
-              across NYSE, NASDAQ, and TSX.
+            <h3 className="font-semibold mb-1.5 text-sm sm:text-base">AI Scans Markets</h3>
+            <p className="text-muted text-xs sm:text-sm leading-relaxed">
+              Searches movers, earnings, analyst reports across NYSE, NASDAQ, and TSX.
             </p>
           </div>
-          <div className="border border-card-border rounded-xl p-6 text-center">
-            <div className="w-12 h-12 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center mx-auto mb-4 text-lg">
+          <div className="border border-card-border rounded-xl p-5 sm:p-6 text-center">
+            <div className="w-10 h-10 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center mx-auto mb-3 text-base">
               2
             </div>
-            <h3 className="font-semibold mb-2">Elimination Tournament</h3>
-            <p className="text-muted text-sm leading-relaxed">
+            <h3 className="font-semibold mb-1.5 text-sm sm:text-base">Elimination Tournament</h3>
+            <p className="text-muted text-xs sm:text-sm leading-relaxed">
               10-15 candidates scored on valuation, catalysts, risk, and momentum.
-              Each elimination is explained.
             </p>
           </div>
-          <div className="border border-card-border rounded-xl p-6 text-center">
-            <div className="w-12 h-12 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center mx-auto mb-4 text-lg">
+          <div className="border border-card-border rounded-xl p-5 sm:p-6 text-center">
+            <div className="w-10 h-10 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center mx-auto mb-3 text-base">
               3
             </div>
-            <h3 className="font-semibold mb-2">Full Reasoning Published</h3>
-            <p className="text-muted text-sm leading-relaxed">
-              Every data point, every source, every reason.
-              No &quot;trust us&quot; &mdash; just analysis you can verify.
+            <h3 className="font-semibold mb-1.5 text-sm sm:text-base">Full Reasoning Published</h3>
+            <p className="text-muted text-xs sm:text-sm leading-relaxed">
+              Every data point, every source. No &quot;trust us&quot; &mdash; just verifiable analysis.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Featured tickers */}
-      <section className="py-14">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Popular Analysis</h2>
+      {/* Why different — condensed */}
+      <section className="py-10 sm:py-14">
+        <div className="bg-card-bg border border-card-border rounded-2xl p-6 sm:p-10">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">Why We&apos;re Different</h2>
+          <div className="grid sm:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-4 sm:gap-y-6">
+            <div className="flex gap-3">
+              <span className="text-red text-base mt-0.5 shrink-0">&#10007;</span>
+              <div>
+                <p className="font-semibold text-sm">&quot;Buy this stock!&quot;</p>
+                <p className="text-muted text-xs sm:text-sm">No data, no reasoning, just hype.</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
+              <div>
+                <p className="font-semibold text-sm">Full analysis with sources</p>
+                <p className="text-muted text-xs sm:text-sm">Every claim backed by verifiable data.</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red text-base mt-0.5 shrink-0">&#10007;</span>
+              <div>
+                <p className="font-semibold text-sm">Hidden conflicts of interest</p>
+                <p className="text-muted text-xs sm:text-sm">Sponsored content as advice.</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
+              <div>
+                <p className="font-semibold text-sm">No sponsors, no affiliate bias</p>
+                <p className="text-muted text-xs sm:text-sm">AI doesn&apos;t have a portfolio to pump.</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red text-base mt-0.5 shrink-0">&#10007;</span>
+              <div>
+                <p className="font-semibold text-sm">$299/year paywall</p>
+                <p className="text-muted text-xs sm:text-sm">Pay before you can judge quality.</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
+              <div>
+                <p className="font-semibold text-sm">100% free, forever</p>
+                <p className="text-muted text-xs sm:text-sm">No paywall. No tricks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular stocks — pushed lower (browse, not the hook) */}
+      <section className="py-10 sm:py-14">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold">Browse Stocks</h2>
           <Link href="/stock" className="text-sm text-accent hover:text-accent-dim font-medium">
-            View all {totalStocks}+ stocks &rarr;
+            All {totalStocks}+ &rarr;
           </Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3">
           {[...TSX_TICKERS.slice(0, 6), ...US_TICKERS.slice(0, 6)].map(stock => (
             <Link
               key={stock.ticker}
               href={`/stock/${stock.ticker.toLowerCase()}`}
-              className="border border-card-border rounded-lg p-4 hover:border-accent/40 hover:shadow-sm transition-all text-center group"
+              className="border border-card-border rounded-lg p-3 sm:p-4 hover:border-accent/40 hover:shadow-sm transition-all text-center group"
             >
-              <p className="font-mono font-bold text-foreground group-hover:text-accent transition-colors">
+              <p className="font-mono font-bold text-sm sm:text-base text-foreground group-hover:text-accent transition-colors">
                 {stock.ticker}
               </p>
-              <p className="text-xs text-muted mt-1 truncate">{stock.company}</p>
-              <p className="text-[10px] text-muted-light mt-1 font-mono">{stock.exchange}</p>
+              <p className="text-[10px] sm:text-xs text-muted mt-0.5 truncate">{stock.company}</p>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Why different */}
-      <section className="py-14">
-        <div className="bg-card-bg border border-card-border rounded-2xl p-8 md:p-12">
-          <h2 className="text-2xl font-bold mb-8 text-center">Why We&apos;re Different</h2>
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
-            <div className="flex gap-4">
-              <span className="text-red text-lg mt-0.5">&#10007;</span>
-              <div>
-                <p className="font-semibold text-sm">Others: &quot;Buy this stock!&quot;</p>
-                <p className="text-muted text-sm">No data, no reasoning, just hype.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="text-accent text-lg mt-0.5">&#10003;</span>
-              <div>
-                <p className="font-semibold text-sm">Us: Full analysis with sources</p>
-                <p className="text-muted text-sm">Every claim backed by verifiable data.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="text-red text-lg mt-0.5">&#10007;</span>
-              <div>
-                <p className="font-semibold text-sm">Others: Hidden conflicts of interest</p>
-                <p className="text-muted text-sm">Sponsored content disguised as advice.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="text-accent text-lg mt-0.5">&#10003;</span>
-              <div>
-                <p className="font-semibold text-sm">Us: No sponsors, no affiliate bias</p>
-                <p className="text-muted text-sm">AI doesn&apos;t have a portfolio to pump.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="text-red text-lg mt-0.5">&#10007;</span>
-              <div>
-                <p className="font-semibold text-sm">Others: $299/year paywall</p>
-                <p className="text-muted text-sm">Pay before you can judge the quality.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <span className="text-accent text-lg mt-0.5">&#10003;</span>
-              <div>
-                <p className="font-semibold text-sm">Us: 100% free, forever</p>
-                <p className="text-muted text-sm">All analysis public. No paywall. No tricks.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Subscribe CTA */}
-      <section className="py-16 text-center" id="subscribe">
-        <h2 className="text-3xl font-bold mb-3">
+      <section className="py-10 sm:py-16 text-center" id="subscribe">
+        <h2 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
           Smarter stock analysis, every week.
         </h2>
-        <p className="text-muted mb-8 max-w-md mx-auto">
+        <p className="text-muted mb-6 sm:mb-8 max-w-md mx-auto text-sm sm:text-base">
           AI-driven research delivered to your inbox. Full reasoning.
           No paywall. Made in Canada.
         </p>
         <div className="flex justify-center">
           <SubscribeForm />
         </div>
-        <p className="text-muted-light text-xs mt-4">
+        <p className="text-muted-light text-xs mt-3">
           Free weekly analysis. No spam. Unsubscribe anytime.
         </p>
       </section>

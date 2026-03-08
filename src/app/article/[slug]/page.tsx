@@ -10,6 +10,7 @@ import RisksAndCatalysts from '@/components/article/RisksAndCatalysts';
 import Verdict from '@/components/article/Verdict';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import Collapsible from '@/components/ui/Collapsible';
 import type { Metadata } from 'next';
 
 function getGradeFromVerdict(verdict: string): string {
@@ -100,8 +101,13 @@ export default async function ArticlePage({ params }: PageProps) {
   const currentIdx = allArticles.findIndex(a => a.slug === article.slug);
   const nextArticle = allArticles[currentIdx + 1] || allArticles[0];
 
+  const dataPointCount = content.dataPoints?.length || 0;
+  const riskCount = content.risks?.length || 0;
+  const catalystCount = content.catalysts?.length || 0;
+  const candidateCount = content.candidates?.length || 0;
+
   return (
-    <div className="mx-auto max-w-3xl px-6 py-12">
+    <div className="mx-auto max-w-3xl px-4 sm:px-6 py-8 sm:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema(article)) }}
@@ -118,14 +124,14 @@ export default async function ArticlePage({ params }: PageProps) {
         { label: article.ticker || article.slug },
       ]} />
 
-      {/* Grade Badge + Header */}
-      <div className="mb-10">
-        <div className="flex items-start gap-6 mb-6">
-          <div className={`grade-badge grade-badge-xl grade-${grade} flex-shrink-0`}>
+      {/* Grade Badge + Header — always visible, this is the hook */}
+      <div className="mb-8">
+        <div className="flex items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
+          <div className={`grade-badge grade-badge-responsive grade-${grade} flex-shrink-0`}>
             {grade}
           </div>
-          <div className="flex-1">
-            <div className="flex items-center gap-3 mb-3">
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
               <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
                 isRoast ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
               }`}>
@@ -140,7 +146,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 {readingTime} min read
               </span>
             </div>
-            <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-2">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-2">
               {content.headline}
             </h1>
             <time className="text-xs font-mono text-muted" dateTime={article.date}>
@@ -153,16 +159,19 @@ export default async function ArticlePage({ params }: PageProps) {
             </time>
           </div>
         </div>
-        <p className="text-muted text-lg leading-relaxed"
+        <p className="text-muted text-base sm:text-lg leading-relaxed"
           dangerouslySetInnerHTML={{ __html: linkifyTickers(content.summary || '') }}
         />
       </div>
 
-      {/* What they claimed (Roast only) */}
+      {/* Verdict — ALWAYS visible (the payoff, keeps them scrolling) */}
+      <Verdict verdict={content.finalVerdict} />
+
+      {/* What they claimed (Roast only) — visible, short */}
       {isRoast && content.foolClaim && (
-        <section className="border-l-4 border-red bg-red/5 rounded-r-lg p-6 mb-8">
+        <section className="border-l-4 border-red bg-red/5 rounded-r-lg p-4 sm:p-6 mb-6">
           <p className="text-xs font-mono text-red font-bold mb-2">WHAT THEY SAID</p>
-          <blockquote className="text-foreground italic leading-relaxed"
+          <blockquote className="text-foreground italic leading-relaxed text-sm sm:text-base"
             dangerouslySetInnerHTML={{ __html: `&quot;${linkifyTickers(content.foolClaim || '')}&quot;` }}
           />
           {content.foolSource && (
@@ -173,13 +182,30 @@ export default async function ArticlePage({ params }: PageProps) {
         </section>
       )}
 
-      <Tournament candidates={content.candidates} isRoast={isRoast} />
+      {/* Tournament — collapsible */}
+      {content.candidates && content.candidates.length > 0 && (
+        <Collapsible
+          title="The Tournament"
+          badge={`${candidateCount} stocks`}
+          defaultOpen={false}
+          icon={<span className="text-accent text-sm">&#9733;</span>}
+        >
+          <p className="text-muted text-sm mb-4">
+            {isRoast
+              ? 'Stocks they should have considered instead:'
+              : 'Every stock we evaluated, and why most didn\'t make the cut:'}
+          </p>
+          <Tournament candidates={content.candidates} isRoast={isRoast} inline />
+        </Collapsible>
+      )}
 
-      {/* Full Analysis */}
-      <section className="mb-10">
-        <h2 className="text-xl font-bold font-mono mb-4 flex items-center gap-2">
-          <span className="text-accent">{"///"}</span> Full Analysis
-        </h2>
+      {/* Full Analysis — collapsible (the deep dive) */}
+      <Collapsible
+        title="Full Analysis"
+        badge={`${readingTime} min read`}
+        defaultOpen={false}
+        icon={<span className="text-accent font-mono text-sm font-bold">{"///"}</span>}
+      >
         <div
           className="prose prose-invert prose-sm max-w-none leading-relaxed
             prose-headings:font-mono prose-headings:text-foreground
@@ -187,36 +213,56 @@ export default async function ArticlePage({ params }: PageProps) {
             prose-p:text-muted"
           dangerouslySetInnerHTML={{ __html: formatMarkdown(content.analysis) }}
         />
-      </section>
+      </Collapsible>
 
-      <DataPoints dataPoints={content.dataPoints} />
-      <RisksAndCatalysts risks={content.risks} catalysts={content.catalysts} />
-      <Verdict verdict={content.finalVerdict} />
+      {/* Key Data — collapsible */}
+      {content.dataPoints && content.dataPoints.length > 0 && (
+        <Collapsible
+          title="Key Data"
+          badge={`${dataPointCount} points`}
+          defaultOpen={false}
+          icon={<span className="text-accent text-sm">&#9642;</span>}
+        >
+          <DataPoints dataPoints={content.dataPoints} inline />
+        </Collapsible>
+      )}
+
+      {/* Risks & Catalysts — collapsible */}
+      {((content.risks && content.risks.length > 0) || (content.catalysts && content.catalysts.length > 0)) && (
+        <Collapsible
+          title="Risks & Catalysts"
+          badge={`${riskCount + catalystCount} items`}
+          defaultOpen={false}
+          icon={<span className="text-yellow text-sm">&#9888;</span>}
+        >
+          <RisksAndCatalysts risks={content.risks} catalysts={content.catalysts} inline />
+        </Collapsible>
+      )}
 
       {/* Next Analysis */}
       {nextArticle && nextArticle.slug !== article.slug && (
-        <section className="border-t border-card-border pt-8 mb-8">
+        <section className="border-t border-card-border pt-6 sm:pt-8 mb-6 sm:mb-8">
           <Link
             href={`/article/${nextArticle.slug}`}
             className="flex items-center justify-between p-4 border border-card-border rounded-xl hover:border-accent/40 transition-colors group"
           >
-            <div>
+            <div className="min-w-0 flex-1">
               <p className="text-xs text-muted-light font-mono mb-1">NEXT ANALYSIS</p>
-              <p className="font-semibold group-hover:text-accent transition-colors">
+              <p className="font-semibold group-hover:text-accent transition-colors truncate">
                 {nextArticle.content.headline}
               </p>
             </div>
-            <span className="text-accent text-2xl">→</span>
+            <span className="text-accent text-2xl ml-3 shrink-0">&rarr;</span>
           </Link>
         </section>
       )}
 
       {/* Subscribe CTA */}
-      <section className="text-center py-8">
-        <h3 className="text-xl font-bold mb-4">
+      <section className="text-center py-6 sm:py-8">
+        <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
           Want more analysis like this?
         </h3>
-        <p className="text-muted mb-6">
+        <p className="text-muted mb-4 sm:mb-6 text-sm sm:text-base">
           Get AI-driven stock analysis in your inbox every week. Free.
         </p>
         <div className="flex justify-center">

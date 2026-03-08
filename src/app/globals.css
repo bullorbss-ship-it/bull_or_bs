@@ -118,8 +118,34 @@ body {
   font-size: 56px;
 }
 
+/* Responsive grade badge — mobile uses lg, desktop uses xl */
+.grade-badge-responsive {
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
+}
+@media (min-width: 640px) {
+  .grade-badge-responsive {
+    width: 120px;
+    height: 120px;
+    font-size: 56px;
+  }
+}
+
 .grade-A { background: var(--gold-light); color: var(--gold); }
 .grade-B { background: var(--green-light); color: var(--green); }
 .grade-C { background: var(--yellow-light); color: var(--yellow); }
 .grade-D { background: var(--orange-light); color: var(--orange); }
 .grade-F { background: var(--red-light); color: var(--red); }
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better tap targets on mobile */
+@media (max-width: 639px) {
+  button, a {
+    min-height: 44px;
+  }
+}
