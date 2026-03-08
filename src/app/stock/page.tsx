@@ -2,6 +2,7 @@ import { ALL_TICKERS, getAllSectors, getTickersByCountry, tickerToSlug } from '@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SubscribeForm from '@/components/forms/SubscribeForm';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Stock Analysis — TSX & US Stocks',
@@ -24,6 +25,10 @@ export default function StockIndexPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
+      <Breadcrumbs items={[
+        { label: 'Home', href: '/' },
+        { label: 'Stocks' },
+      ]} />
       <h1 className="text-3xl md:text-4xl font-bold mb-3">Stock Analysis</h1>
       <p className="text-muted text-lg mb-10 max-w-2xl">
         AI-generated analysis for {ALL_TICKERS.length}+ stocks across TSX, NYSE, and NASDAQ.

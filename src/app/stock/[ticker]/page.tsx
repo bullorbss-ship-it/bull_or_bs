@@ -6,6 +6,7 @@ import { siteConfig } from '@/config/site';
 import { faqSchema, breadcrumbSchema, corporationSchema } from '@/config/seo';
 import ArticleCard from '@/components/article/ArticleCard';
 import SubscribeForm from '@/components/forms/SubscribeForm';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -131,9 +132,11 @@ export default async function StockPage({ params }: PageProps) {
 
       {/* Header */}
       <div className="mb-10">
-        <Link href="/stock" className="text-sm text-accent hover:underline mb-4 inline-block">
-          &larr; All Stocks
-        </Link>
+        <Breadcrumbs items={[
+          { label: 'Home', href: '/' },
+          { label: 'Stocks', href: '/stock' },
+          { label: `${info.ticker} — ${info.company}` },
+        ]} />
         <div className="flex items-center gap-4 mb-4">
           <h1 className="text-3xl md:text-4xl font-bold">{info.ticker}</h1>
           <span className="text-sm font-mono text-muted bg-card-bg px-3 py-1 rounded-lg border border-card-border">

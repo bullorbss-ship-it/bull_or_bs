@@ -9,6 +9,7 @@ import DataPoints from '@/components/article/DataPoints';
 import RisksAndCatalysts from '@/components/article/RisksAndCatalysts';
 import Verdict from '@/components/article/Verdict';
 import SubscribeForm from '@/components/forms/SubscribeForm';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import type { Metadata } from 'next';
 
 function getGradeFromVerdict(verdict: string): string {
@@ -111,15 +112,11 @@ export default async function ArticlePage({ params }: PageProps) {
       />
 
       {/* Breadcrumb */}
-      <nav className="text-xs text-muted mb-6 font-mono">
-        <Link href="/" className="hover:text-accent">Home</Link>
-        <span className="mx-2">/</span>
-        <Link href={isRoast ? '/#roasts' : '/#picks'} className="hover:text-accent">
-          {isRoast ? 'Roasts' : 'Picks'}
-        </Link>
-        <span className="mx-2">/</span>
-        <span className="text-foreground">{article.ticker || article.slug}</span>
-      </nav>
+      <Breadcrumbs items={[
+        { label: 'Home', href: '/' },
+        { label: isRoast ? 'Roasts' : 'Picks', href: isRoast ? '/#roasts' : '/#picks' },
+        { label: article.ticker || article.slug },
+      ]} />
 
       {/* Grade Badge + Header */}
       <div className="mb-10">
