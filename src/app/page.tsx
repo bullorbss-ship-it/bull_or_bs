@@ -249,9 +249,9 @@ export default function Home() {
         </div>
 
         {[
-          { flag: '\u{1F1E8}\u{1F1E6}', label: 'Canadian Markets', tickers: TSX_TICKERS, market: 'CA' },
-          { flag: '\u{1F1FA}\u{1F1F8}', label: 'US Markets', tickers: US_TICKERS, market: 'US' },
-        ].map(({ flag, label, tickers, market }) => {
+          { tag: 'TSX', label: 'Canadian Markets', tickers: TSX_TICKERS, market: 'CA' },
+          { tag: 'NYSE', label: 'US Markets', tickers: US_TICKERS, market: 'US' },
+        ].map(({ tag, label, tickers, market }) => {
           const sectorMap = new Map<string, typeof tickers>();
           tickers.forEach(t => {
             const list = sectorMap.get(t.sector) || [];
@@ -264,7 +264,7 @@ export default function Home() {
           return (
             <div key={market} className={market === 'CA' ? 'mb-10' : ''}>
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-lg">{flag}</span>
+                <span className="text-xs font-mono font-bold text-accent bg-accent-light px-2 py-0.5 rounded">{tag}</span>
                 <h3 className="font-bold text-base sm:text-lg">{label}</h3>
                 <span className="text-xs text-muted font-mono ml-auto">{tickers.length} stocks</span>
               </div>
