@@ -70,7 +70,7 @@ export default function AboutPage() {
 
         <ul className="list-disc pl-6 space-y-2">
           <li>We are <strong className="text-foreground">not</strong> financial advisors</li>
-          <li>We are <strong className="text-foreground">not</strong> affiliated with The Motley Fool or any financial institution</li>
+          <li>We are <strong className="text-foreground">not</strong> affiliated with any financial publication, newsletter, or institution</li>
           <li>We do <strong className="text-foreground">not</strong> guarantee returns or accuracy</li>
           <li>We are <strong className="text-foreground">not</strong> a replacement for doing your own research</li>
         </ul>

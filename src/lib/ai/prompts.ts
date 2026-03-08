@@ -19,7 +19,7 @@ OUTPUT AS VALID JSON matching this structure:
 {
   "headline": "string — punchy headline",
   "summary": "string — 2-3 sentence summary of your verdict",
-  "foolClaim": "string — what the publication claimed",
+  "foolClaim": "string — paraphrase of what the publication recommended (never quote verbatim)",
   "candidates": [
     {
       "ticker": "string",
@@ -46,7 +46,9 @@ RULES:
 - Grade the recommendation A through F.
 - Write for a smart retail investor. No jargon without explanation.
 - Be entertaining. This is satire meets analysis.
-- For dataPoints, set source to "FMP API" for verified data or "analyst estimate" / "sector average" for approximate.`;
+- For dataPoints, set source to "FMP API" for verified data or "analyst estimate" / "sector average" for approximate.
+- LEGAL: Refer to the source as "a popular financial newsletter" or "the publication" — avoid naming specific companies in headlines or summaries. You may reference the source name in the analysis body as part of fair-use commentary.
+- LEGAL: NEVER quote the original recommendation verbatim. Always paraphrase the claim in your own words. For foolClaim, summarize what was recommended, don't copy their exact wording.`;
 
 export const PICK_PROMPT = `You are the lead analyst at ${siteConfig.name} — an AI-driven stock analysis newsletter.
 

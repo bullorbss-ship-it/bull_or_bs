@@ -31,7 +31,7 @@ export default function Home() {
             <span className="text-accent">fact-checked by AI.</span>
           </h1>
           <p className="text-muted text-sm sm:text-base mt-4 sm:mt-6 leading-relaxed max-w-xl">
-            We audit recommendations from Motley Fool, Seeking Alpha, and others.
+            We audit popular stock recommendations and grade them on real data.
             Every claim checked. Every grade earned.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
