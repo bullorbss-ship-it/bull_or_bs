@@ -4,6 +4,8 @@ import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
 import { TSX_TICKERS, US_TICKERS } from '@/lib/tickers';
 
+export const dynamic = 'force-dynamic';
+
 export default function Home() {
   const articles = getAllArticles();
   const roasts = articles.filter(a => a.type === 'roast');

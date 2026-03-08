@@ -13,6 +13,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Collapsible from '@/components/ui/Collapsible';
 import type { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 function getGradeFromVerdict(verdict: string): string {
   const match = verdict?.match(/\b([ABCDF][+-]?)\b/);
   return match ? match[1][0] : 'C';
