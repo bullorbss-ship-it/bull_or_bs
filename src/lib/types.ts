@@ -26,7 +26,7 @@ export interface ArticleContent {
   // Full analysis
   analysis: string;
   risks: string[];
-  catalysts: string[];
+  catalysts: (string | CatalystDetail)[];
   dataPoints: DataPoint[];
   // The verdict
   finalVerdict: string;
@@ -39,13 +39,19 @@ export interface CandidateStock {
   status: 'considered' | 'eliminated' | 'selected';
   reasonConsidered: string;
   reasonEliminated?: string;
-  score?: number;
+  score?: number | string;
 }
 
 export interface DataPoint {
   label: string;
   value: string;
   source?: string;
+}
+
+export interface CatalystDetail {
+  claimed: string;
+  actual: string;
+  confidence?: string;
 }
 
 export interface Subscriber {
