@@ -108,6 +108,18 @@ export default async function StockPage({ params }: PageProps) {
               question: `What does ${info.company} do?`,
               answer: `${info.company} is a ${info.country === 'CA' ? 'Canadian' : 'US'} company in the ${info.sector} sector, trading under the ticker ${info.ticker} on the ${info.exchange}. For detailed AI analysis of their business and stock, see our latest coverage on this page.`,
             },
+            {
+              question: `What are ${info.ticker} alternatives?`,
+              answer: `${info.sector} sector peers include ${sectorPeers.slice(0, 3).map(p => `${p.company} (${p.ticker})`).join(', ')}. Our AI runs elimination tournaments comparing these stocks head-to-head on valuation, catalysts, risk, and momentum.`,
+            },
+            {
+              question: `Does ${info.company} pay dividends?`,
+              answer: `${stockData?.keyMetrics?.dividendYield && stockData.keyMetrics.dividendYield !== 'N/A' ? `${info.company} has an approximate dividend yield of ${stockData.keyMetrics.dividendYield}.` : `Check your brokerage for the latest ${info.ticker} dividend information.`} ${siteConfig.name} focuses on AI-driven fundamental analysis rather than real-time financial data.`,
+            },
+            {
+              question: `What is ${info.ticker}'s P/E ratio?`,
+              answer: `${stockData?.keyMetrics?.peRatio && stockData.keyMetrics.peRatio !== 'N/A' ? `${info.company} has an approximate P/E ratio of ${stockData.keyMetrics.peRatio}.` : `Check a financial data provider for the latest ${info.ticker} P/E ratio.`} Visit this page for full AI-driven analysis including valuation metrics.`,
+            },
           ])),
         }}
       />

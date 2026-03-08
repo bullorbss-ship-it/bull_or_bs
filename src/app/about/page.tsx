@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import SubscribeForm from '@/components/forms/SubscribeForm';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'About BullOrBS',
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
+      <Breadcrumbs items={[
+        { label: 'Home', href: '/' },
+        { label: 'About' },
+      ]} />
       <h1 className="text-3xl md:text-4xl font-bold mb-6">
         About <span className="text-accent">BullOrBS</span>
       </h1>

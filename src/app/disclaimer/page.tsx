@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: 'Disclaimer & Terms',
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
 export default function DisclaimerPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
+      <Breadcrumbs items={[
+        { label: 'Home', href: '/' },
+        { label: 'Disclaimer & Terms' },
+      ]} />
       <h1 className="text-3xl font-bold mb-8">Disclaimer &amp; Terms</h1>
 
       <div className="space-y-8 text-muted leading-relaxed text-sm">

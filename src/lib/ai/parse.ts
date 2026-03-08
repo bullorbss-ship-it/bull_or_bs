@@ -91,7 +91,7 @@ export function linkifyTickers(html: string): string {
 
 export function formatMarkdown(text: string): string {
   if (!text) return '';
-  let html = text
+  const html = text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/### (.*?)(\n|$)/g, '<h3>$1</h3>')

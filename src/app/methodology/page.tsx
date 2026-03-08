@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
   title: `How ${siteConfig.name} Works — Our AI Analysis Methodology`,
@@ -10,6 +11,10 @@ export const metadata: Metadata = {
 export default function MethodologyPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
+      <Breadcrumbs items={[
+        { label: 'Home', href: '/' },
+        { label: 'Methodology' },
+      ]} />
       <h1 className="text-3xl md:text-4xl font-bold mb-6">
         How <span className="text-accent">{siteConfig.name}</span> Works
       </h1>

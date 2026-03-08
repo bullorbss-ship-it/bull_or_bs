@@ -178,7 +178,7 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* Full Analysis */}
       <section className="mb-10">
         <h2 className="text-xl font-bold font-mono mb-4 flex items-center gap-2">
-          <span className="text-accent">///</span> Full Analysis
+          <span className="text-accent">{"///"}</span> Full Analysis
         </h2>
         <div
           className="prose prose-invert prose-sm max-w-none leading-relaxed
