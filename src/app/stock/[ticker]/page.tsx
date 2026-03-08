@@ -312,7 +312,7 @@ export default async function StockPage({ params }: PageProps) {
                 <p className="font-mono font-bold text-foreground group-hover:text-accent transition-colors">
                   {peer.ticker}
                 </p>
-                <p className="text-xs text-muted mt-1">{peer.company}</p>
+                <p className="text-xs text-accent group-hover:underline mt-1">{peer.company}</p>
               </Link>
             ))}
           </div>

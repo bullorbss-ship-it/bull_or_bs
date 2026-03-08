@@ -7,16 +7,16 @@ interface BreadcrumbItem {
 
 export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-muted mb-6">
+    <nav aria-label="Breadcrumb" className="text-sm mb-6">
       {items.map((item, i) => (
         <span key={i}>
           {i > 0 && <span className="mx-1.5 text-muted-light">/</span>}
           {item.href ? (
-            <Link href={item.href} className="hover:text-accent transition-colors">
+            <Link href={item.href} className="text-accent underline underline-offset-2 hover:text-accent/80 transition-colors">
               {item.label}
             </Link>
           ) : (
-            <span className="text-foreground font-medium">{item.label}</span>
+            <span className="text-muted-light">{item.label}</span>
           )}
         </span>
       ))}

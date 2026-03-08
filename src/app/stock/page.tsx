@@ -51,7 +51,7 @@ export default function StockIndexPage() {
               <p className="font-mono font-bold text-foreground group-hover:text-accent transition-colors">
                 {stock.ticker}
               </p>
-              <p className="text-xs text-muted mt-1 line-clamp-1">{stock.company}</p>
+              <p className="text-xs text-accent group-hover:underline mt-1 line-clamp-1">{stock.company}</p>
               <p className="text-xs text-muted-light mt-1">{stock.sector}</p>
             </Link>
           ))}
@@ -74,7 +74,7 @@ export default function StockIndexPage() {
               <p className="font-mono font-bold text-foreground group-hover:text-accent transition-colors">
                 {stock.ticker}
               </p>
-              <p className="text-xs text-muted mt-1 line-clamp-1">{stock.company}</p>
+              <p className="text-xs text-accent group-hover:underline mt-1 line-clamp-1">{stock.company}</p>
               <p className="text-xs text-muted-light mt-1">{stock.sector}</p>
             </Link>
           ))}
