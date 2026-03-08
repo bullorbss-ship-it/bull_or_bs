@@ -1,4 +1,5 @@
 import { ArticleContent } from '@/lib/types';
+import { ALL_TICKERS, tickerToSlug } from '@/lib/tickers';
 import Anthropic from '@anthropic-ai/sdk';
 
 export function extractText(response: Anthropic.Message): string {
@@ -57,9 +58,40 @@ export function parseArticleContent(text: string): ArticleContent {
   }
 }
 
+/**
+ * Auto-link ticker symbols and company names to their stock pages.
+ * Only links text outside of existing HTML tags.
+ */
+export function linkifyTickers(html: string): string {
+  // Build lookup: sort by company name length (longest first) to avoid partial matches
+  const entries = ALL_TICKERS
+    .map(t => ({ ticker: t.ticker, company: t.company, slug: tickerToSlug(t.ticker) }))
+    .sort((a, b) => b.company.length - a.company.length);
+
+  let result = html;
+
+  for (const { ticker, company, slug } of entries) {
+    const href = `/stock/${slug}`;
+    const linkClass = 'text-accent underline underline-offset-2 hover:text-accent/80';
+
+    // Link company names (outside existing tags/links)
+    const companyRegex = new RegExp(`(?<![<\\w/])(?<!href=")\\b(${company.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b(?![^<]*>)`, 'g');
+    result = result.replace(companyRegex, `<a href="${href}" class="${linkClass}">$1</a>`);
+
+    // Link ticker symbols (uppercase, word boundary, not already inside a tag/link)
+    // Avoid matching single-letter tickers that are common words (T, V, L)
+    if (ticker.length >= 2) {
+      const tickerRegex = new RegExp(`(?<![<\\w/=""])\\b(${ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b(?![^<]*>)`, 'g');
+      result = result.replace(tickerRegex, `<a href="${href}" class="${linkClass}">$1</a>`);
+    }
+  }
+
+  return result;
+}
+
 export function formatMarkdown(text: string): string {
   if (!text) return '';
-  return text
+  let html = text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.*?)\*/g, '<em>$1</em>')
     .replace(/### (.*?)(\n|$)/g, '<h3>$1</h3>')
@@ -67,4 +99,5 @@ export function formatMarkdown(text: string): string {
     .replace(/\n\n/g, '</p><p>')
     .replace(/\n/g, '<br>')
     .replace(/^(.*)$/, '<p>$1</p>');
+  return linkifyTickers(html);
 }

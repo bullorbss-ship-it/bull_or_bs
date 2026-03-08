@@ -1,11 +1,14 @@
 import { siteConfig } from '@/config/site';
+import { linkifyTickers } from '@/lib/ai/parse';
 
 export default function Verdict({ verdict }: { verdict: string }) {
   return (
     <>
       <section className="border-2 border-accent bg-accent-light rounded-xl p-8 mb-8">
         <h2 className="text-sm font-bold text-accent mb-3 uppercase tracking-wide">The Verdict</h2>
-        <p className="text-foreground text-lg leading-relaxed font-medium">{verdict}</p>
+        <p className="text-foreground text-lg leading-relaxed font-medium"
+          dangerouslySetInnerHTML={{ __html: linkifyTickers(verdict || '') }}
+        />
       </section>
 
       <div className="bg-card-bg rounded-xl p-6 mb-10 text-xs text-muted leading-relaxed">

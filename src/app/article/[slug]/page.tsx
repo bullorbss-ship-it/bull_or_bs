@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/content';
 import { siteConfig } from '@/config/site';
 import { articleSchema, faqSchema } from '@/config/seo';
-import { formatMarkdown } from '@/lib/ai/parse';
+import { formatMarkdown, linkifyTickers } from '@/lib/ai/parse';
 import Tournament from '@/components/article/Tournament';
 import DataPoints from '@/components/article/DataPoints';
 import RisksAndCatalysts from '@/components/article/RisksAndCatalysts';
@@ -153,18 +153,18 @@ export default async function ArticlePage({ params }: PageProps) {
             </time>
           </div>
         </div>
-        <p className="text-muted text-lg leading-relaxed">
-          {content.summary}
-        </p>
+        <p className="text-muted text-lg leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: linkifyTickers(content.summary || '') }}
+        />
       </div>
 
       {/* What they claimed (Roast only) */}
       {isRoast && content.foolClaim && (
         <section className="border-l-4 border-red bg-red/5 rounded-r-lg p-6 mb-8">
           <p className="text-xs font-mono text-red font-bold mb-2">WHAT THEY SAID</p>
-          <blockquote className="text-foreground italic leading-relaxed">
-            &quot;{content.foolClaim}&quot;
-          </blockquote>
+          <blockquote className="text-foreground italic leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: `&quot;${linkifyTickers(content.foolClaim || '')}&quot;` }}
+          />
           {content.foolSource && (
             <p className="text-muted text-xs mt-2">
               Source: {content.foolSource} {content.foolDate && `(${content.foolDate})`}
