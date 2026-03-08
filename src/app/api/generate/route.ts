@@ -71,7 +71,7 @@ export async function POST(req: NextRequest) {
         date: today,
         ticker: result.content.winner?.ticker,
         verdict: result.content.finalVerdict,
-        confidence: result.content.winner?.score,
+        confidence: typeof result.content.winner?.score === 'number' ? result.content.winner.score : result.content.winner?.score ? parseFloat(String(result.content.winner.score)) : undefined,
         tags: [
           result.content.winner?.ticker || '',
           'AI pick',
