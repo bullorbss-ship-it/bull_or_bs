@@ -13,7 +13,24 @@ export function parseArticleContent(text: string): ArticleContent {
   if (!jsonMatch) {
     throw new Error('Failed to parse AI response as JSON');
   }
-  return JSON.parse(jsonMatch[0]);
+
+  let jsonStr = jsonMatch[0];
+
+  // Fix common AI JSON issues
+  // Remove trailing commas before ] or }
+  jsonStr = jsonStr.replace(/,\s*([}\]])/g, '$1');
+  // Fix unescaped newlines inside strings
+  jsonStr = jsonStr.replace(/(?<=":[ ]*"[^"]*)\n(?=[^"]*")/g, '\\n');
+
+  try {
+    return JSON.parse(jsonStr);
+  } catch {
+    // Second pass: more aggressive cleanup
+    jsonStr = jsonStr
+      .replace(/[\x00-\x1f]/g, (ch) => ch === '\n' || ch === '\t' ? ch : '')
+      .replace(/,\s*([}\]])/g, '$1');
+    return JSON.parse(jsonStr);
+  }
 }
 
 export function formatMarkdown(text: string): string {
