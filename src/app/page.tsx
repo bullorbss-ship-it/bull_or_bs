@@ -241,28 +241,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Popular stocks — pushed lower (browse, not the hook) */}
+      {/* Browse Stocks — split by country, grouped by sector */}
       <section className="py-10 sm:py-14">
-        <div className="flex items-center justify-between mb-4 sm:mb-6">
+        <div className="text-center mb-8">
           <h2 className="text-xl sm:text-2xl font-bold">Browse Stocks</h2>
-          <Link href="/stock" className="text-sm text-accent hover:text-accent-dim font-medium">
-            All {totalStocks}+ &rarr;
-          </Link>
+          <p className="text-sm text-muted mt-1">AI analysis for {totalStocks}+ tickers across TSX &amp; US markets</p>
         </div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3">
-          {[...TSX_TICKERS.slice(0, 6), ...US_TICKERS.slice(0, 6)].map(stock => (
-            <Link
-              key={stock.ticker}
-              href={`/stock/${stock.ticker.toLowerCase()}`}
-              className="border border-card-border rounded-lg p-3 sm:p-4 hover:border-accent/40 hover:shadow-sm transition-all text-center group"
-            >
-              <p className="font-mono font-bold text-sm sm:text-base text-foreground group-hover:text-accent transition-colors">
-                {stock.ticker}
-              </p>
-              <p className="text-[10px] sm:text-xs text-muted mt-0.5 truncate">{stock.company}</p>
-            </Link>
-          ))}
-        </div>
+
+        {[
+          { flag: '\u{1F1E8}\u{1F1E6}', label: 'Canadian Markets', tickers: TSX_TICKERS, market: 'CA' },
+          { flag: '\u{1F1FA}\u{1F1F8}', label: 'US Markets', tickers: US_TICKERS, market: 'US' },
+        ].map(({ flag, label, tickers, market }) => {
+          const sectorMap = new Map<string, typeof tickers>();
+          tickers.forEach(t => {
+            const list = sectorMap.get(t.sector) || [];
+            list.push(t);
+            sectorMap.set(t.sector, list);
+          });
+          const sectors = [...sectorMap.entries()].sort((a, b) => b[1].length - a[1].length);
+          const featured = sectors.flatMap(([, list]) => list.slice(0, 2)).slice(0, 6);
+
+          return (
+            <div key={market} className={market === 'CA' ? 'mb-10' : ''}>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-lg">{flag}</span>
+                <h3 className="font-bold text-base sm:text-lg">{label}</h3>
+                <span className="text-xs text-muted font-mono ml-auto">{tickers.length} stocks</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+                {sectors.map(([sector]) => (
+                  <span key={sector} className="text-[10px] sm:text-xs font-mono text-muted bg-card-bg px-2 py-0.5 rounded">
+                    {sector}
+                  </span>
+                ))}
+              </div>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
+                {featured.map((stock, i) => (
+                  <Link
+                    key={stock.ticker}
+                    href={`/stock/${stock.ticker.toLowerCase()}`}
+                    className={`border border-card-border rounded-lg p-3 sm:p-4 hover:border-accent/40 hover:shadow-sm transition-all text-center group ${i >= 4 ? 'opacity-50' : ''}`}
+                  >
+                    <p className="font-mono font-bold text-sm sm:text-base text-foreground group-hover:text-accent transition-colors">
+                      {stock.ticker}
+                    </p>
+                    <p className="text-[10px] sm:text-xs text-muted mt-0.5 truncate">{stock.company}</p>
+                    <p className="text-[9px] text-muted-light mt-0.5">{stock.sector}</p>
+                  </Link>
+                ))}
+              </div>
+              <div className="text-center mt-4">
+                <Link
+                  href={`/stock?market=${market}`}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+                >
+                  View all {tickers.length} {market === 'CA' ? 'Canadian' : 'US'} stocks
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </section>
 
       {/* Subscribe CTA */}
