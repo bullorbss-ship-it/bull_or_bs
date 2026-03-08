@@ -2,6 +2,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { ArticleContent } from '@/lib/types';
 import { ROAST_PROMPT, PICK_PROMPT } from './prompts';
 import { extractText, parseArticleContent } from './parse';
+import { auditAndScrub } from './legal';
 import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
 import { calculateCost, logCost } from '@/lib/costs';
 
@@ -68,7 +69,13 @@ Return ONLY valid JSON.`,
   });
 
   const text = extractText(response);
-  const content = parseArticleContent(text);
+  const rawContent = parseArticleContent(text);
+
+  // Legal audit: scrub competitor names from headlines/summaries/verdicts
+  const { content, audit } = auditAndScrub(rawContent);
+  if (audit.violations.length > 0) {
+    console.log(`[LEGAL AUDIT] Roast ${ticker}: scrubbed ${audit.violations.length} violations:`, audit.violations);
+  }
 
   return {
     content,
@@ -125,7 +132,13 @@ Return ONLY valid JSON.`,
   });
 
   const text = extractText(response);
-  const content = parseArticleContent(text);
+  const rawContent = parseArticleContent(text);
+
+  // Legal audit: scrub competitor names from headlines/summaries/verdicts
+  const { content, audit } = auditAndScrub(rawContent);
+  if (audit.violations.length > 0) {
+    console.log(`[LEGAL AUDIT] Pick: scrubbed ${audit.violations.length} violations:`, audit.violations);
+  }
 
   return {
     content,
