@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/content';
+import { siteConfig } from '@/config/site';
 import { articleSchema, faqSchema } from '@/config/seo';
 import { formatMarkdown } from '@/lib/ai/parse';
 import Tournament from '@/components/article/Tournament';
@@ -8,6 +10,16 @@ import RisksAndCatalysts from '@/components/article/RisksAndCatalysts';
 import Verdict from '@/components/article/Verdict';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import type { Metadata } from 'next';
+
+function getGradeFromVerdict(verdict: string): string {
+  const match = verdict?.match(/\b([ABCDF][+-]?)\b/);
+  return match ? match[1][0] : 'C';
+}
+
+function getReadingTime(text: string): number {
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -38,13 +50,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: article.description,
       type: 'article',
       publishedTime: article.date,
-      authors: ['NotSoFoolAI'],
+      authors: [siteConfig.name],
       tags: article.tags,
+      images: [
+        {
+          url: `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(article.verdict || '')}&articleType=${encodeURIComponent(article.type)}`,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
+      images: [`${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(article.verdict || '')}&articleType=${encodeURIComponent(article.type)}`],
     },
   };
 }
@@ -72,6 +93,12 @@ export default async function ArticlePage({ params }: PageProps) {
       : []),
   ];
 
+  const grade = getGradeFromVerdict(article.verdict || content.finalVerdict);
+  const readingTime = getReadingTime(content.analysis);
+  const allArticles = getAllArticles();
+  const currentIdx = allArticles.findIndex(a => a.slug === article.slug);
+  const nextArticle = allArticles[currentIdx + 1] || allArticles[0];
+
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
       <script
@@ -83,31 +110,52 @@ export default async function ArticlePage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqQuestions)) }}
       />
 
-      {/* Header */}
+      {/* Breadcrumb */}
+      <nav className="text-xs text-muted mb-6 font-mono">
+        <Link href="/" className="hover:text-accent">Home</Link>
+        <span className="mx-2">/</span>
+        <Link href={isRoast ? '/#roasts' : '/#picks'} className="hover:text-accent">
+          {isRoast ? 'Roasts' : 'Picks'}
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-foreground">{article.ticker || article.slug}</span>
+      </nav>
+
+      {/* Grade Badge + Header */}
       <div className="mb-10">
-        <div className="flex items-center gap-3 mb-4">
-          <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
-            isRoast ? 'bg-red/20 text-red' : 'bg-accent/20 text-accent'
-          }`}>
-            {isRoast ? 'THE ROAST' : 'AI PICK'}
-          </span>
-          {article.ticker && (
-            <span className="text-sm font-mono text-muted border border-card-border px-2 py-1 rounded">
-              ${article.ticker}
-            </span>
-          )}
-          <time className="text-xs font-mono text-muted ml-auto" dateTime={article.date}>
-            {new Date(article.date).toLocaleDateString('en-US', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric',
-              year: 'numeric',
-            })}
-          </time>
+        <div className="flex items-start gap-6 mb-6">
+          <div className={`grade-badge grade-badge-xl grade-${grade} flex-shrink-0`}>
+            {grade}
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-3">
+              <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
+                isRoast ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
+              }`}>
+                {isRoast ? 'THE ROAST' : 'AI PICK'}
+              </span>
+              {article.ticker && (
+                <Link href={`/stock/${article.ticker.toLowerCase()}`} className="text-sm font-mono text-accent border border-accent/30 px-2 py-1 rounded hover:bg-accent-light transition-colors">
+                  {article.ticker}
+                </Link>
+              )}
+              <span className="text-xs text-muted-light ml-auto">
+                {readingTime} min read
+              </span>
+            </div>
+            <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-2">
+              {content.headline}
+            </h1>
+            <time className="text-xs font-mono text-muted" dateTime={article.date}>
+              {new Date(article.date).toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+              })}
+            </time>
+          </div>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
-          {content.headline}
-        </h1>
         <p className="text-muted text-lg leading-relaxed">
           {content.summary}
         </p>
@@ -147,6 +195,24 @@ export default async function ArticlePage({ params }: PageProps) {
       <DataPoints dataPoints={content.dataPoints} />
       <RisksAndCatalysts risks={content.risks} catalysts={content.catalysts} />
       <Verdict verdict={content.finalVerdict} />
+
+      {/* Next Analysis */}
+      {nextArticle && nextArticle.slug !== article.slug && (
+        <section className="border-t border-card-border pt-8 mb-8">
+          <Link
+            href={`/article/${nextArticle.slug}`}
+            className="flex items-center justify-between p-4 border border-card-border rounded-xl hover:border-accent/40 transition-colors group"
+          >
+            <div>
+              <p className="text-xs text-muted-light font-mono mb-1">NEXT ANALYSIS</p>
+              <p className="font-semibold group-hover:text-accent transition-colors">
+                {nextArticle.content.headline}
+              </p>
+            </div>
+            <span className="text-accent text-2xl">→</span>
+          </Link>
+        </section>
+      )}
 
       {/* Subscribe CTA */}
       <section className="text-center py-8">

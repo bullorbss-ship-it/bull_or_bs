@@ -10,14 +10,15 @@ export const defaultMetadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     'AI stock analysis',
-    'stock newsletter',
-    'Motley Fool review',
+    'stock picks graded',
+    'should I buy stock',
     'stock picks',
     'AI investing',
     'Canadian stocks',
     'TSX analysis',
     'stock market analysis',
     'AI-driven investing',
+    'stock recommendation audit',
   ],
   openGraph: {
     type: 'website',
@@ -26,16 +27,28 @@ export const defaultMetadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: [
+      {
+        url: `${siteConfig.url}/og?type=default`,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} — ${siteConfig.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@notsofoolai',
-    creator: '@notsofoolai',
+    site: '@bull_or_bs',
+    creator: '@bull_or_bs',
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
+  },
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
   },
   alternates: {
     types: { 'application/rss+xml': '/feed.xml' },
@@ -84,5 +97,58 @@ export function faqSchema(questions: { question: string; answer: string }[]) {
       name: q.question,
       acceptedAnswer: { '@type': 'Answer', text: q.answer },
     })),
+  };
+}
+
+export function breadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function corporationSchema(ticker: string, company: string, exchange: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Corporation',
+    name: company,
+    tickerSymbol: ticker,
+    exchange,
+    url: `${siteConfig.url}/stock/${ticker.toLowerCase().replace('.', '-')}`,
+  };
+}
+
+export function newsArticleSchema(article: {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+  type: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    dateModified: article.date,
+    articleSection: article.type,
+    author: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.url,
+    },
+    mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,
   };
 }

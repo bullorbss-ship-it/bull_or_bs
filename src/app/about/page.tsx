@@ -1,22 +1,23 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 
 export const metadata: Metadata = {
-  title: 'About NotSoFoolAI',
+  title: 'About BullOrBS',
   description:
-    'NotSoFoolAI is an AI-driven stock analysis newsletter that shows its full reasoning. We audit popular stock picks and publish transparent, data-driven analysis.',
+    'BullOrBS is an AI-driven stock analysis newsletter that shows its full reasoning. We audit popular stock picks and publish transparent, data-driven analysis.',
 };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-3xl md:text-4xl font-bold mb-6">
-        About <span className="text-accent">NotSoFoolAI</span>
+        About <span className="text-accent">BullOrBS</span>
       </h1>
 
       <div className="space-y-6 text-muted leading-relaxed">
         <p className="text-lg text-foreground">
-          NotSoFoolAI is an AI-powered stock analysis newsletter built on one principle:{' '}
+          BullOrBS is an AI-powered stock analysis newsletter built on one principle:{' '}
           <strong className="text-accent">show your work.</strong>
         </p>
 
@@ -77,9 +78,21 @@ export default function AboutPage() {
         <h2 className="text-xl font-bold text-foreground pt-4">Built in Canada</h2>
 
         <p>
-          NotSoFoolAI is built in Canada, for investors who want better analysis
+          BullOrBS is built in Canada, for investors who want better analysis
           of both US and Canadian markets. No gatekeeping. No paywalls. Just analysis.
         </p>
+
+        <div className="flex gap-4 pt-4">
+          <Link href="/stock" className="text-accent hover:text-accent-dim font-medium text-sm">
+            Browse Stock Analyses →
+          </Link>
+          <Link href="/methodology" className="text-accent hover:text-accent-dim font-medium text-sm">
+            How Our AI Works →
+          </Link>
+          <Link href="/disclaimer" className="text-accent hover:text-accent-dim font-medium text-sm">
+            Disclaimer →
+          </Link>
+        </div>
       </div>
 
       <div className="mt-12 pt-8 border-t border-card-border">

@@ -2,39 +2,49 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #111827;
-  --accent: #0066ff;
-  --accent-dim: #0052cc;
-  --accent-light: #e8f0fe;
-  --card-bg: #f9fafb;
-  --card-border: #e5e7eb;
-  --red: #dc2626;
+  --foreground: #0F172A;
+  --accent: #10B981;
+  --accent-dim: #059669;
+  --accent-light: #ecfdf5;
+  --card-bg: #f8fafc;
+  --card-border: #e2e8f0;
+  --red: #EF4444;
   --red-light: #fef2f2;
-  --green: #16a34a;
-  --green-light: #f0fdf4;
-  --yellow: #ca8a04;
-  --yellow-light: #fefce8;
-  --muted: #6b7280;
-  --muted-light: #9ca3af;
+  --green: #10B981;
+  --green-light: #ecfdf5;
+  --yellow: #F59E0B;
+  --yellow-light: #fffbeb;
+  --orange: #F97316;
+  --orange-light: #fff7ed;
+  --gold: #F59E0B;
+  --gold-light: #fffbeb;
+  --navy: #0F172A;
+  --muted: #64748b;
+  --muted-light: #94a3b8;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f1117;
-    --foreground: #e5e7eb;
-    --accent: #3b82f6;
-    --accent-dim: #2563eb;
-    --accent-light: #1e293b;
-    --card-bg: #1a1d2e;
-    --card-border: #2d3148;
-    --red: #ef4444;
+    --background: #0B0F1A;
+    --foreground: #e2e8f0;
+    --accent: #10B981;
+    --accent-dim: #059669;
+    --accent-light: #0d2818;
+    --card-bg: #111827;
+    --card-border: #1e293b;
+    --red: #EF4444;
     --red-light: #1c1517;
-    --green: #22c55e;
-    --green-light: #0f1d15;
-    --yellow: #eab308;
+    --green: #10B981;
+    --green-light: #0d2818;
+    --yellow: #F59E0B;
     --yellow-light: #1c1a0f;
-    --muted: #9ca3af;
-    --muted-light: #6b7280;
+    --orange: #F97316;
+    --orange-light: #1c170f;
+    --gold: #F59E0B;
+    --gold-light: #1c1a0f;
+    --navy: #0B0F1A;
+    --muted: #94a3b8;
+    --muted-light: #64748b;
   }
 }
 
@@ -52,6 +62,11 @@
   --color-green-light: var(--green-light);
   --color-yellow: var(--yellow);
   --color-yellow-light: var(--yellow-light);
+  --color-orange: var(--orange);
+  --color-orange-light: var(--orange-light);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-navy: var(--navy);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
   --font-sans: var(--font-geist-sans);
@@ -67,3 +82,44 @@ body {
   background: var(--accent);
   color: white;
 }
+
+/* Grade badges */
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-weight: 800;
+  border-radius: 9999px;
+  line-height: 1;
+}
+
+.grade-badge-sm {
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+}
+
+.grade-badge-md {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+}
+
+.grade-badge-lg {
+  width: 80px;
+  height: 80px;
+  font-size: 36px;
+}
+
+.grade-badge-xl {
+  width: 120px;
+  height: 120px;
+  font-size: 56px;
+}
+
+.grade-A { background: var(--gold-light); color: var(--gold); }
+.grade-B { background: var(--green-light); color: var(--green); }
+.grade-C { background: var(--yellow-light); color: var(--yellow); }
+.grade-D { background: var(--orange-light); color: var(--orange); }
+.grade-F { background: var(--red-light); color: var(--red); }

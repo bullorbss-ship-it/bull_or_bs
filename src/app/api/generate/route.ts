@@ -2,10 +2,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateRoast, generatePick } from '@/lib/ai/generate';
 import { saveArticle } from '@/lib/content';
 import { Article } from '@/lib/types';
+import { timingSafeCompare } from '@/lib/auth';
 
 export async function POST(req: NextRequest) {
-  const secret = req.nextUrl.searchParams.get('secret');
-  if (secret !== process.env.SCAN_SECRET) {
+  const secret = req.nextUrl.searchParams.get('secret') || '';
+  if (!timingSafeCompare(secret, process.env.SCAN_SECRET || '')) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

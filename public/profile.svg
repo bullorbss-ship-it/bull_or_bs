@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+      <rect width="100%" height="100%" fill="#0F172A" />
+      <text x="50%" y="80" dominant-baseline="central" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-weight="800" font-size="110" fill="#ffffff">B</text>
+      <text x="50%" y="170" dominant-baseline="central" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-weight="800" font-size="110" fill="#94A3B8">o</text>
+      <text x="50%" y="260" dominant-baseline="central" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-weight="800" font-size="110" fill="#10B981">B</text>
+      <path d="M 200 335 L 203 343 L 212 340 L 207 348 L 218 351 L 210 356 L 212 364 L 203 361 L 201 372 L 199 372 L 197 361 L 188 364 L 190 356 L 182 351 L 193 348 L 188 340 L 197 343 Z" fill="#10B981" />
+    </svg>

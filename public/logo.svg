@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" width="800" height="250">
+
+      <text
+        x="50%"
+        y="50%"
+        dominant-baseline="central"
+        text-anchor="middle"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+        font-weight="700"
+        font-size="108"
+        letter-spacing="-0.03em"
+      >
+        <tspan fill="#0F172A">Bull</tspan><tspan fill="#64748B">&#160;Or&#160;</tspan><tspan fill="#10B981">BS</tspan>
+      </text>
+    </svg>

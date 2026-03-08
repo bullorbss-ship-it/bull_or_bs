@@ -18,9 +18,22 @@ function saveSubscribers(subs: string[]) {
 }
 
 export async function POST(req: NextRequest) {
-  const { email } = await req.json();
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
+  }
 
-  if (!email || !email.includes('@')) {
+  const { email } = body;
+
+  if (!email || typeof email !== 'string') {
+    return NextResponse.json({ error: 'Valid email required' }, { status: 400 });
+  }
+
+  // Basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email) || email.length > 254) {
     return NextResponse.json({ error: 'Valid email required' }, { status: 400 });
   }
 

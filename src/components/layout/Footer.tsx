@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteConfig } from '@/config/site';
 
 export default function Footer() {
@@ -7,9 +8,14 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
-            <p className="font-bold text-lg text-foreground">
-              NotSoFool<span className="text-accent">AI</span>
+            <div className="flex items-center gap-2">
+              <Image src="/icon.svg" alt="BullOrBS" width={24} height={24} />
+              <p className="font-bold text-lg font-mono">
+              <span className="text-foreground">Bull</span>
+              <span className="text-muted-light">Or</span>
+              <span className="text-accent">BS</span>
             </p>
+            </div>
             <p className="text-muted text-sm mt-2 leading-relaxed max-w-sm">
               AI-driven stock analysis for Canadian and US markets.
               Every recommendation shows its full reasoning.
@@ -23,6 +29,7 @@ export default function Footer() {
               <Link href="/#roasts" className="text-muted hover:text-accent transition-colors">The Roast</Link>
               <Link href="/#picks" className="text-muted hover:text-accent transition-colors">AI Picks</Link>
               <Link href="/about" className="text-muted hover:text-accent transition-colors">About</Link>
+              <Link href="/methodology" className="text-muted hover:text-accent transition-colors">Methodology</Link>
               <Link href="/disclaimer" className="text-muted hover:text-accent transition-colors">Disclaimer</Link>
             </div>
           </div>
@@ -31,6 +38,8 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <a href={siteConfig.social.x} className="text-muted hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">X / Twitter</a>
               <a href={siteConfig.social.instagram} className="text-muted hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href={siteConfig.social.tiktok} className="text-muted hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">TikTok</a>
+              <a href={siteConfig.social.youtube} className="text-muted hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">YouTube</a>
               <a href="/feed.xml" className="text-muted hover:text-accent transition-colors">RSS Feed</a>
             </div>
           </div>
@@ -39,7 +48,7 @@ export default function Footer() {
         <div className="border-t border-card-border mt-10 pt-6">
           <p className="text-muted text-xs leading-relaxed mb-4">
             {siteConfig.name} is not affiliated with, endorsed by, or connected to
-            The Motley Fool, Seeking Alpha, Zacks, or any financial institution.
+            any financial publication, newsletter, or institution.
             All analysis is AI-generated for educational and entertainment purposes only.
             This is not financial advice. Always do your own research.
           </p>

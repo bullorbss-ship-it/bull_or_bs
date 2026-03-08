@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { ALL_TICKERS, tickerToSlug, slugToTicker, getTickerInfo, getTickersBySector } from '@/lib/tickers';
 import { getAllArticles } from '@/lib/content';
 import { siteConfig } from '@/config/site';
+import { faqSchema, breadcrumbSchema, corporationSchema } from '@/config/seo';
 import ArticleCard from '@/components/article/ArticleCard';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
@@ -41,6 +42,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title,
       description,
       type: 'article',
+      images: [
+        {
+          url: `${siteConfig.url}/og?type=stock&ticker=${encodeURIComponent(info.ticker)}&company=${encodeURIComponent(info.company)}&exchange=${encodeURIComponent(info.exchange)}`,
+          width: 1200,
+          height: 630,
+          alt: `${info.ticker} — ${info.company} Stock Analysis`,
+        },
+      ],
     },
   };
 }
@@ -61,32 +70,58 @@ export default async function StockPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-12">
-      {/* Schema.org */}
+      {/* Schema.org — FAQ */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: `Should you buy ${info.ticker} stock?`,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: `${info.company} (${info.exchange}:${info.ticker}) is a ${info.sector} stock. Visit this page for the latest AI-generated analysis with full reasoning, data points, and transparent research from ${siteConfig.name}.`,
-                },
-              },
-              {
-                '@type': 'Question',
-                name: `Is ${info.company} a good investment?`,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: `Our AI analyzes ${info.ticker} regularly as part of our stock research coverage. Each analysis includes a full elimination tournament comparing ${info.ticker} against sector peers, with detailed reasoning for every conclusion. Check our latest analysis below.`,
-                },
-              },
-            ],
-          }),
+          __html: JSON.stringify(faqSchema([
+            {
+              question: `Should you buy ${info.ticker} stock?`,
+              answer: `${info.company} (${info.exchange}:${info.ticker}) is a ${info.sector} stock. Visit this page for the latest AI-generated analysis with full reasoning, data points, and transparent research from ${siteConfig.name}.`,
+            },
+            {
+              question: `Is ${info.company} a good investment?`,
+              answer: `Our AI analyzes ${info.ticker} regularly as part of our stock research coverage. Each analysis includes a full elimination tournament comparing ${info.ticker} against sector peers, with detailed reasoning for every conclusion. Check our latest analysis below.`,
+            },
+            {
+              question: `What is ${info.company}'s stock price today?`,
+              answer: `${siteConfig.name} does not provide real-time stock prices. For the latest ${info.ticker} price, check your brokerage or a financial data provider. Our focus is AI-driven fundamental analysis, not price tracking.`,
+            },
+            {
+              question: `Is ${info.ticker} a good investment?`,
+              answer: `Whether ${info.ticker} is a good investment depends on your goals, risk tolerance, and time horizon. Our AI evaluates ${info.company} on valuation, catalysts, risks, and momentum relative to ${info.sector} sector peers.`,
+            },
+            {
+              question: `What sector is ${info.ticker} in?`,
+              answer: `${info.company} (${info.ticker}) operates in the ${info.sector} sector and is listed on the ${info.exchange}.`,
+            },
+            {
+              question: `Where is ${info.ticker} listed?`,
+              answer: `${info.ticker} is listed on the ${info.exchange}. ${info.company} is a ${info.country === 'CA' ? 'Canadian' : 'US'}-listed company.`,
+            },
+            {
+              question: `What does ${info.company} do?`,
+              answer: `${info.company} is a ${info.country === 'CA' ? 'Canadian' : 'US'} company in the ${info.sector} sector, trading under the ticker ${info.ticker} on the ${info.exchange}. For detailed AI analysis of their business and stock, see our latest coverage on this page.`,
+            },
+          ])),
+        }}
+      />
+      {/* Schema.org — Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema([
+            { name: 'Home', url: siteConfig.url },
+            { name: 'Stocks', url: `${siteConfig.url}/stock` },
+            { name: `${info.ticker} — ${info.company}`, url: `${siteConfig.url}/stock/${tickerToSlug(info.ticker)}` },
+          ])),
+        }}
+      />
+      {/* Schema.org — Corporation */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(corporationSchema(info.ticker, info.company, info.exchange)),
         }}
       />
 
@@ -158,6 +193,36 @@ export default async function StockPage({ params }: PageProps) {
               Long-term potential depends on industry trends, competitive positioning, and
               financial health. Our AI analysis provides data-driven insights with full
               reasoning — no black boxes.
+            </p>
+          </div>
+          <div className="border border-card-border rounded-xl p-5">
+            <h3 className="font-semibold mb-2">What is {info.company}&apos;s stock price today?</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              {siteConfig.name} does not provide real-time stock prices. For the latest {info.ticker} price,
+              check your brokerage or a financial data provider. Our focus is AI-driven fundamental
+              analysis, not price tracking.
+            </p>
+          </div>
+          <div className="border border-card-border rounded-xl p-5">
+            <h3 className="font-semibold mb-2">What sector is {info.ticker} in?</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              {info.company} ({info.ticker}) operates in the {info.sector} sector and is listed on
+              the {info.exchange}.
+            </p>
+          </div>
+          <div className="border border-card-border rounded-xl p-5">
+            <h3 className="font-semibold mb-2">Where is {info.ticker} listed?</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              {info.ticker} is listed on the {info.exchange}. {info.company} is
+              a {info.country === 'CA' ? 'Canadian' : 'US'}-listed company.
+            </p>
+          </div>
+          <div className="border border-card-border rounded-xl p-5">
+            <h3 className="font-semibold mb-2">What does {info.company} do?</h3>
+            <p className="text-sm text-muted leading-relaxed">
+              {info.company} is a {info.country === 'CA' ? 'Canadian' : 'US'} company in
+              the {info.sector} sector, trading under the ticker {info.ticker} on the {info.exchange}.
+              For detailed AI analysis of their business and stock, see our latest coverage on this page.
             </p>
           </div>
           <div className="border border-card-border rounded-xl p-5">

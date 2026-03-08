@@ -1,15 +1,19 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Header() {
   return (
     <header className="border-b border-card-border bg-background sticky top-0 z-50 backdrop-blur-sm bg-background/95">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-6 py-3">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-bold text-xl tracking-tight text-foreground">
-            NotSoFool<span className="text-accent">AI</span>
+          <Image src="/icon.svg" alt="BullOrBS" width={28} height={28} />
+          <span className="font-bold text-xl tracking-tight font-mono">
+            <span className="text-foreground">Bull</span>
+            <span className="text-muted-light">Or</span>
+            <span className="text-accent">BS</span>
           </span>
-          <span className="hidden sm:inline text-xs text-muted border border-card-border rounded-full px-2 py-0.5">
-            Made in Canada
+          <span className="hidden sm:inline text-[10px] text-muted-light border border-card-border rounded-full px-2 py-0.5 font-mono tracking-wide">
+            CANADA
           </span>
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2 text-sm">

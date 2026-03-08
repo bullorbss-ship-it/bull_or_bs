@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CandidateStock } from '@/lib/types';
 
 interface TournamentProps {
@@ -39,7 +40,7 @@ export default function Tournament({ candidates, isRoast }: TournamentProps) {
                 }`}>
                   {c.status === 'selected' ? 'Winner' : c.status === 'eliminated' ? 'Cut' : 'Reviewed'}
                 </span>
-                <span className="font-mono font-bold text-foreground">{c.ticker}</span>
+                <Link href={`/stock/${c.ticker.toLowerCase()}`} className="font-mono font-bold text-foreground hover:text-accent transition-colors">{c.ticker}</Link>
                 <span className="text-muted text-sm">{c.company}</span>
               </div>
               {c.score && (
