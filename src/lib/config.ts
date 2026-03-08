@@ -5,6 +5,7 @@
 export const envConfig = {
   // API Keys
   anthropicApiKey: process.env.ANTHROPIC_API_KEY || '',
+  fmpApiKey: process.env.FMP_API_KEY || '', // optional — falls back to local data if not set
   scanSecret: process.env.SCAN_SECRET || '',
   adminPassword: process.env.ADMIN_PASSWORD || '',
 

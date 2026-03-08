@@ -20,24 +20,37 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-      const content = await generateRoast(claim, ticker, source || 'Popular financial publication');
+      const result = await generateRoast(claim, ticker, source || 'Popular financial publication');
       const today = new Date().toISOString().split('T')[0];
       const slug = `${ticker.toLowerCase()}-roast-${today}`;
 
       const article: Article = {
         slug,
         type: 'roast',
-        title: content.headline,
-        description: content.summary,
+        title: result.content.headline,
+        description: result.content.summary,
         date: today,
         ticker: ticker.toUpperCase(),
-        verdict: content.finalVerdict,
+        verdict: result.content.finalVerdict,
         tags: [ticker.toUpperCase(), 'roast', 'stock analysis', 'AI analysis'],
-        content,
+        content: result.content,
       };
 
       saveArticle(article);
-      return NextResponse.json({ success: true, slug, article });
+      return NextResponse.json({
+        success: true,
+        slug,
+        article,
+        cost: {
+          usd: result.costUsd,
+          inputTokens: result.inputTokens,
+          outputTokens: result.outputTokens,
+          apiCalls: result.apiCalls,
+          durationMs: result.durationMs,
+          model: 'claude-haiku-4-5-20251001',
+          dataConfidence: result.dataConfidence,
+        },
+      });
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Unknown error';
       return NextResponse.json({ error: 'Generation failed', detail: message }, { status: 500 });
@@ -46,31 +59,43 @@ export async function POST(req: NextRequest) {
 
   if (type === 'pick') {
     try {
-      const content = await generatePick();
+      const result = await generatePick();
       const today = new Date().toISOString().split('T')[0];
-      const ticker = content.winner?.ticker || 'no-pick';
       const slug = `ai-pick-${today}`;
 
       const article: Article = {
         slug,
         type: 'pick',
-        title: content.headline,
-        description: content.summary,
+        title: result.content.headline,
+        description: result.content.summary,
         date: today,
-        ticker: content.winner?.ticker,
-        verdict: content.finalVerdict,
-        confidence: content.winner?.score,
+        ticker: result.content.winner?.ticker,
+        verdict: result.content.finalVerdict,
+        confidence: result.content.winner?.score,
         tags: [
-          ticker !== 'no-pick' ? ticker : '',
+          result.content.winner?.ticker || '',
           'AI pick',
           'stock analysis',
           'weekly pick',
         ].filter(Boolean),
-        content,
+        content: result.content,
       };
 
       saveArticle(article);
-      return NextResponse.json({ success: true, slug, article });
+      return NextResponse.json({
+        success: true,
+        slug,
+        article,
+        cost: {
+          usd: result.costUsd,
+          inputTokens: result.inputTokens,
+          outputTokens: result.outputTokens,
+          apiCalls: result.apiCalls,
+          durationMs: result.durationMs,
+          model: 'claude-haiku-4-5-20251001',
+          dataConfidence: result.dataConfidence,
+        },
+      });
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Unknown error';
       return NextResponse.json({ error: 'Generation failed', detail: message }, { status: 500 });
