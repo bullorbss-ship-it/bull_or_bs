@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The TD Global Technology Leaders Index ETF (TEC) aims to provide investors with exposure to a diversified portfolio of global technology companies. It tracks the performance of the Solactive Global Technology Leaders Index, which includes large-cap technology firms that are leaders in their respective sectors. The ETF employs a passive management strategy, seeking to replicate the index's performance by investing in the underlying securities in similar proportions. Key features include a focus on innovation-driven companies and a global investment approach, allowing for exposure to both established and emerging tech markets.",
+  "overview": "The TD Global Technology Leaders Index ETF (TEC.TO) tracks the Solactive Global Technology Leaders Index CA, providing exposure to the world's largest technology companies. Top holdings include Apple, Microsoft, NVIDIA, Alphabet, Amazon, Meta, and other mega-cap tech leaders. TEC offers Canadian investors a CAD-denominated way to own global tech without buying individual U.S. stocks. With an MER of 0.39%, it is more expensive than broad-market ETFs but provides focused sector exposure to the technology sector that drives much of global equity returns.",
   "bullCase": [
-    "Provides diversified exposure to leading global technology companies, reducing individual stock risk.",
-    "Passive management strategy typically results in lower fees compared to actively managed funds.",
-    "Potential for growth as technology continues to play a critical role in global economic development."
+    "Concentrated exposure to global tech mega-caps — Apple, Microsoft, NVIDIA, Alphabet, Amazon, Meta.",
+    "Technology sector has been the dominant driver of global equity returns for over a decade.",
+    "CAD-denominated, avoiding the need for currency conversion to buy U.S. tech stocks directly."
   ],
   "bearCase": [
-    "Concentration risk due to heavy weighting in a few large-cap tech stocks.",
-    "Market volatility in the tech sector can lead to significant price fluctuations.",
-    "Global economic downturns may adversely affect technology spending and, consequently, the ETF's performance."
+    "Heavy concentration in a few mega-cap names — top 10 holdings dominate the portfolio.",
+    "Tech sector valuations are elevated, creating risk of sharp corrections.",
+    "MER of 0.39% is significantly higher than broad-market alternatives."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 500 million",
-    "peRatio": "0.50% MER",
-    "dividendYield": "approximately 1.5%",
+    "marketCap": "Approximately CAD 3 billion AUM",
+    "peRatio": "0.39% MER",
+    "dividendYield": "Approximately 0.3-0.5% yield",
     "sector": "ETF"
   },
-  "analystSummary": "Overall, the TD Global Technology Leaders Index ETF is viewed as a solid choice for investors seeking exposure to the technology sector, though it carries inherent risks associated with market volatility.",
-  "seoDescription": "Considering investing in TEC? Read our analysis on TD Global Technology Leaders Index ETF and find out if it's a buy.",
-  "generatedAt": "2026-03-09T13:38:22.253Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "TEC is Canada's most popular tech sector ETF at 0.39% MER. It provides concentrated exposure to global tech mega-caps (Apple, Microsoft, NVIDIA, etc.) in a single CAD-denominated ticker.",
+  "seoDescription": "Considering TEC? Read our analysis of TD Global Technology Leaders Index ETF — global tech mega-caps at 0.39% MER.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

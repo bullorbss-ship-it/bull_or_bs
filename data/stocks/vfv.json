@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The Vanguard S&P 500 Index ETF (CAD) is designed to track the performance of the S&P 500 Index, which represents the largest 500 publicly traded companies in the U.S. This ETF aims to provide investors with exposure to the U.S. equity market while being traded in Canadian dollars, making it a convenient option for Canadian investors. The fund employs a passive management strategy, seeking to replicate the index's performance by holding a diversified portfolio of the same stocks in similar proportions.\n\nKey features of VFV include its low management expense ratio (MER), which makes it a cost-effective option for long-term investors. The ETF is suitable for those looking to gain exposure to the U.S. market without the complexities of currency exchange, as it hedges against currency fluctuations. Additionally, VFV offers the potential for capital appreciation and dividend income, aligning well with growth-oriented investment strategies.",
+  "overview": "The Vanguard S&P 500 Index ETF (VFV.TO) tracks the S&P 500 Index, providing Canadian investors with exposure to the 500 largest U.S. publicly traded companies. VFV is denominated in Canadian dollars but is UNHEDGED — meaning investors have full exposure to USD/CAD currency fluctuations. When the U.S. dollar strengthens against the Canadian dollar, VFV benefits; when it weakens, returns are reduced. The hedged version is VSP.TO. VFV holds the same underlying stocks as the iconic U.S.-listed VOO, making it one of the most popular ETFs on the TSX for passive U.S. equity exposure. With an MER of just 0.09%, it is one of the lowest-cost ways for Canadians to invest in the S&P 500.",
   "bullCase": [
-    "Low management expense ratio, making it cost-effective for long-term investors.",
+    "Ultra-low MER of 0.09%, making it one of the cheapest S&P 500 ETFs available in Canada.",
     "Provides diversified exposure to 500 of the largest U.S. companies, reducing individual stock risk.",
-    "Hedged against currency fluctuations for Canadian investors, simplifying international investing."
+    "Unhedged structure benefits Canadian investors when the USD strengthens relative to CAD."
   ],
   "bearCase": [
+    "Unhedged — full USD/CAD currency exposure means returns can be dragged down when the Canadian dollar strengthens.",
     "Performance is closely tied to the U.S. market, which may be volatile.",
-    "Limited exposure to international markets and sectors outside of the S&P 500.",
-    "Dividend payments may be subject to U.S. withholding tax, impacting net income for Canadian investors."
+    "Dividend payments are subject to U.S. withholding tax (15% in RRSP, 15-25% in TFSA/non-registered)."
   ],
   "keyMetrics": {
-    "marketCap": "Approximately CAD 3 billion",
-    "peRatio": "0.06 (MER/expense ratio)",
-    "dividendYield": "Approximate yield of 1.5% to 2%",
+    "marketCap": "Approximately CAD 3 billion AUM",
+    "peRatio": "0.09% MER",
+    "dividendYield": "Approximate yield of 1.2% to 1.5%",
     "sector": "ETF"
   },
-  "analystSummary": "The Vanguard S&P 500 Index ETF (CAD) is generally viewed as a solid choice for Canadian investors seeking U.S. equity exposure with low costs.",
-  "seoDescription": "Explore whether to buy VFV with our comprehensive analysis of the Vanguard S&P 500 Index ETF (CAD) performance and strategy.",
-  "generatedAt": "2026-03-09T13:36:45.823Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "VFV is widely regarded as the go-to unhedged S&P 500 ETF for Canadian investors. Its ultra-low 0.09% MER and broad U.S. equity exposure make it a core holding in many portfolios. Investors should understand the currency exposure — VFV does NOT hedge USD/CAD, unlike its sibling VSP.TO.",
+  "seoDescription": "Explore whether to buy VFV with our comprehensive analysis of the Vanguard S&P 500 Index ETF (CAD) — unhedged U.S. equity exposure at 0.09% MER.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

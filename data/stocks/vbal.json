@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The Vanguard Balanced ETF Portfolio (VBAL) is designed to provide a diversified investment solution by holding a mix of equity and fixed-income securities. It aims to achieve long-term capital appreciation while maintaining a moderate level of risk through a balanced allocation strategy. The ETF primarily invests in other Vanguard ETFs, which include both Canadian and international equities as well as bonds, providing broad exposure to various asset classes.",
+  "overview": "The Vanguard Balanced ETF Portfolio (VBAL.TO) is an all-in-one asset allocation ETF that maintains a 60% equity / 40% fixed-income split. The equity portion is globally diversified across Canadian, U.S., international developed, and emerging market stocks through underlying Vanguard ETFs. The fixed-income sleeve is composed entirely of bonds — Canadian aggregate bonds, U.S. aggregate bonds, and global aggregate bonds via underlying Vanguard bond ETFs. There are NO REITs, real assets, or alternative investments in the fixed-income portion. VBAL automatically rebalances to maintain its 60/40 target, making it a true set-and-forget solution for moderate-risk investors. MER is 0.24%.",
   "bullCase": [
-    "Diversified exposure to both equities and fixed income, reducing overall portfolio risk.",
-    "Low management expense ratio (MER) compared to actively managed funds, enhancing net returns.",
-    "Suitable for long-term investors seeking a balanced approach to growth and income."
+    "All-in-one solution with automatic rebalancing — no need to manage multiple ETFs.",
+    "Low MER of 0.24% for a globally diversified balanced portfolio.",
+    "60/40 equity/bond split suits moderate-risk investors seeking both growth and stability."
   ],
   "bearCase": [
-    "Market volatility can negatively impact both equity and bond holdings, affecting overall performance.",
-    "The fixed-income portion may underperform in a rising interest rate environment.",
-    "Investors seeking aggressive growth may find the balanced strategy too conservative."
+    "Rising interest rates hurt the 40% bond allocation, dragging overall returns.",
+    "Investors seeking aggressive growth may find the 60/40 split too conservative.",
+    "No ability to customize regional or sector weightings within the portfolio."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1 billion",
-    "peRatio": "0.22 (MER)",
-    "dividendYield": "approximately 2-3%",
+    "marketCap": "Approximately CAD 4 billion AUM",
+    "peRatio": "0.24% MER",
+    "dividendYield": "Approximately 2-3% yield",
     "sector": "ETF"
   },
-  "analystSummary": "VBAL is generally viewed as a solid choice for investors looking for a balanced investment strategy with low fees, though it may not suit those seeking high growth.",
-  "seoDescription": "Explore if VBAL is a good buy with our comprehensive ETF analysis on Vanguard Balanced ETF Portfolio.",
-  "generatedAt": "2026-03-09T13:37:58.425Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "VBAL is the quintessential balanced ETF for Canadian investors who want a simple 60/40 portfolio. The fixed-income portion is pure bonds (Canadian, U.S., and global aggregate) — no REITs or alternatives. At 0.24% MER, it is hard to beat for hands-off investing.",
+  "seoDescription": "Explore if VBAL is a good buy with our comprehensive analysis — Vanguard Balanced ETF Portfolio, 60/40 equity/bonds at 0.24% MER.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

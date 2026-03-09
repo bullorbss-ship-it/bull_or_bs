@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The BMO Equal Weight Banks Index ETF (ZEB) is designed to track the performance of the Solactive Equal Weight Canada Banks Index, which includes Canadian banks that are equally weighted. This strategy allows investors to gain exposure to the Canadian banking sector while mitigating the risks associated with concentration in larger banks. ZEB holds a diversified portfolio of major Canadian banks, providing a balanced approach to investing in this critical sector of the Canadian economy.",
+  "overview": "The BMO Equal Weight Banks Index ETF (ZEB.TO) equal-weights Canada's Big 6 banks: Royal Bank, TD, BMO, Scotiabank, CIBC, and National Bank. Unlike market-cap-weighted bank ETFs that overweight RBC and TD, ZEB gives each bank roughly equal exposure (~16.7% each), which reduces concentration risk. The ETF offers a yield of approximately 4-5% and has an MER of 0.28%. ZEB is one of the most popular ways for Canadian investors to get concentrated bank sector exposure with built-in diversification across all six major banks.",
   "bullCase": [
-    "Provides equal exposure to major Canadian banks, reducing concentration risk.",
-    "Offers a competitive dividend yield, appealing to income-focused investors.",
-    "Low management expense ratio (MER) makes it a cost-effective investment option."
+    "Equal weighting across all Big 6 banks reduces concentration risk vs market-cap approaches.",
+    "Strong dividend yield of approximately 4-5% from Canada's most reliable dividend payers.",
+    "MER of 0.28% is reasonable for a sector-specific equal-weight strategy."
   ],
   "bearCase": [
-    "Performance may lag during periods of market volatility affecting the banking sector.",
-    "Equal weighting may lead to underperformance compared to market-cap weighted indices.",
-    "Economic downturns can negatively impact the financial sector, affecting returns."
+    "Concentrated in a single sector — 100% Canadian banks means no diversification beyond financials.",
+    "Equal weighting means underweighting the strongest performers (RBC, TD) and overweighting weaker ones.",
+    "Economic downturns, housing corrections, or rising loan losses can hit all 6 banks simultaneously."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1.5 billion",
-    "peRatio": "0.61% MER",
-    "dividendYield": "approximately 4% yield",
+    "marketCap": "Approximately CAD 4 billion AUM",
+    "peRatio": "0.28% MER",
+    "dividendYield": "Approximately 4-5% yield",
     "sector": "ETF"
   },
-  "analystSummary": "ZEB is generally viewed as a solid choice for investors looking to diversify within the Canadian banking sector, though it carries sector-specific risks.",
-  "seoDescription": "Explore whether ZEB is a good buy with our comprehensive analysis of the BMO Equal Weight Banks Index ETF.",
-  "generatedAt": "2026-03-09T13:37:09.169Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "ZEB is the go-to ETF for equal-weight exposure to Canada's Big 6 banks. At 0.28% MER and ~4-5% yield, it's a favourite among income investors who believe in the long-term strength of Canadian banking.",
+  "seoDescription": "Explore whether ZEB is a good buy — BMO Equal Weight Banks Index ETF with Big 6 bank exposure at 0.28% MER and ~4-5% yield.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

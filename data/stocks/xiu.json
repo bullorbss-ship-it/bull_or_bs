@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The iShares S&P/TSX 60 Index ETF (XIU) is designed to track the performance of the S&P/TSX 60 Index, which comprises 60 of the largest and most liquid Canadian stocks. This ETF provides investors with exposure to a diversified portfolio of blue-chip companies across various sectors, including financials, energy, and materials. The strategy of XIU is to replicate the index's performance, making it a cost-effective option for investors looking to gain broad exposure to the Canadian equity market.\n\nKey features of XIU include its low management expense ratio (MER), which makes it an attractive choice for long-term investors. Additionally, the ETF is known for its liquidity, allowing for easy buying and selling on the TSX. With a focus on large-cap stocks, XIU aims to provide capital appreciation along with potential dividend income, making it suitable for a range of investment strategies.",
+  "overview": "The iShares S&P/TSX 60 Index ETF (XIU.TO) tracks the S&P/TSX 60 Index, comprising 60 of the largest and most liquid Canadian stocks. As Canada's oldest and most traded ETF, XIU provides blue-chip exposure across financials, energy, materials, and other key Canadian sectors. With approximately CAD $12 billion in AUM, it is the largest equity ETF on the TSX. XIU's MER is 0.18%, and it is known for exceptional liquidity with tight bid-ask spreads, making it a staple for both retail and institutional investors.",
   "bullCase": [
-    "Provides exposure to 60 of Canada's largest and most liquid companies, ensuring diversification.",
-    "Low management expense ratio, making it a cost-effective investment option.",
-    "Potential for both capital appreciation and dividend income, appealing to various investor profiles."
+    "Canada's most liquid ETF with ~CAD $12 billion AUM and extremely tight bid-ask spreads.",
+    "Low MER of 0.18% for blue-chip Canadian large-cap exposure.",
+    "Solid dividend yield from Canada's top 60 companies, including major banks and energy producers."
   ],
   "bearCase": [
-    "Concentration in large-cap stocks may limit growth potential compared to mid and small-cap investments.",
-    "Performance is closely tied to the Canadian economy, which may be affected by commodity price fluctuations.",
-    "Market volatility can impact the value of the ETF, especially during economic downturns."
+    "Only 60 stocks — less diversified than broad-market alternatives like XIC (~240 stocks).",
+    "Heavy concentration in financials and energy sectors, tied to commodity and interest rate cycles.",
+    "Large-cap only — no exposure to mid or small-cap growth opportunities."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 10 billion",
-    "peRatio": "0.18 (MER)",
-    "dividendYield": "approximately 3-4%",
+    "marketCap": "Approximately CAD $12 billion AUM",
+    "peRatio": "0.18% MER",
+    "dividendYield": "Approximately 3-4% yield",
     "sector": "ETF"
   },
-  "analystSummary": "Overall, XIU is viewed as a solid choice for investors seeking exposure to the Canadian equity market, particularly for those focused on large-cap stocks.",
-  "seoDescription": "Explore whether to buy XIU with our comprehensive analysis of the iShares S&P/TSX 60 Index ETF.",
-  "generatedAt": "2026-03-09T13:36:28.009Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "XIU remains the benchmark Canadian equity ETF. Its 0.18% MER, ~$12B AUM, and unmatched liquidity make it the default choice for S&P/TSX 60 exposure, though investors wanting broader coverage may prefer XIC.",
+  "seoDescription": "Explore whether to buy XIU with our comprehensive analysis of the iShares S&P/TSX 60 Index ETF — Canada's largest equity ETF at 0.18% MER.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

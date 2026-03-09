@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The iShares Core MSCI All Country World ex Canada Index ETF (XAW) aims to provide investors with exposure to a broad range of global equities, excluding Canadian stocks. It tracks the MSCI All Country World ex Canada Index, which includes large and mid-cap companies across developed and emerging markets. The ETF employs a passive investment strategy, seeking to replicate the performance of the underlying index by holding a diversified portfolio of stocks from various sectors and regions.\n\nXAW is designed for investors looking for a cost-effective way to gain international equity exposure while maintaining a diversified portfolio. With a focus on low management fees and a broad investment scope, it is suitable for both long-term investors and those looking to diversify their holdings outside of Canada.",
+  "overview": "The iShares Core MSCI All Country World ex Canada Index ETF (XAW.TO) provides exposure to global equities excluding Canada. It tracks the MSCI ACWI ex Canada IMI Index, covering large, mid, and small-cap companies across developed and emerging markets worldwide. XAW is the go-to ETF for Canadian investors who want everything outside Canada in a single ticker — U.S., Europe, Japan, UK, Australia, emerging markets, and more. With an MER of 0.22%, it is commonly paired with a Canadian equity ETF like XIC to build a complete global portfolio.",
   "bullCase": [
-    "Provides broad exposure to global equities, enhancing diversification.",
-    "Low management expense ratio (MER) makes it cost-effective for long-term investors.",
-    "Access to both developed and emerging markets, capturing growth opportunities worldwide."
+    "One-ticker global diversification excluding Canada at a competitive 0.22% MER.",
+    "Covers both developed and emerging markets across all cap sizes.",
+    "Perfect complement to a Canadian equity ETF for complete global portfolio construction."
   ],
   "bearCase": [
-    "Excludes Canadian equities, which may limit exposure to local market growth.",
-    "Currency fluctuations can impact returns for Canadian investors.",
-    "Market volatility in emerging markets can introduce additional risks."
+    "Excludes Canadian equities — must be paired with a Canadian ETF for full coverage.",
+    "Currency fluctuations across USD, EUR, JPY, and EM currencies add volatility.",
+    "Heavy U.S. weighting (~60%) means performance is still largely driven by U.S. markets."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 3 billion",
+    "marketCap": "Approximately CAD 4 billion AUM",
     "peRatio": "0.22% MER",
-    "dividendYield": "approximately 2-3%",
+    "dividendYield": "Approximately 1.5-2% yield",
     "sector": "ETF"
   },
-  "analystSummary": "Overall, XAW is viewed as a strong option for investors seeking low-cost global equity exposure, though it carries risks associated with international markets.",
-  "seoDescription": "Explore whether to buy XAW with our comprehensive analysis of the iShares Core MSCI All Country World ex Canada Index ETF.",
-  "generatedAt": "2026-03-09T13:38:06.412Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "XAW is the standard ex-Canada global equity ETF for Canadian portfolios. At 0.22% MER, it pairs perfectly with XIC to give full global coverage. Covers developed + emerging markets in one ticker.",
+  "seoDescription": "Explore whether to buy XAW — iShares Core MSCI All Country World ex Canada Index ETF at 0.22% MER for global equity exposure.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

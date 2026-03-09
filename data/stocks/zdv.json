@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The BMO Canadian Dividend ETF (ZDV) is designed to provide investors with exposure to a diversified portfolio of Canadian dividend-paying stocks. The ETF primarily tracks the performance of the BMO Canadian Dividend Index, which includes companies that have a history of paying dividends and are expected to continue doing so. ZDV employs a strategy focused on high-quality, sustainable dividend growth, making it an attractive option for income-seeking investors. Key features include a low management expense ratio and a focus on large-cap Canadian companies that demonstrate strong fundamentals.",
+  "overview": "The BMO Canadian Dividend ETF (ZDV.TO) provides exposure to a diversified portfolio of high-dividend-paying Canadian stocks. The ETF focuses on companies with strong dividend histories and sustainable payout ratios, primarily across financials, energy, utilities, and telecoms. With a yield of approximately 4-5% and an MER of 0.39%, ZDV offers a balance between income generation and cost efficiency. It holds a broader set of dividend payers than bank-only ETFs like ZEB, providing more sector diversification within the Canadian dividend space.",
   "bullCase": [
-    "Provides exposure to a diversified portfolio of high-quality Canadian dividend stocks.",
-    "Offers attractive dividend yields, appealing to income-focused investors.",
-    "Low management fees compared to actively managed funds, enhancing net returns."
+    "Attractive yield of approximately 4-5% from diversified Canadian dividend payers.",
+    "Broader sector exposure than bank-focused ETFs — includes energy, utilities, telecoms, and pipelines.",
+    "Reasonable MER of 0.39% for an actively screened dividend strategy."
   ],
   "bearCase": [
-    "Concentration in the Canadian market may expose investors to country-specific risks.",
-    "Dividend cuts from underlying holdings can negatively impact income and total returns.",
-    "Market volatility can affect the value of the ETF, especially during economic downturns."
+    "100% Canadian exposure means no international diversification.",
+    "Dividend cuts from underlying holdings can reduce income, especially during economic downturns.",
+    "Higher MER than passive broad-market alternatives like XIC (0.06%)."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1.5 billion",
-    "peRatio": "0.55% MER",
-    "dividendYield": "approximately 4.5%",
+    "marketCap": "Approximately CAD 1.5 billion AUM",
+    "peRatio": "0.39% MER",
+    "dividendYield": "Approximately 4-5% yield",
     "sector": "ETF"
   },
-  "analystSummary": "Overall, ZDV is viewed as a solid choice for investors seeking reliable income through dividends, but it carries risks associated with market concentration.",
-  "seoDescription": "Explore our ZDV ETF analysis to determine if BMO Canadian Dividend ETF is a smart buy for your investment portfolio.",
-  "generatedAt": "2026-03-09T13:37:45.422Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "ZDV is a solid Canadian dividend ETF at 0.39% MER offering ~4-5% yield across financials, energy, utilities, and telecoms. More diversified than bank-only ETFs, it suits income investors wanting broad Canadian dividend exposure.",
+  "seoDescription": "Explore our ZDV ETF analysis — BMO Canadian Dividend ETF with ~4-5% yield at 0.39% MER across Canada's top dividend sectors.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

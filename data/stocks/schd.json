@@ -1,6 +1,6 @@
 {
   "ticker": "SCHD",
-  "company": "Schwab US Dividend Equity ETF",
+  "company": "Schwab U.S. Dividend Equity ETF",
   "exchange": "NYSE",
   "sector": "ETF",
   "country": "US",
@@ -23,6 +23,6 @@
   },
   "analystSummary": "Overall, SCHD is viewed favorably for its focus on quality dividend stocks and low fees, making it a solid choice for income investors.",
   "seoDescription": "Explore SCHD ETF analysis to determine if you should buy SCHD for dividend income and growth potential.",
-  "generatedAt": "2026-03-09T13:43:08.055Z",
-  "generatedBy": "gpt-4o-mini"
+  "generatedAt": "2026-03-09T00:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

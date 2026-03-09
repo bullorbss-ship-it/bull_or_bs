@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The Vanguard Growth ETF Portfolio (VGRO) is designed to provide long-term capital growth by investing primarily in equity securities. This ETF tracks a diversified portfolio of global equities, with a focus on growth-oriented companies across various sectors. VGRO employs a strategic asset allocation approach, typically maintaining a higher percentage of equities compared to fixed income, making it suitable for investors with a higher risk tolerance who are looking for growth potential over the long term.",
+  "overview": "The Vanguard Growth ETF Portfolio (VGRO.TO) is an all-in-one asset allocation ETF with an 80% equity / 20% fixed-income split. The equity portion is globally diversified across Canadian, U.S., international developed, and emerging market stocks. The 20% fixed-income sleeve holds Canadian, U.S., and global aggregate bonds through underlying Vanguard bond ETFs. VGRO automatically rebalances to maintain its 80/20 target. At 0.24% MER, it sits between VEQT (100% equity) and VBAL (60/40) in terms of risk, making it popular with growth-oriented investors who want a small bond cushion.",
   "bullCase": [
-    "Diversified exposure to global growth equities, reducing individual stock risk.",
-    "Managed by Vanguard, a reputable firm known for low-cost investment options.",
-    "Suitable for long-term investors seeking capital appreciation with a growth-focused strategy."
+    "80/20 equity/bond split offers strong growth potential with a modest fixed-income buffer.",
+    "All-in-one solution at 0.24% MER with automatic global rebalancing.",
+    "Sweet spot between VEQT (too aggressive) and VBAL (too conservative) for many investors."
   ],
   "bearCase": [
-    "Higher volatility due to significant equity exposure, which may not suit conservative investors.",
-    "Potential for lower returns in bear markets or economic downturns.",
-    "Expense ratio, while competitive, may still be a consideration for cost-sensitive investors."
+    "80% equity exposure still means significant drawdowns during market crashes.",
+    "The 20% bond allocation may drag returns in prolonged bull markets.",
+    "No ability to customize the regional or asset class weightings."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1.5 billion",
-    "peRatio": "0.22% MER",
-    "dividendYield": "approximately 1.5% or N/A",
+    "marketCap": "Approximately CAD 5 billion AUM",
+    "peRatio": "0.24% MER",
+    "dividendYield": "Approximately 1.5-2% yield",
     "sector": "ETF"
   },
-  "analystSummary": "VGRO is generally viewed as a solid choice for growth-oriented investors, although it carries higher risk due to its equity focus.",
-  "seoDescription": "Explore VGRO ETF analysis to determine if this growth-focused investment is right for your portfolio.",
-  "generatedAt": "2026-03-09T13:37:52.179Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "VGRO is the Goldilocks all-in-one ETF — 80% equity / 20% bonds at 0.24% MER. It provides strong growth exposure with a small fixed-income cushion for volatility dampening.",
+  "seoDescription": "Explore VGRO ETF analysis — Vanguard Growth ETF Portfolio with 80/20 equity/bonds at 0.24% MER. Is it the right fit?",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

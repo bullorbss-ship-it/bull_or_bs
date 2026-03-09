@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The BMO Covered Call Canadian Banks ETF (ZWB) is designed to provide investors with exposure to a diversified portfolio of Canadian bank stocks while generating additional income through a covered call strategy. This ETF primarily invests in the largest Canadian banks, including Royal Bank of Canada, Toronto-Dominion Bank, and Bank of Nova Scotia, among others. By writing covered call options on the underlying stocks, ZWB aims to enhance income, making it an attractive option for income-focused investors.\n\nThe ETF's strategy allows it to benefit from the potential capital appreciation of the banks while also providing a steady stream of income from option premiums. This dual approach can be particularly appealing in a low-interest-rate environment, where traditional fixed-income investments may offer lower yields. Investors should note that while the covered call strategy can enhance income, it may also limit upside potential during strong market rallies.",
+  "overview": "The BMO Covered Call Canadian Banks ETF (ZWB.TO) holds Canada's Big 6 bank stocks and writes covered call options on them to generate enhanced income. This strategy boosts the yield to approximately 7-8%, significantly higher than plain bank ETFs like ZEB (~4-5%). The trade-off is that covered calls cap upside potential — when bank stocks rally strongly, ZWB participates less in the gains because the call options get exercised. ZWB has an MER of 0.71%, higher than ZEB (0.28%) due to the active options overlay. It is popular with retirees and income investors who prioritize cash flow over capital appreciation.",
   "bullCase": [
-    "Provides exposure to a stable sector with strong fundamentals, Canadian banks are known for their resilience.",
-    "Generates additional income through covered call options, enhancing overall yield.",
-    "Lower volatility compared to individual bank stocks, making it suitable for conservative investors."
+    "Enhanced yield of approximately 7-8% from covered call premiums on top of bank dividends.",
+    "Exposure to Canada's Big 6 banks — the most stable dividend payers in the country.",
+    "Monthly distributions make it attractive for retirees and income-focused portfolios."
   ],
   "bearCase": [
-    "Limited upside potential due to the covered call strategy, which caps gains during market rallies.",
-    "Performance may be affected by declining bank stock prices or economic downturns.",
-    "Higher management fees compared to passive ETFs, which may impact net returns."
+    "Covered call strategy caps upside — significantly underperforms in strong bank rallies.",
+    "Higher MER of 0.71% eats into net returns compared to passive alternatives like ZEB (0.28%).",
+    "Still fully exposed to bank sector downside — covered calls only provide a small buffer."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1.2 billion",
-    "peRatio": "0.65% MER",
-    "dividendYield": "approximately 5-6%",
+    "marketCap": "Approximately CAD 2.5 billion AUM",
+    "peRatio": "0.71% MER",
+    "dividendYield": "Approximately 7-8% yield",
     "sector": "ETF"
   },
-  "analystSummary": "The BMO Covered Call Canadian Banks ETF (ZWB) is generally viewed as a solid choice for income-seeking investors looking for exposure to the Canadian banking sector, though it comes with some limitations on capital appreciation.",
-  "seoDescription": "Explore our ZWB ETF analysis to determine if BMO Covered Call Canadian Banks ETF is a smart buy for your portfolio.",
-  "generatedAt": "2026-03-09T13:37:29.346Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "ZWB trades upside for income — ~7-8% yield via covered calls on Big 6 banks, but capped gains. At 0.71% MER, it's expensive but popular with income-focused investors who prioritize cash flow.",
+  "seoDescription": "Explore our ZWB ETF analysis — BMO Covered Call Canadian Banks ETF with ~7-8% yield at 0.71% MER. Is the income worth the capped upside?",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

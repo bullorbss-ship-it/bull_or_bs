@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The Vanguard All-Equity ETF Portfolio (VEQT) is designed to provide investors with a diversified exposure to global equity markets. It primarily invests in a mix of equity securities from various regions, including Canada, the United States, and international markets, with a focus on long-term capital growth. The ETF employs a passive investment strategy, tracking a blend of underlying index funds to achieve broad market exposure while minimizing costs. Key features include a low management expense ratio and automatic rebalancing to maintain its target asset allocation.",
+  "overview": "The Vanguard All-Equity ETF Portfolio (VEQT.TO) is a 100% equity all-in-one ETF that provides globally diversified stock exposure with zero bonds. The approximate allocation is ~40% U.S., ~30% Canada, ~20% International Developed, and ~10% Emerging Markets. VEQT holds underlying Vanguard index ETFs and automatically rebalances to maintain its target allocation. With an MER of 0.24%, it is designed for long-term investors with high risk tolerance who want maximum equity exposure in a single ticker. No fixed income, no bonds — pure equity growth.",
   "bullCase": [
-    "Low management fees make it cost-effective for long-term investors.",
-    "Provides broad diversification across global equity markets, reducing individual stock risk.",
-    "Ideal for investors seeking a simple, all-in-one equity investment solution."
+    "100% equity with global diversification — maximum long-term growth potential.",
+    "All-in-one solution at 0.24% MER with automatic rebalancing across 4 regions.",
+    "Ideal for young investors with long time horizons who can tolerate volatility."
   ],
   "bearCase": [
-    "High equity exposure may lead to increased volatility during market downturns.",
-    "Lack of fixed income investments may not suit conservative investors.",
-    "Performance is tied to equity markets, which can be unpredictable."
+    "100% equity means full exposure to market downturns — can drop 30-50% in crashes.",
+    "No fixed-income cushion — not suitable for conservative or near-retirement investors.",
+    "Currency exposure to USD, EUR, JPY, and emerging market currencies adds volatility."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1 billion in AUM",
-    "peRatio": "0.22% MER/expense ratio",
-    "dividendYield": "approximately 1.5% yield",
+    "marketCap": "Approximately CAD 5 billion AUM",
+    "peRatio": "0.24% MER",
+    "dividendYield": "Approximately 1.5-2% yield",
     "sector": "ETF"
   },
-  "analystSummary": "VEQT is generally viewed as a solid choice for investors looking for a low-cost, diversified equity investment, though it carries inherent market risks.",
-  "seoDescription": "Explore VEQT ETF analysis to determine if this all-equity portfolio is the right investment for you.",
-  "generatedAt": "2026-03-09T13:37:01.387Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "VEQT is the most popular all-equity ETF in Canada. Its 0.24% MER buys you ~40% US, ~30% Canada, ~20% International, ~10% Emerging Markets — all automatically rebalanced. Pure equity, no bonds.",
+  "seoDescription": "Explore VEQT ETF analysis — Vanguard All-Equity Portfolio with 100% global equity at 0.24% MER. Is it right for your portfolio?",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

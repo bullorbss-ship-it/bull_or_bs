@@ -4,25 +4,26 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The Global X S&P 500 Index Corporate Class ETF (HXS) aims to provide investment results that correspond to the performance of the S&P 500 Index, which includes 500 of the largest U.S. companies. This ETF employs a passive management strategy, seeking to replicate the index's performance by investing in a diversified portfolio of stocks that are constituents of the S&P 500. Key features include low management fees and the potential for capital appreciation through exposure to large-cap U.S. equities.\n\nHXS is designed for investors looking for a straightforward way to gain exposure to the U.S. equity market without the complexities of individual stock selection. The ETF holds a broad range of sectors, including technology, healthcare, and consumer discretionary, making it a suitable option for those seeking diversification within their investment portfolio.",
+  "overview": "The Global X S&P 500 Index Corporate Class ETF (HXS.TO), formerly Horizons S&P 500 Index ETF, tracks the S&P 500 using a swap-based (total return) structure. Unlike traditional ETFs, HXS does NOT pay distributions — instead, all returns (including dividends) are reflected in the share price through the swap. This makes it highly tax-efficient in non-registered accounts, as investors defer taxes until they sell. HXS is CAD-hedged, meaning it neutralizes USD/CAD currency fluctuations. MER is 0.10%. It is the preferred S&P 500 ETF for tax-conscious Canadian investors holding in taxable accounts.",
   "bullCase": [
-    "Low management expense ratio (MER) makes it cost-effective for long-term investors.",
-    "Provides broad exposure to the U.S. economy through the S&P 500, which includes leading companies across various sectors.",
-    "Potential for capital appreciation and dividend income, appealing to both growth and income-focused investors."
+    "Swap-based structure pays no distributions — extremely tax-efficient in non-registered accounts.",
+    "CAD-hedged, eliminating USD/CAD currency risk for Canadian investors.",
+    "Low MER of 0.10% for S&P 500 exposure with built-in hedging."
   ],
   "bearCase": [
-    "Exposure to U.S. market volatility can lead to significant fluctuations in value.",
-    "Currency risk for Canadian investors, as the ETF is denominated in U.S. dollars.",
-    "Limited to large-cap stocks, which may underperform compared to small or mid-cap stocks in certain market conditions."
+    "Swap counterparty risk — relies on a bank swap agreement rather than holding stocks directly.",
+    "CAD-hedged means no benefit when USD strengthens (unlike unhedged VFV).",
+    "No distributions means no regular cash income — unsuitable for income-seeking investors.",
+    "Tax-efficiency advantage only applies in non-registered accounts; no benefit in RRSP/TFSA."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1 billion",
-    "peRatio": "0.20% MER",
-    "dividendYield": "approximately 1.5% or N/A",
+    "marketCap": "Approximately CAD 3 billion AUM",
+    "peRatio": "0.10% MER",
+    "dividendYield": "N/A (swap-based, no distributions)",
     "sector": "ETF"
   },
-  "analystSummary": "Overall, HXS is viewed as a solid choice for investors seeking exposure to the U.S. equity market with low fees, though it carries inherent market risks.",
-  "seoDescription": "Explore if HXS is a good investment with our detailed analysis of the Global X S&P 500 Index ETF.",
-  "generatedAt": "2026-03-09T13:38:14.811Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "HXS is the tax-efficiency king for S&P 500 exposure in taxable Canadian accounts. Swap-based, CAD-hedged, 0.10% MER, zero distributions. Not ideal for registered accounts where VFV or ZSP may be better.",
+  "seoDescription": "Explore if HXS is right for you — Global X S&P 500 Index ETF, swap-based and CAD-hedged at 0.10% MER with zero distributions.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The iShares Core Equity ETF Portfolio (XEQT) is designed to provide investors with a diversified exposure to global equity markets. It primarily tracks the performance of various equity indices, including those from North America, Europe, and Asia, with a focus on large-cap stocks. The ETF employs a passive management strategy, aiming to replicate the performance of its underlying indices while maintaining a low-cost structure. Key features include a broad diversification across sectors and regions, making it suitable for long-term investors seeking growth through equity investments.",
+  "overview": "The iShares Core Equity ETF Portfolio (XEQT.TO) is a 100% equity all-in-one ETF providing globally diversified stock exposure with no bonds. Similar to VEQT, it holds a mix of U.S., Canadian, international developed, and emerging market equities through underlying iShares index ETFs. XEQT automatically rebalances to maintain its target allocation. With an MER of 0.20%, it is slightly cheaper than VEQT (0.24%) and is the iShares alternative for investors who want maximum equity growth in a single ticker.",
   "bullCase": [
-    "Low expense ratio makes it cost-effective for long-term investors.",
-    "Broad diversification reduces risk compared to individual stock investments.",
-    "Exposure to global markets can enhance growth potential."
+    "100% equity with global diversification at a competitive 0.20% MER.",
+    "Slightly cheaper than VEQT (0.20% vs 0.24%), saving costs over long holding periods.",
+    "All-in-one solution with automatic rebalancing — no portfolio management required."
   ],
   "bearCase": [
-    "Market volatility can lead to significant fluctuations in value.",
-    "Limited downside protection during market downturns.",
-    "Currency risk associated with international holdings may affect returns."
+    "100% equity means full drawdown exposure during market crashes.",
+    "No fixed-income allocation — not appropriate for conservative investors.",
+    "Currency exposure across multiple regions adds volatility for Canadian investors."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 1 billion",
+    "marketCap": "Approximately CAD 4 billion AUM",
     "peRatio": "0.20% MER",
-    "dividendYield": "approximately 1.5% yield",
+    "dividendYield": "Approximately 1.5-2% yield",
     "sector": "ETF"
   },
-  "analystSummary": "XEQT is generally viewed as a solid choice for investors seeking broad equity exposure with a low-cost structure, though it carries inherent market risks.",
-  "seoDescription": "Explore XEQT ETF analysis: Should I buy XEQT? Discover its performance, strategy, and suitability for your investment portfolio.",
-  "generatedAt": "2026-03-09T13:36:53.462Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "XEQT is the iShares answer to VEQT — 100% global equity at 0.20% MER. It's slightly cheaper and uses iShares underlying ETFs instead of Vanguard. Both are excellent all-equity options.",
+  "seoDescription": "Explore XEQT ETF analysis: iShares Core Equity ETF Portfolio — 100% global equity at 0.20% MER. Should you buy XEQT?",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }

@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The BMO Aggregate Bond Index ETF (ZAG) seeks to replicate the performance of the FTSE Canada Universe Bond Index, which includes a diverse range of Canadian investment-grade bonds. The ETF primarily holds government, corporate, and municipal bonds, providing investors with exposure to the broader Canadian fixed-income market. ZAG employs a passive management strategy, aiming to track the index's performance while minimizing tracking error and management costs.",
+  "overview": "The BMO Aggregate Bond Index ETF (ZAG.TO) seeks to replicate the performance of the FTSE Canada Universe Bond Index, which includes a diverse range of Canadian investment-grade bonds. The ETF holds government (federal and provincial), corporate, and municipal bonds, providing broad exposure to the Canadian fixed-income market. With an MER of just 0.09%, ZAG is one of the cheapest bond ETFs in Canada and is widely used as a core fixed-income holding in balanced portfolios. It employs a passive management strategy, aiming to track the index while minimizing tracking error.",
   "bullCase": [
-    "Provides broad exposure to the Canadian bond market, reducing individual bond risk.",
-    "Low management expense ratio (MER) makes it a cost-effective option for bond investors.",
-    "Offers regular income through interest payments, appealing to income-focused investors."
+    "Ultra-low MER of 0.09% makes it one of the most cost-effective bond ETFs in Canada.",
+    "Provides broad exposure to the Canadian bond market across government and corporate issuers.",
+    "Offers regular income through interest payments, appealing to income-focused and conservative investors."
   ],
   "bearCase": [
-    "Interest rate fluctuations can negatively impact bond prices, leading to potential capital losses.",
-    "May underperform in a rising interest rate environment compared to equities.",
-    "Limited growth potential compared to equity investments, which may deter growth-oriented investors."
+    "Interest rate increases cause bond prices to fall, leading to potential capital losses.",
+    "May underperform in a rising interest rate environment compared to equities or short-duration bonds.",
+    "Limited growth potential compared to equity investments."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 3 billion",
-    "peRatio": "0.18 (MER)",
-    "dividendYield": "approximately 3-4%",
+    "marketCap": "Approximately CAD 8 billion AUM",
+    "peRatio": "0.09% MER",
+    "dividendYield": "Approximately 3-4% yield",
     "sector": "ETF"
   },
-  "analystSummary": "ZAG is generally viewed as a solid choice for conservative investors seeking stable income through bonds, though it carries interest rate risk.",
-  "seoDescription": "Explore whether ZAG is a good investment with our detailed analysis of the BMO Aggregate Bond Index ETF.",
-  "generatedAt": "2026-03-09T13:37:20.689Z",
-  "generatedBy": "gpt-4o-mini"
+  "analystSummary": "ZAG is the default Canadian aggregate bond ETF for most passive investors. Its 0.09% MER and broad FTSE Canada Universe Bond Index tracking make it a core fixed-income building block.",
+  "seoDescription": "Explore whether ZAG is a good investment with our detailed analysis of the BMO Aggregate Bond Index ETF — 0.09% MER, broad Canadian bond exposure.",
+  "generatedAt": "2026-03-09T20:00:00.000Z",
+  "generatedBy": "manually-corrected"
 }
