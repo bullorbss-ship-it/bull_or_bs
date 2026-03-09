@@ -44,6 +44,16 @@ export function middleware(req: NextRequest) {
 
   // Rate limit API routes
   if (path.startsWith('/api/')) {
+    // /api/admin/login — very strict: 5 attempts per 15 minutes (brute-force protection)
+    if (path.startsWith('/api/admin/login')) {
+      if (!rateLimit(`login:${ip}`, 5, 15 * 60 * 1000)) {
+        return NextResponse.json(
+          { error: 'Too many login attempts. Try again in 15 minutes.' },
+          { status: 429 }
+        );
+      }
+    }
+
     // /api/generate — strict: 5 requests per minute (costs money)
     if (path.startsWith('/api/generate')) {
       if (!rateLimit(`generate:${ip}`, 5, 60 * 1000)) {
