@@ -203,26 +203,31 @@ Return ONLY valid JSON.`;
 // ─── Screenshot-based generation ──────────────────────────────────────────────
 
 export async function generateScreenshotRoast(
-  images: string[],
+  media: string[],
   source?: string,
+  textData?: string,
 ): Promise<GenerateResult> {
   const start = Date.now();
   const today = new Date().toISOString().split('T')[0];
 
   const referenceSheet = buildTickerReferenceSheet();
 
-  const userMessage = `Analyze the screenshot(s) of this financial article/recommendation.
+  const textDataBlock = textData
+    ? `\n=== PASTED DATA (treat as ground truth) ===\n${textData}\n`
+    : '';
 
-SOURCE: ${source || 'Financial publication (extract from screenshot)'}
+  const userMessage = `Analyze the provided data about this financial article/recommendation.
+
+SOURCE: ${source || 'Financial publication (extract from provided data)'}
 DATE: ${today}
 
 ${referenceSheet ? `=== KNOWN TICKERS (for identity verification) ===\n${referenceSheet}\n` : ''}
-
-Extract ALL data visible in the screenshot(s). Roast the methodology and framing — the numbers shown are your ground truth.
+${textDataBlock}
+Extract ALL data from the screenshots/documents/pasted text. Roast the methodology and framing — the numbers provided are your ground truth.
 
 Return ONLY valid JSON.`;
 
-  const response = await callAI(SCREENSHOT_ROAST_PROMPT, userMessage, 8000, images);
+  const response = await callAI(SCREENSHOT_ROAST_PROMPT, userMessage, 8000, media.length > 0 ? media : undefined);
 
   const durationMs = Date.now() - start;
 
@@ -259,13 +264,10 @@ Return ONLY valid JSON.`;
 }
 
 export async function generateScreenshotPick(
-  images: string[],
+  media: string[],
   topic?: string,
+  textData?: string,
 ): Promise<GenerateResult> {
-  if (images.length > 3) {
-    throw new Error('Screenshot pick supports maximum 3 images');
-  }
-
   const start = Date.now();
   const today = new Date().toISOString().split('T')[0];
 
@@ -273,18 +275,24 @@ export async function generateScreenshotPick(
 
   const topicLine = topic ? `\nTOPIC CONTEXT: "${topic}"\n` : '';
 
-  const userMessage = `Compare the stocks shown in these ${images.length} screenshot(s).
+  const textDataBlock = textData
+    ? `\n=== PASTED DATA (treat as ground truth) ===\n${textData}\n`
+    : '';
+
+  const inputCount = media.length + (textData ? 1 : 0);
+
+  const userMessage = `Compare the stocks from the provided data (${inputCount} source${inputCount !== 1 ? 's' : ''}).
 
 DATE: ${today}
 ${topicLine}
 ${referenceSheet ? `=== KNOWN TICKERS (for identity verification) ===\n${referenceSheet}\n` : ''}
-
-Extract ALL data from each screenshot. Compare ONLY these stocks — do NOT add stocks that aren't shown.
+${textDataBlock}
+Extract ALL data from screenshots/documents/pasted text. Compare ONLY these stocks — do NOT add stocks that aren't shown.
 Include a comparison table in your analysis.
 
 Return ONLY valid JSON.`;
 
-  const response = await callAI(SCREENSHOT_PICK_PROMPT, userMessage, 8000, images);
+  const response = await callAI(SCREENSHOT_PICK_PROMPT, userMessage, 8000, media.length > 0 ? media : undefined);
 
   const durationMs = Date.now() - start;
 

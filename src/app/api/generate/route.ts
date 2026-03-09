@@ -118,13 +118,15 @@ export async function POST(req: NextRequest) {
   }
 
   if (type === 'screenshot-roast') {
-    const { images, source, ticker: inputTicker } = body;
-    if (!images || !Array.isArray(images) || images.length === 0) {
-      return NextResponse.json({ error: 'Missing images array' }, { status: 400 });
+    const { images, source, ticker: inputTicker, textData } = body;
+    const hasMedia = images && Array.isArray(images) && images.length > 0;
+    const hasText = textData && typeof textData === 'string' && textData.trim().length > 0;
+    if (!hasMedia && !hasText) {
+      return NextResponse.json({ error: 'Provide at least one screenshot, PDF, or pasted data' }, { status: 400 });
     }
 
     try {
-      const result = await generateScreenshotRoast(images, source);
+      const result = await generateScreenshotRoast(images || [], source, textData);
       const today = new Date().toISOString().split('T')[0];
       const ticker = inputTicker || result.content.candidates?.[0]?.ticker || 'unknown';
       const slug = `${ticker.toLowerCase()}-roast-${today}`;
@@ -167,16 +169,18 @@ export async function POST(req: NextRequest) {
   }
 
   if (type === 'screenshot-pick') {
-    const { images, topic } = body;
-    if (!images || !Array.isArray(images) || images.length === 0) {
-      return NextResponse.json({ error: 'Missing images array' }, { status: 400 });
+    const { images, topic, textData } = body;
+    const hasMedia = images && Array.isArray(images) && images.length > 0;
+    const hasText = textData && typeof textData === 'string' && textData.trim().length > 0;
+    if (!hasMedia && !hasText) {
+      return NextResponse.json({ error: 'Provide at least one screenshot, PDF, or pasted data' }, { status: 400 });
     }
-    if (images.length > 3) {
-      return NextResponse.json({ error: 'Maximum 3 images for screenshot pick' }, { status: 400 });
+    if (images && images.length > 3) {
+      return NextResponse.json({ error: 'Maximum 3 files for screenshot pick' }, { status: 400 });
     }
 
     try {
-      const result = await generateScreenshotPick(images, topic);
+      const result = await generateScreenshotPick(images || [], topic, textData);
       const today = new Date().toISOString().split('T')[0];
       const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
       const slug = `ai-screenshot-pick${topicSlug}-${today}`;

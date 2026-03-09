@@ -272,25 +272,26 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   const [source, setSource] = useState('');
   const [topic, setTopic] = useState('');
   const [images, setImages] = useState<string[]>([]);
+  const [textData, setTextData] = useState('');
   const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
 
-  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files) return;
-    const maxImages = genType === 'screenshot-pick' ? 3 : 2;
-    const remaining = maxImages - images.length;
+    const maxFiles = genType === 'screenshot-pick' ? 3 : 2;
+    const remaining = maxFiles - images.length;
     const toProcess = Array.from(files).slice(0, remaining);
 
     for (const file of toProcess) {
-      if (file.size > 5 * 1024 * 1024) {
-        alert(`${file.name} is over 5MB limit`);
+      if (file.size > 10 * 1024 * 1024) {
+        alert(`${file.name} is over 10MB limit`);
         continue;
       }
       const reader = new FileReader();
       reader.onload = () => {
         const result = reader.result as string;
         setImages(prev => {
-          if (prev.length >= maxImages) return prev;
+          if (prev.length >= maxFiles) return prev;
           return [...prev, result];
         });
       };
@@ -301,6 +302,11 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
 
   function removeImage(index: number) {
     setImages(prev => prev.filter((_, i) => i !== index));
+  }
+
+  function getFileLabel(dataUri: string): string {
+    if (dataUri.startsWith('data:application/pdf')) return 'PDF';
+    return 'IMG';
   }
 
   async function handleCommit(slug: string, articleType: string) {
@@ -346,9 +352,9 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       } else if (genType === 'pick') {
         body = { type: 'pick', topic: topic || undefined };
       } else if (genType === 'screenshot-roast') {
-        body = { type: 'screenshot-roast', images, source: source || undefined, ticker: ticker || undefined };
+        body = { type: 'screenshot-roast', images: images.length > 0 ? images : undefined, source: source || undefined, ticker: ticker || undefined, textData: textData || undefined };
       } else {
-        body = { type: 'screenshot-pick', images, topic: topic || undefined };
+        body = { type: 'screenshot-pick', images: images.length > 0 ? images : undefined, topic: topic || undefined, textData: textData || undefined };
       }
 
       const res = await fetch('/api/generate', {
@@ -383,6 +389,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       setSource('');
       setTopic('');
       setImages([]);
+      setTextData('');
     } catch (err) {
       setState({ status: 'error', message: err instanceof Error ? err.message : 'Network error' });
     }
@@ -526,92 +533,84 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           {/* Step 1: Stock name */}
           <div>
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
-              <span className="text-red font-bold mr-1">1.</span> Stock / Company Name *
+              <span className="text-red font-bold mr-1">1.</span> Stock / Company Name
             </label>
             <input
               type="text"
               value={ticker}
               onChange={e => setTicker(e.target.value.toUpperCase())}
-              placeholder="e.g. TSLA, RY.TO, IFC.TO, Intact Financial"
+              placeholder="e.g. TSLA, RY.TO, IFC.TO"
               className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground font-mono focus:outline-none focus:border-accent"
               disabled={state.status === 'generating'}
             />
           </div>
 
-          {/* Step 2: Stock data screenshot */}
+          {/* Step 2: Data input — files OR text */}
           <div>
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
-              <span className="text-red font-bold mr-1">2.</span> Stock Data Screenshot (Google Finance, Yahoo, etc.)
+              <span className="text-red font-bold mr-1">2.</span> Stock Data + Article *
             </label>
-            <div className="border-2 border-dashed border-card-border rounded-lg p-4 text-center hover:border-red/40 transition-colors">
-              {images.length > 0 && images[0] ? (
-                <div className="space-y-2">
-                  <div className="relative inline-block">
-                    <img src={images[0]} alt="Stock data" className="max-h-36 rounded-lg border border-card-border" />
-                    <button
-                      onClick={() => removeImage(0)}
-                      className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
-                    >
-                      X
-                    </button>
-                    <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-1.5 py-0.5 rounded font-mono">Data</span>
-                  </div>
+            <p className="text-xs text-muted-light mb-3">Upload screenshots/PDFs, paste raw data, or both. At least one input required.</p>
+
+            {/* File uploads */}
+            <div className="border-2 border-dashed border-card-border rounded-lg p-4 text-center hover:border-red/40 transition-colors mb-3">
+              {images.length > 0 && (
+                <div className="flex flex-wrap gap-3 mb-3 justify-center">
+                  {images.map((img, i) => (
+                    <div key={i} className="relative">
+                      {img.startsWith('data:application/pdf') ? (
+                        <div className="h-28 w-24 rounded-lg border border-card-border bg-card-bg flex items-center justify-center">
+                          <span className="text-red font-mono font-bold text-sm">PDF</span>
+                        </div>
+                      ) : (
+                        <img src={img} alt={`File ${i + 1}`} className="max-h-28 rounded-lg border border-card-border" />
+                      )}
+                      <button
+                        onClick={() => removeImage(i)}
+                        className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
+                      >
+                        X
+                      </button>
+                      <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-1.5 py-0.5 rounded font-mono">
+                        {getFileLabel(img)}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ) : (
+              )}
+              {images.length < 2 && (
                 <label className="cursor-pointer block">
-                  <p className="text-muted text-sm mb-1">Upload stock data screenshot</p>
-                  <p className="text-xs text-muted-light">Price, P/E, market cap, yield, etc.</p>
+                  <p className="text-muted text-sm mb-1">{images.length === 0 ? 'Upload screenshots or PDFs' : 'Add another file'}</p>
+                  <p className="text-xs text-muted-light">PNG, JPG, WebP, or PDF — max 10MB</p>
                   <input
                     type="file"
-                    accept="image/png,image/jpeg,image/webp"
-                    onChange={handleImageUpload}
+                    accept="image/png,image/jpeg,image/webp,application/pdf"
+                    onChange={handleFileUpload}
                     className="hidden"
                     disabled={state.status === 'generating'}
                   />
                 </label>
               )}
             </div>
+
+            {/* Text paste area */}
+            <textarea
+              value={textData}
+              onChange={e => setTextData(e.target.value)}
+              placeholder="Or paste raw data here — Google Finance stats, article text, HTML, anything. AI will extract the numbers."
+              rows={5}
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground text-sm font-mono focus:outline-none focus:border-accent resize-y"
+              disabled={state.status === 'generating'}
+            />
+            {textData.trim() && (
+              <p className="text-xs text-accent mt-1">{textData.trim().split(/\s+/).length} words pasted</p>
+            )}
           </div>
 
-          {/* Step 3: Article screenshot */}
+          {/* Step 3: Source */}
           <div>
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
-              <span className="text-red font-bold mr-1">3.</span> Article / Recommendation Screenshot *
-            </label>
-            <div className="border-2 border-dashed border-card-border rounded-lg p-4 text-center hover:border-red/40 transition-colors">
-              {images.length > 1 && images[1] ? (
-                <div className="space-y-2">
-                  <div className="relative inline-block">
-                    <img src={images[1]} alt="Article" className="max-h-36 rounded-lg border border-card-border" />
-                    <button
-                      onClick={() => removeImage(1)}
-                      className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
-                    >
-                      X
-                    </button>
-                    <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-1.5 py-0.5 rounded font-mono">Article</span>
-                  </div>
-                </div>
-              ) : (
-                <label className="cursor-pointer block">
-                  <p className="text-muted text-sm mb-1">Upload article screenshot</p>
-                  <p className="text-xs text-muted-light">Motley Fool, Seeking Alpha, etc.</p>
-                  <input
-                    type="file"
-                    accept="image/png,image/jpeg,image/webp"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                    disabled={state.status === 'generating' || images.length < 1}
-                  />
-                </label>
-              )}
-            </div>
-          </div>
-
-          {/* Step 4: Source */}
-          <div>
-            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
-              <span className="text-red font-bold mr-1">4.</span> Source (optional)
+              <span className="text-red font-bold mr-1">3.</span> Source (optional)
             </label>
             <input
               type="text"
@@ -624,7 +623,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           </div>
 
           <div className="bg-accent-light/30 rounded-lg p-3">
-            <p className="text-xs text-accent font-medium">How it works: AI reads both screenshots, fact-checks the article claims against the real stock data, then writes the roast. Zero hallucinated numbers.</p>
+            <p className="text-xs text-accent font-medium">Mix and match: screenshot + pasted data, just text, just images, or PDF. AI uses all provided data as ground truth.</p>
           </div>
         </div>
       )}
@@ -633,13 +632,24 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       {genType === 'screenshot-pick' && (
         <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
           <div>
-            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Stock screenshots (2-3) *</label>
-            <div className="border-2 border-dashed border-card-border rounded-lg p-6 hover:border-accent/40 transition-colors">
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
+              <span className="text-accent font-bold mr-1">1.</span> Stock Data (screenshots, PDFs, or pasted text) *
+            </label>
+            <p className="text-xs text-muted-light mb-3">Upload up to 3 files and/or paste raw data. AI compares only these stocks.</p>
+
+            {/* File uploads */}
+            <div className="border-2 border-dashed border-card-border rounded-lg p-4 hover:border-accent/40 transition-colors mb-3">
               {images.length > 0 && (
-                <div className="flex flex-wrap gap-4 mb-4 justify-center">
+                <div className="flex flex-wrap gap-3 mb-3 justify-center">
                   {images.map((img, i) => (
                     <div key={i} className="relative">
-                      <img src={img} alt={`Stock ${i + 1}`} className="h-36 rounded-lg border border-card-border object-cover" />
+                      {img.startsWith('data:application/pdf') ? (
+                        <div className="h-28 w-24 rounded-lg border border-card-border bg-card-bg flex items-center justify-center">
+                          <span className="text-accent font-mono font-bold text-sm">PDF</span>
+                        </div>
+                      ) : (
+                        <img src={img} alt={`Stock ${i + 1}`} className="h-28 rounded-lg border border-card-border object-cover" />
+                      )}
                       <button
                         onClick={() => removeImage(i)}
                         className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
@@ -655,22 +665,38 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
               )}
               {images.length < 3 && (
                 <label className="cursor-pointer block text-center">
-                  <p className="text-muted mb-1">{images.length === 0 ? 'Upload stock data screenshots' : `Add more (${3 - images.length} remaining)`}</p>
-                  <p className="text-xs text-muted-light">PNG, JPG, or WebP — max 5MB each — max 3 screenshots</p>
+                  <p className="text-muted mb-1">{images.length === 0 ? 'Upload screenshots or PDFs' : `Add more (${3 - images.length} remaining)`}</p>
+                  <p className="text-xs text-muted-light">PNG, JPG, WebP, or PDF — max 10MB each — max 3 files</p>
                   <input
                     type="file"
-                    accept="image/png,image/jpeg,image/webp"
+                    accept="image/png,image/jpeg,image/webp,application/pdf"
                     multiple
-                    onChange={handleImageUpload}
+                    onChange={handleFileUpload}
                     className="hidden"
                     disabled={state.status === 'generating'}
                   />
                 </label>
               )}
             </div>
+
+            {/* Text paste area */}
+            <textarea
+              value={textData}
+              onChange={e => setTextData(e.target.value)}
+              placeholder="Or paste raw stock data here — Google Finance stats, Yahoo Finance numbers, multiple stocks separated by blank lines."
+              rows={6}
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground text-sm font-mono focus:outline-none focus:border-accent resize-y"
+              disabled={state.status === 'generating'}
+            />
+            {textData.trim() && (
+              <p className="text-xs text-accent mt-1">{textData.trim().split(/\s+/).length} words pasted</p>
+            )}
           </div>
+
           <div>
-            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Topic (optional)</label>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
+              <span className="text-accent font-bold mr-1">2.</span> Topic (optional)
+            </label>
             <input
               type="text"
               value={topic}
@@ -680,9 +706,9 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
               disabled={state.status === 'generating'}
             />
           </div>
-          <p className="text-xs text-muted-light">
-            Compares ONLY the stocks in your screenshots — no 15-stock tournament. ~$0.03-0.05/article
-          </p>
+          <div className="bg-accent-light/30 rounded-lg p-3">
+            <p className="text-xs text-accent font-medium">Compares ONLY the stocks you provide — screenshots, PDFs, pasted data, or any mix. ~$0.03-0.05/article</p>
+          </div>
         </div>
       )}
 
@@ -692,8 +718,8 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         disabled={
           state.status === 'generating' ||
           (genType === 'roast' && (!ticker || !claim)) ||
-          (genType === 'screenshot-roast' && images.length < 1) ||
-          (genType === 'screenshot-pick' && images.length < 2)
+          (genType === 'screenshot-roast' && images.length < 1 && !textData.trim()) ||
+          (genType === 'screenshot-pick' && images.length < 1 && !textData.trim())
         }
         className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
           state.status === 'generating'

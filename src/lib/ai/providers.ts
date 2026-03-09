@@ -99,29 +99,38 @@ async function callAnthropic(
   system: string,
   userMessage: string,
   maxTokens: number,
-  images?: string[],
+  media?: string[],
 ): Promise<AIResponse> {
   const model = 'claude-haiku-4-5-20251001';
   const client = new Anthropic();
 
-  // Build content blocks — images first, then text
+  // Build content blocks — media (images/PDFs) first, then text
   const content: Anthropic.MessageCreateParams['messages'][0]['content'] = [];
-  if (images && images.length > 0) {
-    for (const img of images) {
-      // Detect media type from base64 header or default to jpeg
-      let mediaType: 'image/jpeg' | 'image/png' | 'image/webp' | 'image/gif' = 'image/jpeg';
-      let data = img;
-      if (img.startsWith('data:')) {
-        const match = img.match(/^data:(image\/\w+);base64,/);
-        if (match) {
-          mediaType = match[1] as typeof mediaType;
-          data = img.replace(/^data:image\/\w+;base64,/, '');
+  if (media && media.length > 0) {
+    for (const item of media) {
+      // Detect type from data URI header
+      if (item.startsWith('data:application/pdf;base64,')) {
+        const data = item.replace('data:application/pdf;base64,', '');
+        content.push({
+          type: 'document',
+          source: { type: 'base64', media_type: 'application/pdf', data },
+        } as Anthropic.DocumentBlockParam);
+      } else {
+        // Image handling
+        let mediaType: 'image/jpeg' | 'image/png' | 'image/webp' | 'image/gif' = 'image/jpeg';
+        let data = item;
+        if (item.startsWith('data:')) {
+          const match = item.match(/^data:(image\/\w+);base64,/);
+          if (match) {
+            mediaType = match[1] as typeof mediaType;
+            data = item.replace(/^data:image\/\w+;base64,/, '');
+          }
         }
+        content.push({
+          type: 'image',
+          source: { type: 'base64', media_type: mediaType, data },
+        });
       }
-      content.push({
-        type: 'image',
-        source: { type: 'base64', media_type: mediaType, data },
-      });
     }
   }
   content.push({ type: 'text', text: userMessage });
@@ -162,13 +171,13 @@ export async function callAI(
   system: string,
   userMessage: string,
   maxTokens = 8000,
-  images?: string[],
+  media?: string[],
 ): Promise<AIResponse> {
   const provider = getProvider();
 
-  // Vision requires Anthropic — skip OpenRouter for image requests
-  if (images && images.length > 0) {
-    return await callAnthropic(system, userMessage, maxTokens, images);
+  // Vision/docs require Anthropic — skip OpenRouter for media requests
+  if (media && media.length > 0) {
+    return await callAnthropic(system, userMessage, maxTokens, media);
   }
 
   if (provider === 'openrouter') {
