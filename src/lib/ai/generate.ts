@@ -99,7 +99,10 @@ export async function generatePick(topic?: string): Promise<GenerateResult> {
 
   // 2. Build user message — inject topic constraint if provided
   const topicInstruction = topic
-    ? `\n\nTOPIC FOCUS: "${topic}"\nYou MUST focus your tournament exclusively on stocks related to this topic. Select 10-15 candidates that fit this theme using your knowledge + any relevant data above. Do NOT pick stocks outside this theme.`
+    ? `\n\nTOPIC FOCUS: "${topic}"
+You MUST focus your tournament exclusively on stocks related to this topic. Select 10-15 candidates that fit this theme using your training knowledge + any relevant market data above.
+Do NOT pick stocks outside this theme.
+IMPORTANT: When a specific topic is provided, you ARE allowed to use your training knowledge to identify and analyze companies in this sector even if real-time market data is unavailable. Use qualitative analysis (business model, competitive position, sector trends, management quality) as your primary framework. For any specific numbers (price, P/E, market cap), say "approximately" or "as of last available data" — never state them as current verified facts. Do NOT refuse to pick just because real-time data is unavailable.`
     : '';
 
   // 3. Call Haiku with tagged data — NO web search
@@ -116,7 +119,7 @@ export async function generatePick(topic?: string): Promise<GenerateResult> {
 ${moversData.context}
 ${topicInstruction}
 
-Run your elimination tournament${topic ? ` focused on: "${topic}"` : ' using the data above'} (respecting confidence tags) and pick the best opportunity (or declare no pick).
+Run your elimination tournament${topic ? ` focused on: "${topic}". Use your knowledge of this sector to identify candidates even if real-time data is limited` : ' using the data above'} (respecting confidence tags where available) and pick the best opportunity (or declare no pick only if you truly cannot evaluate any candidates).
 
 Return ONLY valid JSON.`,
     }],
