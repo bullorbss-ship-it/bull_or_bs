@@ -491,10 +491,11 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Claim to audit *</label>
             <textarea
               value={claim}
-              onChange={e => setClaim(e.target.value)}
+              onChange={e => { setClaim(e.target.value); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }}
               placeholder="e.g. This stock is a strong buy for long-term investors looking for AI exposure..."
-              rows={3}
-              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent resize-none"
+              rows={4}
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent resize-none overflow-hidden"
+              style={{ minHeight: '100px' }}
               disabled={state.status === 'generating'}
             />
           </div>
@@ -604,10 +605,11 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             {/* Text paste area */}
             <textarea
               value={textData}
-              onChange={e => setTextData(e.target.value)}
+              onChange={e => { setTextData(e.target.value); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }}
               placeholder="Or paste raw data here — Google Finance stats, article text, HTML, anything. AI will extract the numbers."
-              rows={5}
-              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground text-sm font-mono focus:outline-none focus:border-accent resize-y"
+              rows={8}
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground text-sm font-mono focus:outline-none focus:border-accent resize-none overflow-hidden"
+              style={{ minHeight: '200px' }}
               disabled={state.status === 'generating'}
             />
             {textData.trim() && (
@@ -690,10 +692,11 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             {/* Text paste area */}
             <textarea
               value={textData}
-              onChange={e => setTextData(e.target.value)}
+              onChange={e => { setTextData(e.target.value); e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; }}
               placeholder="Or paste raw stock data here — Google Finance stats, Yahoo Finance numbers, multiple stocks separated by blank lines."
-              rows={6}
-              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground text-sm font-mono focus:outline-none focus:border-accent resize-y"
+              rows={10}
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground text-sm font-mono focus:outline-none focus:border-accent resize-none overflow-hidden"
+              style={{ minHeight: '250px' }}
               disabled={state.status === 'generating'}
             />
             {textData.trim() && (
