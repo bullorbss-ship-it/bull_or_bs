@@ -1,0 +1,28 @@
+{
+  "ticker": "VTI",
+  "company": "Vanguard Total Stock Market ETF",
+  "exchange": "NYSE",
+  "sector": "ETF",
+  "country": "US",
+  "overview": "The Vanguard Total Stock Market ETF (VTI) seeks to provide broad exposure to the entire U.S. stock market, including large-, mid-, small-, and micro-cap stocks. It tracks the CRSP US Total Market Index, which encompasses nearly all publicly traded U.S. companies. VTI's strategy is designed to offer investors a low-cost, diversified investment option that captures the performance of the overall U.S. equity market.\n\nKey features of VTI include its low expense ratio, which is significantly lower than the average for similar funds, making it an attractive choice for cost-conscious investors. Additionally, VTI's holdings are rebalanced regularly to reflect changes in the market, ensuring that it maintains its broad exposure to the U.S. economy. This ETF is suitable for investors looking for a long-term investment that offers growth potential through a diversified portfolio.",
+  "bullCase": [
+    "Low expense ratio makes it cost-effective for long-term investors.",
+    "Provides comprehensive exposure to the entire U.S. stock market, enhancing diversification.",
+    "Historically strong performance aligns with the growth of the U.S. economy."
+  ],
+  "bearCase": [
+    "Market volatility can lead to significant fluctuations in ETF value.",
+    "Lack of international exposure may limit growth opportunities outside the U.S.",
+    "As a passive fund, it may underperform in rapidly changing market conditions."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately $300 billion AUM",
+    "peRatio": "0.03 (expense ratio)",
+    "dividendYield": "approximately 1.5% yield",
+    "sector": "ETF"
+  },
+  "analystSummary": "VTI is generally viewed as a solid investment option for those seeking broad exposure to the U.S. stock market with low costs.",
+  "seoDescription": "Explore VTI ETF analysis and find out if you should buy Vanguard Total Stock Market ETF for your investment portfolio.",
+  "generatedAt": "2026-03-09T13:41:48.085Z",
+  "generatedBy": "gpt-4o-mini"
+}

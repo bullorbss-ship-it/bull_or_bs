@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "Industrials",
   "country": "CA",
-  "overview": "Canadian National Railway (CNR) is a leading North American transportation and logistics company, operating the largest railway network in Canada. The company provides rail and intermodal transportation services, connecting customers to key markets across Canada and the United States. CNR plays a crucial role in the supply chain, transporting a diverse range of goods including automotive, forest products, and agricultural products.\n\nIn recent developments, CNR has focused on enhancing its operational efficiency and sustainability initiatives. The company has invested in technology to improve its service reliability and reduce its carbon footprint, positioning itself as a leader in environmentally responsible transportation. Additionally, CNR's strong financial performance and strategic acquisitions have solidified its market position, making it a key player in the North American rail industry.",
+  "overview": "Canadian National Railway (CNR) is a leading North American transportation and logistics company, operating the largest rail network in Canada and a significant portion of the U.S. rail system. CNR provides rail and intermodal transportation services, connecting customers to markets across North America. The company has been focusing on enhancing operational efficiency and expanding its service offerings, which positions it well in the competitive logistics landscape. Recent developments include investments in technology to improve service reliability and sustainability initiatives aimed at reducing carbon emissions.",
   "bullCase": [
-    "Strong demand for freight transportation driven by economic recovery and e-commerce growth.",
-    "Continued investment in technology and infrastructure to enhance operational efficiency.",
-    "Commitment to sustainability initiatives may attract environmentally conscious investors."
+    "Strong demand for freight transportation as the economy recovers post-pandemic.",
+    "Continued investments in infrastructure and technology to enhance operational efficiency.",
+    "Potential for growth through strategic acquisitions and partnerships in the logistics sector."
   ],
   "bearCase": [
-    "Potential disruptions from labor strikes or regulatory changes affecting operations.",
-    "Economic downturns could lead to decreased freight volumes and lower revenues.",
-    "Rising fuel costs may impact profit margins and operational expenses."
+    "Economic downturns could lead to reduced freight volumes and lower revenues.",
+    "Increased competition from other transportation modes and companies.",
+    "Regulatory challenges and rising operational costs could impact profitability."
   ],
   "keyMetrics": {
-    "marketCap": "approximate market cap of CAD 100 billion",
-    "peRatio": "approximately 20",
-    "dividendYield": "approximately 1.8%",
+    "marketCap": "approximately CAD 100 billion",
+    "peRatio": "approximately 20-25",
+    "dividendYield": "approximately 1.5-2.0%",
     "sector": "Industrials"
   },
-  "analystSummary": "Analysts generally view CNR as a stable investment with growth potential, though they caution about economic uncertainties.",
-  "seoDescription": "Should I buy CNR? Explore our CNR stock analysis for insights on performance and investment potential.",
-  "generatedAt": "2026-03-08T04:48:09.432Z",
+  "analystSummary": "Analysts generally maintain a positive outlook on CNR, citing its strong market position and growth potential, though caution is advised due to economic uncertainties.",
+  "seoDescription": "Explore our CNR stock analysis to determine if you should buy Canadian National Railway shares today.",
+  "generatedAt": "2026-03-09T13:32:51.838Z",
   "generatedBy": "gpt-4o-mini"
 }

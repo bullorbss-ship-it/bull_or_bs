@@ -1,4 +1,5 @@
-import { ALL_TICKERS, getAllSectors, getTickersByCountry, tickerToSlug } from '@/lib/tickers';
+import { getAllSectors, getTickersByCountry, tickerToSlug } from '@/lib/tickers';
+import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import type { Metadata } from 'next';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
@@ -31,7 +32,7 @@ export default function StockIndexPage() {
       ]} />
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">Stock Analysis</h1>
       <p className="text-muted text-sm sm:text-lg mb-6 sm:mb-8 max-w-2xl">
-        AI-generated analysis for {ALL_TICKERS.length}+ stocks across TSX, NYSE, and NASDAQ.
+        AI-generated analysis for {getAllTickersExpanded().length}+ stocks across TSX, NYSE, and NASDAQ.
         Every analysis shows its full reasoning chain.
       </p>
 

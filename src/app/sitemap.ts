@@ -1,5 +1,6 @@
 import { getAllArticles } from '@/lib/content';
-import { ALL_TICKERS, tickerToSlug } from '@/lib/tickers';
+import { tickerToSlug } from '@/lib/tickers';
+import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { siteConfig } from '@/config/site';
 import type { MetadataRoute } from 'next';
 
@@ -13,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const stockEntries = ALL_TICKERS.map(t => ({
+  const stockEntries = getAllTickersExpanded().map(t => ({
     url: `${siteConfig.url}/stock/${tickerToSlug(t.ticker)}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
@@ -44,6 +45,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.3,
+    },
+    {
+      url: `${siteConfig.url}/learn`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${siteConfig.url}/learn/tfsa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${siteConfig.url}/learn/rrsp`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${siteConfig.url}/learn/fhsa`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
     },
     ...articleEntries,
     ...stockEntries,

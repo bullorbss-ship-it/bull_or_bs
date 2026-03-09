@@ -4,16 +4,16 @@
   "exchange": "TSX",
   "sector": "Energy",
   "country": "CA",
-  "overview": "Enbridge Inc. is a leading North American energy infrastructure company, primarily engaged in the transportation and distribution of crude oil and natural gas. With a vast network of pipelines and facilities, Enbridge plays a crucial role in connecting energy producers with markets across Canada and the United States. The company is also expanding its focus on renewable energy projects, positioning itself for a transition towards a lower-carbon future. Recently, Enbridge has made headlines with its investments in renewable energy and efforts to enhance its pipeline safety measures amidst regulatory scrutiny.",
+  "overview": "Enbridge Inc. is a leading North American energy infrastructure company, primarily engaged in the transportation and distribution of crude oil and natural gas. With a vast network of pipelines and storage facilities, Enbridge plays a crucial role in the energy supply chain, connecting producers to markets across Canada and the United States. Recently, the company has focused on expanding its renewable energy portfolio, investing in wind and solar projects to diversify its operations and reduce carbon emissions.",
   "bullCase": [
     "Strong demand for energy infrastructure as economies recover post-pandemic.",
-    "Ongoing investments in renewable energy projects could enhance growth prospects.",
+    "Continued investments in renewable energy could enhance long-term growth prospects.",
     "Stable dividend payments attract income-focused investors."
   ],
   "bearCase": [
-    "Regulatory challenges and environmental concerns could impact pipeline projects.",
-    "Fluctuating oil and gas prices may affect revenue stability.",
-    "Increased competition from alternative energy sources could pressure market share."
+    "Regulatory challenges and environmental concerns could impact project approvals.",
+    "Fluctuations in oil and gas prices may affect revenue stability.",
+    "High debt levels could pose risks in a rising interest rate environment."
   ],
   "keyMetrics": {
     "marketCap": "approximately CAD 100 billion",
@@ -21,8 +21,8 @@
     "dividendYield": "approximately 6.5%",
     "sector": "Energy"
   },
-  "analystSummary": "Analysts generally view Enbridge as a stable investment due to its strong dividend yield and essential role in energy infrastructure, but caution against regulatory risks.",
-  "seoDescription": "Should I buy ENB? Explore our ENB stock analysis and insights on Enbridge Inc.'s market position and future prospects.",
-  "generatedAt": "2026-03-08T04:48:37.281Z",
+  "analystSummary": "Analysts generally view Enbridge as a stable investment with potential for growth, but caution against regulatory risks.",
+  "seoDescription": "Should I buy ENB? Explore our comprehensive ENB stock analysis and insights on Enbridge Inc.",
+  "generatedAt": "2026-03-09T13:33:06.581Z",
   "generatedBy": "gpt-4o-mini"
 }

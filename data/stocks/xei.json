@@ -1,0 +1,28 @@
+{
+  "ticker": "XEI",
+  "company": "iShares Core MSCI Canadian Quality Dividend Index ETF",
+  "exchange": "TSX",
+  "sector": "ETF",
+  "country": "CA",
+  "overview": "The iShares Core MSCI Canadian Quality Dividend Index ETF (XEI) aims to track the performance of the MSCI Canada Quality Dividend Index. This index is composed of Canadian companies that have a strong track record of paying dividends, focusing on quality and sustainability of those dividends. The ETF seeks to provide investors with exposure to high-quality dividend-paying stocks, which can offer both income and potential capital appreciation over time.\n\nXEI employs a passive investment strategy, meaning it aims to replicate the performance of its benchmark index rather than actively selecting stocks. The ETF holds a diversified portfolio of large and mid-cap Canadian equities, emphasizing companies with strong fundamentals and robust dividend policies. This makes it an attractive option for income-focused investors looking for stability and growth in their portfolios.",
+  "bullCase": [
+    "Provides exposure to high-quality Canadian companies with a strong dividend history.",
+    "Offers a diversified portfolio, reducing individual stock risk.",
+    "Low management fees enhance net returns for investors."
+  ],
+  "bearCase": [
+    "Concentration in specific sectors may lead to higher volatility.",
+    "Dividend cuts from underlying companies can impact income.",
+    "Market fluctuations can affect the ETF's performance despite its quality focus."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 1.5 billion AUM",
+    "peRatio": "0.22% MER/expense ratio",
+    "dividendYield": "approximately 3.5% yield",
+    "sector": "ETF"
+  },
+  "analystSummary": "Overall, XEI is viewed as a solid choice for income-seeking investors, though it carries sector-specific risks.",
+  "seoDescription": "Explore our analysis on whether to buy XEI, the iShares Core MSCI Canadian Quality Dividend Index ETF.",
+  "generatedAt": "2026-03-09T13:37:37.430Z",
+  "generatedBy": "gpt-4o-mini"
+}

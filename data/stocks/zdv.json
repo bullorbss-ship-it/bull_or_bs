@@ -1,0 +1,28 @@
+{
+  "ticker": "ZDV",
+  "company": "BMO Canadian Dividend ETF",
+  "exchange": "TSX",
+  "sector": "ETF",
+  "country": "CA",
+  "overview": "The BMO Canadian Dividend ETF (ZDV) is designed to provide investors with exposure to a diversified portfolio of Canadian dividend-paying stocks. The ETF primarily tracks the performance of the BMO Canadian Dividend Index, which includes companies that have a history of paying dividends and are expected to continue doing so. ZDV employs a strategy focused on high-quality, sustainable dividend growth, making it an attractive option for income-seeking investors. Key features include a low management expense ratio and a focus on large-cap Canadian companies that demonstrate strong fundamentals.",
+  "bullCase": [
+    "Provides exposure to a diversified portfolio of high-quality Canadian dividend stocks.",
+    "Offers attractive dividend yields, appealing to income-focused investors.",
+    "Low management fees compared to actively managed funds, enhancing net returns."
+  ],
+  "bearCase": [
+    "Concentration in the Canadian market may expose investors to country-specific risks.",
+    "Dividend cuts from underlying holdings can negatively impact income and total returns.",
+    "Market volatility can affect the value of the ETF, especially during economic downturns."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 1.5 billion",
+    "peRatio": "0.55% MER",
+    "dividendYield": "approximately 4.5%",
+    "sector": "ETF"
+  },
+  "analystSummary": "Overall, ZDV is viewed as a solid choice for investors seeking reliable income through dividends, but it carries risks associated with market concentration.",
+  "seoDescription": "Explore our ZDV ETF analysis to determine if BMO Canadian Dividend ETF is a smart buy for your investment portfolio.",
+  "generatedAt": "2026-03-09T13:37:45.422Z",
+  "generatedBy": "gpt-4o-mini"
+}

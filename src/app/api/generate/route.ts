@@ -3,6 +3,7 @@ import { generateRoast, generatePick } from '@/lib/ai/generate';
 import { saveArticle } from '@/lib/content';
 import { Article } from '@/lib/types';
 import { timingSafeCompare, verifySession } from '@/lib/auth';
+import { registerArticleTickers } from '@/lib/ticker-registry';
 
 export async function POST(req: NextRequest) {
   // Auth: accept either SCAN_SECRET query param or admin session cookie
@@ -41,10 +42,12 @@ export async function POST(req: NextRequest) {
       };
 
       saveArticle(article);
+      const newTickers = registerArticleTickers(article);
       return NextResponse.json({
         success: true,
         slug,
         article,
+        newTickers,
         cost: {
           usd: result.costUsd,
           inputTokens: result.inputTokens,
@@ -88,10 +91,12 @@ export async function POST(req: NextRequest) {
       };
 
       saveArticle(article);
+      const newTickers = registerArticleTickers(article);
       return NextResponse.json({
         success: true,
         slug,
         article,
+        newTickers,
         cost: {
           usd: result.costUsd,
           inputTokens: result.inputTokens,

@@ -44,6 +44,22 @@ export const TSX_TICKERS: TickerInfo[] = [
   { ticker: 'BN', company: 'Brookfield Corp.', exchange: 'TSX', sector: 'Financials', country: 'CA' },
   { ticker: 'GIB.A', company: 'CGI Inc.', exchange: 'TSX', sector: 'Technology', country: 'CA' },
   { ticker: 'WSP', company: 'WSP Global Inc.', exchange: 'TSX', sector: 'Industrials', country: 'CA' },
+  // Canadian ETFs
+  { ticker: 'XIU', company: 'iShares S&P/TSX 60 Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XIC', company: 'iShares Core S&P/TSX Capped Composite Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VFV', company: 'Vanguard S&P 500 Index ETF (CAD)', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XEQT', company: 'iShares Core Equity ETF Portfolio', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VEQT', company: 'Vanguard All-Equity ETF Portfolio', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZEB', company: 'BMO Equal Weight Banks Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZAG', company: 'BMO Aggregate Bond Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZWB', company: 'BMO Covered Call Canadian Banks ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XEI', company: 'iShares Core MSCI Canadian Quality Dividend Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZDV', company: 'BMO Canadian Dividend ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VGRO', company: 'Vanguard Growth ETF Portfolio', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VBAL', company: 'Vanguard Balanced ETF Portfolio', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XAW', company: 'iShares Core MSCI All Country World ex Canada Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'HXS', company: 'Global X S&P 500 Index Corporate Class ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'TEC', company: 'TD Global Technology Leaders Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
 ];
 
 // Top US stocks
@@ -73,6 +89,22 @@ export const US_TICKERS: TickerInfo[] = [
   { ticker: 'CRM', company: 'Salesforce Inc.', exchange: 'NYSE', sector: 'Technology', country: 'US' },
   { ticker: 'INTC', company: 'Intel Corp.', exchange: 'NASDAQ', sector: 'Technology', country: 'US' },
   { ticker: 'PLTR', company: 'Palantir Technologies', exchange: 'NYSE', sector: 'Technology', country: 'US' },
+  // US ETFs
+  { ticker: 'SPY', company: 'SPDR S&P 500 ETF Trust', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'QQQ', company: 'Invesco QQQ Trust (Nasdaq-100)', exchange: 'NASDAQ', sector: 'ETF', country: 'US' },
+  { ticker: 'VTI', company: 'Vanguard Total Stock Market ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'VOO', company: 'Vanguard S&P 500 ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'IWM', company: 'iShares Russell 2000 ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'DIA', company: 'SPDR Dow Jones Industrial Average ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'ARKK', company: 'ARK Innovation ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'GLD', company: 'SPDR Gold Shares ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'TLT', company: 'iShares 20+ Year Treasury Bond ETF', exchange: 'NASDAQ', sector: 'ETF', country: 'US' },
+  { ticker: 'XLF', company: 'Financial Select Sector SPDR Fund', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'XLE', company: 'Energy Select Sector SPDR Fund', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'VGT', company: 'Vanguard Information Technology ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'SCHD', company: 'Schwab US Dividend Equity ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'VYM', company: 'Vanguard High Dividend Yield ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'EEM', company: 'iShares MSCI Emerging Markets ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
 ];
 
 export const ALL_TICKERS = [...TSX_TICKERS, ...US_TICKERS];

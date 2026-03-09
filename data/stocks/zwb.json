@@ -1,0 +1,28 @@
+{
+  "ticker": "ZWB",
+  "company": "BMO Covered Call Canadian Banks ETF",
+  "exchange": "TSX",
+  "sector": "ETF",
+  "country": "CA",
+  "overview": "The BMO Covered Call Canadian Banks ETF (ZWB) is designed to provide investors with exposure to a diversified portfolio of Canadian bank stocks while generating additional income through a covered call strategy. This ETF primarily invests in the largest Canadian banks, including Royal Bank of Canada, Toronto-Dominion Bank, and Bank of Nova Scotia, among others. By writing covered call options on the underlying stocks, ZWB aims to enhance income, making it an attractive option for income-focused investors.\n\nThe ETF's strategy allows it to benefit from the potential capital appreciation of the banks while also providing a steady stream of income from option premiums. This dual approach can be particularly appealing in a low-interest-rate environment, where traditional fixed-income investments may offer lower yields. Investors should note that while the covered call strategy can enhance income, it may also limit upside potential during strong market rallies.",
+  "bullCase": [
+    "Provides exposure to a stable sector with strong fundamentals, Canadian banks are known for their resilience.",
+    "Generates additional income through covered call options, enhancing overall yield.",
+    "Lower volatility compared to individual bank stocks, making it suitable for conservative investors."
+  ],
+  "bearCase": [
+    "Limited upside potential due to the covered call strategy, which caps gains during market rallies.",
+    "Performance may be affected by declining bank stock prices or economic downturns.",
+    "Higher management fees compared to passive ETFs, which may impact net returns."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 1.2 billion",
+    "peRatio": "0.65% MER",
+    "dividendYield": "approximately 5-6%",
+    "sector": "ETF"
+  },
+  "analystSummary": "The BMO Covered Call Canadian Banks ETF (ZWB) is generally viewed as a solid choice for income-seeking investors looking for exposure to the Canadian banking sector, though it comes with some limitations on capital appreciation.",
+  "seoDescription": "Explore our ZWB ETF analysis to determine if BMO Covered Call Canadian Banks ETF is a smart buy for your portfolio.",
+  "generatedAt": "2026-03-09T13:37:29.346Z",
+  "generatedBy": "gpt-4o-mini"
+}

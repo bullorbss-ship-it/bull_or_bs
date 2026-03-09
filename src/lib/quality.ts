@@ -1,5 +1,6 @@
 import { Article } from './types';
 import { TSX_TICKERS, US_TICKERS } from './tickers';
+import { getDynamicTickers } from './ticker-registry';
 
 interface QualityResult {
   score: number; // 0-100
@@ -10,6 +11,7 @@ interface QualityResult {
 const VALID_TICKERS = new Set([
   ...TSX_TICKERS.map(t => t.ticker),
   ...US_TICKERS.map(t => t.ticker),
+  ...getDynamicTickers().map(t => t.ticker),
 ]);
 
 const VALID_GRADES = ['A', 'B', 'C', 'D', 'F'];

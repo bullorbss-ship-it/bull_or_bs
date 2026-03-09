@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "Financials",
   "country": "CA",
-  "overview": "Toronto-Dominion Bank (TD) is one of the largest banks in Canada, providing a wide range of financial services including personal and commercial banking, wealth management, and investment services. With a strong presence in both Canada and the United States, TD has established itself as a key player in the North American banking sector. The bank has been focusing on digital transformation and enhancing customer experience, which has helped it maintain a competitive edge in the rapidly evolving financial landscape. Recent developments include strategic acquisitions and partnerships aimed at expanding its market share and improving service delivery.",
+  "overview": "Toronto-Dominion Bank (TD) is one of the largest banks in Canada, providing a wide range of financial services including personal and commercial banking, wealth management, and insurance. With a strong presence in both Canada and the United States, TD has established itself as a leading player in the North American banking sector. Recent developments include strategic acquisitions aimed at expanding its footprint in the U.S. market and a focus on digital banking innovations to enhance customer experience.",
   "bullCase": [
-    "Strong growth potential in the U.S. market due to expansion efforts.",
-    "Resilient financial performance supported by diversified revenue streams.",
-    "Increasing interest rates could enhance net interest margins."
+    "Strong growth potential in the U.S. market through strategic acquisitions and expansion.",
+    "Robust financial performance with consistent revenue growth and profitability.",
+    "Attractive dividend yield appealing to income-focused investors."
   ],
   "bearCase": [
-    "Economic downturns could lead to higher loan defaults.",
-    "Regulatory challenges and compliance costs may impact profitability.",
-    "Intense competition in the banking sector could pressure margins."
+    "Economic uncertainties and potential recessions could impact loan growth and credit quality.",
+    "Increased competition in the banking sector may pressure margins.",
+    "Regulatory changes could impose additional costs or operational challenges."
   ],
   "keyMetrics": {
     "marketCap": "approximately CAD 150 billion",
-    "peRatio": "approximately 10-12",
-    "dividendYield": "approximately 3.5%",
+    "peRatio": "approximately 11-13",
+    "dividendYield": "approximately 3.5-4%",
     "sector": "Financials"
   },
-  "analystSummary": "Analysts generally view TD as a solid investment with potential for growth, but caution against economic uncertainties.",
-  "seoDescription": "Should I buy TD? Explore our TD stock analysis for insights on Toronto-Dominion Bank's performance and market outlook.",
-  "generatedAt": "2026-03-08T04:47:36.172Z",
+  "analystSummary": "Analysts generally maintain a positive outlook on TD, citing its strong fundamentals and growth prospects, though caution is advised due to economic uncertainties.",
+  "seoDescription": "Should I buy TD? Explore our TD stock analysis for insights on Toronto-Dominion Bank's performance and investment potential.",
+  "generatedAt": "2026-03-09T13:32:19.067Z",
   "generatedBy": "gpt-4o-mini"
 }

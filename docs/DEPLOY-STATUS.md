@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-09T12:58:53.765Z*
+*Auto-generated: 2026-03-09T13:45:12.721Z*
 
 ---
 
@@ -9,8 +9,8 @@
 | Type | Count |
 | --- | --- |
 | Roasts | 5 |
-| Picks | 2 |
-| **Total** | 7 |
+| Picks | 3 |
+| **Total** | 8 |
 
 ### Roasts
 
@@ -27,6 +27,7 @@
 | Date | Ticker | Title |
 | --- | --- | --- |
 | 2026-03-09 | LHX | Iran War Weapons Play: Which Defense Contractor Survives Pea |
+| 2026-03-09 | NIO | EV Wars 2026: Tesla's Crown Crumbles as Chinese Makers Close |
 | 2026-03-08 | - | NO PICK: Markets Closed for Weekend Murder — Oil Chaos Creat |
 
 ## Route Map
@@ -45,6 +46,10 @@
 | /article/[slug] | Page |
 | /disclaimer | Page |
 | /feed.xml | API |
+| /learn | Page |
+| /learn/fhsa | Page |
+| /learn/rrsp | Page |
+| /learn/tfsa | Page |
 | /methodology | Page |
 | /og | API |
 | /orange | Page |
@@ -59,9 +64,9 @@
 
 | Market | Count |
 | --- | --- |
-| TSX | 38 |
-| NYSE/NASDAQ | 25 |
-| **Total** | 63 |
+| TSX | 53 |
+| NYSE/NASDAQ | 40 |
+| **Total** | 93 |
 
 ## Cost Summary
 

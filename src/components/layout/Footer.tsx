@@ -28,6 +28,7 @@ export default function Footer() {
               <Link href="/stock" className="text-muted hover:text-accent transition-colors">Stock Analysis</Link>
               <Link href="/#roasts" className="text-muted hover:text-accent transition-colors">The Roast</Link>
               <Link href="/#picks" className="text-muted hover:text-accent transition-colors">AI Picks</Link>
+              <Link href="/learn" className="text-muted hover:text-accent transition-colors">Learn</Link>
               <Link href="/about" className="text-muted hover:text-accent transition-colors">About</Link>
               <Link href="/methodology" className="text-muted hover:text-accent transition-colors">Methodology</Link>
               <Link href="/disclaimer" className="text-muted hover:text-accent transition-colors">Disclaimer</Link>

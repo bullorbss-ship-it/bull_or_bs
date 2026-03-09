@@ -1,0 +1,28 @@
+{
+  "ticker": "IWM",
+  "company": "iShares Russell 2000 ETF",
+  "exchange": "NYSE",
+  "sector": "ETF",
+  "country": "US",
+  "overview": "The iShares Russell 2000 ETF (IWM) is designed to track the performance of the Russell 2000 Index, which measures the performance of the small-cap segment of the U.S. equity market. This ETF holds a diverse portfolio of approximately 2,000 small-cap stocks, providing investors with exposure to a broad range of sectors and industries. The strategy focuses on capturing the growth potential of smaller companies, which can often outperform larger firms during economic expansions.",
+  "bullCase": [
+    "Provides exposure to small-cap stocks, which historically have higher growth potential.",
+    "Offers diversification across various sectors, reducing individual stock risk.",
+    "Low expense ratio compared to actively managed funds, making it a cost-effective investment option."
+  ],
+  "bearCase": [
+    "Small-cap stocks can be more volatile and sensitive to economic downturns.",
+    "Performance may lag during periods of market uncertainty or recession.",
+    "Higher susceptibility to market fluctuations compared to large-cap counterparts."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately $60 billion AUM",
+    "peRatio": "0.19% expense ratio",
+    "dividendYield": "approximately 1.2%",
+    "sector": "ETF"
+  },
+  "analystSummary": "The general consensus is that IWM is a solid choice for investors seeking growth through small-cap exposure, but they should be mindful of the associated volatility.",
+  "seoDescription": "Explore IWM ETF analysis to determine if you should buy IWM for small-cap exposure and growth potential.",
+  "generatedAt": "2026-03-09T13:42:05.010Z",
+  "generatedBy": "gpt-4o-mini"
+}

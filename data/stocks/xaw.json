@@ -1,0 +1,28 @@
+{
+  "ticker": "XAW",
+  "company": "iShares Core MSCI All Country World ex Canada Index ETF",
+  "exchange": "TSX",
+  "sector": "ETF",
+  "country": "CA",
+  "overview": "The iShares Core MSCI All Country World ex Canada Index ETF (XAW) aims to provide investors with exposure to a broad range of global equities, excluding Canadian stocks. It tracks the MSCI All Country World ex Canada Index, which includes large and mid-cap companies across developed and emerging markets. The ETF employs a passive investment strategy, seeking to replicate the performance of the underlying index by holding a diversified portfolio of stocks from various sectors and regions.\n\nXAW is designed for investors looking for a cost-effective way to gain international equity exposure while maintaining a diversified portfolio. With a focus on low management fees and a broad investment scope, it is suitable for both long-term investors and those looking to diversify their holdings outside of Canada.",
+  "bullCase": [
+    "Provides broad exposure to global equities, enhancing diversification.",
+    "Low management expense ratio (MER) makes it cost-effective for long-term investors.",
+    "Access to both developed and emerging markets, capturing growth opportunities worldwide."
+  ],
+  "bearCase": [
+    "Excludes Canadian equities, which may limit exposure to local market growth.",
+    "Currency fluctuations can impact returns for Canadian investors.",
+    "Market volatility in emerging markets can introduce additional risks."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 3 billion",
+    "peRatio": "0.22% MER",
+    "dividendYield": "approximately 2-3%",
+    "sector": "ETF"
+  },
+  "analystSummary": "Overall, XAW is viewed as a strong option for investors seeking low-cost global equity exposure, though it carries risks associated with international markets.",
+  "seoDescription": "Explore whether to buy XAW with our comprehensive analysis of the iShares Core MSCI All Country World ex Canada Index ETF.",
+  "generatedAt": "2026-03-09T13:38:06.412Z",
+  "generatedBy": "gpt-4o-mini"
+}

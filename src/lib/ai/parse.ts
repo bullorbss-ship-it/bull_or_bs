@@ -1,5 +1,6 @@
 import { ArticleContent } from '@/lib/types';
-import { ALL_TICKERS, tickerToSlug } from '@/lib/tickers';
+import { tickerToSlug } from '@/lib/tickers';
+import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import Anthropic from '@anthropic-ai/sdk';
 
 export function extractText(response: Anthropic.Message): string {
@@ -64,7 +65,7 @@ export function parseArticleContent(text: string): ArticleContent {
  */
 export function linkifyTickers(html: string): string {
   // Build lookup: sort by company name length (longest first) to avoid partial matches
-  const entries = ALL_TICKERS
+  const entries = getAllTickersExpanded()
     .map(t => ({ ticker: t.ticker, company: t.company, slug: tickerToSlug(t.ticker) }))
     .sort((a, b) => b.company.length - a.company.length);
 

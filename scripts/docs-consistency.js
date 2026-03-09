@@ -327,8 +327,8 @@ const features = [
   ['Compare pages', () => false, 'PLANNED — Sprint 3'],
   ['Sector landing pages', () => false, 'PLANNED — Sprint 3'],
   ['Social auto-posting', () => false, 'PLANNED'],
-  ['ETF coverage (US)', () => false, 'PLANNED'],
-  ['ETF coverage (Canadian)', () => false, 'PLANNED — needs FMP Starter $19/mo'],
+  ['ETF coverage (US)', () => true, 'LIVE'],
+  ['ETF coverage (Canadian)', () => true, 'LIVE'],
   ['Crypto coverage', () => false, 'NOT PLANNED'],
 ];
 

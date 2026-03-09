@@ -1,0 +1,28 @@
+{
+  "ticker": "XEQT",
+  "company": "iShares Core Equity ETF Portfolio",
+  "exchange": "TSX",
+  "sector": "ETF",
+  "country": "CA",
+  "overview": "The iShares Core Equity ETF Portfolio (XEQT) is designed to provide investors with a diversified exposure to global equity markets. It primarily tracks the performance of various equity indices, including those from North America, Europe, and Asia, with a focus on large-cap stocks. The ETF employs a passive management strategy, aiming to replicate the performance of its underlying indices while maintaining a low-cost structure. Key features include a broad diversification across sectors and regions, making it suitable for long-term investors seeking growth through equity investments.",
+  "bullCase": [
+    "Low expense ratio makes it cost-effective for long-term investors.",
+    "Broad diversification reduces risk compared to individual stock investments.",
+    "Exposure to global markets can enhance growth potential."
+  ],
+  "bearCase": [
+    "Market volatility can lead to significant fluctuations in value.",
+    "Limited downside protection during market downturns.",
+    "Currency risk associated with international holdings may affect returns."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 1 billion",
+    "peRatio": "0.20% MER",
+    "dividendYield": "approximately 1.5% yield",
+    "sector": "ETF"
+  },
+  "analystSummary": "XEQT is generally viewed as a solid choice for investors seeking broad equity exposure with a low-cost structure, though it carries inherent market risks.",
+  "seoDescription": "Explore XEQT ETF analysis: Should I buy XEQT? Discover its performance, strategy, and suitability for your investment portfolio.",
+  "generatedAt": "2026-03-09T13:36:53.462Z",
+  "generatedBy": "gpt-4o-mini"
+}

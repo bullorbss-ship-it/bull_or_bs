@@ -1,0 +1,28 @@
+{
+  "ticker": "VGRO",
+  "company": "Vanguard Growth ETF Portfolio",
+  "exchange": "TSX",
+  "sector": "ETF",
+  "country": "CA",
+  "overview": "The Vanguard Growth ETF Portfolio (VGRO) is designed to provide long-term capital growth by investing primarily in equity securities. This ETF tracks a diversified portfolio of global equities, with a focus on growth-oriented companies across various sectors. VGRO employs a strategic asset allocation approach, typically maintaining a higher percentage of equities compared to fixed income, making it suitable for investors with a higher risk tolerance who are looking for growth potential over the long term.",
+  "bullCase": [
+    "Diversified exposure to global growth equities, reducing individual stock risk.",
+    "Managed by Vanguard, a reputable firm known for low-cost investment options.",
+    "Suitable for long-term investors seeking capital appreciation with a growth-focused strategy."
+  ],
+  "bearCase": [
+    "Higher volatility due to significant equity exposure, which may not suit conservative investors.",
+    "Potential for lower returns in bear markets or economic downturns.",
+    "Expense ratio, while competitive, may still be a consideration for cost-sensitive investors."
+  ],
+  "keyMetrics": {
+    "marketCap": "approximately CAD 1.5 billion",
+    "peRatio": "0.22% MER",
+    "dividendYield": "approximately 1.5% or N/A",
+    "sector": "ETF"
+  },
+  "analystSummary": "VGRO is generally viewed as a solid choice for growth-oriented investors, although it carries higher risk due to its equity focus.",
+  "seoDescription": "Explore VGRO ETF analysis to determine if this growth-focused investment is right for your portfolio.",
+  "generatedAt": "2026-03-09T13:37:52.179Z",
+  "generatedBy": "gpt-4o-mini"
+}

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { ALL_TICKERS, tickerToSlug, slugToTicker, getTickerInfo, getTickersBySector } from '@/lib/tickers';
+import { tickerToSlug, slugToTicker, getTickerInfo, getTickersBySector } from '@/lib/tickers';
+import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { getAllArticles } from '@/lib/content';
 import { getStockData } from '@/lib/stock-data';
 import { siteConfig } from '@/config/site';
@@ -16,7 +17,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return ALL_TICKERS.map(t => ({ ticker: tickerToSlug(t.ticker) }));
+  return getAllTickersExpanded().map(t => ({ ticker: tickerToSlug(t.ticker) }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

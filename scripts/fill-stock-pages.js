@@ -29,9 +29,10 @@ while ((match = regex.exec(tickersFile)) !== null) {
 
 console.log(`Found ${tickers.length} tickers`);
 
-const PROMPT_TEMPLATE = (t) => `You are a stock analyst writing for BullOrBS, an AI-driven stock analysis site.
+const PROMPT_TEMPLATE = (t) => `You are a stock/ETF analyst writing for BullOrBS, an AI-driven stock analysis site.
 
-Generate a stock overview for ${t.company} (${t.ticker}) on the ${t.exchange}.
+Generate a profile for ${t.company} (${t.ticker}) on the ${t.exchange}.
+${t.sector === 'ETF' ? 'This is an ETF. Focus on what the ETF tracks, its strategy, holdings, fees, and suitability for different investors.' : ''}
 
 Output ONLY valid JSON with this exact structure:
 {
@@ -40,17 +41,17 @@ Output ONLY valid JSON with this exact structure:
   "exchange": "${t.exchange}",
   "sector": "${t.sector}",
   "country": "${t.country}",
-  "overview": "2-3 paragraph company overview. What they do, market position, recent developments.",
-  "bullCase": ["3 bullet points for why the stock could go up"],
-  "bearCase": ["3 bullet points for why the stock could go down"],
+  "overview": "2-3 paragraph overview. What it ${t.sector === 'ETF' ? 'tracks/holds, strategy, key features' : 'does, market position, recent developments'}.",
+  "bullCase": ["3 bullet points for why ${t.sector === 'ETF' ? 'this ETF is worth holding' : 'the stock could go up'}"],
+  "bearCase": ["3 bullet points for ${t.sector === 'ETF' ? 'risks and drawbacks' : 'why the stock could go down'}"],
   "keyMetrics": {
-    "marketCap": "approximate market cap string",
-    "peRatio": "approximate P/E ratio string or N/A",
+    "marketCap": "${t.sector === 'ETF' ? 'approximate AUM string' : 'approximate market cap string'}",
+    "peRatio": "${t.sector === 'ETF' ? 'MER/expense ratio string' : 'approximate P/E ratio string or N/A'}",
     "dividendYield": "approximate yield string or N/A",
     "sector": "${t.sector}"
   },
-  "analystSummary": "1-2 sentences summarizing what analysts generally think",
-  "seoDescription": "A 150-character meta description targeting 'should I buy ${t.ticker}' and '${t.ticker} stock analysis'"
+  "analystSummary": "1-2 sentences summarizing the general consensus",
+  "seoDescription": "A 150-character meta description targeting 'should I buy ${t.ticker}' and '${t.ticker} ${t.sector === 'ETF' ? 'ETF' : 'stock'} analysis'"
 }
 
 Be factual. Use your training data. Do not make up specific current prices — use approximate ranges or say "as of early 2025" etc. Output ONLY the JSON object, nothing else.`;
@@ -105,8 +106,9 @@ async function main() {
     const slug = t.ticker.toLowerCase().replace(/\./g, '-');
     const filePath = path.join(DATA_DIR, `${slug}.json`);
 
-    // Skip if already exists
-    if (fs.existsSync(filePath)) {
+    // Skip if already exists (unless --force flag)
+    const forceAll = process.argv.includes('--force');
+    if (!forceAll && fs.existsSync(filePath)) {
       console.log(`  [${i + 1}/${tickers.length}] SKIP ${t.ticker} (exists)`);
       success++;
       continue;
