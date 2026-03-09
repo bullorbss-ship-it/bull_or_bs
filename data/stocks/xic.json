@@ -4,10 +4,10 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The iShares Core S&P/TSX Capped Composite Index ETF (XIC.TO) tracks the S&P/TSX Capped Composite Index, providing broad exposure to approximately 350 Canadian stocks across all market capitalizations. Unlike XIU which only holds the top 60, XIC covers the full breadth of the Canadian equity market — large, mid, and small caps — with a capping mechanism that limits individual stock concentration. At an MER of just 0.06%, XIC is one of the cheapest ways to own the entire Canadian stock market. It is a core building block in many Canadian passive portfolios.",
+  "overview": "The iShares Core S&P/TSX Capped Composite Index ETF (XIC.TO) tracks the S&P/TSX Capped Composite Index, providing broad exposure to approximately 230-250 Canadian stocks across all market capitalizations. Unlike XIU which only holds the top 60, XIC covers the full breadth of the Canadian equity market — large, mid, and small caps — with a capping mechanism that limits individual stock concentration. At an MER of just 0.06%, XIC is one of the cheapest ways to own the entire Canadian stock market. It is a core building block in many Canadian passive portfolios.",
   "bullCase": [
     "Ultra-low MER of 0.06% — one of the cheapest Canadian equity ETFs available.",
-    "Broad exposure to ~350 stocks covering large, mid, and small caps across the full TSX.",
+    "Broad exposure to ~230 stocks covering large, mid, and small caps across the full TSX.",
     "Capped index structure prevents over-concentration in any single stock."
   ],
   "bearCase": [
@@ -21,8 +21,8 @@
     "dividendYield": "Approximately 2.5-3% yield",
     "sector": "ETF"
   },
-  "analystSummary": "XIC is the broadest and cheapest Canadian equity ETF at 0.06% MER. With ~350 holdings vs XIU's 60, it captures far more of the market including mid and small caps. A default Canadian equity building block.",
-  "seoDescription": "Explore whether to buy XIC with our analysis of the iShares Core S&P/TSX Capped Composite Index ETF — ~350 stocks at just 0.06% MER.",
+  "analystSummary": "XIC is the broadest and cheapest Canadian equity ETF at 0.06% MER. With ~230 holdings vs XIU's 60, it captures far more of the market including mid and small caps. A default Canadian equity building block.",
+  "seoDescription": "Explore whether to buy XIC with our analysis of the iShares Core S&P/TSX Capped Composite Index ETF — ~230 stocks at just 0.06% MER.",
   "generatedAt": "2026-03-09T20:00:00.000Z",
   "generatedBy": "manually-corrected"
 }
