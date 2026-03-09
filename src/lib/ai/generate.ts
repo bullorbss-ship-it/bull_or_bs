@@ -88,7 +88,7 @@ Return ONLY valid JSON.`,
   };
 }
 
-export async function generatePick(): Promise<GenerateResult> {
+export async function generatePick(topic?: string): Promise<GenerateResult> {
   const start = Date.now();
 
   // 1. Fetch market movers with confidence tagging
@@ -97,7 +97,12 @@ export async function generatePick(): Promise<GenerateResult> {
   const today = new Date().toISOString().split('T')[0];
   const dayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
 
-  // 2. Call Haiku with tagged data — NO web search
+  // 2. Build user message — inject topic constraint if provided
+  const topicInstruction = topic
+    ? `\n\nTOPIC FOCUS: "${topic}"\nYou MUST focus your tournament exclusively on stocks related to this topic. Select 10-15 candidates that fit this theme using your knowledge + any relevant data above. Do NOT pick stocks outside this theme.`
+    : '';
+
+  // 3. Call Haiku with tagged data — NO web search
   const client = new Anthropic();
   const response = await client.messages.create({
     model: MODEL,
@@ -109,8 +114,9 @@ export async function generatePick(): Promise<GenerateResult> {
 
 === MARKET DATA ===
 ${moversData.context}
+${topicInstruction}
 
-Run your elimination tournament using the data above (respecting confidence tags) and pick the best opportunity (or declare no pick).
+Run your elimination tournament${topic ? ` focused on: "${topic}"` : ' using the data above'} (respecting confidence tags) and pick the best opportunity (or declare no pick).
 
 Return ONLY valid JSON.`,
     }],

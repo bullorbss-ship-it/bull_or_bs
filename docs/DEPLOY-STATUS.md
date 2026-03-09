@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-08T23:56:11.380Z*
+*Auto-generated: 2026-03-09T01:01:01.643Z*
 
 ---
 
@@ -34,7 +34,6 @@
 | --- | --- |
 | / | Page |
 | /about | Page |
-| /admin | Page |
 | /api/admin/articles | API |
 | /api/admin/costs | API |
 | /api/admin/login | API |
@@ -46,6 +45,7 @@
 | /feed.xml | API |
 | /methodology | Page |
 | /og | API |
+| /orange | Page |
 | /picks | Page |
 | /roasts | Page |
 | /stock | Page |

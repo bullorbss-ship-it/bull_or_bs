@@ -62,10 +62,12 @@ export async function POST(req: NextRequest) {
   }
 
   if (type === 'pick') {
+    const { topic } = body;
     try {
-      const result = await generatePick();
+      const result = await generatePick(topic || undefined);
       const today = new Date().toISOString().split('T')[0];
-      const slug = `ai-pick-${today}`;
+      const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
+      const slug = `ai-pick${topicSlug}-${today}`;
 
       const article: Article = {
         slug,
@@ -80,7 +82,7 @@ export async function POST(req: NextRequest) {
           result.content.winner?.ticker || '',
           'AI pick',
           'stock analysis',
-          'weekly pick',
+          topic || 'weekly pick',
         ].filter(Boolean),
         content: result.content,
       };

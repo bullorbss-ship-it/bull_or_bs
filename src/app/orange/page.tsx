@@ -261,15 +261,16 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   const [ticker, setTicker] = useState('');
   const [claim, setClaim] = useState('');
   const [source, setSource] = useState('');
+  const [topic, setTopic] = useState('');
   const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
 
   async function handleGenerate() {
-    setState({ status: 'generating', message: genType === 'roast' ? `Roasting ${ticker.toUpperCase()}...` : 'Running AI tournament...' });
+    setState({ status: 'generating', message: genType === 'roast' ? `Roasting ${ticker.toUpperCase()}...` : topic ? `Running tournament: ${topic}...` : 'Running AI tournament...' });
 
     try {
       const body = genType === 'roast'
         ? { type: 'roast', ticker: ticker.toUpperCase(), claim, source: source || undefined }
-        : { type: 'pick' };
+        : { type: 'pick', topic: topic || undefined };
 
       const res = await fetch('/api/generate', {
         method: 'POST',
@@ -298,6 +299,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       setTicker('');
       setClaim('');
       setSource('');
+      setTopic('');
     } catch (err) {
       setState({ status: 'error', message: err instanceof Error ? err.message : 'Network error' });
     }
@@ -380,13 +382,24 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         </div>
       )}
 
-      {/* Pick info */}
+      {/* Pick form */}
       {genType === 'pick' && (
-        <div className="border border-card-border rounded-xl p-6 mb-6">
-          <p className="text-sm text-muted">
-            The AI will scan today&apos;s market movers, evaluate 10-15 candidates, and pick the best opportunity through an elimination tournament.
-          </p>
-          <p className="text-xs text-muted-light mt-2">
+        <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Topic (optional)</label>
+            <input
+              type="text"
+              value={topic}
+              onChange={e => setTopic(e.target.value)}
+              placeholder="e.g. chip designing companies in US, Canadian banks, AI infrastructure plays"
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent"
+              disabled={state.status === 'generating'}
+            />
+            <p className="text-xs text-muted-light mt-1.5">
+              Leave blank for general market movers tournament. Add a topic to focus on a specific sector or theme.
+            </p>
+          </div>
+          <p className="text-xs text-muted-light">
             Uses FMP market data (if available) + Haiku 4.5. Estimated cost: ~$0.02
           </p>
         </div>
@@ -408,7 +421,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           ? state.message
           : genType === 'roast'
             ? `Roast ${ticker || '...'}`
-            : 'Run AI Tournament'
+            : topic ? `Run: ${topic.slice(0, 30)}${topic.length > 30 ? '...' : ''}` : 'Run AI Tournament'
         }
       </button>
 
