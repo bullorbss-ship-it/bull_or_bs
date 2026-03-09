@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-09T13:45:12.721Z*
+*Auto-generated: 2026-03-09T13:55:39.124Z*
 
 ---
 
@@ -40,6 +40,7 @@
 | /api/admin/commit | API |
 | /api/admin/costs | API |
 | /api/admin/login | API |
+| /api/admin/provider | API |
 | /api/generate | API |
 | /api/health | API |
 | /api/subscribe | API |

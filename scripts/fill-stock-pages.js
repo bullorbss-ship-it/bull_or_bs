@@ -1,22 +1,36 @@
 #!/usr/bin/env node
 
 /**
- * Fill stock pages with AI-generated content using OpenAI GPT-4o-mini
- * Usage: OPENAI_API_KEY=xxx node scripts/fill-stock-pages.js
- * Cost: ~$0.02 for all 61 tickers
+ * Fill/refresh stock & ETF profiles using OpenRouter (free) or OpenAI fallback.
+ * Usage: OPENROUTER_API_KEY=xxx node scripts/fill-stock-pages.js [--force]
+ *        OPENAI_API_KEY=xxx node scripts/fill-stock-pages.js [--force]
+ * Cost: $0 (OpenRouter free) or ~$0.02 (OpenAI)
+ * --force: regenerate all profiles even if they exist
  */
 
 const fs = require('fs');
 const path = require('path');
 
-const API_KEY = process.env.OPENAI_API_KEY;
-if (!API_KEY) {
-  console.error('Set OPENAI_API_KEY env var');
+const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
+const OPENAI_KEY = process.env.OPENAI_API_KEY;
+
+if (!OPENROUTER_KEY && !OPENAI_KEY) {
+  console.error('Set OPENROUTER_API_KEY (free) or OPENAI_API_KEY env var');
   process.exit(1);
 }
 
+const provider = OPENROUTER_KEY ? 'openrouter' : 'openai';
+console.log(`Using provider: ${provider}${provider === 'openrouter' ? ' (free)' : ''}`);
+
 const DATA_DIR = path.join(__dirname, '..', 'data', 'stocks');
-const DELAY_MS = 500; // gpt-4o-mini has generous rate limits
+const DELAY_MS = provider === 'openrouter' ? 800 : 500; // slightly slower for free tier
+
+// OpenRouter free models in priority order
+const OPENROUTER_MODELS = [
+  'google/gemini-2.0-flash-exp:free',
+  'meta-llama/llama-3.3-70b-instruct:free',
+  'qwen/qwen3-32b:free',
+];
 
 // Read tickers from source
 const tickersFile = fs.readFileSync(path.join(__dirname, '..', 'src', 'lib', 'tickers.ts'), 'utf8');
@@ -56,19 +70,56 @@ Output ONLY valid JSON with this exact structure:
 
 Be factual. Use your training data. Do not make up specific current prices — use approximate ranges or say "as of early 2025" etc. Output ONLY the JSON object, nothing else.`;
 
-async function generateStockData(ticker) {
+async function generateViaOpenRouter(ticker) {
+  for (const model of OPENROUTER_MODELS) {
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${OPENROUTER_KEY}`,
+          'HTTP-Referer': 'https://bullorbs.com',
+          'X-Title': 'BullOrBS',
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: 2000,
+          messages: [{ role: 'user', content: PROMPT_TEMPLATE(ticker) }],
+        }),
+      });
+
+      if (!res.ok) {
+        const err = await res.text();
+        console.log(`  [${model}] ${res.status}: ${err.slice(0, 80)}`);
+        continue;
+      }
+
+      const data = await res.json();
+      const text = data.choices?.[0]?.message?.content;
+      if (!text) continue;
+
+      return { text, model };
+    } catch (err) {
+      console.log(`  [${model}] error: ${err.message.slice(0, 60)}`);
+      continue;
+    }
+  }
+  throw new Error('All OpenRouter models failed');
+}
+
+async function generateViaOpenAI(ticker) {
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`
+      'Authorization': `Bearer ${OPENAI_KEY}`,
     },
     body: JSON.stringify({
       model: 'gpt-4o-mini',
       messages: [{ role: 'user', content: PROMPT_TEMPLATE(ticker) }],
       temperature: 0.3,
-      max_tokens: 2000
-    })
+      max_tokens: 2000,
+    }),
   });
 
   if (!res.ok) {
@@ -78,14 +129,16 @@ async function generateStockData(ticker) {
 
   const data = await res.json();
   const text = data.choices?.[0]?.message?.content;
-  if (!text) throw new Error('No text in OpenAI response');
+  if (!text) throw new Error('No text in response');
+  return { text, model: 'gpt-4o-mini' };
+}
 
-  // Extract JSON (strip markdown code fences if present)
+function parseJSON(text) {
   let cleaned = text.replace(/```json\s*/g, '').replace(/```\s*/g, '');
+  // Some models wrap in <think> tags — strip those
+  cleaned = cleaned.replace(/<think>[\s\S]*?<\/think>/g, '');
   const jsonMatch = cleaned.match(/\{[\s\S]*\}/);
   if (!jsonMatch) throw new Error('No JSON in response');
-
-  // Clean and parse
   let jsonStr = jsonMatch[0].replace(/,\s*([}\]])/g, '$1');
   return JSON.parse(jsonStr);
 }
@@ -96,6 +149,7 @@ function sleep(ms) {
 
 async function main() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
+  const forceAll = process.argv.includes('--force');
 
   let success = 0;
   let failed = 0;
@@ -106,8 +160,6 @@ async function main() {
     const slug = t.ticker.toLowerCase().replace(/\./g, '-');
     const filePath = path.join(DATA_DIR, `${slug}.json`);
 
-    // Skip if already exists (unless --force flag)
-    const forceAll = process.argv.includes('--force');
     if (!forceAll && fs.existsSync(filePath)) {
       console.log(`  [${i + 1}/${tickers.length}] SKIP ${t.ticker} (exists)`);
       success++;
@@ -116,11 +168,16 @@ async function main() {
 
     try {
       process.stdout.write(`  [${i + 1}/${tickers.length}] ${t.ticker} (${t.company})... `);
-      const stockData = await generateStockData(t);
+
+      const { text, model } = provider === 'openrouter'
+        ? await generateViaOpenRouter(t)
+        : await generateViaOpenAI(t);
+
+      const stockData = parseJSON(text);
       stockData.generatedAt = new Date().toISOString();
-      stockData.generatedBy = 'gpt-4o-mini';
+      stockData.generatedBy = model;
       fs.writeFileSync(filePath, JSON.stringify(stockData, null, 2));
-      console.log('OK');
+      console.log(`OK [${model.split('/').pop()}]`);
       success++;
     } catch (err) {
       console.log(`FAIL: ${err.message.slice(0, 80)}`);
@@ -128,13 +185,13 @@ async function main() {
       failed++;
     }
 
-    // Small delay between calls
     if (i < tickers.length - 1) {
       await sleep(DELAY_MS);
     }
   }
 
   console.log(`\nDone: ${success} success, ${failed} failed out of ${tickers.length}`);
+  console.log(`Provider: ${provider} | Cost: ${provider === 'openrouter' ? '$0' : '~$0.02'}`);
   if (errors.length > 0) {
     console.log('\nFailed tickers:');
     errors.forEach(e => console.log(`  ${e.ticker}: ${e.error.slice(0, 100)}`));
