@@ -138,6 +138,23 @@ body {
 .grade-D { background: var(--orange-light); color: var(--orange); }
 .grade-F { background: var(--red-light); color: var(--red); }
 
+/* Article tables — scrollable on mobile */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+.overflow-x-auto table {
+  min-width: 400px;
+}
+
+/* Winner row highlight in comparison tables */
+tr.winner-row {
+  background: var(--accent-light) !important;
+}
+tr.winner-row td {
+  color: var(--foreground) !important;
+  font-weight: 600;
+}
+
 /* Smooth scroll for anchor links */
 html {
   scroll-behavior: smooth;

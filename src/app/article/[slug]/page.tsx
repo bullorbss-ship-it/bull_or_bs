@@ -205,14 +205,11 @@ export default async function ArticlePage({ params }: PageProps) {
       <Collapsible
         title="Full Analysis"
         badge={`${readingTime} min read`}
-        defaultOpen={false}
+        defaultOpen={!isRoast}
         icon={<span className="text-accent font-mono text-sm font-bold">{"///"}</span>}
       >
         <div
-          className="prose prose-invert prose-sm max-w-none leading-relaxed
-            prose-headings:font-mono prose-headings:text-foreground
-            prose-a:text-accent prose-strong:text-foreground
-            prose-p:text-muted"
+          className="max-w-none"
           dangerouslySetInnerHTML={{ __html: formatMarkdown(content.analysis) }}
         />
       </Collapsible>
