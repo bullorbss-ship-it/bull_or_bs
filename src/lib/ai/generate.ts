@@ -6,6 +6,12 @@ import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
 import { logCost } from '@/lib/costs';
 import { callAI } from './providers';
 import { buildTickerReferenceSheet, getTickerProfile } from './ticker-profiles';
+import { refreshProfile, ProfileChange } from './refresh-profile';
+
+export interface ProfileWarning {
+  ticker: string;
+  changes: ProfileChange[];
+}
 
 export interface GenerateResult {
   content: ArticleContent;
@@ -17,6 +23,7 @@ export interface GenerateResult {
   dataConfidence: string;
   model: string;
   provider: string;
+  profileWarnings: ProfileWarning[];
 }
 
 export async function generateRoast(
@@ -26,14 +33,26 @@ export async function generateRoast(
 ): Promise<GenerateResult> {
   const start = Date.now();
 
-  // 1. Resolve market data with confidence tagging
+  // 1. Refresh profile via Gemini web search (free, ~2s)
+  const profileWarnings: ProfileWarning[] = [];
+  try {
+    const refresh = await refreshProfile(ticker, true);
+    if (refresh.changes.length > 0) {
+      profileWarnings.push({ ticker, changes: refresh.changes });
+      console.log(`[Generate] Refreshed ${ticker}: ${refresh.changes.length} profile updates`);
+    }
+  } catch (err) {
+    console.log(`[Generate] Profile refresh failed for ${ticker}, continuing with local data`);
+  }
+
+  // 2. Resolve market data with confidence tagging
   const stockData = await resolveStockData(ticker);
 
-  // 2. Inject ticker profile so model can't hallucinate identity
+  // 3. Inject ticker profile so model can't hallucinate identity
   const tickerProfile = getTickerProfile(ticker) || '';
   const referenceSheet = buildTickerReferenceSheet();
 
-  // 3. Call AI provider (OpenRouter free → Anthropic fallback)
+  // 4. Call AI provider (OpenRouter free → Anthropic fallback)
   const userMessage = `Audit this recommendation:
 
 PUBLICATION CLAIM: "${claim}"
@@ -84,6 +103,7 @@ Return ONLY valid JSON.`;
     dataConfidence: stockData.confidence,
     model: response.model,
     provider: response.provider,
+    profileWarnings,
   };
 }
 
@@ -145,6 +165,27 @@ Return ONLY valid JSON.`;
     console.log(`[LEGAL AUDIT] Pick: scrubbed ${audit.violations.length} violations:`, audit.violations);
   }
 
+  // Post-generation: refresh winner + candidates to flag stale profile data
+  const profileWarnings: ProfileWarning[] = [];
+  try {
+    const tickers = (content.candidates || [])
+      .map((c: { ticker?: string }) => c.ticker?.replace('.TO', '').replace('.', '-'))
+      .filter(Boolean) as string[];
+    const unique = Array.from(new Set(tickers)).slice(0, 20);
+    if (unique.length > 0) {
+      console.log(`[Generate] Post-pick refresh: checking ${unique.length} candidate profiles...`);
+      for (const t of unique) {
+        const refresh = await refreshProfile(t, true);
+        if (refresh.changes.length > 0) {
+          profileWarnings.push({ ticker: t, changes: refresh.changes });
+          console.log(`[Generate] ⚠ ${t}: ${refresh.changes.map(c => `${c.field}: "${c.oldValue}" → "${c.newValue}"`).join(', ')}`);
+        }
+      }
+    }
+  } catch (err) {
+    console.log(`[Generate] Post-pick refresh failed, article still valid`);
+  }
+
   return {
     content,
     costUsd: response.costUsd,
@@ -155,5 +196,6 @@ Return ONLY valid JSON.`;
     dataConfidence: moversData.confidence,
     model: response.model,
     provider: response.provider,
+    profileWarnings,
   };
 }

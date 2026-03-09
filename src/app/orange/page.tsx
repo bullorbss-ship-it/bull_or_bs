@@ -50,6 +50,11 @@ interface QualityResult {
   passed: boolean;
 }
 
+interface ProfileWarning {
+  ticker: string;
+  changes: { field: string; oldValue: string; newValue: string; confidence: string }[];
+}
+
 interface GenerateState {
   status: 'idle' | 'generating' | 'success' | 'error';
   message: string;
@@ -58,6 +63,7 @@ interface GenerateState {
     type: string;
     headline: string;
     cost: { usd: number; inputTokens: number; outputTokens: number; durationMs: number; dataConfidence: string };
+    profileWarnings?: ProfileWarning[];
   };
   commitStatus?: 'idle' | 'committing' | 'committed' | 'error';
   commitMessage?: string;
@@ -323,6 +329,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           type: genType,
           headline: data.article?.content?.headline || data.slug,
           cost: data.cost,
+          profileWarnings: data.profileWarnings || [],
         },
         commitStatus: 'idle',
       });
@@ -480,6 +487,25 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <span>{(state.result.cost.durationMs / 1000).toFixed(1)}s</span>
             <span className="text-accent">{state.result.cost.dataConfidence}</span>
           </div>
+
+          {/* Profile warnings from Gemini refresh */}
+          {state.result.profileWarnings && state.result.profileWarnings.length > 0 && (
+            <div className="border border-gold/40 rounded-lg p-4 bg-gold-light/20 mb-4">
+              <p className="text-sm font-bold text-gold mb-2">Profile Data Updated ({state.result.profileWarnings.length} tickers)</p>
+              <p className="text-xs text-muted mb-2">Gemini found stale data in these profiles. Profiles have been auto-updated, but the article may still contain old numbers — review before publishing.</p>
+              {state.result.profileWarnings.map((w, i) => (
+                <div key={i} className="mb-2 last:mb-0">
+                  <p className="text-xs font-mono font-bold text-foreground">{w.ticker}</p>
+                  {w.changes.map((c, j) => (
+                    <p key={j} className="text-xs font-mono text-muted ml-3">
+                      <span className={c.confidence === 'high' ? 'text-red' : 'text-gold'}>{c.confidence === 'high' ? '!!!' : '!!'}</span>
+                      {' '}{c.field}: &ldquo;{c.oldValue}&rdquo; → &ldquo;{c.newValue}&rdquo;
+                    </p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
 
           <a
             href={`/article/${state.result.slug}`}

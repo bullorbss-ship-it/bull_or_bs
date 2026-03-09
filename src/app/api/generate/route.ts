@@ -48,6 +48,7 @@ export async function POST(req: NextRequest) {
         slug,
         article,
         newTickers,
+        profileWarnings: result.profileWarnings,
         cost: {
           usd: result.costUsd,
           inputTokens: result.inputTokens,
@@ -98,6 +99,7 @@ export async function POST(req: NextRequest) {
         slug,
         article,
         newTickers,
+        profileWarnings: result.profileWarnings,
         cost: {
           usd: result.costUsd,
           inputTokens: result.inputTokens,
