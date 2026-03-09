@@ -4,10 +4,10 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The iShares Core Equity ETF Portfolio (XEQT.TO) is a 100% equity all-in-one ETF providing globally diversified stock exposure with no bonds. Similar to VEQT, it holds a mix of U.S., Canadian, international developed, and emerging market equities through underlying iShares index ETFs. XEQT automatically rebalances to maintain its target allocation. With an MER of 0.20%, it is slightly cheaper than VEQT (0.24%) and is the iShares alternative for investors who want maximum equity growth in a single ticker.",
+  "overview": "The iShares Core Equity ETF Portfolio (XEQT.TO) is a 100% equity all-in-one ETF providing globally diversified stock exposure with no bonds. Similar to VEQT, it holds a mix of U.S., Canadian, international developed, and emerging market equities through underlying iShares index ETFs. XEQT automatically rebalances to maintain its target allocation. With an MER of 0.20%, it matches VEQT on cost (also ~0.20% after Vanguard's 2025 fee cut). XEQT allocates ~25% to Canada vs VEQT's ~30%, giving slightly less home bias and more U.S./international exposure. It is the iShares alternative for investors who want maximum equity growth in a single ticker.",
   "bullCase": [
     "100% equity with global diversification at a competitive 0.20% MER.",
-    "Slightly cheaper than VEQT (0.20% vs 0.24%), saving costs over long holding periods.",
+    "Now cost-matched with VEQT (~0.20% each after Vanguard's 2025 fee cut). Lower Canadian home bias (~25% vs ~30%) gives more global diversification.",
     "All-in-one solution with automatic rebalancing — no portfolio management required."
   ],
   "bearCase": [
@@ -21,7 +21,7 @@
     "dividendYield": "Approximately 1.5-2% yield",
     "sector": "ETF"
   },
-  "analystSummary": "XEQT is the iShares answer to VEQT — 100% global equity at 0.20% MER. It's slightly cheaper and uses iShares underlying ETFs instead of Vanguard. Both are excellent all-equity options.",
+  "analystSummary": "XEQT is the iShares answer to VEQT — 100% global equity at 0.20% MER. Now cost-matched with VEQT after Vanguard's 2025 fee cut. XEQT has less Canadian home bias (~25% vs ~30%). Both are excellent all-equity options.",
   "seoDescription": "Explore XEQT ETF analysis: iShares Core Equity ETF Portfolio — 100% global equity at 0.20% MER. Should you buy XEQT?",
   "generatedAt": "2026-03-09T20:00:00.000Z",
   "generatedBy": "manually-corrected"

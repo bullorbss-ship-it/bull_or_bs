@@ -4,7 +4,7 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The iShares Core MSCI All Country World ex Canada Index ETF (XAW.TO) provides exposure to global equities excluding Canada. It tracks the MSCI ACWI ex Canada IMI Index, covering large, mid, and small-cap companies across developed and emerging markets worldwide. XAW is the go-to ETF for Canadian investors who want everything outside Canada in a single ticker — U.S., Europe, Japan, UK, Australia, emerging markets, and more. With an MER of 0.22%, it is commonly paired with a Canadian equity ETF like XIC to build a complete global portfolio.",
+  "overview": "The iShares Core MSCI All Country World ex Canada Index ETF (XAW.TO) provides exposure to global equities excluding Canada. It tracks the MSCI ACWI ex Canada IMI Index, covering large, mid, and small-cap companies across developed and emerging markets worldwide. XAW is the go-to ETF for Canadian investors who want everything outside Canada in a single ticker — U.S. (~60% of holdings), Europe, Japan, UK, Australia, emerging markets, and more. IMPORTANT: XAW already includes the full U.S. market — do NOT pair it with VFV or other S&P 500 ETFs as this creates massive U.S. overlap. The correct DIY pairing is XIC (Canada) + XAW (everything else). With an MER of 0.22%, it is commonly paired with a Canadian equity ETF like XIC to build a complete global portfolio.",
   "bullCase": [
     "One-ticker global diversification excluding Canada at a competitive 0.22% MER.",
     "Covers both developed and emerging markets across all cap sizes.",
@@ -13,7 +13,7 @@
   "bearCase": [
     "Excludes Canadian equities — must be paired with a Canadian ETF for full coverage.",
     "Currency fluctuations across USD, EUR, JPY, and EM currencies add volatility.",
-    "Heavy U.S. weighting (~60%) means performance is still largely driven by U.S. markets."
+    "Heavy U.S. weighting (~60%) means performance is largely U.S.-driven — do NOT combine with VFV/VOO as this double-weights U.S. exposure."
   ],
   "keyMetrics": {
     "marketCap": "Approximately CAD 4 billion AUM",

@@ -4,9 +4,9 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The BMO Covered Call Canadian Banks ETF (ZWB.TO) holds Canada's Big 6 bank stocks and writes covered call options on them to generate enhanced income. This strategy boosts the yield to approximately 7-8%, significantly higher than plain bank ETFs like ZEB (~4-5%). The trade-off is that covered calls cap upside potential — when bank stocks rally strongly, ZWB participates less in the gains because the call options get exercised. ZWB has an MER of 0.71%, higher than ZEB (0.28%) due to the active options overlay. It is popular with retirees and income investors who prioritize cash flow over capital appreciation.",
+  "overview": "The BMO Covered Call Canadian Banks ETF (ZWB.TO) holds Canada's Big 6 bank stocks and writes covered call options on them to generate enhanced income. This strategy boosts the yield to approximately 5-6%, significantly higher than plain bank ETFs like ZEB (~4-5%). The trade-off is that covered calls cap upside potential — when bank stocks rally strongly, ZWB participates less in the gains because the call options get exercised. ZWB has an MER of 0.71%, higher than ZEB (0.28%) due to the active options overlay. It is popular with retirees and income investors who prioritize cash flow over capital appreciation.",
   "bullCase": [
-    "Enhanced yield of approximately 7-8% from covered call premiums on top of bank dividends.",
+    "Enhanced yield of approximately 5-6% from covered call premiums on top of bank dividends.",
     "Exposure to Canada's Big 6 banks — the most stable dividend payers in the country.",
     "Monthly distributions make it attractive for retirees and income-focused portfolios."
   ],
@@ -18,11 +18,11 @@
   "keyMetrics": {
     "marketCap": "Approximately CAD 2.5 billion AUM",
     "peRatio": "0.71% MER",
-    "dividendYield": "Approximately 7-8% yield",
+    "dividendYield": "Approximately 5-6% yield",
     "sector": "ETF"
   },
-  "analystSummary": "ZWB trades upside for income — ~7-8% yield via covered calls on Big 6 banks, but capped gains. At 0.71% MER, it's expensive but popular with income-focused investors who prioritize cash flow.",
-  "seoDescription": "Explore our ZWB ETF analysis — BMO Covered Call Canadian Banks ETF with ~7-8% yield at 0.71% MER. Is the income worth the capped upside?",
+  "analystSummary": "ZWB trades upside for income — ~5-6% yield via covered calls on Big 6 banks, but capped gains. At 0.71% MER, it's expensive but popular with income-focused investors who prioritize cash flow.",
+  "seoDescription": "Explore our ZWB ETF analysis — BMO Covered Call Canadian Banks ETF with ~5-6% yield at 0.71% MER. Is the income worth the capped upside?",
   "generatedAt": "2026-03-09T20:00:00.000Z",
   "generatedBy": "manually-corrected"
 }

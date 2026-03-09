@@ -4,10 +4,10 @@
   "exchange": "TSX",
   "sector": "ETF",
   "country": "CA",
-  "overview": "The Vanguard All-Equity ETF Portfolio (VEQT.TO) is a 100% equity all-in-one ETF that provides globally diversified stock exposure with zero bonds. The approximate allocation is ~40% U.S., ~30% Canada, ~20% International Developed, and ~10% Emerging Markets. VEQT holds underlying Vanguard index ETFs and automatically rebalances to maintain its target allocation. With an MER of 0.24%, it is designed for long-term investors with high risk tolerance who want maximum equity exposure in a single ticker. No fixed income, no bonds — pure equity growth.",
+  "overview": "The Vanguard All-Equity ETF Portfolio (VEQT.TO) is a 100% equity all-in-one ETF that provides globally diversified stock exposure with zero bonds. The approximate allocation is ~43% U.S., ~30% Canada, ~18% International Developed, and ~9% Emerging Markets. Note: VEQT has a higher Canadian home bias (~30%) compared to XEQT (~25%). VEQT holds underlying Vanguard index ETFs and automatically rebalances to maintain its target allocation. With an MER of 0.20%, it is designed for long-term investors with high risk tolerance who want maximum equity exposure in a single ticker. No fixed income, no bonds — pure equity growth.",
   "bullCase": [
     "100% equity with global diversification — maximum long-term growth potential.",
-    "All-in-one solution at 0.24% MER with automatic rebalancing across 4 regions.",
+    "All-in-one solution at 0.20% MER with automatic rebalancing across 4 regions.",
     "Ideal for young investors with long time horizons who can tolerate volatility."
   ],
   "bearCase": [
@@ -17,12 +17,12 @@
   ],
   "keyMetrics": {
     "marketCap": "Approximately CAD 5 billion AUM",
-    "peRatio": "0.24% MER",
+    "peRatio": "0.20% MER",
     "dividendYield": "Approximately 1.5-2% yield",
     "sector": "ETF"
   },
-  "analystSummary": "VEQT is the most popular all-equity ETF in Canada. Its 0.24% MER buys you ~40% US, ~30% Canada, ~20% International, ~10% Emerging Markets — all automatically rebalanced. Pure equity, no bonds.",
-  "seoDescription": "Explore VEQT ETF analysis — Vanguard All-Equity Portfolio with 100% global equity at 0.24% MER. Is it right for your portfolio?",
+  "analystSummary": "VEQT is the most popular all-equity ETF in Canada. Its 0.20% MER buys you ~40% US, ~30% Canada, ~20% International, ~10% Emerging Markets — all automatically rebalanced. Pure equity, no bonds.",
+  "seoDescription": "Explore VEQT ETF analysis — Vanguard All-Equity Portfolio with 100% global equity at 0.20% MER. Is it right for your portfolio?",
   "generatedAt": "2026-03-09T20:00:00.000Z",
   "generatedBy": "manually-corrected"
 }
