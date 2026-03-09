@@ -270,9 +270,9 @@ export default function Home() {
               </div>
               <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
                 {sectors.map(([sector]) => (
-                  <span key={sector} className="text-[10px] sm:text-xs font-mono text-muted bg-card-bg px-2 py-0.5 rounded">
+                  <Link key={sector} href="/stock" className="text-[10px] sm:text-xs font-mono text-muted bg-card-bg px-2 py-0.5 rounded hover:text-accent hover:bg-accent-light transition-colors">
                     {sector}
-                  </span>
+                  </Link>
                 ))}
               </div>
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
