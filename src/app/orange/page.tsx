@@ -257,7 +257,7 @@ export default function AdminPage() {
 // ─── Generate Tab ───────────────────────────────────────────────────────────
 
 function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
-  const [genType, setGenType] = useState<'roast' | 'pick'>('roast');
+  const [genType, setGenType] = useState<'roast' | 'pick'>('pick');
   const [ticker, setTicker] = useState('');
   const [claim, setClaim] = useState('');
   const [source, setSource] = useState('');

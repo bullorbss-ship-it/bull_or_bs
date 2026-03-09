@@ -26,26 +26,26 @@ export default function Home() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-            Popular stock picks,
+            Call the <span className="text-foreground">Bull.</span>
             <br />
-            <span className="text-accent">fact-checked by AI.</span>
+            Expose the <span className="text-accent">BS.</span>
           </h1>
           <p className="text-muted text-sm sm:text-base mt-4 sm:mt-6 leading-relaxed max-w-xl">
-            We audit popular stock recommendations and grade them on real data.
-            Every claim checked. Every grade earned.
+            AI audits popular stock recommendations and grades them A through F.
+            Every claim checked. Every source cited. No paywall. No mercy.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <Link
               href="#latest"
               className="inline-flex items-center justify-center bg-accent text-white font-semibold px-6 py-3 rounded-lg hover:bg-accent-dim transition-colors text-sm"
             >
-              See Latest Analysis
+              See Who Failed
             </Link>
             <Link
               href="#subscribe"
               className="inline-flex items-center justify-center border border-card-border text-foreground font-semibold px-6 py-3 rounded-lg hover:bg-card-bg transition-colors text-sm"
             >
-              Get Free Weekly Email
+              Get the Verdicts Free
             </Link>
           </div>
         </div>
@@ -75,7 +75,47 @@ export default function Home() {
 
       {/* Latest Analysis — THE CONTENT HOOK (shows immediately after hero) */}
       <section id="latest" className="py-10 sm:py-14">
-        <div id="roasts" className="mb-10 sm:mb-12">
+        <div id="picks" className="mb-10 sm:mb-12">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
+                A
+              </span>
+              <div>
+                <h2 className="text-lg sm:text-xl font-bold">AI Picks</h2>
+                <p className="text-[10px] sm:text-xs text-muted">Elimination tournament &mdash; only one survives</p>
+              </div>
+            </div>
+          </div>
+          {picks.length > 0 ? (
+            <div className="relative">
+              <div className="space-y-3">
+                {picks.slice(0, 3).map((article, i) => (
+                  <div key={article.slug} className={picks.length > 3 && i === 2 ? 'opacity-60' : ''}>
+                    <ArticleCard article={article} />
+                  </div>
+                ))}
+              </div>
+              {picks.length > 3 && (
+                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
+                  <Link
+                    href="/picks"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+                  >
+                    View all {picks.length} picks
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
+              <p className="text-muted text-sm">First AI pick coming soon.</p>
+            </div>
+          )}
+        </div>
+
+        <div id="roasts">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
@@ -111,46 +151,6 @@ export default function Home() {
           ) : (
             <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
               <p className="text-muted text-sm">First roast dropping soon.</p>
-            </div>
-          )}
-        </div>
-
-        <div id="picks">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
-                A
-              </span>
-              <div>
-                <h2 className="text-lg sm:text-xl font-bold">AI Picks</h2>
-                <p className="text-[10px] sm:text-xs text-muted">Weekly elimination tournament</p>
-              </div>
-            </div>
-          </div>
-          {picks.length > 0 ? (
-            <div className="relative">
-              <div className="space-y-3">
-                {picks.slice(0, 3).map((article, i) => (
-                  <div key={article.slug} className={picks.length > 3 && i === 2 ? 'opacity-60' : ''}>
-                    <ArticleCard article={article} />
-                  </div>
-                ))}
-              </div>
-              {picks.length > 3 && (
-                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
-                  <Link
-                    href="/picks"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
-                  >
-                    View all {picks.length} picks
-                    <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
-              <p className="text-muted text-sm">First AI pick coming soon.</p>
             </div>
           )}
         </div>
