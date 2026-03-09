@@ -5,7 +5,7 @@ import { auditAndScrub } from './legal';
 import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
 import { logCost } from '@/lib/costs';
 import { callAI } from './providers';
-import { buildTickerReferenceSheet, getTickerProfile } from './ticker-profiles';
+import { buildTickerReferenceSheet, buildIdentityOnlySheet, getTickerProfile } from './ticker-profiles';
 import { refreshProfile, ProfileChange } from './refresh-profile';
 
 export interface ProfileWarning {
@@ -210,7 +210,7 @@ export async function generateScreenshotRoast(
   const start = Date.now();
   const today = new Date().toISOString().split('T')[0];
 
-  const referenceSheet = buildTickerReferenceSheet();
+  const referenceSheet = buildIdentityOnlySheet();
 
   const textDataBlock = textData
     ? `\n=== PASTED DATA (treat as ground truth) ===\n${textData}\n`
@@ -271,7 +271,7 @@ export async function generateScreenshotPick(
   const start = Date.now();
   const today = new Date().toISOString().split('T')[0];
 
-  const referenceSheet = buildTickerReferenceSheet();
+  const referenceSheet = buildIdentityOnlySheet();
 
   const topicLine = topic ? `\nTOPIC CONTEXT: "${topic}"\n` : '';
 

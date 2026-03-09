@@ -77,6 +77,41 @@ export function buildTickerReferenceSheet(): string {
 }
 
 /**
+ * Identity-only reference sheet for screenshot-based generation.
+ * Only includes ticker → company name + exchange. NO metrics, yields, MER, or summaries.
+ * Prevents the model from using reference sheet data instead of screenshot data.
+ */
+export function buildIdentityOnlySheet(): string {
+  if (!fs.existsSync(DATA_DIR)) return '';
+
+  const files = fs.readdirSync(DATA_DIR).filter(f => f.endsWith('.json'));
+  if (files.length === 0) return '';
+
+  const lines: string[] = [
+    '=== TICKER IDENTITY SHEET (names only — do NOT use for any metrics/numbers) ===',
+    '',
+  ];
+
+  for (const file of files) {
+    try {
+      const data: StockData = JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'));
+      const exchange = data.exchange || '?';
+      const suffix = exchange === 'TSX' ? '.TO' : '';
+      lines.push(`${data.ticker}${suffix} — ${data.company} (${exchange})`);
+    } catch {
+      // Skip corrupt files
+    }
+  }
+
+  lines.push('');
+  lines.push('USE THIS SHEET ONLY TO VERIFY TICKER IDENTITIES (what company a ticker represents).');
+  lines.push('Do NOT use any metrics, yields, MERs, or other data from this sheet.');
+  lines.push('ALL numbers must come from the provided screenshots/data ONLY.');
+
+  return lines.join('\n');
+}
+
+/**
  * Get profile for a specific ticker — fuller context for roasts.
  */
 export function getTickerProfile(ticker: string): string | null {
