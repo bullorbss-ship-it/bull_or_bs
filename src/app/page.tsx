@@ -68,7 +68,7 @@ export default function Home() {
           </div>
           <div>
             <p className="text-lg sm:text-2xl font-bold font-mono text-accent">Free</p>
-            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Always</p>
+            <p className="text-[10px] sm:text-xs text-muted mt-0.5">While it lasts</p>
           </div>
         </div>
       </section>
@@ -233,8 +233,8 @@ export default function Home() {
             <div className="flex gap-3">
               <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
               <div>
-                <p className="font-semibold text-sm">100% free, forever</p>
-                <p className="text-muted text-xs sm:text-sm">No paywall. No tricks.</p>
+                <p className="font-semibold text-sm">100% free — for now</p>
+                <p className="text-muted text-xs sm:text-sm">No paywall. No tricks. Get in early.</p>
               </div>
             </div>
           </div>
