@@ -55,6 +55,12 @@ interface ProfileWarning {
   changes: { field: string; oldValue: string; newValue: string; confidence: string }[];
 }
 
+interface ProfileUpdateInfo {
+  field: string;
+  oldValue: string;
+  newValue: string;
+}
+
 interface GenerateState {
   status: 'idle' | 'generating' | 'success' | 'error';
   message: string;
@@ -64,6 +70,7 @@ interface GenerateState {
     headline: string;
     cost: { usd: number; inputTokens: number; outputTokens: number; durationMs: number; dataConfidence: string };
     profileWarnings?: ProfileWarning[];
+    profileUpdates?: ProfileUpdateInfo[];
   };
   commitStatus?: 'idle' | 'committing' | 'committed' | 'error';
   commitMessage?: string;
@@ -278,7 +285,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const files = e.target.files;
     if (!files) return;
-    const maxFiles = genType === 'screenshot-pick' ? 3 : 2;
+    const maxFiles = genType === 'screenshot-pick' ? 20 : 2;
     const remaining = maxFiles - images.length;
     const toProcess = Array.from(files).slice(0, remaining);
 
@@ -379,6 +386,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           headline: data.article?.content?.headline || data.slug,
           cost: data.cost,
           profileWarnings: data.profileWarnings || [],
+          profileUpdates: data.profileUpdates || [],
         },
         commitStatus: 'idle',
       });
@@ -427,7 +435,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <span className="w-10 h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-lg">VS</span>
             <div>
               <p className="font-bold text-foreground">Screenshot Pick</p>
-              <p className="text-xs text-muted">Compare 2-3 stocks from screenshots</p>
+              <p className="text-xs text-muted">Compare stocks from screenshots (2-20)</p>
             </div>
           </div>
         </button>
@@ -635,7 +643,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
               <span className="text-accent font-bold mr-1">1.</span> Stock Data (screenshots, PDFs, or pasted text) *
             </label>
-            <p className="text-xs text-muted-light mb-3">Upload up to 3 files and/or paste raw data. AI compares only these stocks.</p>
+            <p className="text-xs text-muted-light mb-3">Upload files and/or paste raw data. 2-3 for quick compare, up to 20 for full tournament.</p>
 
             {/* File uploads */}
             <div className="border-2 border-dashed border-card-border rounded-lg p-4 hover:border-accent/40 transition-colors mb-3">
@@ -663,10 +671,10 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
                   ))}
                 </div>
               )}
-              {images.length < 3 && (
+              {images.length < 20 && (
                 <label className="cursor-pointer block text-center">
-                  <p className="text-muted mb-1">{images.length === 0 ? 'Upload screenshots or PDFs' : `Add more (${3 - images.length} remaining)`}</p>
-                  <p className="text-xs text-muted-light">PNG, JPG, WebP, or PDF — max 10MB each — max 3 files</p>
+                  <p className="text-muted mb-1">{images.length === 0 ? 'Upload screenshots or PDFs' : `Add more (${20 - images.length} remaining)`}</p>
+                  <p className="text-xs text-muted-light">PNG, JPG, WebP, or PDF — max 10MB each</p>
                   <input
                     type="file"
                     accept="image/png,image/jpeg,image/webp,application/pdf"
@@ -707,7 +715,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             />
           </div>
           <div className="bg-accent-light/30 rounded-lg p-3">
-            <p className="text-xs text-accent font-medium">Compares ONLY the stocks you provide — screenshots, PDFs, pasted data, or any mix. ~$0.03-0.05/article</p>
+            <p className="text-xs text-accent font-medium">Compares ONLY the stocks you provide. 2-3 for quick compare, 10-20 for full elimination tournament. ~$0.03-0.10/article</p>
           </div>
         </div>
       )}
@@ -780,6 +788,19 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
                     </p>
                   ))}
                 </div>
+              ))}
+            </div>
+          )}
+
+          {/* Profile updates from screenshot data */}
+          {state.result.profileUpdates && state.result.profileUpdates.length > 0 && (
+            <div className="border border-accent/40 rounded-lg p-4 bg-accent-light/20 mb-4">
+              <p className="text-sm font-bold text-accent mb-2">Ticker Profiles Updated ({state.result.profileUpdates.length} fields)</p>
+              <p className="text-xs text-muted mb-2">Local profiles updated with real data from your input.</p>
+              {state.result.profileUpdates.map((u, i) => (
+                <p key={i} className="text-xs font-mono text-muted">
+                  <span className="text-accent">+</span> {u.field}: &ldquo;{u.oldValue}&rdquo; &rarr; &ldquo;{u.newValue}&rdquo;
+                </p>
               ))}
             </div>
           )}
