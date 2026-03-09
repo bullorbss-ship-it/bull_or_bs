@@ -6,6 +6,7 @@ export interface Article {
   title: string;
   description: string;
   date: string;
+  createdAt?: string;
   ticker?: string;
   verdict: string;
   confidence?: number;

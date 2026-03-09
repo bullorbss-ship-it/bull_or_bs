@@ -5,7 +5,7 @@ import { Article } from './types';
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 export function getAllArticles(): Article[] {
-  const articles: Article[] = [];
+  const articles: { article: Article; mtime: number }[] = [];
 
   for (const type of ['roasts', 'picks'] as const) {
     const dir = path.join(CONTENT_DIR, type);
@@ -13,12 +13,20 @@ export function getAllArticles(): Article[] {
 
     const files = fs.readdirSync(dir).filter(f => f.endsWith('.json'));
     for (const file of files) {
-      const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
-      articles.push(data);
+      const filePath = path.join(dir, file);
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const mtime = fs.statSync(filePath).mtimeMs;
+      articles.push({ article: data, mtime });
     }
   }
 
-  return articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return articles
+    .sort((a, b) => {
+      const timeA = a.article.createdAt ? new Date(a.article.createdAt).getTime() : a.mtime;
+      const timeB = b.article.createdAt ? new Date(b.article.createdAt).getTime() : b.mtime;
+      return timeB - timeA;
+    })
+    .map(a => a.article);
 }
 
 export function getArticleBySlug(slug: string): Article | null {
@@ -37,11 +45,23 @@ export function getArticlesByType(type: 'roasts' | 'picks'): Article[] {
 
   return fs.readdirSync(dir)
     .filter(f => f.endsWith('.json'))
-    .map(f => JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .map(f => {
+      const filePath = path.join(dir, f);
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      return { article: data, mtime: fs.statSync(filePath).mtimeMs };
+    })
+    .sort((a, b) => {
+      const timeA = a.article.createdAt ? new Date(a.article.createdAt).getTime() : a.mtime;
+      const timeB = b.article.createdAt ? new Date(b.article.createdAt).getTime() : b.mtime;
+      return timeB - timeA;
+    })
+    .map(a => a.article);
 }
 
 export function saveArticle(article: Article): void {
+  if (!article.createdAt) {
+    article.createdAt = new Date().toISOString();
+  }
   const type = article.type === 'roast' ? 'roasts' : 'picks';
   const dir = path.join(CONTENT_DIR, type);
   fs.mkdirSync(dir, { recursive: true });
