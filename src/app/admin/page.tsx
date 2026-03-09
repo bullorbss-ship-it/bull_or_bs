@@ -50,7 +50,17 @@ interface QualityResult {
   passed: boolean;
 }
 
-type Tab = 'articles' | 'costs';
+interface GenerateState {
+  status: 'idle' | 'generating' | 'success' | 'error';
+  message: string;
+  result?: {
+    slug: string;
+    headline: string;
+    cost: { usd: number; inputTokens: number; outputTokens: number; durationMs: number; dataConfidence: string };
+  };
+}
+
+type Tab = 'generate' | 'articles' | 'costs';
 
 export default function AdminPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -59,7 +69,7 @@ export default function AdminPage() {
   const [articles, setArticles] = useState<ArticleData[]>([]);
   const [costs, setCosts] = useState<CostSummary | null>(null);
   const [loading, setLoading] = useState(false);
-  const [tab, setTab] = useState<Tab>('articles');
+  const [tab, setTab] = useState<Tab>('generate');
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -206,6 +216,16 @@ export default function AdminPage() {
       {/* Tabs */}
       <div className="flex gap-1 mb-6 border-b border-card-border">
         <button
+          onClick={() => setTab('generate')}
+          className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
+            tab === 'generate'
+              ? 'border-accent text-accent'
+              : 'border-transparent text-muted hover:text-foreground'
+          }`}
+        >
+          Generate
+        </button>
+        <button
           onClick={() => setTab('articles')}
           className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
             tab === 'articles'
@@ -227,9 +247,240 @@ export default function AdminPage() {
         </button>
       </div>
 
+      {tab === 'generate' && <GenerateTab onGenerated={() => { loadAll(); setTab('articles'); }} />}
       {tab === 'articles' && <ArticlesTab articles={articles} getQualityScore={getQualityScore} />}
       {tab === 'costs' && <CostsTab costs={costs} />}
     </div>
+  );
+}
+
+// ─── Generate Tab ───────────────────────────────────────────────────────────
+
+function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
+  const [genType, setGenType] = useState<'roast' | 'pick'>('roast');
+  const [ticker, setTicker] = useState('');
+  const [claim, setClaim] = useState('');
+  const [source, setSource] = useState('');
+  const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
+
+  async function handleGenerate() {
+    setState({ status: 'generating', message: genType === 'roast' ? `Roasting ${ticker.toUpperCase()}...` : 'Running AI tournament...' });
+
+    try {
+      const body = genType === 'roast'
+        ? { type: 'roast', ticker: ticker.toUpperCase(), claim, source: source || undefined }
+        : { type: 'pick' };
+
+      const res = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setState({ status: 'error', message: data.detail || data.error || 'Generation failed' });
+        return;
+      }
+
+      setState({
+        status: 'success',
+        message: 'Article generated!',
+        result: {
+          slug: data.slug,
+          headline: data.article?.content?.headline || data.slug,
+          cost: data.cost,
+        },
+      });
+
+      // Reset form
+      setTicker('');
+      setClaim('');
+      setSource('');
+    } catch (err) {
+      setState({ status: 'error', message: err instanceof Error ? err.message : 'Network error' });
+    }
+  }
+
+  return (
+    <>
+      {/* Quick actions */}
+      <div className="grid sm:grid-cols-2 gap-4 mb-8">
+        <button
+          onClick={() => setGenType('roast')}
+          className={`border-2 rounded-xl p-5 text-left transition-all ${
+            genType === 'roast'
+              ? 'border-red bg-red-light'
+              : 'border-card-border hover:border-red/30'
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-2">
+            <span className="w-10 h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-lg">F</span>
+            <div>
+              <p className="font-bold text-foreground">Roast</p>
+              <p className="text-xs text-muted">Audit a stock recommendation</p>
+            </div>
+          </div>
+        </button>
+        <button
+          onClick={() => setGenType('pick')}
+          className={`border-2 rounded-xl p-5 text-left transition-all ${
+            genType === 'pick'
+              ? 'border-accent bg-accent-light'
+              : 'border-card-border hover:border-accent/30'
+          }`}
+        >
+          <div className="flex items-center gap-3 mb-2">
+            <span className="w-10 h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-lg">A</span>
+            <div>
+              <p className="font-bold text-foreground">AI Pick</p>
+              <p className="text-xs text-muted">Run elimination tournament</p>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      {/* Roast form */}
+      {genType === 'roast' && (
+        <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Ticker *</label>
+            <input
+              type="text"
+              value={ticker}
+              onChange={e => setTicker(e.target.value.toUpperCase())}
+              placeholder="e.g. AAPL, RY, SHOP"
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground font-mono focus:outline-none focus:border-accent"
+              disabled={state.status === 'generating'}
+            />
+          </div>
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Claim to audit *</label>
+            <textarea
+              value={claim}
+              onChange={e => setClaim(e.target.value)}
+              placeholder="e.g. This stock is a strong buy for long-term investors looking for AI exposure..."
+              rows={3}
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent resize-none"
+              disabled={state.status === 'generating'}
+            />
+          </div>
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Source (optional)</label>
+            <input
+              type="text"
+              value={source}
+              onChange={e => setSource(e.target.value)}
+              placeholder="e.g. Popular financial newsletter, March 2026"
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent"
+              disabled={state.status === 'generating'}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Pick info */}
+      {genType === 'pick' && (
+        <div className="border border-card-border rounded-xl p-6 mb-6">
+          <p className="text-sm text-muted">
+            The AI will scan today&apos;s market movers, evaluate 10-15 candidates, and pick the best opportunity through an elimination tournament.
+          </p>
+          <p className="text-xs text-muted-light mt-2">
+            Uses FMP market data (if available) + Haiku 4.5. Estimated cost: ~$0.02
+          </p>
+        </div>
+      )}
+
+      {/* Generate button */}
+      <button
+        onClick={handleGenerate}
+        disabled={state.status === 'generating' || (genType === 'roast' && (!ticker || !claim))}
+        className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
+          state.status === 'generating'
+            ? 'bg-card-bg text-muted cursor-wait'
+            : genType === 'roast'
+              ? 'bg-red text-white hover:opacity-90'
+              : 'bg-accent text-white hover:opacity-90'
+        } disabled:opacity-50 disabled:cursor-not-allowed`}
+      >
+        {state.status === 'generating'
+          ? state.message
+          : genType === 'roast'
+            ? `Roast ${ticker || '...'}`
+            : 'Run AI Tournament'
+        }
+      </button>
+
+      {/* Status */}
+      {state.status === 'generating' && (
+        <div className="mt-6 border border-card-border rounded-xl p-6 text-center">
+          <div className="animate-pulse">
+            <p className="text-lg font-mono text-accent mb-2">{state.message}</p>
+            <p className="text-xs text-muted-light">This usually takes 10-30 seconds</p>
+          </div>
+        </div>
+      )}
+
+      {state.status === 'success' && state.result && (
+        <div className="mt-6 border-2 border-accent rounded-xl p-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-accent text-xl">&#10003;</span>
+            <p className="font-bold text-foreground">Article generated!</p>
+          </div>
+          <p className="text-sm text-foreground font-medium mb-3">{state.result.headline}</p>
+          <div className="flex flex-wrap gap-3 text-xs text-muted font-mono mb-4">
+            <span>${state.result.cost.usd.toFixed(4)}</span>
+            <span>{((state.result.cost.inputTokens + state.result.cost.outputTokens) / 1000).toFixed(1)}K tokens</span>
+            <span>{(state.result.cost.durationMs / 1000).toFixed(1)}s</span>
+            <span className="text-accent">{state.result.cost.dataConfidence}</span>
+          </div>
+          <div className="flex gap-3">
+            <a
+              href={`/article/${state.result.slug}`}
+              target="_blank"
+              className="text-sm font-semibold text-accent hover:text-accent/80"
+            >
+              View article &rarr;
+            </a>
+            <button
+              onClick={onGenerated}
+              className="text-sm text-muted hover:text-foreground"
+            >
+              Back to articles
+            </button>
+          </div>
+        </div>
+      )}
+
+      {state.status === 'error' && (
+        <div className="mt-6 border-2 border-red rounded-xl p-6">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-red text-xl">&#10007;</span>
+            <p className="font-bold text-red">Generation failed</p>
+          </div>
+          <p className="text-sm text-muted">{state.message}</p>
+          <button
+            onClick={() => setState({ status: 'idle', message: '' })}
+            className="mt-3 text-sm text-accent hover:text-accent/80"
+          >
+            Try again
+          </button>
+        </div>
+      )}
+
+      {/* Quick tips */}
+      <div className="mt-8 border border-card-border rounded-xl p-5 bg-card-bg">
+        <p className="text-xs font-mono text-muted-light uppercase tracking-wide mb-3">Morning run checklist</p>
+        <ul className="space-y-2 text-sm text-muted">
+          <li className="flex gap-2"><span className="text-accent shrink-0">1.</span> Generate AI Pick (market tournament)</li>
+          <li className="flex gap-2"><span className="text-accent shrink-0">2.</span> Pick a trending stock claim to roast</li>
+          <li className="flex gap-2"><span className="text-accent shrink-0">3.</span> Check Articles tab for quality scores</li>
+          <li className="flex gap-2"><span className="text-accent shrink-0">4.</span> Check Costs tab for spend tracking</li>
+          <li className="flex gap-2"><span className="text-muted-light shrink-0">5.</span> <span className="text-muted-light">Remember: articles on Render are ephemeral — commit to git for persistence</span></li>
+        </ul>
+      </div>
+    </>
   );
 }
 
