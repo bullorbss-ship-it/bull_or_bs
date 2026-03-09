@@ -1,29 +1,32 @@
 #!/usr/bin/env node
 
 /**
- * Fill/refresh stock & ETF profiles using OpenRouter (free) or OpenAI fallback.
- * Usage: OPENROUTER_API_KEY=xxx node scripts/fill-stock-pages.js [--force]
- *        OPENAI_API_KEY=xxx node scripts/fill-stock-pages.js [--force]
- * Cost: $0 (OpenRouter free) or ~$0.02 (OpenAI)
+ * Fill/refresh stock & ETF profiles using Anthropic Haiku (best), OpenRouter (free), or OpenAI fallback.
+ * Usage: ANTHROPIC_API_KEY=xxx node scripts/fill-stock-pages.js [--force]    # Best quality (~$0.02)
+ *        OPENROUTER_API_KEY=xxx node scripts/fill-stock-pages.js [--force]   # Free ($0)
+ *        OPENAI_API_KEY=xxx node scripts/fill-stock-pages.js [--force]       # Fallback (~$0.02)
  * --force: regenerate all profiles even if they exist
  */
 
 const fs = require('fs');
 const path = require('path');
 
+const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY;
 const OPENROUTER_KEY = process.env.OPENROUTER_API_KEY;
 const OPENAI_KEY = process.env.OPENAI_API_KEY;
 
-if (!OPENROUTER_KEY && !OPENAI_KEY) {
-  console.error('Set OPENROUTER_API_KEY (free) or OPENAI_API_KEY env var');
+if (!ANTHROPIC_KEY && !OPENROUTER_KEY && !OPENAI_KEY) {
+  console.error('Set ANTHROPIC_API_KEY (best quality), OPENROUTER_API_KEY (free), or OPENAI_API_KEY env var');
   process.exit(1);
 }
 
-const provider = OPENROUTER_KEY ? 'openrouter' : 'openai';
-console.log(`Using provider: ${provider}${provider === 'openrouter' ? ' (free)' : ''}`);
+// Priority: Anthropic (best quality) > OpenRouter (free) > OpenAI (fallback)
+const provider = ANTHROPIC_KEY ? 'anthropic' : OPENROUTER_KEY ? 'openrouter' : 'openai';
+const COST_LABEL = { anthropic: '~$0.02 (Haiku)', openrouter: '$0 (free)', openai: '~$0.02 (GPT-4o-mini)' };
+console.log(`Using provider: ${provider} — ${COST_LABEL[provider]}`);
 
 const DATA_DIR = path.join(__dirname, '..', 'data', 'stocks');
-const DELAY_MS = provider === 'openrouter' ? 800 : 500; // slightly slower for free tier
+const DELAY_MS = provider === 'openrouter' ? 800 : 500;
 
 // OpenRouter free models in priority order
 const OPENROUTER_MODELS = [
@@ -46,7 +49,21 @@ console.log(`Found ${tickers.length} tickers`);
 const PROMPT_TEMPLATE = (t) => `You are a stock/ETF analyst writing for BullOrBS, an AI-driven stock analysis site.
 
 Generate a profile for ${t.company} (${t.ticker}) on the ${t.exchange}.
-${t.sector === 'ETF' ? 'This is an ETF. Focus on what the ETF tracks, its strategy, holdings, fees, and suitability for different investors.' : ''}
+${t.sector === 'ETF' ? `This is an ETF. Focus on:
+- What INDEX it tracks (exact index name)
+- Whether it is HEDGED or UNHEDGED (for currency exposure)
+- Its actual MER/expense ratio (be precise — e.g. 0.09%, not "low")
+- Top holdings or sector weights
+- Suitability for different investors
+- How it differs from similar ETFs` : ''}
+
+FACT-CHECK RULES (CRITICAL):
+1. Before writing, mentally verify each fact. If you are NOT confident about a specific number (MER, yield, AUM), say "approximately" or omit it.
+2. For ETFs: MER must be the ACTUAL management expense ratio. Canadian ETFs typically range 0.06%-0.75%. Do NOT guess — if unsure, say "approximately X%".
+3. For ETFs: Clearly state if hedged (CAD-hedged) or unhedged (full currency exposure). This is critical for Canadian investors.
+4. For ETFs: The dividend yield must reflect the ACTUAL distribution history, not a guess. High-dividend ETFs (like XEI, ZWB) often yield 5-8%.
+5. Do NOT confuse similar ETFs (e.g., VFV is unhedged, VSP is hedged; ZAG and VAB are different products).
+6. If you are unsure about ANY fact, mark it with "approximately" rather than stating it as definitive.
 
 Output ONLY valid JSON with this exact structure:
 {
@@ -55,12 +72,12 @@ Output ONLY valid JSON with this exact structure:
   "exchange": "${t.exchange}",
   "sector": "${t.sector}",
   "country": "${t.country}",
-  "overview": "2-3 paragraph overview. What it ${t.sector === 'ETF' ? 'tracks/holds, strategy, key features' : 'does, market position, recent developments'}.",
+  "overview": "2-3 paragraph overview. What it ${t.sector === 'ETF' ? 'tracks (exact index name), hedging status, strategy, key features, how it differs from alternatives' : 'does, market position, recent developments'}.",
   "bullCase": ["3 bullet points for why ${t.sector === 'ETF' ? 'this ETF is worth holding' : 'the stock could go up'}"],
   "bearCase": ["3 bullet points for ${t.sector === 'ETF' ? 'risks and drawbacks' : 'why the stock could go down'}"],
   "keyMetrics": {
     "marketCap": "${t.sector === 'ETF' ? 'approximate AUM string' : 'approximate market cap string'}",
-    "peRatio": "${t.sector === 'ETF' ? 'MER/expense ratio string' : 'approximate P/E ratio string or N/A'}",
+    "peRatio": "${t.sector === 'ETF' ? 'exact MER percentage (e.g. 0.09% MER)' : 'approximate P/E ratio string or N/A'}",
     "dividendYield": "approximate yield string or N/A",
     "sector": "${t.sector}"
   },
@@ -68,7 +85,33 @@ Output ONLY valid JSON with this exact structure:
   "seoDescription": "A 150-character meta description targeting 'should I buy ${t.ticker}' and '${t.ticker} ${t.sector === 'ETF' ? 'ETF' : 'stock'} analysis'"
 }
 
-Be factual. Use your training data. Do not make up specific current prices — use approximate ranges or say "as of early 2025" etc. Output ONLY the JSON object, nothing else.`;
+Output ONLY the JSON object, nothing else.`;
+
+async function generateViaAnthropic(ticker) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': ANTHROPIC_KEY,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 2000,
+      messages: [{ role: 'user', content: PROMPT_TEMPLATE(ticker) }],
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Anthropic API ${res.status}: ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json();
+  const text = data.content?.map(b => b.text).join('') || '';
+  if (!text) throw new Error('No text in Anthropic response');
+  return { text, model: 'claude-haiku-4-5' };
+}
 
 async function generateViaOpenRouter(ticker) {
   for (const model of OPENROUTER_MODELS) {
@@ -169,9 +212,11 @@ async function main() {
     try {
       process.stdout.write(`  [${i + 1}/${tickers.length}] ${t.ticker} (${t.company})... `);
 
-      const { text, model } = provider === 'openrouter'
-        ? await generateViaOpenRouter(t)
-        : await generateViaOpenAI(t);
+      const { text, model } = provider === 'anthropic'
+        ? await generateViaAnthropic(t)
+        : provider === 'openrouter'
+          ? await generateViaOpenRouter(t)
+          : await generateViaOpenAI(t);
 
       const stockData = parseJSON(text);
       stockData.generatedAt = new Date().toISOString();
