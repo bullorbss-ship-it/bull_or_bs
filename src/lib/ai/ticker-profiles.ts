@@ -9,6 +9,21 @@ import { StockData } from '@/lib/stock-data';
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'stocks');
 
+/** Extract hedging status from overview text — critical for Canadian ETFs */
+function extractHedgeStatus(overview: string): string {
+  const lower = overview.toLowerCase();
+  if (lower.includes('unhedged') || lower.includes('not hedged') || lower.includes('full currency exposure') || lower.includes('full usd/cad')) {
+    return ' | ⚠️ UNHEDGED (full FX exposure)';
+  }
+  if (lower.includes('cad-hedged') || lower.includes('currency-hedged') || lower.includes('hedged')) {
+    return ' | CAD-HEDGED';
+  }
+  if (lower.includes('swap-based') || lower.includes('no distributions')) {
+    return ' | SWAP-BASED (no distributions)';
+  }
+  return '';
+}
+
 /**
  * Load all stock profiles and build a compact reference string.
  * Format: one line per ticker with identity + key facts.
@@ -31,22 +46,32 @@ export function buildTickerReferenceSheet(): string {
       const isETF = data.sector === 'ETF';
       const exchange = data.exchange || '?';
       const suffix = exchange === 'TSX' ? '.TO' : '';
+      const overview = data.overview || '';
 
-      // Compact one-liner: TICKER (Exchange) — Full Name | Sector | 1-sentence what it is
-      const firstSentence = data.overview?.split('.')[0]?.trim() || data.company;
+      // Extract critical ETF flags from overview text
+      const hedgeStatus = isETF ? extractHedgeStatus(overview) : '';
       const mer = isETF && data.keyMetrics?.peRatio ? ` | MER: ${data.keyMetrics.peRatio}` : '';
       const yield_ = data.keyMetrics?.dividendYield && data.keyMetrics.dividendYield !== 'N/A'
         ? ` | Yield: ${data.keyMetrics.dividendYield}` : '';
 
-      lines.push(`${data.ticker}${suffix} (${exchange}) — ${data.company} | ${data.sector}${mer}${yield_}`);
-      lines.push(`  → ${firstSentence}.`);
+      // Compact one-liner with critical flags upfront
+      lines.push(`${data.ticker}${suffix} (${exchange}) — ${data.company} | ${data.sector}${hedgeStatus}${mer}${yield_}`);
+
+      // First two sentences for better context
+      const sentences = overview.match(/[^.!?]+[.!?]+/g) || [];
+      const summary = sentences.slice(0, 2).join('').trim() || data.company;
+      lines.push(`  → ${summary}`);
     } catch {
       // Skip corrupt files
     }
   }
 
   lines.push('');
-  lines.push('IMPORTANT: When discussing any ticker above, use the identity from this reference sheet. Do NOT rely on your training data for what a ticker represents — it may be wrong for Canadian ETFs.');
+  lines.push('CRITICAL RULES:');
+  lines.push('- Use ONLY the identities, MERs, yields, and hedging status from this sheet.');
+  lines.push('- Do NOT override these facts with your training data — your training data is often WRONG for Canadian ETFs.');
+  lines.push('- VFV.TO is UNHEDGED (full USD/CAD exposure). VSP.TO is the HEDGED version. Do NOT confuse them.');
+  lines.push('- If a ticker is NOT in this sheet, explicitly flag it as "based on training knowledge (unverified)".');
 
   return lines.join('\n');
 }
