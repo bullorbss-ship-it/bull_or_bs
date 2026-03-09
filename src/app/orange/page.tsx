@@ -55,9 +55,12 @@ interface GenerateState {
   message: string;
   result?: {
     slug: string;
+    type: string;
     headline: string;
     cost: { usd: number; inputTokens: number; outputTokens: number; durationMs: number; dataConfidence: string };
   };
+  commitStatus?: 'idle' | 'committing' | 'committed' | 'error';
+  commitMessage?: string;
 }
 
 type Tab = 'generate' | 'articles' | 'costs';
@@ -264,6 +267,33 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   const [topic, setTopic] = useState('');
   const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
 
+  async function handleCommit(slug: string, articleType: string) {
+    setState(prev => ({ ...prev, commitStatus: 'committing' }));
+    try {
+      const res = await fetch('/api/admin/commit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, type: articleType }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setState(prev => ({ ...prev, commitStatus: 'error', commitMessage: data.detail || data.error }));
+        return;
+      }
+      setState(prev => ({
+        ...prev,
+        commitStatus: 'committed',
+        commitMessage: `Commit: ${data.commitSha?.slice(0, 7) || 'done'}`,
+      }));
+    } catch (err) {
+      setState(prev => ({
+        ...prev,
+        commitStatus: 'error',
+        commitMessage: err instanceof Error ? err.message : 'Network error',
+      }));
+    }
+  }
+
   async function handleGenerate() {
     setState({ status: 'generating', message: genType === 'roast' ? `Roasting ${ticker.toUpperCase()}...` : topic ? `Running tournament: ${topic}...` : 'Running AI tournament...' });
 
@@ -290,9 +320,11 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         message: 'Article generated!',
         result: {
           slug: data.slug,
+          type: genType,
           headline: data.article?.content?.headline || data.slug,
           cost: data.cost,
         },
+        commitStatus: 'idle',
       });
 
       // Reset form
@@ -448,21 +480,64 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <span>{(state.result.cost.durationMs / 1000).toFixed(1)}s</span>
             <span className="text-accent">{state.result.cost.dataConfidence}</span>
           </div>
-          <div className="flex gap-3">
-            <a
-              href={`/article/${state.result.slug}`}
-              target="_blank"
-              className="text-sm font-semibold text-accent hover:text-accent/80"
-            >
-              View article &rarr;
-            </a>
+
+          <a
+            href={`/article/${state.result.slug}`}
+            target="_blank"
+            className="text-sm text-accent hover:text-accent/80 mb-4 inline-block"
+          >
+            Preview article &rarr;
+          </a>
+
+          {/* Commit CTAs */}
+          {state.commitStatus === 'committed' ? (
+            <div className="border border-accent/30 rounded-lg p-4 bg-accent-light/30 mb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-accent">&#10003;</span>
+                <p className="text-sm font-medium text-foreground">Saved to GitHub — will persist across deploys</p>
+              </div>
+              {state.commitMessage && (
+                <p className="text-xs text-muted mt-1 font-mono">{state.commitMessage}</p>
+              )}
+            </div>
+          ) : state.commitStatus === 'error' ? (
+            <div className="border border-red/30 rounded-lg p-4 bg-red-light/30 mb-3">
+              <p className="text-sm font-medium text-red">Commit failed</p>
+              <p className="text-xs text-muted mt-1">{state.commitMessage}</p>
+              <button
+                onClick={() => handleCommit(state.result!.slug, state.result!.type)}
+                className="text-xs text-accent hover:text-accent/80 mt-2"
+              >
+                Retry
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row gap-3 mt-4">
+              <button
+                onClick={() => handleCommit(state.result!.slug, state.result!.type)}
+                disabled={state.commitStatus === 'committing'}
+                className="flex-1 bg-accent text-white py-3 px-5 rounded-lg font-semibold text-sm hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-wait"
+              >
+                {state.commitStatus === 'committing' ? 'Saving to repo...' : 'Publish & Save to Repo'}
+              </button>
+              <button
+                onClick={() => { setState({ status: 'idle', message: '' }); onGenerated(); }}
+                disabled={state.commitStatus === 'committing'}
+                className="flex-1 border border-card-border text-muted py-3 px-5 rounded-lg font-semibold text-sm hover:text-foreground hover:border-foreground/30 transition-all"
+              >
+                Cancel — do not deploy
+              </button>
+            </div>
+          )}
+
+          {state.commitStatus === 'committed' && (
             <button
               onClick={onGenerated}
-              className="text-sm text-muted hover:text-foreground"
+              className="text-sm text-muted hover:text-foreground mt-3"
             >
               Back to articles
             </button>
-          </div>
+          )}
         </div>
       )}
 
