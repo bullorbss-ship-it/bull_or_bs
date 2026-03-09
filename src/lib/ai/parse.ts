@@ -1,14 +1,6 @@
 import { ArticleContent } from '@/lib/types';
 import { tickerToSlug } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
-import Anthropic from '@anthropic-ai/sdk';
-
-export function extractText(response: Anthropic.Message): string {
-  return response.content
-    .filter(block => block.type === 'text')
-    .map(block => block.text)
-    .join('');
-}
 
 function repairJson(raw: string): string {
   let s = raw;

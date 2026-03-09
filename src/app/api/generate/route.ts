@@ -54,7 +54,8 @@ export async function POST(req: NextRequest) {
           outputTokens: result.outputTokens,
           apiCalls: result.apiCalls,
           durationMs: result.durationMs,
-          model: 'claude-haiku-4-5-20251001',
+          model: result.model,
+          provider: result.provider,
           dataConfidence: result.dataConfidence,
         },
       });
@@ -103,7 +104,8 @@ export async function POST(req: NextRequest) {
           outputTokens: result.outputTokens,
           apiCalls: result.apiCalls,
           durationMs: result.durationMs,
-          model: 'claude-haiku-4-5-20251001',
+          model: result.model,
+          provider: result.provider,
           dataConfidence: result.dataConfidence,
         },
       });
