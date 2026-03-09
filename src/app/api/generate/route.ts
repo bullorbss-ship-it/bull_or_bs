@@ -44,11 +44,27 @@ export async function POST(req: NextRequest) {
 
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
+
+      // Update all candidate profiles from article data
+      const profileUpdates: ProfileUpdate[] = [];
+      try {
+        const candidates = result.content.candidates || [];
+        for (const c of candidates) {
+          if (c.ticker && result.content.dataPoints?.length > 0) {
+            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
+            profileUpdates.push(...updates);
+          }
+        }
+      } catch (e) {
+        console.log(`[Profile Update] Failed for roast candidates:`, e instanceof Error ? e.message : e);
+      }
+
       return NextResponse.json({
         success: true,
         slug,
         article,
         newTickers,
+        profileUpdates,
         profileWarnings: result.profileWarnings,
         cost: {
           usd: result.costUsd,
@@ -95,11 +111,27 @@ export async function POST(req: NextRequest) {
 
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
+
+      // Update all candidate profiles from article data
+      const profileUpdates: ProfileUpdate[] = [];
+      try {
+        const candidates = result.content.candidates || [];
+        for (const c of candidates) {
+          if (c.ticker && result.content.dataPoints?.length > 0) {
+            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
+            profileUpdates.push(...updates);
+          }
+        }
+      } catch (e) {
+        console.log(`[Profile Update] Failed for pick candidates:`, e instanceof Error ? e.message : e);
+      }
+
       return NextResponse.json({
         success: true,
         slug,
         article,
         newTickers,
+        profileUpdates,
         profileWarnings: result.profileWarnings,
         cost: {
           usd: result.costUsd,
@@ -147,18 +179,18 @@ export async function POST(req: NextRequest) {
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
 
-      // Update ticker profile from screenshot data
+      // Update ALL candidate ticker profiles from screenshot data
       const profileUpdates: ProfileUpdate[] = [];
       try {
-        if (ticker !== 'unknown' && result.content.dataPoints?.length > 0) {
-          const candidateCompany = result.content.candidates?.find(
-            (c: { ticker?: string; company?: string }) => c.ticker?.toUpperCase() === ticker.toUpperCase()
-          )?.company;
-          const updates = updateProfileFromArticle(ticker, result.content.dataPoints, candidateCompany);
-          profileUpdates.push(...updates);
+        const candidates = result.content.candidates || [];
+        for (const c of candidates) {
+          if (c.ticker && result.content.dataPoints?.length > 0) {
+            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
+            profileUpdates.push(...updates);
+          }
         }
       } catch (e) {
-        console.log(`[Profile Update] Failed for ${ticker}:`, e instanceof Error ? e.message : e);
+        console.log(`[Profile Update] Failed for roast candidates:`, e instanceof Error ? e.message : e);
       }
 
       return NextResponse.json({

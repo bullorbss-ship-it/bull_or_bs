@@ -3,6 +3,7 @@ import ArticleCard from '@/components/article/ArticleCard';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
 import { TSX_TICKERS, US_TICKERS } from '@/lib/tickers';
+import { getAllTickersExpanded } from '@/lib/ticker-registry';
 
 export const dynamic = 'force-dynamic';
 
@@ -10,7 +11,10 @@ export default function Home() {
   const articles = getAllArticles();
   const roasts = articles.filter(a => a.type === 'roast');
   const picks = articles.filter(a => a.type === 'pick');
-  const totalStocks = TSX_TICKERS.length + US_TICKERS.length;
+  const allTickers = getAllTickersExpanded();
+  const tsxTickers = allTickers.filter(t => t.exchange === 'TSX');
+  const usTickers = allTickers.filter(t => t.exchange !== 'TSX');
+  const totalStocks = allTickers.length;
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -249,8 +253,8 @@ export default function Home() {
         </div>
 
         {[
-          { tag: 'TSX', label: 'Canadian Markets', tickers: TSX_TICKERS, market: 'CA' },
-          { tag: 'NYSE', label: 'US Markets', tickers: US_TICKERS, market: 'US' },
+          { tag: 'TSX', label: 'Canadian Markets', tickers: tsxTickers, market: 'CA' },
+          { tag: 'NYSE', label: 'US Markets', tickers: usTickers, market: 'US' },
         ].map(({ tag, label, tickers, market }) => {
           const sectorMap = new Map<string, typeof tickers>();
           tickers.forEach(t => {

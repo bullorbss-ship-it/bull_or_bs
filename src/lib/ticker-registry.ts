@@ -51,7 +51,7 @@ export function registerTicker(info: TickerInfo): boolean {
  */
 export function registerArticleTickers(article: {
   ticker?: string;
-  content: { candidates?: Array<{ ticker: string; name?: string }> };
+  content: { candidates?: Array<{ ticker: string; name?: string; company?: string }> };
 }): string[] {
   const registered: string[] = [];
   const allExpanded = getAllTickersExpanded();
@@ -64,7 +64,7 @@ export function registerArticleTickers(article: {
   }
   if (article.content.candidates) {
     for (const c of article.content.candidates) {
-      tickers.push({ ticker: c.ticker, name: c.name });
+      tickers.push({ ticker: c.ticker, name: c.company || c.name });
     }
   }
 
