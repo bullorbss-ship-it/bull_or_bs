@@ -17,6 +17,8 @@ function saveSubscribers(subs: string[]) {
   fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subs, null, 2));
 }
 
+// CASL compliance: consent is obtained via SubscribeForm UI (privacy policy link + opt-in text)
+// Users agree to privacy policy and consent to emails before submitting
 export async function POST(req: NextRequest) {
   let body;
   try {

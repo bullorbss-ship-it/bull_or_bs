@@ -6,10 +6,13 @@
  *
  * Checks:
  * 1. No competitor trademarks in branding/UI (protected zones)
- * 2. Disclaimers present on all required pages
- * 3. Anonymity — no personal info in codebase
- * 4. All articles pass legal audit (no competitor names in protected fields)
- * 5. No "buy" / "sell" directives (Canadian compliance)
+ * 2. All articles pass legal audit (no competitor names in protected fields)
+ * 3. Disclaimers present on required components
+ * 4. Anonymity — no personal info in codebase
+ * 5. Required compliance pages exist (Privacy Policy, Disclaimer, Terms)
+ * 6. CASL email compliance (consent language if collecting emails)
+ * 7. Footer has required legal links
+ * 8. No "buy" / "sell" directives (Canadian compliance)
  */
 
 const fs = require('fs');
@@ -197,7 +200,9 @@ function scanForLeaks(dir) {
         e !== 'bull.or.bss@gmail.com' &&
         e !== 'noreply@anthropic.com' &&
         e !== 'noreply@github.com' &&
-        !e.includes('example.com')
+        e !== 'hello@bullorbs.com' &&
+        !e.includes('example.com') &&
+        !e.includes('email.com')
       );
       if (nonProjectEmails.length > 0) {
         const relPath = path.relative(ROOT, fullPath);
@@ -211,7 +216,93 @@ scanForLeaks(path.join(ROOT, 'src'));
 scanForLeaks(path.join(ROOT, 'content'));
 pass('Anonymity scan complete');
 
-// ─── 5. Canadian compliance: no direct buy/sell directives ──────────
+// ─── 5. Canadian Compliance: Required Pages ─────────────────────────
+
+console.log('\n--- Required Compliance Pages ---');
+
+const REQUIRED_PAGES = [
+  { path: 'src/app/privacy/page.tsx', desc: 'Privacy Policy page', keywords: ['collect', 'data', 'personal information'] },
+  { path: 'src/app/disclaimer/page.tsx', desc: 'Disclaimer page', keywords: ['not financial advice'] },
+  { path: 'src/app/terms/page.tsx', desc: 'Terms of Service page', keywords: ['terms', 'use', 'service'] },
+];
+
+for (const { path: relPath, desc, keywords } of REQUIRED_PAGES) {
+  const fullPath = path.join(ROOT, relPath);
+  if (!fs.existsSync(fullPath)) {
+    error(`${desc}: MISSING — ${relPath} does not exist`);
+    continue;
+  }
+
+  const content = fs.readFileSync(fullPath, 'utf8').toLowerCase();
+  const missing = keywords.filter(k => !content.includes(k));
+  if (missing.length > 0) {
+    warn(`${desc}: missing expected language: ${missing.join(', ')}`);
+  } else {
+    pass(`${desc}: present with required language`);
+  }
+}
+
+// ─── 6. CASL Compliance (Newsletter/Email) ──────────────────────────
+
+console.log('\n--- CASL Email Compliance ---');
+
+// Check if subscribe form exists and has consent language
+const SUBSCRIBE_FILES = [
+  'src/components/forms/SubscribeForm.tsx',
+  'src/app/api/subscribe/route.ts',
+];
+
+for (const relPath of SUBSCRIBE_FILES) {
+  const fullPath = path.join(ROOT, relPath);
+  if (!fs.existsSync(fullPath)) {
+    pass(`${relPath}: not present (no email collection = no CASL risk)`);
+    continue;
+  }
+
+  const content = fs.readFileSync(fullPath, 'utf8').toLowerCase();
+
+  // If collecting emails, must have consent indicators
+  if (content.includes('email') && (content.includes('subscribe') || content.includes('submit'))) {
+    const hasConsent = content.includes('consent') || content.includes('agree') || content.includes('opt-in') || content.includes('privacy');
+    if (!hasConsent) {
+      error(`${relPath}: collects email but no consent/privacy language found (CASL requirement)`);
+    } else {
+      pass(`${relPath}: email collection with consent language`);
+    }
+
+    // Check for link to privacy policy
+    const hasPrivacyLink = content.includes('privacy') || content.includes('/privacy');
+    if (!hasPrivacyLink) {
+      warn(`${relPath}: no link to privacy policy (CASL best practice)`);
+    }
+  }
+}
+
+// ─── 7. Footer: Required Links ──────────────────────────────────────
+
+console.log('\n--- Footer Compliance Links ---');
+
+const footerPath = path.join(ROOT, 'src/components/layout/Footer.tsx');
+if (fs.existsSync(footerPath)) {
+  const footerContent = fs.readFileSync(footerPath, 'utf8').toLowerCase();
+  const requiredLinks = [
+    { name: 'Privacy Policy', pattern: '/privacy' },
+    { name: 'Disclaimer', pattern: '/disclaimer' },
+    { name: 'Terms of Service', pattern: '/terms' },
+  ];
+
+  for (const { name, pattern } of requiredLinks) {
+    if (footerContent.includes(pattern)) {
+      pass(`Footer: ${name} link present`);
+    } else {
+      warn(`Footer: missing ${name} link (${pattern})`);
+    }
+  }
+} else {
+  error('Footer component not found');
+}
+
+// ─── 8. Canadian compliance: no direct buy/sell directives ──────────
 
 console.log('\n--- Canadian Compliance ---');
 

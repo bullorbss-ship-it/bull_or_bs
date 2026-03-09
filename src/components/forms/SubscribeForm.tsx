@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('');
@@ -55,6 +56,11 @@ export default function SubscribeForm() {
           {message}
         </p>
       )}
+      <p className="text-xs text-muted-light mt-2 w-full">
+        By subscribing, you agree to our{' '}
+        <Link href="/privacy" className="text-accent hover:text-accent-dim underline">Privacy Policy</Link>
+        {' '}and consent to receiving emails from BullOrBS. Unsubscribe anytime.
+      </p>
     </form>
   );
 }

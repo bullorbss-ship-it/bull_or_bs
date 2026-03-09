@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-09T01:38:31.889Z*
+*Auto-generated: 2026-03-09T12:58:53.765Z*
 
 ---
 
@@ -9,8 +9,8 @@
 | Type | Count |
 | --- | --- |
 | Roasts | 5 |
-| Picks | 1 |
-| **Total** | 6 |
+| Picks | 2 |
+| **Total** | 7 |
 
 ### Roasts
 
@@ -26,6 +26,7 @@
 
 | Date | Ticker | Title |
 | --- | --- | --- |
+| 2026-03-09 | LHX | Iran War Weapons Play: Which Defense Contractor Survives Pea |
 | 2026-03-08 | - | NO PICK: Markets Closed for Weekend Murder — Oil Chaos Creat |
 
 ## Route Map
@@ -35,6 +36,7 @@
 | / | Page |
 | /about | Page |
 | /api/admin/articles | API |
+| /api/admin/commit | API |
 | /api/admin/costs | API |
 | /api/admin/login | API |
 | /api/generate | API |
@@ -47,9 +49,11 @@
 | /og | API |
 | /orange | Page |
 | /picks | Page |
+| /privacy | Page |
 | /roasts | Page |
 | /stock | Page |
 | /stock/[ticker] | Page |
+| /terms | Page |
 
 ## Ticker Coverage
 
