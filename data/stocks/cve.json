@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "Energy",
   "country": "CA",
-  "overview": "Cenovus Energy is a Canadian integrated oil and natural gas company headquartered in Calgary, Alberta. It operates in the oil sands sector, primarily in Alberta, and has a significant presence in conventional oil and gas production. Cenovus has been focusing on improving operational efficiency and sustainability while expanding its production capabilities. Recent developments include strategic acquisitions and investments in renewable energy projects, positioning the company to adapt to the evolving energy landscape.",
+  "overview": "Cenovus Energy (CVE.TO) is a Canadian INTEGRATED oil and natural gas company — NOT a pure-play producer. Following its acquisition of Husky Energy, CVE operates major refineries including Toledo (U.S.), Lima (U.S.), and the Lloydminster upgrader/refinery complex in Canada. Downstream throughput exceeds 450,000 bbl/d. Upstream production is 900,000+ boe/d. CRITICAL: CVE is functionally similar to Suncor (SU) and Imperial Oil (IMO) as an integrated company. Do NOT categorize CVE as a pure upstream producer — its refining operations hedge against crude price swings, muting both upside and downside leverage to spot oil prices.",
   "bullCase": [
-    "Strong demand for oil and gas as global economies recover post-pandemic.",
-    "Continued focus on operational efficiency and cost reduction could enhance profit margins.",
-    "Strategic investments in renewable energy may diversify revenue streams and reduce carbon footprint."
+    "Integrated model provides natural hedge — upstream profits when crude is high, downstream margins when crude is low.",
+    "Massive scale post-Husky acquisition — one of Canada's largest energy companies.",
+    "Strong free cash flow generation supports dividends and buybacks."
   ],
   "bearCase": [
-    "Volatility in oil prices could negatively impact revenue and profitability.",
-    "Regulatory changes and environmental concerns may pose challenges to operations.",
-    "High levels of debt could limit financial flexibility and investment in growth opportunities."
+    "Integration mutes pure crude price leverage — not ideal for oil recovery plays.",
+    "Meaningful debt load (~$8B+ net debt) limits financial flexibility.",
+    "Refining margins can compress when crude prices spike, partially offsetting upstream gains."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 20 billion",
+    "marketCap": "Approximately CAD 55 billion",
     "peRatio": "approximately 10-15",
-    "dividendYield": "approximately 3-5%",
+    "dividendYield": "approximately 2-3%",
     "sector": "Energy"
   },
-  "analystSummary": "Analysts generally view Cenovus Energy as a solid investment in the energy sector, with potential for growth driven by operational improvements and market demand.",
-  "seoDescription": "Explore Cenovus Energy (CVE) stock analysis and find out if you should buy CVE for your investment portfolio.",
+  "analystSummary": "CVE is a fully integrated Canadian energy company (upstream + downstream). Not a pure-play producer — do NOT confuse with pure upstream E&Ps. Similar to SU and IMO in structure.",
+  "seoDescription": "Explore Cenovus Energy (CVE) stock analysis — integrated Canadian oil company with upstream production and major refining operations.",
   "generatedAt": "2026-03-09T13:33:43.451Z",
   "generatedBy": "gpt-4o-mini"
 }

@@ -4,25 +4,25 @@
   "exchange": "TSX",
   "sector": "Energy",
   "country": "CA",
-  "overview": "Canadian Natural Resources Limited (CNQ) is one of the largest independent crude oil and natural gas producers in the world, primarily operating in the Western Canadian Sedimentary Basin. The company is involved in the exploration, development, and production of oil and natural gas, with a strong focus on sustainable practices and efficient operations. Recently, CNQ has been expanding its production capabilities and investing in renewable energy projects, positioning itself as a leader in the transition to cleaner energy sources.",
+  "overview": "Canadian Natural Resources (CNQ.TO) is the largest oil producer and second-largest natural gas producer in Canada, with production exceeding 1.3 million boe/d. Primarily an upstream E&P company, but NOTE: CNQ operates upgraders (Horizon, Scotford/AOSP) that convert heavy bitumen into synthetic crude oil (SCO), capturing internal upgrading margins. Also holds a stake in the North West Redwater/Sturgeon Refinery. While overwhelmingly upstream-weighted (unlike CVE/SU/IMO which are fully integrated), CNQ is NOT a pure pure-play — its upgrading operations provide some internal margin capture. Famous for exceptional capital discipline and 21% average annual dividend growth since 2001.",
   "bullCase": [
-    "Strong demand for oil and gas as global economies recover post-pandemic.",
-    "Robust cash flow generation allows for continued investment in growth and shareholder returns.",
-    "Strategic acquisitions and projects could enhance production and reserves."
+    "Largest Canadian oil producer — massive scale provides low cost of capital and operational resilience.",
+    "Exceptional capital discipline — 21% average annual dividend growth since 2001, strict FCF framework.",
+    "Overwhelmingly upstream-weighted — strongest crude price leverage among Canadian majors."
   ],
   "bearCase": [
-    "Volatility in oil prices could negatively impact revenue and profitability.",
-    "Regulatory pressures and shifts towards renewable energy may affect long-term growth.",
-    "Potential operational challenges or delays in project development could hinder performance."
+    "Oil sands upgraders capture internal margins, so not purely leveraged to spot crude prices.",
+    "Heavy oil sands production has higher carbon intensity — regulatory and ESG risk.",
+    "Volatile oil prices directly impact cash flow and share price."
   ],
   "keyMetrics": {
-    "marketCap": "approximately CAD 60 billion",
+    "marketCap": "Approximately CAD 90-95 billion",
     "peRatio": "approximately 12-15",
     "dividendYield": "approximately 4-5%",
     "sector": "Energy"
   },
-  "analystSummary": "Analysts generally view CNQ as a solid investment in the energy sector, with a balanced risk-reward profile. The company's strong fundamentals and commitment to sustainability are seen as positive factors.",
-  "seoDescription": "Should I buy CNQ? Explore our CNQ stock analysis for insights on Canadian Natural Resources and its market potential.",
+  "analystSummary": "CNQ is Canada's largest oil producer. Overwhelmingly upstream but has upgrading operations (Horizon, Scotford). Best crude price leverage among Canadian majors, exceptional dividend growth. Not fully integrated like CVE/SU/IMO, but not a pure pure-play either.",
+  "seoDescription": "Should I buy CNQ? Explore our Canadian Natural Resources stock analysis — Canada's largest oil producer with exceptional capital discipline.",
   "generatedAt": "2026-03-09T13:33:27.078Z",
   "generatedBy": "gpt-4o-mini"
 }
