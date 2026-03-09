@@ -5,6 +5,7 @@ import { auditAndScrub } from './legal';
 import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
 import { logCost } from '@/lib/costs';
 import { callAI } from './providers';
+import { buildTickerReferenceSheet, getTickerProfile } from './ticker-profiles';
 
 export interface GenerateResult {
   content: ArticleContent;
@@ -28,7 +29,11 @@ export async function generateRoast(
   // 1. Resolve market data with confidence tagging
   const stockData = await resolveStockData(ticker);
 
-  // 2. Call AI provider (OpenRouter free → Anthropic fallback)
+  // 2. Inject ticker profile so model can't hallucinate identity
+  const tickerProfile = getTickerProfile(ticker) || '';
+  const referenceSheet = buildTickerReferenceSheet();
+
+  // 3. Call AI provider (OpenRouter free → Anthropic fallback)
   const userMessage = `Audit this recommendation:
 
 PUBLICATION CLAIM: "${claim}"
@@ -39,7 +44,9 @@ DATE: ${new Date().toISOString().split('T')[0]}
 === MARKET DATA ===
 ${stockData.context}
 
-Audit the recommendation thoroughly using the data above (respecting confidence tags). Compare to alternatives.
+${tickerProfile ? `=== TICKER PROFILE (verified) ===\n${tickerProfile}\n` : ''}
+${referenceSheet ? `=== ALL KNOWN TICKERS ===\n${referenceSheet}\n` : ''}
+Audit the recommendation thoroughly using the data above (respecting confidence tags). Compare to alternatives. When referencing any ticker, use the identity from the reference sheet above — do NOT guess what a ticker represents.
 
 Return ONLY valid JSON.`;
 
@@ -97,14 +104,21 @@ Do NOT pick stocks outside this theme.
 IMPORTANT: When a specific topic is provided, you ARE allowed to use your training knowledge to identify and analyze companies in this sector even if real-time market data is unavailable. Use qualitative analysis (business model, competitive position, sector trends, management quality) as your primary framework. For any specific numbers (price, P/E, market cap), say "approximately" or "as of last available data" — never state them as current verified facts. Do NOT refuse to pick just because real-time data is unavailable.`
     : '';
 
-  // 3. Call AI provider (OpenRouter free → Anthropic fallback)
+  // 3. Inject ticker reference sheet so model can't hallucinate identities
+  const referenceSheet = buildTickerReferenceSheet();
+
+  // 4. Call AI provider (OpenRouter free → Anthropic fallback)
   const userMessage = `Today is ${today} (${dayName}).
 
 === MARKET DATA ===
 ${moversData.context}
+
+${referenceSheet ? `${referenceSheet}\n` : ''}
 ${topicInstruction}
 
 Run your elimination tournament${topic ? ` focused on: "${topic}". Use your knowledge of this sector to identify candidates even if real-time data is limited` : ' using the data above'} (respecting confidence tags where available) and pick the best opportunity (or declare no pick only if you truly cannot evaluate any candidates).
+
+CRITICAL: When discussing any ticker from the reference sheet above, you MUST use the correct identity. For example, if the sheet says "PSA.TO — Purpose High Interest Savings ETF", do NOT call it a bond fund. If you reference a ticker NOT in the sheet, clearly state you are using training knowledge.
 
 Return ONLY valid JSON.`;
 
