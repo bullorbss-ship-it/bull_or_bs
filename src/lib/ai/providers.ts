@@ -1,7 +1,7 @@
 /**
  * Multi-provider AI adapter.
- * Supports: Anthropic (Haiku), OpenRouter (free models), Google AI Studio (Gemini).
- * Provider selection: OPENROUTER_API_KEY → OpenRouter, else ANTHROPIC_API_KEY → Haiku.
+ * Supports: Anthropic (Haiku), OpenRouter (free models).
+ * Provider selection: ANTHROPIC_API_KEY → Haiku (primary), else OPENROUTER_API_KEY → free models.
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -24,6 +24,7 @@ const OPENROUTER_FREE_MODELS = [
 ];
 
 function getProvider(): 'openrouter' | 'anthropic' {
+  if (process.env.ANTHROPIC_API_KEY) return 'anthropic';
   if (process.env.OPENROUTER_API_KEY) return 'openrouter';
   return 'anthropic';
 }
