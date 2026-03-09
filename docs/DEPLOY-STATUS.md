@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-09T13:55:39.124Z*
+*Auto-generated: 2026-03-09T19:10:31.229Z*
 
 ---
 
@@ -9,8 +9,8 @@
 | Type | Count |
 | --- | --- |
 | Roasts | 5 |
-| Picks | 3 |
-| **Total** | 8 |
+| Picks | 6 |
+| **Total** | 11 |
 
 ### Roasts
 
@@ -26,8 +26,11 @@
 
 | Date | Ticker | Title |
 | --- | --- | --- |
+| 2026-03-09 | XEQT.TO | The Retirement ETF Showdown: Which Canadian All-in-One Fund  |
+| 2026-03-09 | CNQ.TO | Oil's Back in the Game: Which Energy Stock Wins the Recovery |
 | 2026-03-09 | LHX | Iran War Weapons Play: Which Defense Contractor Survives Pea |
 | 2026-03-09 | NIO | EV Wars 2026: Tesla's Crown Crumbles as Chinese Makers Close |
+| 2026-03-09 | FNV.TO | Canadian Dividend Royalty: The Safest Passive Income Play Ri |
 | 2026-03-08 | - | NO PICK: Markets Closed for Weekend Murder — Oil Chaos Creat |
 
 ## Route Map
@@ -41,6 +44,7 @@
 | /api/admin/costs | API |
 | /api/admin/login | API |
 | /api/admin/provider | API |
+| /api/admin/refresh-profile | API |
 | /api/generate | API |
 | /api/health | API |
 | /api/subscribe | API |

@@ -99,14 +99,38 @@ async function callAnthropic(
   system: string,
   userMessage: string,
   maxTokens: number,
+  images?: string[],
 ): Promise<AIResponse> {
   const model = 'claude-haiku-4-5-20251001';
   const client = new Anthropic();
+
+  // Build content blocks — images first, then text
+  const content: Anthropic.MessageCreateParams['messages'][0]['content'] = [];
+  if (images && images.length > 0) {
+    for (const img of images) {
+      // Detect media type from base64 header or default to jpeg
+      let mediaType: 'image/jpeg' | 'image/png' | 'image/webp' | 'image/gif' = 'image/jpeg';
+      let data = img;
+      if (img.startsWith('data:')) {
+        const match = img.match(/^data:(image\/\w+);base64,/);
+        if (match) {
+          mediaType = match[1] as typeof mediaType;
+          data = img.replace(/^data:image\/\w+;base64,/, '');
+        }
+      }
+      content.push({
+        type: 'image',
+        source: { type: 'base64', media_type: mediaType, data },
+      });
+    }
+  }
+  content.push({ type: 'text', text: userMessage });
+
   const response = await client.messages.create({
     model,
     max_tokens: maxTokens,
     system,
-    messages: [{ role: 'user', content: userMessage }],
+    messages: [{ role: 'user', content }],
   });
 
   const text = response.content
@@ -138,8 +162,14 @@ export async function callAI(
   system: string,
   userMessage: string,
   maxTokens = 8000,
+  images?: string[],
 ): Promise<AIResponse> {
   const provider = getProvider();
+
+  // Vision requires Anthropic — skip OpenRouter for image requests
+  if (images && images.length > 0) {
+    return await callAnthropic(system, userMessage, maxTokens, images);
+  }
 
   if (provider === 'openrouter') {
     try {

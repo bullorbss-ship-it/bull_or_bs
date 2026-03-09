@@ -25,7 +25,7 @@ interface ArticleData {
 interface CostEntry {
   id: string;
   date: string;
-  type: 'roast' | 'pick';
+  type: 'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick';
   ticker?: string;
   model: string;
   inputTokens: number;
@@ -266,12 +266,42 @@ export default function AdminPage() {
 // ─── Generate Tab ───────────────────────────────────────────────────────────
 
 function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
-  const [genType, setGenType] = useState<'roast' | 'pick'>('pick');
+  const [genType, setGenType] = useState<'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick'>('screenshot-roast');
   const [ticker, setTicker] = useState('');
   const [claim, setClaim] = useState('');
   const [source, setSource] = useState('');
   const [topic, setTopic] = useState('');
+  const [images, setImages] = useState<string[]>([]);
   const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
+
+  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = e.target.files;
+    if (!files) return;
+    const maxImages = genType === 'screenshot-pick' ? 3 : 2;
+    const remaining = maxImages - images.length;
+    const toProcess = Array.from(files).slice(0, remaining);
+
+    for (const file of toProcess) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`${file.name} is over 5MB limit`);
+        continue;
+      }
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result as string;
+        setImages(prev => {
+          if (prev.length >= maxImages) return prev;
+          return [...prev, result];
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+    e.target.value = '';
+  }
+
+  function removeImage(index: number) {
+    setImages(prev => prev.filter((_, i) => i !== index));
+  }
 
   async function handleCommit(slug: string, articleType: string) {
     setState(prev => ({ ...prev, commitStatus: 'committing' }));
@@ -301,12 +331,25 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   }
 
   async function handleGenerate() {
-    setState({ status: 'generating', message: genType === 'roast' ? `Roasting ${ticker.toUpperCase()}...` : topic ? `Running tournament: ${topic}...` : 'Running AI tournament...' });
+    const messages: Record<string, string> = {
+      'roast': `Roasting ${ticker.toUpperCase()}...`,
+      'pick': topic ? `Running tournament: ${topic}...` : 'Running AI tournament...',
+      'screenshot-roast': 'Analyzing screenshot...',
+      'screenshot-pick': `Comparing ${images.length} stocks from screenshots...`,
+    };
+    setState({ status: 'generating', message: messages[genType] || 'Generating...' });
 
     try {
-      const body = genType === 'roast'
-        ? { type: 'roast', ticker: ticker.toUpperCase(), claim, source: source || undefined }
-        : { type: 'pick', topic: topic || undefined };
+      let body: Record<string, unknown>;
+      if (genType === 'roast') {
+        body = { type: 'roast', ticker: ticker.toUpperCase(), claim, source: source || undefined };
+      } else if (genType === 'pick') {
+        body = { type: 'pick', topic: topic || undefined };
+      } else if (genType === 'screenshot-roast') {
+        body = { type: 'screenshot-roast', images, source: source || undefined, ticker: ticker || undefined };
+      } else {
+        body = { type: 'screenshot-pick', images, topic: topic || undefined };
+      }
 
       const res = await fetch('/api/generate', {
         method: 'POST',
@@ -326,7 +369,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         message: 'Article generated!',
         result: {
           slug: data.slug,
-          type: genType,
+          type: genType.includes('roast') ? 'roast' : 'pick',
           headline: data.article?.content?.headline || data.slug,
           cost: data.cost,
           profileWarnings: data.profileWarnings || [],
@@ -339,6 +382,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       setClaim('');
       setSource('');
       setTopic('');
+      setImages([]);
     } catch (err) {
       setState({ status: 'error', message: err instanceof Error ? err.message : 'Network error' });
     }
@@ -346,37 +390,69 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
 
   return (
     <>
-      {/* Quick actions */}
+      {/* Quick actions — screenshot modes first (recommended) */}
       <div className="grid sm:grid-cols-2 gap-4 mb-8">
         <button
-          onClick={() => setGenType('roast')}
+          onClick={() => { setGenType('screenshot-roast'); setImages([]); }}
           className={`border-2 rounded-xl p-5 text-left transition-all ${
+            genType === 'screenshot-roast'
+              ? 'border-red bg-red-light'
+              : 'border-card-border hover:border-red/30'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-lg">SS</span>
+            <div>
+              <p className="font-bold text-foreground">Screenshot Roast</p>
+              <p className="text-xs text-muted">Upload article screenshot — zero hallucination</p>
+            </div>
+          </div>
+        </button>
+        <button
+          onClick={() => { setGenType('screenshot-pick'); setImages([]); }}
+          className={`border-2 rounded-xl p-5 text-left transition-all ${
+            genType === 'screenshot-pick'
+              ? 'border-accent bg-accent-light'
+              : 'border-card-border hover:border-accent/30'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-lg">VS</span>
+            <div>
+              <p className="font-bold text-foreground">Screenshot Pick</p>
+              <p className="text-xs text-muted">Compare 2-3 stocks from screenshots</p>
+            </div>
+          </div>
+        </button>
+        <button
+          onClick={() => setGenType('roast')}
+          className={`border-2 rounded-xl p-4 text-left transition-all ${
             genType === 'roast'
               ? 'border-red bg-red-light'
               : 'border-card-border hover:border-red/30'
           }`}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <span className="w-10 h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-lg">F</span>
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-sm">F</span>
             <div>
-              <p className="font-bold text-foreground">Roast</p>
-              <p className="text-xs text-muted">Audit a stock recommendation</p>
+              <p className="font-bold text-foreground text-sm">Text Roast</p>
+              <p className="text-xs text-muted">Paste claim manually (legacy)</p>
             </div>
           </div>
         </button>
         <button
           onClick={() => setGenType('pick')}
-          className={`border-2 rounded-xl p-5 text-left transition-all ${
+          className={`border-2 rounded-xl p-4 text-left transition-all ${
             genType === 'pick'
               ? 'border-accent bg-accent-light'
               : 'border-card-border hover:border-accent/30'
           }`}
         >
-          <div className="flex items-center gap-3 mb-2">
-            <span className="w-10 h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-lg">A</span>
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-sm">A</span>
             <div>
-              <p className="font-bold text-foreground">AI Pick</p>
-              <p className="text-xs text-muted">Run elimination tournament</p>
+              <p className="font-bold text-foreground text-sm">Text Pick</p>
+              <p className="text-xs text-muted">15-stock tournament (legacy)</p>
             </div>
           </div>
         </button>
@@ -444,14 +520,185 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         </div>
       )}
 
+      {/* Screenshot Roast form */}
+      {genType === 'screenshot-roast' && (
+        <div className="border border-card-border rounded-xl p-6 mb-6 space-y-5">
+          {/* Step 1: Stock name */}
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
+              <span className="text-red font-bold mr-1">1.</span> Stock / Company Name *
+            </label>
+            <input
+              type="text"
+              value={ticker}
+              onChange={e => setTicker(e.target.value.toUpperCase())}
+              placeholder="e.g. TSLA, RY.TO, IFC.TO, Intact Financial"
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground font-mono focus:outline-none focus:border-accent"
+              disabled={state.status === 'generating'}
+            />
+          </div>
+
+          {/* Step 2: Stock data screenshot */}
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
+              <span className="text-red font-bold mr-1">2.</span> Stock Data Screenshot (Google Finance, Yahoo, etc.)
+            </label>
+            <div className="border-2 border-dashed border-card-border rounded-lg p-4 text-center hover:border-red/40 transition-colors">
+              {images.length > 0 && images[0] ? (
+                <div className="space-y-2">
+                  <div className="relative inline-block">
+                    <img src={images[0]} alt="Stock data" className="max-h-36 rounded-lg border border-card-border" />
+                    <button
+                      onClick={() => removeImage(0)}
+                      className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
+                    >
+                      X
+                    </button>
+                    <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-1.5 py-0.5 rounded font-mono">Data</span>
+                  </div>
+                </div>
+              ) : (
+                <label className="cursor-pointer block">
+                  <p className="text-muted text-sm mb-1">Upload stock data screenshot</p>
+                  <p className="text-xs text-muted-light">Price, P/E, market cap, yield, etc.</p>
+                  <input
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                    disabled={state.status === 'generating'}
+                  />
+                </label>
+              )}
+            </div>
+          </div>
+
+          {/* Step 3: Article screenshot */}
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
+              <span className="text-red font-bold mr-1">3.</span> Article / Recommendation Screenshot *
+            </label>
+            <div className="border-2 border-dashed border-card-border rounded-lg p-4 text-center hover:border-red/40 transition-colors">
+              {images.length > 1 && images[1] ? (
+                <div className="space-y-2">
+                  <div className="relative inline-block">
+                    <img src={images[1]} alt="Article" className="max-h-36 rounded-lg border border-card-border" />
+                    <button
+                      onClick={() => removeImage(1)}
+                      className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
+                    >
+                      X
+                    </button>
+                    <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-1.5 py-0.5 rounded font-mono">Article</span>
+                  </div>
+                </div>
+              ) : (
+                <label className="cursor-pointer block">
+                  <p className="text-muted text-sm mb-1">Upload article screenshot</p>
+                  <p className="text-xs text-muted-light">Motley Fool, Seeking Alpha, etc.</p>
+                  <input
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    onChange={handleImageUpload}
+                    className="hidden"
+                    disabled={state.status === 'generating' || images.length < 1}
+                  />
+                </label>
+              )}
+            </div>
+          </div>
+
+          {/* Step 4: Source */}
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
+              <span className="text-red font-bold mr-1">4.</span> Source (optional)
+            </label>
+            <input
+              type="text"
+              value={source}
+              onChange={e => setSource(e.target.value)}
+              placeholder="e.g. Popular financial newsletter, March 2026"
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent"
+              disabled={state.status === 'generating'}
+            />
+          </div>
+
+          <div className="bg-accent-light/30 rounded-lg p-3">
+            <p className="text-xs text-accent font-medium">How it works: AI reads both screenshots, fact-checks the article claims against the real stock data, then writes the roast. Zero hallucinated numbers.</p>
+          </div>
+        </div>
+      )}
+
+      {/* Screenshot Pick form */}
+      {genType === 'screenshot-pick' && (
+        <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Stock screenshots (2-3) *</label>
+            <div className="border-2 border-dashed border-card-border rounded-lg p-6 hover:border-accent/40 transition-colors">
+              {images.length > 0 && (
+                <div className="flex flex-wrap gap-4 mb-4 justify-center">
+                  {images.map((img, i) => (
+                    <div key={i} className="relative">
+                      <img src={img} alt={`Stock ${i + 1}`} className="h-36 rounded-lg border border-card-border object-cover" />
+                      <button
+                        onClick={() => removeImage(i)}
+                        className="absolute -top-2 -right-2 w-6 h-6 bg-red text-white rounded-full text-xs font-bold hover:opacity-80"
+                      >
+                        X
+                      </button>
+                      <span className="absolute bottom-1 left-1 bg-black/60 text-white text-xs px-1.5 py-0.5 rounded font-mono">
+                        #{i + 1}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+              {images.length < 3 && (
+                <label className="cursor-pointer block text-center">
+                  <p className="text-muted mb-1">{images.length === 0 ? 'Upload stock data screenshots' : `Add more (${3 - images.length} remaining)`}</p>
+                  <p className="text-xs text-muted-light">PNG, JPG, or WebP — max 5MB each — max 3 screenshots</p>
+                  <input
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    multiple
+                    onChange={handleImageUpload}
+                    className="hidden"
+                    disabled={state.status === 'generating'}
+                  />
+                </label>
+              )}
+            </div>
+          </div>
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">Topic (optional)</label>
+            <input
+              type="text"
+              value={topic}
+              onChange={e => setTopic(e.target.value)}
+              placeholder="e.g. EV stocks, Canadian banks"
+              className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground focus:outline-none focus:border-accent"
+              disabled={state.status === 'generating'}
+            />
+          </div>
+          <p className="text-xs text-muted-light">
+            Compares ONLY the stocks in your screenshots — no 15-stock tournament. ~$0.03-0.05/article
+          </p>
+        </div>
+      )}
+
       {/* Generate button */}
       <button
         onClick={handleGenerate}
-        disabled={state.status === 'generating' || (genType === 'roast' && (!ticker || !claim))}
+        disabled={
+          state.status === 'generating' ||
+          (genType === 'roast' && (!ticker || !claim)) ||
+          (genType === 'screenshot-roast' && images.length < 1) ||
+          (genType === 'screenshot-pick' && images.length < 2)
+        }
         className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
           state.status === 'generating'
             ? 'bg-card-bg text-muted cursor-wait'
-            : genType === 'roast'
+            : genType.includes('roast')
               ? 'bg-red text-white hover:opacity-90'
               : 'bg-accent text-white hover:opacity-90'
         } disabled:opacity-50 disabled:cursor-not-allowed`}
@@ -460,7 +707,11 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           ? state.message
           : genType === 'roast'
             ? `Roast ${ticker || '...'}`
-            : topic ? `Run: ${topic.slice(0, 30)}${topic.length > 30 ? '...' : ''}` : 'Run AI Tournament'
+            : genType === 'screenshot-roast'
+              ? `Fact-Check & Roast${ticker ? ` ${ticker}` : ''}`
+              : genType === 'screenshot-pick'
+                ? `Compare ${images.length} Stock${images.length !== 1 ? 's' : ''}`
+                : topic ? `Run: ${topic.slice(0, 30)}${topic.length > 30 ? '...' : ''}` : 'Run AI Tournament'
         }
       </button>
 
@@ -802,9 +1053,9 @@ function CostsTab({ costs }: { costs: CostSummary | null }) {
               className="border border-card-border rounded-lg px-4 py-3 flex flex-wrap items-center gap-2 sm:gap-3"
             >
               <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
-                entry.type === 'roast' ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
+                entry.type.includes('roast') ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
               }`}>
-                {entry.type === 'roast' ? 'ROAST' : 'PICK'}
+                {entry.type === 'screenshot-roast' ? 'SS-ROAST' : entry.type === 'screenshot-pick' ? 'SS-PICK' : entry.type === 'roast' ? 'ROAST' : 'PICK'}
               </span>
               {entry.ticker && (
                 <span className="text-xs font-mono text-muted">{entry.ticker}</span>

@@ -1,5 +1,5 @@
 import { ArticleContent } from '@/lib/types';
-import { ROAST_PROMPT, PICK_PROMPT } from './prompts';
+import { ROAST_PROMPT, PICK_PROMPT, SCREENSHOT_ROAST_PROMPT, SCREENSHOT_PICK_PROMPT } from './prompts';
 import { parseArticleContent } from './parse';
 import { auditAndScrub } from './legal';
 import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
@@ -197,5 +197,125 @@ Return ONLY valid JSON.`;
     model: response.model,
     provider: response.provider,
     profileWarnings,
+  };
+}
+
+// ─── Screenshot-based generation ──────────────────────────────────────────────
+
+export async function generateScreenshotRoast(
+  images: string[],
+  source?: string,
+): Promise<GenerateResult> {
+  const start = Date.now();
+  const today = new Date().toISOString().split('T')[0];
+
+  const referenceSheet = buildTickerReferenceSheet();
+
+  const userMessage = `Analyze the screenshot(s) of this financial article/recommendation.
+
+SOURCE: ${source || 'Financial publication (extract from screenshot)'}
+DATE: ${today}
+
+${referenceSheet ? `=== KNOWN TICKERS (for identity verification) ===\n${referenceSheet}\n` : ''}
+
+Extract ALL data visible in the screenshot(s). Roast the methodology and framing — the numbers shown are your ground truth.
+
+Return ONLY valid JSON.`;
+
+  const response = await callAI(SCREENSHOT_ROAST_PROMPT, userMessage, 8000, images);
+
+  const durationMs = Date.now() - start;
+
+  logCost({
+    date: today,
+    type: 'screenshot-roast',
+    model: response.model,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    costUsd: response.costUsd,
+    fmpCalls: 0,
+    durationMs,
+  });
+
+  const rawContent = parseArticleContent(response.text);
+
+  const { content, audit } = auditAndScrub(rawContent);
+  if (audit.violations.length > 0) {
+    console.log(`[LEGAL AUDIT] Screenshot roast: scrubbed ${audit.violations.length} violations:`, audit.violations);
+  }
+
+  return {
+    content,
+    costUsd: response.costUsd,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    apiCalls: 0,
+    durationMs,
+    dataConfidence: 'screenshot',
+    model: response.model,
+    provider: response.provider,
+    profileWarnings: [],
+  };
+}
+
+export async function generateScreenshotPick(
+  images: string[],
+  topic?: string,
+): Promise<GenerateResult> {
+  if (images.length > 3) {
+    throw new Error('Screenshot pick supports maximum 3 images');
+  }
+
+  const start = Date.now();
+  const today = new Date().toISOString().split('T')[0];
+
+  const referenceSheet = buildTickerReferenceSheet();
+
+  const topicLine = topic ? `\nTOPIC CONTEXT: "${topic}"\n` : '';
+
+  const userMessage = `Compare the stocks shown in these ${images.length} screenshot(s).
+
+DATE: ${today}
+${topicLine}
+${referenceSheet ? `=== KNOWN TICKERS (for identity verification) ===\n${referenceSheet}\n` : ''}
+
+Extract ALL data from each screenshot. Compare ONLY these stocks — do NOT add stocks that aren't shown.
+Include a comparison table in your analysis.
+
+Return ONLY valid JSON.`;
+
+  const response = await callAI(SCREENSHOT_PICK_PROMPT, userMessage, 8000, images);
+
+  const durationMs = Date.now() - start;
+
+  logCost({
+    date: today,
+    type: 'screenshot-pick',
+    model: response.model,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    costUsd: response.costUsd,
+    fmpCalls: 0,
+    durationMs,
+  });
+
+  const rawContent = parseArticleContent(response.text);
+
+  const { content, audit } = auditAndScrub(rawContent);
+  if (audit.violations.length > 0) {
+    console.log(`[LEGAL AUDIT] Screenshot pick: scrubbed ${audit.violations.length} violations:`, audit.violations);
+  }
+
+  return {
+    content,
+    costUsd: response.costUsd,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    apiCalls: 0,
+    durationMs,
+    dataConfidence: 'screenshot',
+    model: response.model,
+    provider: response.provider,
+    profileWarnings: [],
   };
 }
