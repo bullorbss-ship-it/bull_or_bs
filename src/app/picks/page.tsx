@@ -3,8 +3,6 @@ import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import type { Metadata } from 'next';
 
-export const dynamic = 'force-static';
-
 export const metadata: Metadata = {
   title: 'All AI Picks — Weekly Stock Tournaments',
   description: 'Every AI-powered stock pick from our weekly elimination tournaments. See our full track record.',
