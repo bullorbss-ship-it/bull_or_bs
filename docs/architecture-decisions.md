@@ -142,9 +142,37 @@ Article Request (roast or pick)
 
 ---
 
+## ADR-007: Text-Paste Workflow Over Image/PDF Upload
+**Date:** 2026-03-09
+**Status:** Implemented
+**Context:** Screenshot/PDF upload added vision support to callAI() but images cost 1-2K tokens each and PDFs 1.5-3K tokens/page. Meanwhile, the actual workflow is: use Claude/Gemini deep research to get a verified data table, then feed it to Haiku.
+**Decision:** Strip all image/PDF upload from dashboard. Text-paste only. User pastes research table as plain text.
+**Consequence:** Cheaper (~200-500 tokens/stock vs 1-2K for images). Simpler code. Vision support remains in providers.ts for future use.
+
+---
+
+## ADR-008: EST Timezone for All Dates
+**Date:** 2026-03-09
+**Status:** Implemented
+**Context:** Render servers run in UTC. Articles generated at 11pm EST would get tomorrow's date in the slug and article metadata.
+**Decision:** All dates use `todayEST()` and `nowEST()` from `src/lib/date.ts`. Uses `America/New_York` timezone.
+**Consequence:** Slugs and article dates always match the Canadian business day.
+
+---
+
+## ADR-009: Dynamic Ticker Registry
+**Date:** 2026-03-09
+**Status:** Implemented
+**Context:** Articles often reference stocks not in the static tickers.ts list (e.g., MSFT, LMT, RTX from pick articles). These need stock pages to exist for internal linking and SEO.
+**Decision:** `registerArticleTickers()` auto-registers unknown tickers with stub profiles. Stored in `data/dynamic-tickers.json`. Homepage uses `getAllTickersExpanded()` for live count.
+**Consequence:** No manual tickers.ts editing needed. New tickers from articles automatically get /stock/[ticker] pages.
+
+---
+
 ## Open Questions / Future Decisions
 
 1. **Batch API:** Should we switch to async batch generation (50% cost reduction, 24hr turnaround)? Makes sense for scheduled daily generation but breaks real-time /api/generate.
 2. **TSX data source:** Revisit when revenue > $20/month. FMP Starter ($19/mo) gives full TSX + global coverage.
 3. **Haiku reliability:** Monitor JSON parse failure rate. If >10%, consider switching back to Sonnet (cost diff is minimal at ~15K tokens).
-4. **Local data refresh:** Current data/stocks/*.json is from 2026-03-08. Consider a monthly refresh script using FMP or a manual update process.
+4. **Compare pages:** Should /compare/[ticker-vs-ticker] auto-generate from pick articles, or be a separate generation type?
+5. **Reddit distribution:** Best posting strategy for r/CanadianInvestor without getting banned for self-promotion.
