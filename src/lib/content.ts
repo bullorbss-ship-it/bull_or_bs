@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { Article } from './types';
+import { nowEST } from './date';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
@@ -60,7 +61,7 @@ export function getArticlesByType(type: 'roasts' | 'picks'): Article[] {
 
 export function saveArticle(article: Article): void {
   if (!article.createdAt) {
-    article.createdAt = new Date().toISOString();
+    article.createdAt = nowEST();
   }
   const type = article.type === 'roast' ? 'roasts' : 'picks';
   const dir = path.join(CONTENT_DIR, type);

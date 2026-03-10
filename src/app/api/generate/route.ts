@@ -5,6 +5,7 @@ import { Article } from '@/lib/types';
 import { timingSafeCompare, verifySession } from '@/lib/auth';
 import { registerArticleTickers } from '@/lib/ticker-registry';
 import { updateProfileFromArticle, ProfileUpdate } from '@/lib/stock-data';
+import { todayEST } from '@/lib/date';
 
 export async function POST(req: NextRequest) {
   // Auth: accept either SCAN_SECRET query param or admin session cookie
@@ -27,7 +28,7 @@ export async function POST(req: NextRequest) {
 
     try {
       const result = await generateRoast(claim, ticker, source || 'Popular financial publication');
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayEST();
       const slug = `${ticker.toLowerCase()}-roast-${today}`;
 
       const article: Article = {
@@ -87,7 +88,7 @@ export async function POST(req: NextRequest) {
     const { topic } = body;
     try {
       const result = await generatePick(topic || undefined);
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayEST();
       const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
       const slug = `ai-pick${topicSlug}-${today}`;
 
@@ -160,7 +161,7 @@ export async function POST(req: NextRequest) {
 
     try {
       const result = await generateScreenshotRoast(images || [], source, textData);
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayEST();
       const ticker = inputTicker || result.content.candidates?.[0]?.ticker || 'unknown';
       const slug = `${ticker.toLowerCase()}-roast-${today}`;
 
@@ -230,7 +231,7 @@ export async function POST(req: NextRequest) {
 
     try {
       const result = await generateScreenshotPick(images || [], topic, textData);
-      const today = new Date().toISOString().split('T')[0];
+      const today = todayEST();
       const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
       const slug = `ai-screenshot-pick${topicSlug}-${today}`;
 

@@ -7,6 +7,7 @@ import { logCost } from '@/lib/costs';
 import { callAI } from './providers';
 import { buildTickerReferenceSheet, buildIdentityOnlySheet, getTickerProfile } from './ticker-profiles';
 import { refreshProfile, ProfileChange } from './refresh-profile';
+import { todayEST } from '@/lib/date';
 
 export interface ProfileWarning {
   ticker: string;
@@ -58,7 +59,7 @@ export async function generateRoast(
 PUBLICATION CLAIM: "${claim}"
 TICKER: ${ticker}
 SOURCE: ${source}
-DATE: ${new Date().toISOString().split('T')[0]}
+DATE: ${todayEST()}
 
 === MARKET DATA ===
 ${stockData.context}
@@ -74,7 +75,7 @@ Return ONLY valid JSON.`;
   const durationMs = Date.now() - start;
 
   logCost({
-    date: new Date().toISOString().split('T')[0],
+    date: todayEST(),
     type: 'roast',
     ticker,
     model: response.model,
@@ -113,8 +114,8 @@ export async function generatePick(topic?: string): Promise<GenerateResult> {
   // 1. Fetch market movers with confidence tagging
   const moversData = await resolveMarketMovers();
 
-  const today = new Date().toISOString().split('T')[0];
-  const dayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+  const today = todayEST();
+  const dayName = new Date().toLocaleDateString('en-US', { weekday: 'long', timeZone: 'America/New_York' });
 
   // 2. Build user message — inject topic constraint if provided
   const topicInstruction = topic
@@ -208,7 +209,7 @@ export async function generateScreenshotRoast(
   textData?: string,
 ): Promise<GenerateResult> {
   const start = Date.now();
-  const today = new Date().toISOString().split('T')[0];
+  const today = todayEST();
 
   const referenceSheet = buildIdentityOnlySheet();
 
@@ -269,7 +270,7 @@ export async function generateScreenshotPick(
   textData?: string,
 ): Promise<GenerateResult> {
   const start = Date.now();
-  const today = new Date().toISOString().split('T')[0];
+  const today = todayEST();
 
   const referenceSheet = buildIdentityOnlySheet();
 
