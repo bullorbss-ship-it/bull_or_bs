@@ -13,6 +13,7 @@
     "legal-check": "node scripts/legal-check.js",
     "docs": "node scripts/docs-generate.js",
     "docs-check": "node scripts/docs-consistency.js",
+    "content-audit": "node scripts/content-audit.js",
     "pre-deploy": "npm run type-check && npm run lint && npm run security && npm run seo-check && npm run legal-check && npm run docs && npm run docs-check"
   },
   "dependencies": {

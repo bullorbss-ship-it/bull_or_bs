@@ -147,7 +147,9 @@ export default function RRSPGuidePage() {
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-card-border">
+      <p className="mt-8 text-xs text-muted-light">Last verified: March 2026. Contribution limits confirmed via CRA. Next audit: January 2027 (when 2026 tax year limits are finalized).</p>
+
+      <div className="mt-8 pt-8 border-t border-card-border">
         <h3 className="text-lg font-bold mb-4">Get the newsletter</h3>
         <SubscribeForm />
       </div>

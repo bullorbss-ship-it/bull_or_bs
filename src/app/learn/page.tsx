@@ -31,6 +31,20 @@ const guides = [
     description: 'Canada\'s newest registered account for first-time home buyers — contribution limits, tax benefits, and strategies.',
     icon: '🏠',
   },
+  {
+    slug: 'dividend-investing',
+    title: 'Dividend Investing',
+    subtitle: 'How Dividends Work in Canada',
+    description: 'How dividends work, Canadian vs US tax treatment, DRIP, which accounts to hold them in, and common mistakes.',
+    icon: '💰',
+  },
+  {
+    slug: 'us-stocks-from-canada',
+    title: 'Buying US Stocks from Canada',
+    subtitle: 'Currency, Tax & Account Strategy',
+    description: 'Currency conversion, withholding tax, the RRSP trick, Norbert\'s Gambit, and which account to use for US holdings.',
+    icon: '🇺🇸',
+  },
 ];
 
 export default function LearnPage() {

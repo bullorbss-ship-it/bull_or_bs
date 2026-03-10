@@ -66,7 +66,8 @@ export default function TFSAGuidePage() {
                 <tr className="border-b border-card-border/50"><td className="py-1.5 pr-4">2023</td><td className="text-right">$6,500</td></tr>
                 <tr className="border-b border-card-border/50"><td className="py-1.5 pr-4">2024</td><td className="text-right">$7,000</td></tr>
                 <tr className="border-b border-card-border/50"><td className="py-1.5 pr-4">2025</td><td className="text-right">$7,000</td></tr>
-                <tr><td className="py-1.5 pr-4 font-bold text-foreground">Lifetime total (2009–2025)</td><td className="text-right font-bold text-accent">$102,000</td></tr>
+                <tr className="border-b border-card-border/50"><td className="py-1.5 pr-4">2026</td><td className="text-right">$7,000</td></tr>
+                <tr><td className="py-1.5 pr-4 font-bold text-foreground">Lifetime total (2009–2026)</td><td className="text-right font-bold text-accent">$109,000</td></tr>
               </tbody>
             </table>
           </div>
@@ -153,7 +154,9 @@ export default function TFSAGuidePage() {
         </div>
       </div>
 
-      <div className="mt-12 pt-8 border-t border-card-border">
+      <p className="mt-8 text-xs text-muted-light">Last verified: March 2026. Contribution limits confirmed via CRA. Next audit: January 2027 (when 2027 limit is announced).</p>
+
+      <div className="mt-8 pt-8 border-t border-card-border">
         <h3 className="text-lg font-bold mb-4">Get the newsletter</h3>
         <SubscribeForm />
       </div>
