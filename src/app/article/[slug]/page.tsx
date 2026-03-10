@@ -165,6 +165,9 @@ export default async function ArticlePage({ params }: PageProps) {
         <p className="text-muted text-base sm:text-lg leading-relaxed"
           dangerouslySetInnerHTML={{ __html: linkifyTickers(content.summary || '') }}
         />
+        <p className="text-xs text-muted-light mt-3 font-mono">
+          Data sourced {new Date(article.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}. Verify current figures before making investment decisions.
+        </p>
       </div>
 
       {/* Verdict — ALWAYS visible (the payoff, keeps them scrolling) */}
