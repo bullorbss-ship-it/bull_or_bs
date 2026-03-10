@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { getResearchPrompt } from '@/lib/ai/research-prompt';
 
 interface ArticleData {
   slug: string;
@@ -287,6 +288,9 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   const [source, setSource] = useState('');
   const [topic, setTopic] = useState('');
   const [textData, setTextData] = useState('');
+  const [showResearch, setShowResearch] = useState(false);
+  const [researchPrompt, setResearchPrompt] = useState('');
+  const [copied, setCopied] = useState(false);
   const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
 
   async function handleCommit(slug: string, articleType: string) {
@@ -550,6 +554,60 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             />
           </div>
 
+          {/* Research Helper — collapsible */}
+          <div className="border border-blue-500/30 rounded-xl overflow-hidden">
+            <button
+              type="button"
+              onClick={() => setShowResearch(!showResearch)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-blue-500/10 hover:bg-blue-500/15 transition-colors"
+            >
+              <span className="text-sm font-bold text-blue-400">Research Helper — Get Verified Data</span>
+              <span className="text-blue-400 text-xs">{showResearch ? 'Hide' : 'Expand'}</span>
+            </button>
+            {showResearch && (
+              <div className="p-4 space-y-3">
+                <p className="text-xs text-muted">Generate a research prompt pre-filled with your ticker. Copy it into Claude or Gemini to get a verified data table, then paste results below.</p>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (ticker.trim()) {
+                        setResearchPrompt(getResearchPrompt(ticker.trim()));
+                        setCopied(false);
+                      }
+                    }}
+                    disabled={!ticker.trim()}
+                    className="px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-bold hover:bg-blue-500/30 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  >
+                    Generate Prompt{ticker.trim() ? ` for ${ticker}` : ''}
+                  </button>
+                  {researchPrompt && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard.writeText(researchPrompt);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                      }}
+                      className="px-4 py-2 rounded-lg bg-accent/20 text-accent text-sm font-bold hover:bg-accent/30 transition-colors"
+                    >
+                      {copied ? 'Copied!' : 'Copy to Clipboard'}
+                    </button>
+                  )}
+                </div>
+                {researchPrompt && (
+                  <textarea
+                    readOnly
+                    value={researchPrompt}
+                    rows={8}
+                    className="w-full px-3 py-2 rounded-lg border border-card-border bg-card-bg text-muted text-xs font-mono resize-y"
+                    style={{ minHeight: '150px', maxHeight: '400px' }}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+
           {/* Step 2: Data input — text paste */}
           <div>
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
@@ -587,7 +645,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           </div>
 
           <div className="bg-accent-light/30 rounded-lg p-3">
-            <p className="text-xs text-accent font-medium">Tip: Ask Claude or Gemini for a comparison table with all the metrics you want, then paste it here. AI uses only your pasted data — zero hallucination.</p>
+            <p className="text-xs text-accent font-medium">Tip: Use the Research Helper above to generate a verified data table, then paste it here. AI uses only your pasted data — zero hallucination.</p>
           </div>
         </div>
       )}
@@ -595,6 +653,67 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       {/* Screenshot Pick form */}
       {genType === 'screenshot-pick' && (
         <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
+          {/* Research Helper — collapsible */}
+          <div className="border border-blue-500/30 rounded-xl overflow-hidden">
+            <button
+              type="button"
+              onClick={() => setShowResearch(!showResearch)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-blue-500/10 hover:bg-blue-500/15 transition-colors"
+            >
+              <span className="text-sm font-bold text-blue-400">Research Helper — Get Verified Data</span>
+              <span className="text-blue-400 text-xs">{showResearch ? 'Hide' : 'Expand'}</span>
+            </button>
+            {showResearch && (
+              <div className="p-4 space-y-3">
+                <p className="text-xs text-muted">Enter tickers (comma-separated) to generate a research prompt. Copy it into Claude or Gemini to get verified data tables.</p>
+                <div className="flex gap-2 items-center">
+                  <input
+                    type="text"
+                    value={ticker}
+                    onChange={e => setTicker(e.target.value.toUpperCase())}
+                    placeholder="e.g. RY.TO, TD.TO, BMO.TO"
+                    className="flex-1 px-3 py-2 rounded-lg border border-card-border bg-card-bg text-foreground font-mono text-sm focus:outline-none focus:border-blue-500"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (ticker.trim()) {
+                        setResearchPrompt(getResearchPrompt(ticker.trim()));
+                        setCopied(false);
+                      }
+                    }}
+                    disabled={!ticker.trim()}
+                    className="px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-bold hover:bg-blue-500/30 disabled:opacity-40 disabled:cursor-not-allowed transition-colors whitespace-nowrap"
+                  >
+                    Generate
+                  </button>
+                  {researchPrompt && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard.writeText(researchPrompt);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                      }}
+                      className="px-4 py-2 rounded-lg bg-accent/20 text-accent text-sm font-bold hover:bg-accent/30 transition-colors whitespace-nowrap"
+                    >
+                      {copied ? 'Copied!' : 'Copy'}
+                    </button>
+                  )}
+                </div>
+                {researchPrompt && (
+                  <textarea
+                    readOnly
+                    value={researchPrompt}
+                    rows={8}
+                    className="w-full px-3 py-2 rounded-lg border border-card-border bg-card-bg text-muted text-xs font-mono resize-y"
+                    style={{ minHeight: '150px', maxHeight: '400px' }}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+
           <div>
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">
               <span className="text-accent font-bold mr-1">1.</span> Stock Data *
@@ -629,7 +748,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             />
           </div>
           <div className="bg-accent-light/30 rounded-lg p-3">
-            <p className="text-xs text-accent font-medium">Compares ONLY the stocks in your pasted data. 2-3 for quick compare, 10-20 for full elimination tournament. ~$0.03-0.10/article</p>
+            <p className="text-xs text-accent font-medium">Compares ONLY the stocks in your pasted data. Use Research Helper above to get verified tables first. ~$0.03-0.10/article</p>
           </div>
         </div>
       )}

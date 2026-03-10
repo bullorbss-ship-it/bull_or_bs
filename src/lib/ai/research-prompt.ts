@@ -1,0 +1,90 @@
+/**
+ * Stock / ETF Deep Research Prompt
+ * Used in the /orange dashboard to generate a pre-filled research prompt
+ * that users paste into Claude or Gemini to get verified data tables.
+ */
+
+const RESEARCH_TEMPLATE = `ROLE: You are a financial research analyst. Pull VERIFIED, CURRENT data on: [TICKER]
+
+CRITICAL RULES — DO NOT BREAK THESE:
+1. SEARCH BEFORE YOU ANSWER. Use web search for EVERY data point. Do NOT rely on training data for any numbers.
+2. CITE YOUR SOURCE for every number inline as (Source).
+3. If you cannot verify a number, write **UNVERIFIED** next to it.
+4. NEVER interpolate, estimate, or round AUM/market cap figures.
+5. If two sources conflict, show BOTH numbers and flag it.
+6. Check for RECENT fee changes, restructurings, or name changes (last 12 months).
+
+SEARCH STRATEGY (follow this order):
+- Yahoo Finance — price, AUM, yield, P/E, beta, 52-week range, YTD return
+- Official fund provider site — MER, holdings, allocation, inception date
+- Morningstar — ratings, risk level
+- Recent news (last 90 days) — fee changes, restructurings, red flags
+
+OUTPUT FORMAT — ONE CONDENSED TABLE:
+
+## [TICKER] — [Full Name] | [Provider] | [Exchange]
+**Data as of: [date of most recent source]**
+
+| Category | Metric | Value | Source |
+|----------|--------|-------|--------|
+| **PRICE** | Current Price | $ | |
+| | 52-Week Range | $Low — $High | |
+| | Net Assets / AUM | $ | |
+| | Avg Daily Volume | | |
+| | Market Cap (stocks only) | $ | |
+| **FEES** | Management Fee / MER | % / % | |
+| | Recent Fee Changes? | Yes/No — detail if yes | |
+| **INCOME** | Distribution Yield (12M trailing) | % | |
+| | Forward Dividend Yield | % | |
+| | Frequency / Last Ex-Date | [Monthly/Qtr] / [date] | |
+| **RETURNS** | YTD 2026 | % | |
+| | 2025 Calendar Year | % | |
+| | 2024 Calendar Year | % | |
+| | 3Y / 5Y CAGR | % / % | |
+| | Since Inception (ann.) | % | |
+| **VALUATION** | P/E (TTM) | | |
+| (stocks) | EPS (TTM) / FCF (TTM) | $ / $ | |
+| | Debt-to-Equity | | |
+| | Analyst Consensus / Target | [Buy/Hold/Sell] / $ | |
+| **RISK** | Beta (5Y Monthly) | | |
+| | Morningstar Rating | [Stars] / [Medalist] | |
+| | Risk Level (fund docs) | [Low to High] | |
+| | Inception Date | | |
+| **TAX** | Best Cdn Account Type | [TFSA/RRSP/Non-Reg] + why | |
+| (Cdn) | Foreign Withholding Tax? | Yes/No — detail | |
+| | Cdn Dividend Tax Credit? | Yes/No | |
+
+**Top 5 Holdings:** [Name %] | [Name %] | [Name %] | [Name %] | [Name %]
+
+**Top 5 Sectors:** [Sector %] | [Sector %] | [Sector %] | [Sector %] | [Sector %]
+
+**Allocation (ETFs):** Cdn Eq __% | US Eq __% | Intl Eq __% | EM __% | Bonds __% | Cash __% | Total Holdings: ___
+
+**Red Flags / News (90 days):** [Summarize material news in 1-2 lines, or "None found."]
+
+---
+
+### Bottom Line (3-5 sentences)
+1. What it IS in plain English
+2. Who it's best for
+3. Single biggest risk
+4. Closest competitor comparison
+
+---
+
+INSTRUCTIONS ON SECTIONS:
+- For ETFs: Skip Valuation (stocks) row. Include Holdings, Sectors, and Allocation.
+- For Stocks: Skip Holdings/Allocation/Sectors. Include full Valuation section.
+- For Canadian-listed securities: Include TAX rows. For US-listed, note withholding tax only.
+- Omit any row where data genuinely doesn't apply (e.g., no MER for individual stocks).
+
+VERIFICATION BEFORE DELIVERING:
+- Every AUM/market cap from a live source dated within 60 days
+- Returns specify calendar year vs trailing
+- Fee info reflects any changes in last 12 months
+- Yield distinguishes trailing vs forward
+- No numbers interpolated or estimated without flagging`;
+
+export function getResearchPrompt(tickers: string): string {
+  return RESEARCH_TEMPLATE.replace(/\[TICKER\]/g, tickers.trim());
+}
