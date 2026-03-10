@@ -1,11 +1,11 @@
 {
   "slug": "shopify-roast-2026-03-06",
   "type": "roast",
-  "title": "They Said Buy Shopify at $140. The AI Ran the Numbers.",
+  "title": "They Said Buy Shopify at $177. The AI Ran the Numbers.",
   "description": "A popular financial publication recommended Shopify as a top Canadian tech stock. We audited the recommendation with data. Here's what they missed.",
   "date": "2026-03-06",
   "ticker": "SHOP",
-  "verdict": "Grade: C+. Decent company, wrong entry. They ignored the 85x forward P/E and the slowing merchant growth rate. Three better Canadian tech plays existed at the time.",
+  "verdict": "Grade: C+. Decent company, rich entry. They ignored the 89x forward P/E and offered no valuation framework. Three better Canadian tech plays existed at the time.",
   "tags": [
     "SHOP",
     "Shopify",
@@ -16,8 +16,8 @@
     "AI analysis"
   ],
   "content": {
-    "headline": "They Said Buy Shopify at $140. The AI Ran the Numbers.",
-    "summary": "A major financial publication told readers to buy Shopify (TSX:SHOP) at around $140 CAD, calling it a 'must-own Canadian tech stock.' Our AI audited the recommendation and found three critical blind spots in their analysis \u2014 including ignoring a forward P/E of 85x while better-valued alternatives existed.",
+    "headline": "They Said Buy Shopify at $177. The AI Ran the Numbers.",
+    "summary": "A major financial publication told readers to buy Shopify (TSX:SHOP) at around $177 CAD, calling it a 'must-own Canadian tech stock.' Our AI audited the recommendation and found critical blind spots in their analysis \u2014 including ignoring a forward P/E near 89x while better-valued alternatives existed.",
     "foolClaim": "Shopify is a must-own Canadian tech stock. The e-commerce giant continues to innovate with AI-powered tools and its merchant base is growing. Buy and hold for the long term.",
     "foolDate": "February 2026",
     "foolSource": "Popular Canadian financial publication",
@@ -26,28 +26,28 @@
         "ticker": "SHOP",
         "company": "Shopify Inc.",
         "status": "considered",
-        "reasonConsidered": "The stock under review. Strong brand, dominant in SMB e-commerce, AI features launching. But at $140 CAD, trading at ~85x forward earnings with decelerating merchant growth (29% YoY vs 33% prior quarter).",
+        "reasonConsidered": "The stock under review. Strong brand, dominant in SMB e-commerce, AI features launching. Revenue growth is genuinely impressive at 31% in Q4 2025. But at $177 CAD, trading at ~89x forward earnings \u2014 you're paying for a decade of perfect execution.",
         "score": 5
       },
       {
         "ticker": "OTEX",
         "company": "OpenText Corp.",
         "status": "selected",
-        "reasonConsidered": "Canada's largest software company. Trading at 12x forward earnings, 6% dividend yield, and just completed the Micro Focus integration ahead of schedule. Enterprise AI features driving upsell. Way better value than SHOP at this entry.",
+        "reasonConsidered": "Canada's largest software company. Trading at roughly 14x earnings with a 4.3% dividend yield, and the Micro Focus integration is largely complete. Enterprise AI features driving upsell. Materially cheaper than SHOP for Canadian tech exposure.",
         "score": 8
       },
       {
         "ticker": "KXS",
         "company": "Kinaxis Inc.",
         "status": "considered",
-        "reasonConsidered": "Supply chain AI pure-play. Growing 20%+ with improving margins. At 45x forward P/E \u2014 expensive but half of Shopify's multiple with more defensible enterprise contracts.",
+        "reasonConsidered": "Supply chain AI pure-play with enterprise contracts that don't churn. Revenue growth around 12% with SaaS revenue growing faster at 17%. At roughly 23x forward P/E \u2014 a fraction of Shopify's multiple for a defensible niche.",
         "score": 7
       },
       {
         "ticker": "CSU",
         "company": "Constellation Software",
         "status": "considered",
-        "reasonConsidered": "The GOAT of Canadian software. Serial acquirer with a flawless track record. Trading at 30x earnings which is its historical average \u2014 fair value for a compounder.",
+        "reasonConsidered": "The GOAT of Canadian software. Serial acquirer with a flawless track record. Trading at roughly 30x earnings which is its historical average \u2014 fair value for a proven compounder.",
         "score": 7
       },
       {
@@ -59,52 +59,63 @@
         "score": 4
       }
     ],
-    "analysis": "**The core problem with this recommendation isn't Shopify itself \u2014 it's the entry price.**\n\nShopify is a great company. Nobody disputes that. It dominates SMB e-commerce, it's building genuinely useful AI tools (Shopify Magic, Sidekick), and its merchant ecosystem is a moat. The publication got all of that right.\n\n**But here's what they didn't tell you:**\n\nAt $140 CAD, Shopify trades at approximately 85x forward earnings. That means you're paying for nearly a decade of perfect execution. One earnings miss, one guidance cut, and you're looking at a 15-25% drawdown. That's not a 'buy and hold' setup \u2014 it's a 'pray nothing goes wrong' setup.\n\n**The merchant growth deceleration is a red flag they ignored entirely.** Q4 2025 showed 29% YoY merchant growth, down from 33% the prior quarter and 38% a year ago. The law of large numbers is kicking in, and the publication's thesis of 'growing merchant base' is technically true but directionally misleading.\n\n**What they should have recommended instead:**\n\nOpenText (OTEX) is arguably the better Canadian tech play right now. At 12x forward earnings with a 6% dividend yield, you're getting enterprise software exposure at a fraction of Shopify's valuation. The Micro Focus integration is complete, margins are expanding, and the AI upsell story is real \u2014 but priced like it might not work, not like it definitely will.\n\nKinaxis (KXS) is another option: supply chain AI with 20%+ growth and enterprise contracts that don't churn. At 45x forward P/E it's not cheap, but it's half of Shopify's multiple with arguably more defensible revenue.\n\n**The bottom line:** Recommending Shopify without discussing the 85x multiple, the merchant growth deceleration, or any alternative isn't analysis \u2014 it's brand recognition dressed up as due diligence.",
+    "analysis": "**The core problem with this recommendation isn't Shopify itself \u2014 it's the entry price.**\n\nShopify is a great company. Nobody disputes that. It dominates SMB e-commerce, it's building genuinely useful AI tools (Shopify Magic, Sidekick), and its merchant ecosystem is a moat. The publication got all of that right.\n\n**But here's what they didn't tell you:**\n\nAt $177 CAD, Shopify trades at approximately 89x forward earnings. That means you're paying for nearly a decade of perfect execution. One earnings miss, one guidance cut, and you're looking at a 15-25% drawdown. That's not a 'buy and hold' setup \u2014 it's a 'pray nothing goes wrong' setup.\n\n**To be fair, the growth is real.** Q4 2025 revenue came in at 31% YoY (29% constant currency), and full-year 2025 revenue grew 30% \u2014 the strongest annual growth rate since 2021. Q4 GMV hit $124 billion. Shopify has now posted ten consecutive quarters of double-digit free cash flow margins. The execution is genuinely impressive.\n\n**But impressive execution at 89x forward earnings is a different conversation than 'must-own.'** The publication presented no valuation framework. No discussion of what you're paying relative to growth. No price target. No scenario analysis for what happens if growth slows even slightly from these levels.\n\n**What they should have mentioned as alternatives:**\n\nOpenText (OTEX) offers Canadian enterprise software exposure at roughly 14x earnings with a 4.3% dividend yield. The Micro Focus integration is largely complete, margins are expanding, and the AI upsell story is real \u2014 but priced like it might not work, not like it definitely will.\n\nKinaxis (KXS) is another option: supply chain AI with enterprise contracts that don't churn. Revenue growth is around 12% with SaaS revenue growing faster at 17%. At roughly 23x forward P/E it's a fraction of Shopify's multiple for a defensible niche business.\n\n**The bottom line:** Shopify's growth is accelerating and the business is executing well. But recommending it at 89x forward earnings without discussing valuation, downside scenarios, or any alternatives isn't analysis \u2014 it's brand recognition dressed up as due diligence.",
     "risks": [
-      "They ignored the 85x forward P/E \u2014 any earnings miss means a 15-25% drawdown",
-      "Merchant growth deceleration (29% vs 33% prior quarter) was not mentioned",
+      "They ignored the 89x forward P/E \u2014 any earnings miss at this multiple means a steep drawdown",
+      "No valuation framework provided \u2014 no price target, no discussion of what you're paying for growth",
       "No discussion of alternatives at better valuations",
       "No entry price discipline \u2014 'buy and hold' without a price target is lazy",
       "Currency risk for Canadian investors buying USD-denominated revenue exposure"
     ],
     "catalysts": [
-      "AI tool rollout (Shopify Magic, Sidekick) \u2014 real but already priced in at 85x",
-      "Merchant base growth \u2014 true but decelerating, not accelerating",
+      "AI tool rollout (Shopify Magic, Sidekick) \u2014 real products but arguably priced in at 89x",
+      "Revenue growth accelerating \u2014 30% full-year 2025, strongest since 2021",
+      "Ten consecutive quarters of double-digit free cash flow margins",
       "E-commerce secular trend \u2014 valid long-term, but not unique to Shopify"
     ],
     "dataPoints": [
       {
+        "label": "Price (CAD)",
+        "value": "~$177",
+        "source": "Yahoo Finance, March 2026"
+      },
+      {
         "label": "Forward P/E",
-        "value": "~85x",
-        "source": "Yahoo Finance"
+        "value": "~89x",
+        "source": "Yahoo Finance / Morningstar"
       },
       {
-        "label": "Merchant Growth",
-        "value": "29% YoY",
-        "source": "Q4 2025 Earnings"
+        "label": "Q4 2025 Revenue Growth",
+        "value": "31% YoY",
+        "source": "Shopify Q4 2025 Earnings"
       },
       {
-        "label": "Prior Quarter Growth",
-        "value": "33% YoY",
-        "source": "Q3 2025 Earnings"
+        "label": "FY 2025 Revenue Growth",
+        "value": "30% YoY",
+        "source": "Shopify FY 2025 Earnings"
       },
       {
-        "label": "OTEX Forward P/E",
-        "value": "~12x",
+        "label": "OTEX P/E",
+        "value": "~14x",
         "source": "Yahoo Finance"
       },
       {
         "label": "OTEX Dividend Yield",
-        "value": "~6%",
-        "source": "TMX Money"
+        "value": "~4.3%",
+        "source": "Yahoo Finance"
       },
       {
         "label": "KXS Forward P/E",
-        "value": "~45x",
+        "value": "~23x",
         "source": "Yahoo Finance"
+      },
+      {
+        "label": "KXS Revenue Growth",
+        "value": "~12% total, 17% SaaS",
+        "source": "Kinaxis Q3 2025 Earnings"
       }
     ],
-    "finalVerdict": "Grade: C+. Shopify is a great company at a mediocre entry price. The publication's analysis was surface-level \u2014 strong on narrative, weak on valuation. They should have flagged the 85x multiple, acknowledged the growth deceleration, and at minimum compared SHOP to OTEX and KXS as alternatives. Recommending a stock without discussing price is like recommending a house without mentioning it costs $2M. Not financial advice \u2014 but if you're going to follow someone's stock picks, demand they show their work."
+    "finalVerdict": "Grade: C+. Shopify is executing brilliantly \u2014 30% revenue growth, strong free cash flow, real AI products. But at 89x forward earnings, the publication owed readers a valuation discussion. They should have flagged what you're paying for that growth, compared SHOP to cheaper Canadian tech alternatives like OTEX and KXS, and at minimum provided a price target or downside scenario. Recommending a stock without discussing price is like recommending a house without mentioning it costs $2M. Not financial advice \u2014 but if you're going to follow someone's stock picks, demand they show their work."
   },
   "createdAt": "2026-03-06T00:00:00.000Z"
 }
