@@ -17,9 +17,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  // Limit build-time generation to avoid OOM on Render free tier (512MB)
-  // Remaining pages are generated on-demand and cached
-  return getAllTickersExpanded().slice(0, 20).map(t => ({ ticker: tickerToSlug(t.ticker) }));
+  return getAllTickersExpanded().map(t => ({ ticker: tickerToSlug(t.ticker) }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
