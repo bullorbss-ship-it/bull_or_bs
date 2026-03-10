@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { TSX_TICKERS, US_TICKERS } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export default function Home() {
   const articles = getAllArticles();
