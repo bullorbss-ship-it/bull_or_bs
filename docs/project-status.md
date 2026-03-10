@@ -36,12 +36,20 @@
 - [x] Profile refresh via Gemini Flash (free web search → diff → update)
 - [x] Hand-corrected ETF profiles (MERs, yields, hedging verified)
 
+### Financial Education (/learn)
+- [x] Learn index page: /learn/
+- [x] TFSA guide: /learn/tfsa — contribution limits, rules, strategies
+- [x] RRSP guide: /learn/rrsp — tax deductions, HBP, withdrawal rules
+- [x] FHSA guide: /learn/fhsa — new account type, eligibility, strategies
+- [ ] More guides planned (see Priority 3 below)
+
 ### Admin Dashboard (/orange)
 - [x] Password-protected admin panel
 - [x] Generate tab: roast + pick forms with text-paste input
 - [x] Articles tab: list all with "Publish & Save to Repo" CTA
 - [x] Costs tab: per-run detail, monthly breakdown, yearly projection
 - [x] Auto-commit to GitHub via /api/admin/commit
+- [x] Social distribution: generate Reddit/X/Instagram posts after publish
 
 ### Infrastructure
 - [x] EST timezone for all dates (src/lib/date.ts)
@@ -70,14 +78,24 @@
 - [ ] Answer "should I buy X?" questions with real analysis + link
 - [ ] Do NOT spam — genuine contributions with occasional links
 
-### Priority 3: SEO Landing Pages (Week 2)
-**Goal: Target Motley Fool's ad keywords organically.**
+### Priority 3: Financial Education + SEO Landing Pages (Week 2)
+**Goal: Become the go-to Canadian financial literacy resource for young investors.**
+
+**New /learn guides (high-SEO-value, evergreen):**
+- [ ] /learn/dividend-investing — how dividends work, DRIP, yield vs growth
+- [ ] /learn/etf-basics — what ETFs are, MER, how to pick one
+- [ ] /learn/how-to-start-investing — beginner guide for 20-somethings
+- [ ] /learn/tax-loss-harvesting — Canadian-specific rules
+- [ ] /learn/us-stocks-from-canada — withholding tax, RRSP trick, currency
+- [ ] /learn/index-investing — XEQT/VEQT/VFV explained simply
+
+**SEO landing pages (target Motley Fool's ad keywords):**
 - [ ] /best-stocks-under-50 — curated from picks data
 - [ ] /tsx-sleeper-stocks-2026 — Canadian focus
 - [ ] /best-dividend-stocks-canada — filtered from ETF/stock analysis
 - [ ] /where-to-invest-1000-canada — beginner guide
 - [ ] /xeqt-vs-veqt — head-to-head comparison (compare page prototype)
-- [ ] Internal linking: every article links to relevant hub pages
+- [ ] Internal linking: every article + learn page links to relevant hub pages
 
 ### Priority 4: Compare Pages (Week 2-3)
 **Goal: /compare/[ticker-vs-ticker] pages for SEO.**
@@ -104,10 +122,12 @@
 - [ ] On publish: save {date, ticker, grade, price_at_pick}
 - [ ] Weekly snapshot of current prices for all tracked picks
 
-### Priority 8: Social Media (Month 2-3)
-- [ ] X: post article summaries with link
-- [ ] Reddit: weekly "roast of the week" posts
-- [ ] Consider auto-posting pipeline on article publish
+### Priority 8: Social Media API Posting (Month 2-3)
+- [x] Phase 1: Social copy generation via Haiku + dashboard copy buttons (DONE)
+- [x] Phase 1: Email distribution (optional, needs GMAIL_APP_PASSWORD env var)
+- [ ] Phase 2: X API auto-posting (free tier: 1,500 tweets/month)
+- [ ] Phase 2: Reddit API auto-posting (needs 30-day aged account)
+- [ ] Instagram: manual posting via generated captions (API too complex)
 
 ### Future (Month 3+)
 - [ ] WallStreetBets daily recaps (/wsb/[date])
@@ -148,4 +168,7 @@ Claude/Gemini Deep Research (free)
                 → Gemini fact-check (free)
                     → Publish & Save to Repo
                         → Render auto-deploys
+                            → Distribute (generates social posts ~$0.005)
+                                → Copy-paste to Reddit/X/Instagram
+                                → (or auto-email if GMAIL configured)
 ```
