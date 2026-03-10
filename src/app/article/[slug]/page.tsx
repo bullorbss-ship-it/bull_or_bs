@@ -117,6 +117,16 @@ export default async function ArticlePage({ params }: PageProps) {
         { label: article.ticker || article.slug },
       ]} />
 
+      {/* Hero OG image — same as social share card */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={`/article/${article.slug}/opengraph-image`}
+        alt={article.title}
+        width={1200}
+        height={630}
+        className="w-full rounded-xl mb-6 sm:mb-8"
+      />
+
       {/* Grade Badge + Header — always visible, this is the hook */}
       <div className="mb-8">
         <div className="flex items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
