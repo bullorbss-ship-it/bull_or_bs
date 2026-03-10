@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && cp -r public .next/standalone/public && cp -r .next/static .next/standalone/.next/static && cp -r content .next/standalone/content && cp -r data .next/standalone/data",
+    "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "type-check": "tsc --noEmit",
     "security": "npm audit --audit-level=moderate && npx eslint src/ --quiet",
