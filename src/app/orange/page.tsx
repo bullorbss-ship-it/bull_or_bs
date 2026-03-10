@@ -74,6 +74,14 @@ interface GenerateState {
   };
   commitStatus?: 'idle' | 'committing' | 'committed' | 'error';
   commitMessage?: string;
+  distributeStatus?: 'idle' | 'generating' | 'done' | 'error';
+  socialCopy?: {
+    reddit: { title: string; body: string; subreddits: string[] };
+    twitter: string;
+    instagram: string;
+    articleUrl: string;
+  };
+  emailSent?: boolean;
 }
 
 type Tab = 'generate' | 'articles' | 'costs';
@@ -305,6 +313,30 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         commitStatus: 'error',
         commitMessage: err instanceof Error ? err.message : 'Network error',
       }));
+    }
+  }
+
+  async function handleDistribute(slug: string) {
+    setState(prev => ({ ...prev, distributeStatus: 'generating' }));
+    try {
+      const res = await fetch('/api/admin/distribute', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setState(prev => ({ ...prev, distributeStatus: 'error' }));
+        return;
+      }
+      setState(prev => ({
+        ...prev,
+        distributeStatus: 'done',
+        socialCopy: data.copy,
+        emailSent: data.emailSent,
+      }));
+    } catch {
+      setState(prev => ({ ...prev, distributeStatus: 'error' }));
     }
   }
 
@@ -737,12 +769,80 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           )}
 
           {state.commitStatus === 'committed' && (
-            <button
-              onClick={onGenerated}
-              className="text-sm text-muted hover:text-foreground mt-3"
-            >
-              Back to articles
-            </button>
+            <div className="mt-3 space-y-3">
+              {/* Distribute button */}
+              {state.distributeStatus !== 'done' && (
+                <button
+                  onClick={() => handleDistribute(state.result!.slug)}
+                  disabled={state.distributeStatus === 'generating'}
+                  className="w-full bg-gold text-navy py-3 px-5 rounded-lg font-semibold text-sm hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-wait"
+                >
+                  {state.distributeStatus === 'generating' ? 'Writing social posts...' : 'Distribute — Generate Social Posts'}
+                </button>
+              )}
+
+              {/* Social copy display */}
+              {state.distributeStatus === 'done' && state.socialCopy && (
+                <div className="border border-card-border rounded-xl p-5 bg-card-bg space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-sm">Social Posts Ready</p>
+                    {state.emailSent && <span className="text-xs text-accent">Email sent</span>}
+                  </div>
+
+                  {/* Reddit */}
+                  <div>
+                    <p className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1">
+                      Reddit — {state.socialCopy.reddit.subreddits.map(s => `r/${s}`).join(', ')}
+                    </p>
+                    <p className="text-sm font-semibold mb-1">{state.socialCopy.reddit.title}</p>
+                    <div className="bg-background rounded-lg p-3 text-sm text-muted whitespace-pre-wrap">{state.socialCopy.reddit.body}</div>
+                    <button
+                      onClick={() => navigator.clipboard.writeText(`${state.socialCopy!.reddit.title}\n\n${state.socialCopy!.reddit.body}`)}
+                      className="text-xs text-accent hover:text-accent/80 mt-1"
+                    >
+                      Copy Reddit post
+                    </button>
+                  </div>
+
+                  {/* Twitter */}
+                  <div>
+                    <p className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1">
+                      X (Twitter) — {state.socialCopy.twitter.length}/280
+                    </p>
+                    <div className="bg-background rounded-lg p-3 text-sm text-muted">{state.socialCopy.twitter}</div>
+                    <button
+                      onClick={() => navigator.clipboard.writeText(state.socialCopy!.twitter)}
+                      className="text-xs text-accent hover:text-accent/80 mt-1"
+                    >
+                      Copy tweet
+                    </button>
+                  </div>
+
+                  {/* Instagram */}
+                  <div>
+                    <p className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1">Instagram</p>
+                    <div className="bg-background rounded-lg p-3 text-sm text-muted whitespace-pre-wrap">{state.socialCopy.instagram}</div>
+                    <button
+                      onClick={() => navigator.clipboard.writeText(state.socialCopy!.instagram)}
+                      className="text-xs text-accent hover:text-accent/80 mt-1"
+                    >
+                      Copy caption
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {state.distributeStatus === 'error' && (
+                <p className="text-xs text-red">Failed to generate social posts. Try again.</p>
+              )}
+
+              <button
+                onClick={onGenerated}
+                className="text-sm text-muted hover:text-foreground"
+              >
+                Back to articles
+              </button>
+            </div>
           )}
         </div>
       )}
