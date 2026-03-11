@@ -61,29 +61,45 @@ export function linkifyTickers(html: string, tickerHints?: string[]): string {
   // If hints provided, only link those tickers (much faster for large articles)
   const entries = (tickerHints && tickerHints.length > 0
     ? allTickers.filter(t => tickerHints.some(h => h.toUpperCase() === t.ticker.toUpperCase()))
-    : allTickers.slice(0, 20) // fallback: limit to first 20 to avoid perf issues
+    : allTickers.slice(0, 20)
   )
     .map(t => ({ ticker: t.ticker, company: t.company, slug: tickerToSlug(t.ticker) }))
     .sort((a, b) => b.company.length - a.company.length);
 
-  let result = html;
+  if (entries.length === 0) return html;
 
-  for (const { ticker, company, slug } of entries) {
-    const href = `/stock/${slug}`;
-    const linkClass = 'text-accent underline underline-offset-2 hover:text-accent/80';
+  const linkClass = 'text-accent underline underline-offset-2 hover:text-accent/80';
 
-    // Link company names (outside existing tags/links)
-    const companyRegex = new RegExp(`(?<![<\\w/])(?<!href=")\\b(${company.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b(?![^<]*>)`, 'g');
-    result = result.replace(companyRegex, `<a href="${href}" class="${linkClass}">$1</a>`);
+  // Split HTML into tags and text segments — only linkify text segments
+  // This avoids catastrophic backtracking from lookahead patterns on large HTML
+  const parts = html.split(/(<[^>]*>)/);
 
-    // Link ticker symbols (uppercase, word boundary, not already inside a tag/link)
-    if (ticker.length >= 2) {
-      const tickerRegex = new RegExp(`(?<![<\\w/=""])\\b(${ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b(?![^<]*>)`, 'g');
-      result = result.replace(tickerRegex, `<a href="${href}" class="${linkClass}">$1</a>`);
+  let insideAnchor = false;
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+
+    // Track anchor tags to avoid double-linking
+    if (part.startsWith('<a ') || part.startsWith('<a>')) insideAnchor = true;
+    if (part === '</a>') { insideAnchor = false; continue; }
+
+    // Skip HTML tags and content inside anchors
+    if (part.startsWith('<') || insideAnchor) continue;
+
+    // This is a text segment — apply replacements
+    let text = part;
+    for (const { ticker, company, slug } of entries) {
+      const href = `/stock/${slug}`;
+      const companyEscaped = company.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      text = text.replace(new RegExp(`\\b(${companyEscaped})\\b`, 'g'), `<a href="${href}" class="${linkClass}">$1</a>`);
+      if (ticker.length >= 2) {
+        const tickerEscaped = ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        text = text.replace(new RegExp(`\\b(${tickerEscaped})\\b`, 'g'), `<a href="${href}" class="${linkClass}">$1</a>`);
+      }
     }
+    parts[i] = text;
   }
 
-  return result;
+  return parts.join('');
 }
 
 export function formatMarkdown(text: string, tickerHints?: string[]): string {
