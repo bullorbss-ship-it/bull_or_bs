@@ -1,0 +1,211 @@
+{
+  "slug": "orcl-roast-2026-03-11",
+  "type": "roast",
+  "title": "Oracle Stock Surges 10% on Earnings Beat, But Red Flags Are Piling Up",
+  "description": "Oracle just reported strong Q3 earnings with cloud revenue growing 44% and management raising the full-year outlook. The stock jumped ~10% in pre-market trading. But there's a catch: the company is burning cash, drowning in debt, and facing a securities fraud lawsuit. Is this a growth story or a value trap?",
+  "date": "2026-03-11",
+  "ticker": "ORCL",
+  "verdict": "**Score: 5/10** — Oracle is a mixed bag.\n\n**What's working:** Cloud revenue up 44%, backlog of $553B (up 325%), earnings beat consensus, analyst consensus is \"Buy\" with $274 average target, and the stock bounced 10% on post-earnings enthusiasm.\n\n**What's breaking:** Free cash flow is -$13.18B (the company is burning cash despite growth), debt exceeds $100B with a 4.33x debt-to-equity ratio, the stock is down 54% from its September peak, YTD 2026 performance is -23.83%, and there's a pending securities fraud lawsuit (lead plaintiff deadline April 6, 2026) alleging false statements about AI infrastructure strategy.\n\n**Would I put my own money here?** Not yet. This is a classic \"growth at any cost\" story with negative cash flow and crushing debt. The $553B backlog is impressive on paper, but Oracle has to convert it into revenue while keeping debt service manageable. Until free cash flow turns positive and the lawsuit is resolved, this is a speculative bet on execution, not a proven business. Better entry points likely exist.",
+  "tags": [
+    "ORCL",
+    "roast",
+    "screenshot analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "Oracle Stock Surges 10% on Earnings Beat, But Red Flags Are Piling Up",
+    "summary": "Oracle just reported strong Q3 earnings with cloud revenue growing 44% and management raising the full-year outlook. The stock jumped ~10% in pre-market trading. But there's a catch: the company is burning cash, drowning in debt, and facing a securities fraud lawsuit. Is this a growth story or a value trap?",
+    "foolClaim": "Oracle is a $430B cloud and AI infrastructure company that just crushed earnings expectations with 44% cloud growth and a $553B backlog, and analysts are rating it a \"Buy\" with average price targets around $274–$276.",
+    "candidates": [
+      {
+        "ticker": "ORCL",
+        "company": "Oracle Corporation (NYSE)",
+        "status": "selected",
+        "reasonConsidered": "Oracle reported Q3 FY26 earnings on March 10 with revenue of $17.2B (up 22% YoY), cloud revenue surging 44%, and adjusted EPS of $1.79 (beating consensus of $1.55). The stock jumped ~10% pre-market, and analyst consensus is \"Buy\" with average targets of $274–$276.",
+        "reasonEliminated": null,
+        "score": 5
+      }
+    ],
+    "analysis": "## What They Got Right\n\n- **Earnings beat the estimates.** Oracle reported $17.2B in Q3 revenue (vs. ~$16.9B consensus) and $1.79 adjusted EPS (vs. $1.55 consensus). These are real wins.\n- **Cloud growth is genuinely fast.** Cloud Infrastructure (the IaaS part) grew 84% year-over-year to $4.9B. In the AI boom, that's a meaningful number.\n- **Backlog is massive.** Remaining Performance Obligations hit $553B, up 325% year-over-year. On paper, that looks like a tidal wave of future revenue.\n- **Management is confident.** They raised FY2027 revenue guidance to $90B and announced a $50B financing initiative, signaling they believe in the growth story.\n\n## What They Missed\n\n- **Free cash flow is catastrophically negative.** Oracle burned **-$13.18B** in free cash flow (trailing twelve months). That's not a rounding error — that's the company spending far more cash than it's generating, even as revenues grow. Most growth companies eventually turn FCF positive. Oracle isn't there yet.\n- **Debt is crushing.** Long-term debt exceeds $100B, and debt-to-equity is 4.33x. That means for every $1 of shareholder equity, Oracle owes $4.33 to creditors. Combine that with negative FCF, and you're funding growth with borrowed money. If growth slows or debt service costs rise (especially with higher interest rates), this becomes a serious problem.\n- **The stock is down 54% from its September 2025 peak.** ORCL hit $345.72 in September but closed at $149.40 on March 10. The narrative has clearly shifted from \"unstoppable cloud leader\" to \"cautious wait-and-see.\" That $10% bounce on earnings is nice, but it's still half the September price.\n- **There's a securities fraud lawsuit pending.** Filed February 3, 2026, the class action alleges Oracle made false statements about AI infrastructure strategy and CapEx requirements. The lawsuit covers June–December 2025 — right when the stock was melting down. This adds legal and reputational risk that earnings don't erase.\n\n## The Bottom Line\n\nOracle has a genuinely impressive growth story: cloud revenue up 44%, a $553B backlog, and beaten earnings expectations. But growth doesn't matter if you're burning cash and buried in debt. The company is spending more than it makes, has quadruple the debt it should, and faces legal headwinds. The $10% pre-market pop is a relief rally, not validation. You're being asked to bet that: (1) a $553B backlog converts smoothly, (2) AI demand sustains, (3) free cash flow eventually turns positive, and (4) the lawsuit gets dismissed. That's three big bets on top of execution risk. At 26x trailing P/E (or 21x forward), you're not getting a bargain for that risk profile.\n",
+    "risks": [
+      "Free cash flow is -$13.18B (TTM); if backlog conversion slows or capital spending increases, debt service becomes unsustainable.",
+      "Long-term debt exceeds $100B with debt-to-equity of 4.33x; rising interest rates or a revenue slowdown could trigger refinancing stress.",
+      "Securities fraud class action lawsuit (Barrows v. Oracle, filed Feb 3, 2026) alleges false statements about AI infrastructure strategy; class not yet certified but lead plaintiff deadline is April 6, 2026.",
+      "Stock down 54% from $345.72 all-time high (September 2025); the 10% pre-market pop only recovers a fraction of that loss.",
+      "Beta of 1.64–1.65 means this stock is 60% more volatile than the broader market; in a tech sell-off, it will get hit harder.",
+      "YTD 2026 performance is -23.83%; momentum is negative despite the earnings beat."
+    ],
+    "catalysts": [
+      "Q4 FY26 guidance (raised to EPS $1.92–$1.96, 19–20% revenue growth) will be watched closely; any shortfall triggers another sell-off.",
+      "Backlog conversion: if $553B of Remaining Performance Obligations doesn't translate into revenue in H1/H2 2026, the narrative collapses.",
+      "Free cash flow inflection: any quarter showing positive or improving FCF would ease debt concerns and validate the growth-at-scale story.",
+      "Lawsuit dismissal or unfavorable ruling: April 6, 2026 lead plaintiff deadline; early rulings could de-risk or re-risk the stock.",
+      "TikTok stake performance: Oracle's 15% equity position in TikTok US could become valuable if TikTok stabilizes, or a distraction if regulatory issues resurface.",
+      "AI infrastructure competition: AWS, Azure, and Google Cloud are fighting for hyperscaler workloads; any loss of major customer wins would signal OCI is losing share."
+    ],
+    "dataPoints": [
+      {
+        "label": "Stock Price (close, March 10, 2026)",
+        "value": "$149.40",
+        "source": "StockAnalysis"
+      },
+      {
+        "label": "Pre-market Price (March 11, 2026)",
+        "value": "~$164–$167 (+10%)",
+        "source": "Robinhood ($167.66); StockAnalysis ($164.10)"
+      },
+      {
+        "label": "52-Week Range",
+        "value": "$118.86 — $345.72",
+        "source": "Morningstar"
+      },
+      {
+        "label": "Market Cap (at close)",
+        "value": "$429.4B",
+        "source": "Morningstar"
+      },
+      {
+        "label": "Q3 FY26 Total Revenue",
+        "value": "$17.2B (up 22% YoY)",
+        "source": "Oracle investor.oracle.com"
+      },
+      {
+        "label": "Q3 FY26 Cloud Revenue",
+        "value": "$8.9B (up 44% YoY); Cloud Infrastructure IaaS: $4.9B (up 84% YoY)",
+        "source": "Oracle investor.oracle.com"
+      },
+      {
+        "label": "Q3 FY26 Adjusted EPS",
+        "value": "$1.79 (vs. consensus $1.55)",
+        "source": "CNBC"
+      },
+      {
+        "label": "Remaining Performance Obligations (Backlog)",
+        "value": "$553B (up 325% YoY)",
+        "source": "Oracle investor.oracle.com"
+      },
+      {
+        "label": "FY2027 Revenue Guidance (raised)",
+        "value": "$90B",
+        "source": "StocksTotrade"
+      },
+      {
+        "label": "Free Cash Flow (TTM, as of Nov 2025)",
+        "value": "-$13.18B",
+        "source": "GuruFocus"
+      },
+      {
+        "label": "Long-term Debt",
+        "value": "exceeds $100B; Debt-to-Equity ratio ~4.33x",
+        "source": "StockAnalysis; MLQ: 4.15x"
+      },
+      {
+        "label": "P/E (TTM)",
+        "value": "26.44",
+        "source": "CNBC"
+      },
+      {
+        "label": "Forward P/E (NTM)",
+        "value": "20.84",
+        "source": "CNBC"
+      },
+      {
+        "label": "EPS (TTM)",
+        "value": "$5.65",
+        "source": "CNBC"
+      },
+      {
+        "label": "Revenue (TTM)",
+        "value": "$61.0B",
+        "source": "CNBC"
+      },
+      {
+        "label": "Annual Dividend",
+        "value": "$2.00/share ($0.50/qtr)",
+        "source": "CNBC"
+      },
+      {
+        "label": "Dividend Yield (TTM)",
+        "value": "1.34%",
+        "source": "CNBC"
+      },
+      {
+        "label": "ROE (TTM)",
+        "value": "69–75% (CNBC: 74.98%; StockAnalysis: 69.03%)",
+        "source": "CNBC; StockAnalysis"
+      },
+      {
+        "label": "Analyst Consensus",
+        "value": "Buy (34 analysts); avg target $274.06–$276.00",
+        "source": "StockAnalysis"
+      },
+      {
+        "label": "Analyst Target Range",
+        "value": "$149 — $400",
+        "source": "TipRanks"
+      },
+      {
+        "label": "Morningstar Fair Value",
+        "value": "$196",
+        "source": "Morningstar"
+      },
+      {
+        "label": "Beta",
+        "value": "1.64–1.65",
+        "source": "CNBC; StockAnalysis"
+      },
+      {
+        "label": "YTD 2026 Performance (as of close)",
+        "value": "-23.83%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "2025 Calendar Year Performance",
+        "value": "+18.13%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "2024 Calendar Year Performance",
+        "value": "+59.99%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "3Y CAGR (total return)",
+        "value": "~20.6%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "5Y CAGR (total return)",
+        "value": "~20.6%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "Stock Drawdown from Sep 2025 High",
+        "value": "-54% (from $345.72 to $149.40)",
+        "source": "Morningstar; StockAnalysis"
+      },
+      {
+        "label": "Securities Fraud Class Action",
+        "value": "Barrows v. Oracle Corporation (Case 1:26-cv-00127-JLH, filed Feb 3, 2026 in US District Court, Delaware). Class period: June 12–Dec 16, 2025. Lead plaintiff deadline: April 6, 2026.",
+        "source": "Kessler Topaz Meltzer & Check; PRNewswire"
+      },
+      {
+        "label": "TikTok Equity Stake",
+        "value": "15% stake in TikTok US; board seat; acquired post-ByteDance separation",
+        "source": "Motley Fool earnings call transcript; AOL"
+      },
+      {
+        "label": "Management Financing Initiative",
+        "value": "$50B total; $30B already secured; no further bond issuances planned for calendar 2026",
+        "source": "Motley Fool earnings call transcript"
+      },
+      {
+        "label": "Avg Daily Volume (10-day)",
+        "value": "25.91M–30M",
+        "source": "CNBC; Morningstar"
+      }
+    ],
+    "finalVerdict": "**Score: 5/10** — Oracle is a mixed bag.\n\n**What's working:** Cloud revenue up 44%, backlog of $553B (up 325%), earnings beat consensus, analyst consensus is \"Buy\" with $274 average target, and the stock bounced 10% on post-earnings enthusiasm.\n\n**What's breaking:** Free cash flow is -$13.18B (the company is burning cash despite growth), debt exceeds $100B with a 4.33x debt-to-equity ratio, the stock is down 54% from its September peak, YTD 2026 performance is -23.83%, and there's a pending securities fraud lawsuit (lead plaintiff deadline April 6, 2026) alleging false statements about AI infrastructure strategy.\n\n**Would I put my own money here?** Not yet. This is a classic \"growth at any cost\" story with negative cash flow and crushing debt. The $553B backlog is impressive on paper, but Oracle has to convert it into revenue while keeping debt service manageable. Until free cash flow turns positive and the lawsuit is resolved, this is a speculative bet on execution, not a proven business. Better entry points likely exist."
+  },
+  "createdAt": "2026-03-11T11:57:02.000-04:00"
+}
