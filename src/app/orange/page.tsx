@@ -86,7 +86,7 @@ interface GenerateState {
   emailSent?: boolean;
 }
 
-type Tab = 'generate' | 'articles' | 'costs';
+type Tab = 'generate' | 'articles' | 'costs' | 'subscribers';
 
 export default function AdminPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -271,11 +271,22 @@ export default function AdminPage() {
         >
           Costs
         </button>
+        <button
+          onClick={() => setTab('subscribers')}
+          className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
+            tab === 'subscribers'
+              ? 'border-accent text-accent'
+              : 'border-transparent text-muted hover:text-foreground'
+          }`}
+        >
+          Subscribers
+        </button>
       </div>
 
       {tab === 'generate' && <GenerateTab onGenerated={() => { loadAll(); setTab('articles'); }} />}
       {tab === 'articles' && <ArticlesTab articles={articles} getQualityScore={getQualityScore} />}
       {tab === 'costs' && <CostsTab costs={costs} />}
+      {tab === 'subscribers' && <SubscribersTab />}
     </div>
   );
 }
@@ -779,7 +790,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       {genType === 'take' && (
         <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
           <div>
-            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">News Source</label>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">News Source *</label>
             <input
               type="text"
               value={source}
@@ -812,7 +823,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           (genType === 'roast' && (!ticker || !claim)) ||
           (genType === 'screenshot-roast' && !textData.trim()) ||
           (genType === 'screenshot-pick' && !textData.trim()) ||
-          (genType === 'take' && !newsText.trim())
+          (genType === 'take' && (!newsText.trim() || !source.trim()))
         }
         className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
           state.status === 'generating'
@@ -1290,6 +1301,63 @@ function CostsTab({ costs }: { costs: CostSummary | null }) {
           <p>Yearly (500 runs): <span className="font-mono text-foreground">${(costs.avgCostPerRun * 500).toFixed(2)}</span></p>
         </div>
       </div>
+    </>
+  );
+}
+
+// ─── Subscribers Tab ────────────────────────────────────────────────────────
+
+function SubscribersTab() {
+  const [emails, setEmails] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const res = await fetch('/api/admin/subscribers', { credentials: 'include' });
+        if (!res.ok) throw new Error('Failed to load');
+        const data = await res.json();
+        setEmails(data.emails || []);
+      } catch {
+        setError('Could not load subscribers');
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, []);
+
+  if (loading) return <p className="text-muted text-sm">Loading subscribers...</p>;
+  if (error) return <p className="text-red text-sm">{error}</p>;
+
+  return (
+    <>
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-lg font-bold">{emails.length} Subscriber{emails.length !== 1 ? 's' : ''}</h2>
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(emails.join('\n'));
+          }}
+          className="text-xs text-accent hover:text-accent-dim transition-colors"
+        >
+          Copy all emails
+        </button>
+      </div>
+      {emails.length === 0 ? (
+        <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
+          <p className="text-muted text-sm">No subscribers yet.</p>
+        </div>
+      ) : (
+        <div className="border border-card-border rounded-xl divide-y divide-card-border">
+          {emails.map((email, i) => (
+            <div key={email} className="px-4 py-3 flex items-center justify-between text-sm">
+              <span className="font-mono text-foreground">{email}</span>
+              <span className="text-muted text-xs">#{i + 1}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { timingSafeEqual, randomBytes } from 'crypto';
+import { timingSafeEqual, randomBytes, createHmac } from 'crypto';
 import { NextRequest } from 'next/server';
 
 /**
@@ -18,24 +18,37 @@ export function timingSafeCompare(a: string, b: string): boolean {
   return timingSafeEqual(bufA, bufB);
 }
 
-// In-memory session store (resets on deploy — fine for single admin)
-const sessions = new Map<string, number>();
+// Signed token auth — works on serverless (no in-memory state needed)
+// Token format: expiry_hex.hmac_signature
+
+function getSecret(): string {
+  return process.env.ADMIN_PASSWORD || randomBytes(32).toString('hex');
+}
+
+function hmacSign(data: string): string {
+  return createHmac('sha256', getSecret()).update(data).digest('hex');
+}
 
 export function createSession(): string {
-  const token = randomBytes(32).toString('hex');
-  sessions.set(token, Date.now() + 24 * 60 * 60 * 1000); // 24h
-  return token;
+  const expiry = (Date.now() + 24 * 60 * 60 * 1000).toString(16);
+  const sig = hmacSign(expiry);
+  return `${expiry}.${sig}`;
 }
 
 export function verifySession(req: NextRequest): boolean {
   const token = req.cookies.get('admin_token')?.value;
   if (!token) return false;
 
-  const expiry = sessions.get(token);
-  if (!expiry || Date.now() > expiry) {
-    sessions.delete(token);
-    return false;
-  }
+  const parts = token.split('.');
+  if (parts.length !== 2) return false;
+
+  const [expiry, sig] = parts;
+  const expectedSig = hmacSign(expiry);
+
+  if (!timingSafeCompare(sig, expectedSig)) return false;
+
+  const expiryMs = parseInt(expiry, 16);
+  if (isNaN(expiryMs) || Date.now() > expiryMs) return false;
 
   return true;
 }

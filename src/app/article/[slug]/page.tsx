@@ -191,14 +191,25 @@ export default async function ArticlePage({ params }: PageProps) {
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-2">
               {content.headline}
             </h1>
-            <time className="text-xs font-mono text-muted" dateTime={article.date}>
-              {new Date(article.date).toLocaleDateString('en-US', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric',
-              })}
-            </time>
+            <div className="flex flex-wrap items-center gap-2">
+              <time className="text-xs font-mono text-muted" dateTime={article.date}>
+                {new Date(article.date).toLocaleDateString('en-US', {
+                  weekday: 'long',
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}
+              </time>
+              {content.newsSource && (
+                <span className="text-xs font-mono text-muted-light">
+                  · Source: {content.newsUrl ? (
+                    <a href={content.newsUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-dim underline">{content.newsSource}</a>
+                  ) : (
+                    <span className="text-foreground">{content.newsSource}</span>
+                  )}
+                </span>
+              )}
+            </div>
           </div>
         </div>
         <p className="text-muted text-base sm:text-lg leading-relaxed"
