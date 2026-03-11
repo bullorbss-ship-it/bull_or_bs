@@ -65,9 +65,13 @@ export function saveArticle(article: Article): void {
   }
   const type = article.type === 'roast' ? 'roasts' : 'picks';
   const dir = path.join(CONTENT_DIR, type);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(
-    path.join(dir, `${article.slug}.json`),
-    JSON.stringify(article, null, 2)
-  );
+  try {
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, `${article.slug}.json`),
+      JSON.stringify(article, null, 2)
+    );
+  } catch (err) {
+    throw new Error(`Cannot save article — filesystem is read-only (Vercel). Use "Publish & Save to Repo" instead. ${err}`);
+  }
 }

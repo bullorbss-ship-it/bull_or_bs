@@ -40,8 +40,13 @@ export function registerTicker(info: TickerInfo): boolean {
 
   const dynamic = getDynamicTickers();
   dynamic.push(info);
-  fs.mkdirSync(path.dirname(DYNAMIC_TICKERS_FILE), { recursive: true });
-  fs.writeFileSync(DYNAMIC_TICKERS_FILE, JSON.stringify(dynamic, null, 2));
+  try {
+    fs.mkdirSync(path.dirname(DYNAMIC_TICKERS_FILE), { recursive: true });
+    fs.writeFileSync(DYNAMIC_TICKERS_FILE, JSON.stringify(dynamic, null, 2));
+  } catch {
+    // Read-only filesystem (Vercel) — skip dynamic ticker registration
+    return false;
+  }
   return true;
 }
 
@@ -135,6 +140,10 @@ function createStubProfile(info: TickerInfo): void {
     generatedBy: 'auto-registered',
   };
 
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
+  try {
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
+  } catch {
+    // Read-only filesystem (Vercel) — skip profile creation
+  }
 }

@@ -256,7 +256,11 @@ export async function refreshProfile(ticker: string, autoSave = false): Promise<
     if (updated) {
       profile.generatedAt = new Date().toISOString();
       profile.generatedBy = 'gemini-refresh';
-      fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
+      try {
+        fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
+      } catch {
+        return { ticker, status: 'error' as const, changes: ['Write failed — read-only filesystem'] };
+      }
     }
   }
 

@@ -98,8 +98,12 @@ export function updateProfileFromArticle(
   if (updates.length > 0) {
     profile.generatedAt = new Date().toISOString();
     profile.generatedBy = 'screenshot-update';
-    fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
-    console.log(`[Profile Update] ${ticker}: ${updates.length} field(s) updated from article data`);
+    try {
+      fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
+      console.log(`[Profile Update] ${ticker}: ${updates.length} field(s) updated from article data`);
+    } catch {
+      console.log(`[Profile Update] ${ticker}: skipped write (read-only filesystem)`);
+    }
   }
 
   return updates;

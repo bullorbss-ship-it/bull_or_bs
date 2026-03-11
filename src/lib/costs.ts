@@ -62,9 +62,13 @@ function readCosts(): CostEntry[] {
 }
 
 function writeCosts(entries: CostEntry[]): void {
-  const dir = path.dirname(COSTS_FILE);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(COSTS_FILE, JSON.stringify(entries, null, 2));
+  try {
+    const dir = path.dirname(COSTS_FILE);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(COSTS_FILE, JSON.stringify(entries, null, 2));
+  } catch {
+    // Vercel has a read-only filesystem — silently skip cost logging
+  }
 }
 
 export function logCost(entry: Omit<CostEntry, 'id'>): CostEntry {

@@ -52,7 +52,11 @@ export async function POST(req: NextRequest) {
   }
 
   subscribers.push(email.toLowerCase());
-  saveSubscribers(subscribers);
+  try {
+    saveSubscribers(subscribers);
+  } catch {
+    return NextResponse.json({ error: 'Storage unavailable. Try again later.' }, { status: 503 });
+  }
 
   return NextResponse.json({ success: true });
 }
