@@ -76,7 +76,7 @@ function StockOG({ ticker, company, exchange }: { ticker: string; company: strin
   );
 }
 
-function ArticleOG({ title, grade, articleType }: { title: string; grade: string; articleType: string }) {
+function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade: string; articleType: string; ticker: string }) {
   const gradeColor = GRADE_COLORS[grade?.toUpperCase()] || '#94A3B8';
   const isRoast = articleType === 'roast';
 
@@ -92,15 +92,16 @@ function ArticleOG({ title, grade, articleType }: { title: string; grade: string
         padding: '60px',
       }}
     >
+      {/* Top bar: brand + type badge */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <BrandName />
         <span
           style={{
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: 700,
             color: isRoast ? '#EF4444' : '#10B981',
             backgroundColor: isRoast ? 'rgba(239, 68, 68, 0.15)' : 'rgba(16, 185, 129, 0.15)',
-            padding: '6px 16px',
+            padding: '8px 20px',
             borderRadius: '9999px',
             fontFamily: 'monospace',
             textTransform: 'uppercase',
@@ -111,35 +112,51 @@ function ArticleOG({ title, grade, articleType }: { title: string; grade: string
         </span>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
-        {grade && (
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '120px',
-              height: '120px',
-              borderRadius: '24px',
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              border: `3px solid ${gradeColor}`,
-              flexShrink: 0,
-            }}
-          >
-            <span style={{ fontSize: 72, fontWeight: 700, color: gradeColor, fontFamily: 'monospace' }}>
-              {grade.toUpperCase()}
+      {/* Middle: ticker + grade row, then title */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {/* Ticker + Grade row */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '24px' }}>
+          {ticker && (
+            <span style={{
+              fontSize: 72,
+              fontWeight: 700,
+              color: '#FFFFFF',
+              fontFamily: 'monospace',
+              letterSpacing: '-0.02em',
+            }}>
+              {ticker}
             </span>
-          </div>
-        )}
+          )}
+          {grade && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '90px',
+                height: '90px',
+                borderRadius: '20px',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: `3px solid ${gradeColor}`,
+                flexShrink: 0,
+              }}
+            >
+              <span style={{ fontSize: 56, fontWeight: 700, color: gradeColor, fontFamily: 'monospace' }}>
+                {grade.toUpperCase()}
+              </span>
+            </div>
+          )}
+        </div>
+        {/* Title */}
         <span
           style={{
-            fontSize: title.length > 60 ? 36 : 44,
-            fontWeight: 700,
-            color: '#FFFFFF',
-            lineHeight: 1.2,
+            fontSize: title.length > 70 ? 28 : title.length > 50 ? 32 : 36,
+            fontWeight: 600,
+            color: '#94A3B8',
+            lineHeight: 1.3,
             overflow: 'hidden',
             display: '-webkit-box',
-            WebkitLineClamp: 3,
+            WebkitLineClamp: 2,
             WebkitBoxOrient: 'vertical',
           }}
         >
@@ -147,6 +164,7 @@ function ArticleOG({ title, grade, articleType }: { title: string; grade: string
         </span>
       </div>
 
+      {/* Bottom bar */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <span style={{ fontSize: 18, color: '#64748B' }}>
           AI-Driven Stock Analysis
@@ -215,6 +233,7 @@ export async function GET(request: Request) {
           title={searchParams.get('title') || 'Stock Analysis'}
           grade={searchParams.get('grade') || ''}
           articleType={searchParams.get('articleType') || 'roast'}
+          ticker={searchParams.get('ticker') || ''}
         />
       );
       break;

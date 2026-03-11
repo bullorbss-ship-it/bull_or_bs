@@ -37,6 +37,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
+  const grade = getGradeFromVerdict(article.verdict || article.content?.finalVerdict || '');
+
   return {
     title: article.title,
     description: article.description,
@@ -54,11 +56,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: article.date,
       authors: [siteConfig.name],
       tags: article.tags,
+      images: [
+        {
+          url: `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}`,
+          width: 1200,
+          height: 630,
+          alt: `${article.title}`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
+      images: [`${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}`],
     },
   };
 }
