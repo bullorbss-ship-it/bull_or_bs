@@ -69,6 +69,7 @@ interface GenerateState {
     slug: string;
     type: string;
     headline: string;
+    article?: Record<string, unknown>;
     cost: { usd: number; inputTokens: number; outputTokens: number; durationMs: number; dataConfidence: string };
     profileWarnings?: ProfileWarning[];
     profileUpdates?: ProfileUpdateInfo[];
@@ -299,7 +300,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       const res = await fetch('/api/admin/commit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug, type: articleType }),
+        body: JSON.stringify({ slug, type: articleType, article: state.result?.article }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -385,6 +386,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           slug: data.slug,
           type: genType.includes('roast') ? 'roast' : 'pick',
           headline: data.article?.content?.headline || data.slug,
+          article: data.article,
           cost: data.cost,
           profileWarnings: data.profileWarnings || [],
           profileUpdates: data.profileUpdates || [],

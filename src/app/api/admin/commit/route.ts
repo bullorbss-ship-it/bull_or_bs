@@ -18,24 +18,31 @@ export async function POST(req: NextRequest) {
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
     return NextResponse.json(
-      { error: 'GITHUB_TOKEN not configured. Set it in Render env vars.' },
+      { error: 'GITHUB_TOKEN not configured. Set it in Vercel env vars.' },
       { status: 500 }
     );
   }
 
-  const { slug, type } = await req.json();
+  const { slug, type, article } = await req.json();
   if (!slug || !type) {
     return NextResponse.json({ error: 'Missing slug or type' }, { status: 400 });
   }
 
   const folder = type === 'roast' ? 'roasts' : 'picks';
-  const localPath = path.join(process.cwd(), 'content', folder, `${slug}.json`);
+  let content: string;
 
-  if (!fs.existsSync(localPath)) {
-    return NextResponse.json({ error: 'Article file not found on disk' }, { status: 404 });
+  // Prefer article JSON passed directly from the client (works on Vercel's read-only FS)
+  if (article) {
+    content = typeof article === 'string' ? article : JSON.stringify(article, null, 2);
+  } else {
+    // Fallback: read from disk (works locally / on Render)
+    const localPath = path.join(process.cwd(), 'content', folder, `${slug}.json`);
+    if (!fs.existsSync(localPath)) {
+      return NextResponse.json({ error: 'Article not found. Try generating again.' }, { status: 404 });
+    }
+    content = fs.readFileSync(localPath, 'utf8');
   }
 
-  const content = fs.readFileSync(localPath, 'utf8');
   const filePath = `content/${folder}/${slug}.json`;
 
   try {
