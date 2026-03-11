@@ -705,7 +705,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
                   <input
                     type="text"
                     value={ticker}
-                    onChange={e => setTicker(e.target.value.toUpperCase().replace(/[^A-Z0-9.\-]/g, '').slice(0, 12))}
+                    onChange={e => setTicker(e.target.value.toUpperCase().replace(/[^A-Z0-9.,\s\-]/g, ''))}
                     placeholder="e.g. RY.TO, TD.TO, BMO.TO"
                     className="flex-1 px-3 py-2 rounded-lg border border-card-border bg-card-bg text-foreground font-mono text-sm focus:outline-none focus:border-blue-500"
                   />
