@@ -1,168 +1,216 @@
 {
   "slug": "ai-screenshot-pick-2026-03-11",
   "type": "pick",
-  "title": "VOO vs SCHD: Growth vs Income in a Divided 2026 Market",
-  "description": "VOO is the S&P 500 in a single ticker with a microscopic 0.03% fee and zero concentration risk in its structure—but its top 10 holdings represent ~38% of assets, mostly mega-cap tech that's struggling in early 2026. SCHD is a 101-stock dividend grower ETF yielding 3.37% and up 15.74% YTD as the market rotates away from growth into value—but it badly underperformed in 2023–2025 and will lose again if AI resumes leadership. SCHD wins in 2026 if the value rotation holds, but VOO is the better long-term core holding.",
+  "title": "PLTR vs. BBAI: David vs. Goliath in the AI-Defense Arms Race",
+  "description": "You're comparing a mega-cap AI powerhouse (PLTR, $361B, 70% revenue growth) against a penny-stock-sized competitor (BBAI, $2B, shrinking revenue). PLTR is the established player with real profits and analyst backing. BBAI is a speculative bet that's currently under investigation. PLTR wins decisively, but comes with a sky-high valuation that leaves little room for error.",
   "date": "2026-03-11",
-  "ticker": "SCHD",
-  "verdict": "**SCHD is the contrarian play for 2026; VOO is the core holding for life.** If you're a retiree or income investor with a 5-10 year horizon and believe the value rotation has legs, SCHD's 3.37% yield, lower P/E, and current outperformance (+15.74% YTD) make it the smarter tactical move. The energy and dividend-growth positioning is genuinely well-timed. But if you're 15+ years from retirement and can stomach volatility, VOO is still the better long-term decision: 14.15% vs 11.03% 5Y CAGR, microscopic 0.03% fee, Morningstar Gold rating, and the underlying S&P 500 remains the best large-cap proxy on Earth. SCHD's 2026 outperformance is real but reversible; VOO's long-term dominance is structural. **Conviction: Buy SCHD now if you need income or believe value has turned. Buy VOO if you're a long-term accumulator and can ignore 2026 noise. A 60/40 split (VOO/SCHD) is also defensible for balanced portfolios.**",
-  "confidence": 8,
+  "ticker": "PLTR",
+  "verdict": "**Score: 7/10**\n\nPLTR is the clear winner—it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years—any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3–5 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass—too much legal risk, too much revenue decline, too little margin for error.",
+  "confidence": 7,
   "tags": [
-    "SCHD",
+    "PLTR",
     "AI pick",
     "screenshot analysis",
     "comparison"
   ],
   "content": {
-    "headline": "VOO vs SCHD: Growth vs Income in a Divided 2026 Market",
-    "summary": "VOO is the S&P 500 in a single ticker with a microscopic 0.03% fee and zero concentration risk in its structure—but its top 10 holdings represent ~38% of assets, mostly mega-cap tech that's struggling in early 2026. SCHD is a 101-stock dividend grower ETF yielding 3.37% and up 15.74% YTD as the market rotates away from growth into value—but it badly underperformed in 2023–2025 and will lose again if AI resumes leadership. SCHD wins in 2026 if the value rotation holds, but VOO is the better long-term core holding.",
+    "headline": "PLTR vs. BBAI: David vs. Goliath in the AI-Defense Arms Race",
+    "summary": "You're comparing a mega-cap AI powerhouse (PLTR, $361B, 70% revenue growth) against a penny-stock-sized competitor (BBAI, $2B, shrinking revenue). PLTR is the established player with real profits and analyst backing. BBAI is a speculative bet that's currently under investigation. PLTR wins decisively, but comes with a sky-high valuation that leaves little room for error.",
     "candidates": [
       {
-        "ticker": "VOO",
-        "company": "Vanguard S&P 500 ETF",
-        "status": "considered",
-        "reasonConsidered": "Price $623.80 | AUM $1.51T | Expense ratio 0.03% (lowest in class) | Yield 1.12% trailing | YTD +0.67% | 5Y CAGR 14.15% | P/E 22.72–28.49 (sources vary) | Beta 1.00 (is the S&P 500) | Morningstar Gold rated | 503 holdings",
-        "score": 8
+        "ticker": "BBAI",
+        "company": "BigBear.ai Holdings, Inc.",
+        "status": "eliminated",
+        "reasonConsidered": "BBAI operates in the hot AI-for-defense space and trades at $4.14 with a $1.97B market cap. The company just redeemed expensive convertible notes, improving its balance sheet. Analysts see upside to $5.50–$7.00 per share if Ask Sage (its new AI product) delivers the promised ~$25M annual recurring revenue.",
+        "reasonEliminated": "Revenue is shrinking (down 19% in 2025, down 38% in Q4), the company is unprofitable (−$0.82 EPS), it's under active securities fraud investigation, and it has almost no analyst coverage (2 analysts). It's a speculative turnaround bet, not an investment.",
+        "score": 3
       },
       {
-        "ticker": "SCHD",
-        "company": "Schwab U.S. Dividend Equity ETF",
-        "status": "considered",
-        "reasonConsidered": "Price $30.92 | AUM $84.03B | Expense ratio 0.06% | Yield 3.37% trailing | YTD +15.74% | 5Y CAGR 11.03% | P/E 16.20–18.04 (sources vary) | 101 holdings focused on dividend growers | Top sector Energy 22.15% | Outperforming massively in 2026 rotation",
-        "score": 8
+        "ticker": "PLTR",
+        "company": "Palantir Technologies Inc.",
+        "status": "selected",
+        "reasonConsidered": "PLTR is a $361B market-cap AI leader with real, accelerating revenue growth (70% YoY in Q4 2025, guidance of 61% for 2026). It's profitable ($0.37 EPS), holds $6.44B in cash, and has 14 'Buy' ratings from 20 analysts. Bookings surged 138% to $4.3B, showing strong demand for its defense and commercial AI platforms. The catch: it trades at ~400x trailing P/E, meaning the stock price assumes near-perfect execution for years ahead.",
+        "reasonEliminated": null,
+        "score": 7
       }
     ],
     "winner": {
-      "ticker": "SCHD",
-      "company": "Schwab U.S. Dividend Equity ETF",
+      "ticker": "PLTR",
+      "company": "Palantir Technologies Inc.",
       "status": "selected",
-      "reasonConsidered": "For 2026 specifically, SCHD wins on momentum and valuation tailwinds. It's up 15.74% YTD versus VOO's +0.67%—a 15-point gap driven by a genuine market rotation from growth to value/dividend stocks. SCHD's lower P/E (16–18 vs 23–28 depending on source) reflects better valuation entry point, and its 3.37% yield provides downside cushion that VOO's 1.12% cannot match. The energy (22.15%) and consumer defensive (18.57%) positioning is perfectly timed for the Iran/Hormuz geopolitical backdrop. SCHD also costs only 0.06% vs VOO's 0.03%—three basis points that matter on a ~$871B ETF, but negligible here. The real story: SCHD's 101 selected dividend growers (10+ years consecutive payments, ranked by cash flow/ROE/growth) have pricing power and balance-sheet strength that mega-cap tech lacks right now.",
-      "score": 8
+      "reasonConsidered": "PLTR is the only legitimately profitable, growing company here. Its Q4 2025 revenue of $1.407B grew 70% year-over-year, and it just guided 2026 revenue growth of 61% — far ahead of what the market expected. It has $6.44B in cash, real earnings ($0.37 per share), and 14 analyst 'Buy' ratings. Yes, the stock trades at 400x earnings (meaning it's expensive), but it's operating in the fastest-growing segment of the tech industry (AI for enterprise and defense). BBAI, by contrast, is smaller, unprofitable, losing revenue, and under legal investigation. If you believe AI is a generational shift, PLTR is the only quality vehicle between these two.",
+      "score": 7
     },
-    "analysis": "## VOO vs SCHD: Head-to-Head Showdown\n\n| Metric | VOO | SCHD | Winner |\n|--------|-----|------|--------|\n| **Current Price** | $623.80 | $30.92 | — |\n| **AUM** | $1.51T combined (~$871B ETF) | $84B | VOO (scale) |\n| **Expense Ratio** | 0.03% | 0.06% | VOO (lowest cost) |\n| **Dividend Yield (Trailing)** | 1.12% | 3.37% | SCHD (+225 bps) |\n| **YTD 2026 Return** | +0.67% | +15.74% | SCHD (+15.07 pts) |\n| **2025 Total Return** | +17.82% | +4.34% | VOO (+13.48 pts) |\n| **2024 Total Return** | +24.98% | +11.66% | VOO (+13.32 pts) |\n| **5Y CAGR** | 14.15% | 11.03% | VOO (+3.12 pts) |\n| **P/E Ratio** | 22.72–28.49* | 16.20–18.04* | SCHD (cheaper either way) |\n| **Holdings** | 503 | 101 | VOO (more diversified) |\n| **Top Sector Exposure** | Tech ~31% | Energy 22.15% | SCHD (defensive) |\n| **Morningstar Rating** | Gold | Unverified | VOO |\n| **Market Cap Concentration (Top 10)** | ~38.4% | N/A | SCHD (lower risk) |\n\n### The Story\n\n**VOO's Problem in 2026:** The S&P 500's top 10 holdings (NVDA 7.83%, AAPL 6.46%, MSFT 5.39%, AMZN 3.92%, GOOGL 3.32%, plus others) represent ~38.4% of the fund. These mega-cap tech names are down sharply in early 2026 as the Iran/Hormuz crisis and weak February jobs data triggered a flight from growth into value. VOO returned only +0.67% YTD while the broader market rotated. Its 1.12% yield provides minimal cushion against further downside.\n\n**SCHD's Sweet Spot in 2026:** SCHD holds 101 screened dividend growers (10+ years of consecutive payments, ranked by cash flow strength, ROE, and dividend growth). Its top holdings—Lockheed Martin (5.02%), ConocoPhillips (4.56%), Verizon (4.49%), Chevron (4.47%), Bristol-Myers Squibb (4.23%)—are defensive, cash-generative blue chips. Energy is 22.15% and consumer defensive 18.57%, exactly the sectors thriving during geopolitical stress. YTD +15.74% reflects the value rotation perfectly. The 3.37% yield also provides real downside protection.\n\n**Long-Term Reality Check:** VOO has beaten SCHD decisively over 2024–2025 (24.98% vs 11.66% in 2024; 17.82% vs 4.34% in 2025). The 5-year CAGR gap is even wider: 14.15% for VOO vs 11.03% for SCHD. This is not a secret—mega-cap tech leadership has dominated for years. SCHD's 2026 outperformance is meaningful but historically unusual. If AI adoption accelerates again, VOO resumes dominance.\n\n**Valuation & Yield:** SCHD trades at a lower P/E than VOO across both sources (16.20–18.04 vs 22.72–28.49 — the spread varies by data provider, but SCHD is cheaper either way). That 225 basis point yield gap (3.37% vs 1.12%) is no joke for income investors or those nearing retirement. But it comes at the cost of lower total return (5Y CAGR 11.03% vs 14.15%).\n\n**Tax Efficiency (Canadian Context):** Both funds are US-listed ETFs best held in an RRSP to avoid 15% US withholding tax on dividends. In a TFSA, SCHD's higher yield makes the ~0.5% annual withholding drag more painful. Neither qualifies for Canadian dividend tax credits.",
+    "analysis": "## Head-to-Head\n\n| Metric | BBAI | PLTR | What It Means |\n|--------|------|------|---------------|\n| **Market Cap** | $1.97B | $361.1B | PLTR is 183x larger. Bigger = more stable, more analyst coverage, easier to buy/sell. |\n| **Current Price** | $4.14 | $151.14 | PLTR is much more expensive per share, but that's because it's a real company with real profits. |\n| **Revenue (TTM)** | $127.7M | $3.9B | PLTR generates 31x more revenue. Both are in AI, but PLTR is vastly larger. |\n| **Revenue Growth** | −19% YoY | +70% YoY (Q4) | BBAI is shrinking; PLTR is exploding. This is the biggest difference. |\n| **Profitability (EPS)** | −$0.82 | +$0.37 | PLTR is profitable. BBAI loses money and isn't close to break-even. |\n| **Free Cash Flow (TTM)** | Not available | $1.18B | PLTR converts revenue into cash. BBAI data not available, likely negative or minimal. |\n| **Cash on Hand** | Not detailed | $6.44B | PLTR can fund growth for years without raising cash. |\n| **Analyst Consensus** | Buy (2 analysts) | Buy (14 out of 20) | PLTR has real institutional coverage; BBAI has almost none. |\n| **Target Price** | $5.50–$7.00 | $70–$260 avg $191.76 | PLTR upside to $191.76; BBAI upside to $7.00. BBAI has more downside risk (stock down 34% YTD; PLTR down 18%). |\n| **Beta (volatility)** | 3.25 | 1.50–1.54 | BBAI is 2x more volatile. Bigger price swings, bigger losses if you time it wrong. |\n| **Legal Issues** | Active fraud investigation, lawsuits | None disclosed | BBAI has a major overhang; PLTR clean. |\n\n### Why PLTR Wins\n\nThis isn't a close call. PLTR is the established market leader in AI-for-defense and enterprise analytics. Q4 2025 proved it: $1.407B in quarterly revenue (up 70% year-over-year) and $4.3B in bookings (up 138%). That's not hype—that's real customer demand.\n\nMore importantly, PLTR is profitable. It generated $0.37 per share in earnings and $1.18B in free cash flow (the actual cash it makes after paying to run the business). BBAI is still burning money and won't be profitable for years, if ever.\n\nYes, PLTR trades at ~400x earnings. That's expensive. But it's only expensive if growth slows down. The company just guided 2026 revenue growth of 61%—well above what Wall Street expected. As long as it keeps growing, the valuation holds. BBAI, on the other hand, can't afford to slow down at all, because it has no profits to fall back on.\n\n### The Runner-Up\n\nBBAI has a compelling narrative—a smaller, hungrier AI company in the national-security space could explode if its Ask Sage product takes off. But narratives don't pay bills. BBAI's revenue fell 19% in 2025 and 38% in Q4. It's unprofitable, under federal investigation for securities fraud, and has almost no analyst coverage. Even if Ask Sage delivers $25M in annual revenue, the company needs to survive until then. With declining sales and no profitability cushion, cash could run out. It's a penny-stock gamble dressed up as a growth story.\n\n",
     "risks": [
-      "The 2026 value rotation ends and mega-cap tech/AI resumes leadership—SCHD's YTD 15.74% becomes a short-term pop, not a trend. Historical pattern: SCHD lost to VOO in 2023 (+4.6% vs +26.3%) and 2025 (+4.34% vs +17.82%).",
-      "Energy holdings (22% of SCHD) are a tailwind now due to Iran/Hormuz tensions, but if oil prices collapse or geopolitical risk eases, that sector becomes a drag. Energy is cyclical and command-driven.",
-      "SCHD's 101 holdings are more concentrated than VOO's 503—higher individual stock risk. A major dividend cut by ConocoPhillips, Verizon, or Lockheed Martin (top 3 holdings) would directly hurt performance.",
-      "Interest rates remain elevated or rise further—higher yields make the 3.37% yield less attractive relative to Treasury bonds or money market funds.",
-      "An upcoming March 2026 index reconstitution in SCHD could reshuffle holdings in ways that reduce positioning tailwinds."
+      "PLTR's 400x P/E assumes the company keeps growing 60%+ annually—if growth slows even moderately, the stock could fall hard as investors reassess the valuation.",
+      "BBAI is under active federal investigation for securities fraud; if the investigation expands or results in fines/leadership changes, the stock could crater.",
+      "BBAI's revenue declined 19% in 2025—if this trend continues instead of reversing, Ask Sage won't matter and cash will run out.",
+      "PLTR faces EU data privacy scrutiny that could limit European expansion and growth; this could surprise investors with slower international revenue.",
+      "Broader tech sector rotation away from high-growth stocks (like PLTR) could pressure the stock even if fundamentals remain strong; BBAI could benefit from sector rotation if micro-cap AI bets get fashionable.",
+      "BBAI's legal overhang (Pomerantz investigation, class action lawsuits) creates execution risk—management distraction, potential settlements, or criminal charges could derail any turnaround."
     ],
     "catalysts": [
-      "Persistent value rotation: If the market continues to favor dividend growers and defensive stocks over mega-cap growth in 2026–2027, SCHD extends its outperformance and compounds returns.",
-      "Energy sector strength: Continued geopolitical risk in the Middle East keeps oil prices elevated, supporting ConocoPhillips and Chevron (8% of SCHD combined).",
-      "Dividend growth execution: SCHD's screening criteria favor companies with track records of raising dividends. If these companies continue to increase payouts, yield and total return both improve.",
-      "Interest rate stabilization or cuts: If the Fed pauses rate hikes or cuts in H2 2026, dividend stocks re-rate higher as income becomes scarcer.",
-      "Valuation mean reversion: VOO's P/E (22.72–28.49) is well above SCHD's (16.20–18.04). If tech valuations compress toward historical averages, SCHD's 'cheaper' positioning adds to upside."
+      "PLTR Investor Day on March 25, 2026—new product launches or 2027 guidance could reignite the stock or disappoint if growth assumptions are questioned.",
+      "BBAI's Ask Sage product rollout—if it lands $25M+ in ARR quickly, it could validate the turnaround narrative; if it flops, the stock could crater below $3.",
+      "BBAI fraud investigation resolution—settlement, dismissal, or guilty verdict will materially affect stock price and investor confidence; uncertainty itself is a drag.",
+      "PLTR wins new US defense or federal contracts (common in Q1/Q2 earnings announcements)—would prove demand is real, push revenue growth higher, justify the valuation.",
+      "Broader AI sector sentiment shift—if investors lose faith in 'AI will save tech valuations,' both stocks could fall, but PLTR's scale and profitability make it more defensive.",
+      "BBAI cash burn rate—quarterly earnings will show if Ask Sage is gaining traction; if cash balance drops sharply without offsetting revenue, bankruptcy risk rises."
     ],
     "dataPoints": [
       {
-        "label": "VOO Current Price",
-        "value": "$623.80",
-        "source": "Screenshot (Investing.com, Mar 10, 2026)"
+        "label": "BBAI Market Cap",
+        "value": "$1.97B",
+        "source": "Yahoo Finance (Mar 11, 2026)"
       },
       {
-        "label": "SCHD Current Price",
-        "value": "$30.92",
-        "source": "Screenshot (Robinhood, Mar 10, 2026)"
+        "label": "BBAI Current Price",
+        "value": "$4.14",
+        "source": "TradingView (Mar 11, 2026)"
       },
       {
-        "label": "VOO Expense Ratio",
-        "value": "0.03%",
-        "source": "Screenshot (Robinhood/Investing.com)"
+        "label": "BBAI 52-Week Range",
+        "value": "$2.36–$9.39",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "SCHD Expense Ratio",
-        "value": "0.06%",
-        "source": "Screenshot (Investing.com/TradingView)"
+        "label": "BBAI 2025 Revenue",
+        "value": "$127.7M (−19.3% YoY)",
+        "source": "StockAnalysis"
       },
       {
-        "label": "VOO Trailing Dividend Yield",
-        "value": "1.12%",
-        "source": "Screenshot (AAII)"
+        "label": "BBAI Q4 2025 Revenue",
+        "value": "$27.3M (−37.7% YoY)",
+        "source": "TradingView / Earnings"
       },
       {
-        "label": "SCHD Trailing Dividend Yield",
-        "value": "3.37%",
-        "source": "Screenshot (TradingView)"
+        "label": "BBAI EPS (TTM)",
+        "value": "−$0.82",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "VOO YTD 2026 Return (through Mar 9)",
-        "value": "+0.67%",
-        "source": "Screenshot (Yahoo Finance)"
+        "label": "BBAI Distribution Yield",
+        "value": "0% (no dividend)",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "SCHD YTD 2026 Return (through Mar 9)",
-        "value": "+15.74%",
-        "source": "Screenshot (Yahoo Finance)"
+        "label": "BBAI Analyst Consensus & Target",
+        "value": "Buy / $5.50–$7.00 avg (range $5.00–$8.00)",
+        "source": "Public.com / TipRanks / StockAnalysis"
       },
       {
-        "label": "VOO 2025 Total Return",
-        "value": "+17.82%",
-        "source": "Screenshot (Yahoo Finance)"
+        "label": "BBAI Beta (5Y Monthly)",
+        "value": "3.25",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "SCHD 2025 Total Return",
-        "value": "+4.34%",
-        "source": "Screenshot (FinanceCharts/Yahoo Finance)"
+        "label": "BBAI YTD 2026 Return",
+        "value": "Approx. −34%",
+        "source": "Estimated from price data"
       },
       {
-        "label": "VOO 5-Year CAGR",
-        "value": "14.15%",
-        "source": "Screenshot (Yahoo Finance, as of Mar 9, 2026)"
+        "label": "PLTR Market Cap",
+        "value": "$361.1B",
+        "source": "Investing.com (Mar 11, 2026)"
       },
       {
-        "label": "SCHD 5-Year CAGR",
-        "value": "11.03%",
-        "source": "Screenshot (Yahoo Finance, as of Mar 9, 2026)"
+        "label": "PLTR Current Price",
+        "value": "$151.14 (close Mar 10)",
+        "source": "Yahoo Finance / Investing.com"
       },
       {
-        "label": "VOO P/E Ratio",
-        "value": "22.72 (Investing.com) or 28.49 (Robinhood) — sources conflict",
-        "source": "Screenshot (Investing.com vs Robinhood — difference likely trailing vs forward or methodology)"
+        "label": "PLTR 52-Week Range",
+        "value": "$66.12–$207.52",
+        "source": "Yahoo Finance / MacroTrends"
       },
       {
-        "label": "SCHD P/E Ratio",
-        "value": "16.20 (Investing.com) or 18.04 (Robinhood) — sources conflict",
-        "source": "Screenshot (Investing.com vs Robinhood — difference likely trailing vs forward or methodology)"
+        "label": "PLTR Revenue (TTM)",
+        "value": "$3.9B",
+        "source": "Investing.com"
       },
       {
-        "label": "VOO AUM",
-        "value": "$1.51T (combined Vanguard 500 Index Fund share classes; ETF wrapper alone is ~$871B)",
-        "source": "Screenshot (Robinhood) — note: Robinhood reports combined fund AUM, not ETF-only"
+        "label": "PLTR Q4 2025 Revenue",
+        "value": "$1.407B (+70% YoY)",
+        "source": "Investing.com"
       },
       {
-        "label": "SCHD AUM",
-        "value": "$84.03B",
-        "source": "Screenshot (Robinhood)"
+        "label": "PLTR Revenue Growth Guidance 2026",
+        "value": "+61% YoY ($7.18–7.20B)",
+        "source": "Provided data"
       },
       {
-        "label": "VOO Holdings",
-        "value": "503",
-        "source": "Screenshot (data brief)"
+        "label": "PLTR EPS (TTM)",
+        "value": "$0.37",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "SCHD Holdings",
-        "value": "101",
-        "source": "Screenshot (Robinhood)"
+        "label": "PLTR Free Cash Flow (TTM)",
+        "value": "$1.18B (guided $4.0B for 2026)",
+        "source": "Yahoo Finance / Investing.com"
       },
       {
-        "label": "VOO Top 10 Holdings as % of Fund",
-        "value": "~38.4%",
-        "source": "Screenshot (data brief)"
+        "label": "PLTR Total Cash",
+        "value": "$6.44B",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "SCHD Top 5 Sector: Energy",
-        "value": "22.15%",
-        "source": "Screenshot (Mar 7, 2026)"
+        "label": "PLTR P/E (TTM)",
+        "value": "~396–405x",
+        "source": "Yahoo Finance"
       },
       {
-        "label": "SCHD Top 5 Sector: Consumer Defensive",
-        "value": "18.57%",
-        "source": "Screenshot (Mar 7, 2026)"
+        "label": "PLTR Q4 2025 Bookings",
+        "value": "$4.3B (+138% YoY)",
+        "source": "Provided data"
+      },
+      {
+        "label": "PLTR Distribution Yield",
+        "value": "0% (no dividend)",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "PLTR Analyst Consensus & Target",
+        "value": "Buy (14/20) / Avg $191.76 (range $70–$260)",
+        "source": "TipRanks (20 analysts)"
+      },
+      {
+        "label": "PLTR Beta (5Y Monthly)",
+        "value": "1.50–1.54",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "PLTR YTD 2026 Return",
+        "value": "−18.33%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "PLTR TTM Return",
+        "value": "+30.1%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "PLTR 3Y CAGR",
+        "value": "160.8%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "PLTR 5Y CAGR",
+        "value": "43.5%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "BBAI Debt-to-Equity",
+        "value": "Improved (major convertible notes redeemed Jan 2026)",
+        "source": "CNN / TipRanks"
+      },
+      {
+        "label": "PLTR Debt-to-Equity",
+        "value": "3.06–3.52%",
+        "source": "Yahoo Finance / Historical Option Data"
       }
     ],
-    "finalVerdict": "**SCHD is the contrarian play for 2026; VOO is the core holding for life.** If you're a retiree or income investor with a 5-10 year horizon and believe the value rotation has legs, SCHD's 3.37% yield, lower P/E, and current outperformance (+15.74% YTD) make it the smarter tactical move. The energy and dividend-growth positioning is genuinely well-timed. But if you're 15+ years from retirement and can stomach volatility, VOO is still the better long-term decision: 14.15% vs 11.03% 5Y CAGR, microscopic 0.03% fee, Morningstar Gold rating, and the underlying S&P 500 remains the best large-cap proxy on Earth. SCHD's 2026 outperformance is real but reversible; VOO's long-term dominance is structural. **Conviction: Buy SCHD now if you need income or believe value has turned. Buy VOO if you're a long-term accumulator and can ignore 2026 noise. A 60/40 split (VOO/SCHD) is also defensible for balanced portfolios.**",
-    "recommendation": "SCHD for 2026 tactical trade; VOO for core long-term holding."
+    "finalVerdict": "**Score: 7/10**\n\nPLTR is the clear winner—it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years—any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3–5 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass—too much legal risk, too much revenue decline, too little margin for error."
   },
-  "createdAt": "2026-03-11T00:04:53.000-04:00"
+  "createdAt": "2026-03-11T18:11:25.000-04:00"
 }
