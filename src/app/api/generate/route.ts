@@ -241,8 +241,9 @@ export async function POST(req: NextRequest) {
     try {
       const result = await generateScreenshotPick(images || [], topic, textData);
       const today = todayEST();
+      const winnerTicker = result.content.winner?.ticker ? `-${result.content.winner.ticker.toLowerCase().replace(/[^a-z0-9]+/g, '-')}` : '';
       const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
-      const slug = `ai-screenshot-pick${topicSlug}-${today}`;
+      const slug = `ai-pick${winnerTicker}${topicSlug}-${today}`;
 
       const article: Article = {
         slug,
