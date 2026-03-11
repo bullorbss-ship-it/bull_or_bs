@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getResearchPrompt } from '@/lib/ai/research-prompt';
+import { getResearchPrompt, getNewsResearchPrompt } from '@/lib/ai/research-prompt';
 
 interface ArticleData {
   slug: string;
@@ -304,6 +304,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
   const [showResearch, setShowResearch] = useState(false);
   const [researchPrompt, setResearchPrompt] = useState('');
   const [copied, setCopied] = useState(false);
+  const [newsTopic, setNewsTopic] = useState('');
   const [state, setState] = useState<GenerateState>({ status: 'idle', message: '' });
 
   async function handleCommit(slug: string, articleType: string) {
@@ -514,7 +515,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <input
               type="text"
               value={ticker}
-              onChange={e => setTicker(e.target.value.toUpperCase())}
+              onChange={e => setTicker(e.target.value.toUpperCase().replace(/[^A-Z0-9.\-]/g, '').slice(0, 12))}
               placeholder="e.g. AAPL, RY, SHOP"
               className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground font-mono focus:outline-none focus:border-accent"
               disabled={state.status === 'generating'}
@@ -580,7 +581,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <input
               type="text"
               value={ticker}
-              onChange={e => setTicker(e.target.value.toUpperCase())}
+              onChange={e => setTicker(e.target.value.toUpperCase().replace(/[^A-Z0-9.\-]/g, '').slice(0, 12))}
               placeholder="e.g. TSLA, RY.TO, IFC.TO"
               className="w-full px-4 py-2.5 rounded-lg border border-card-border bg-card-bg text-foreground font-mono focus:outline-none focus:border-accent"
               disabled={state.status === 'generating'}
@@ -703,7 +704,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
                   <input
                     type="text"
                     value={ticker}
-                    onChange={e => setTicker(e.target.value.toUpperCase())}
+                    onChange={e => setTicker(e.target.value.toUpperCase().replace(/[^A-Z0-9.\-]/g, '').slice(0, 12))}
                     placeholder="e.g. RY.TO, TD.TO, BMO.TO"
                     className="flex-1 px-3 py-2 rounded-lg border border-card-border bg-card-bg text-foreground font-mono text-sm focus:outline-none focus:border-blue-500"
                   />
@@ -789,6 +790,67 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       {/* Take form */}
       {genType === 'take' && (
         <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
+          {/* Research Helper — collapsible */}
+          <div className="border border-blue-500/30 rounded-xl overflow-hidden">
+            <button
+              type="button"
+              onClick={() => setShowResearch(!showResearch)}
+              className="w-full flex items-center justify-between px-4 py-3 bg-blue-500/10 hover:bg-blue-500/15 transition-colors"
+            >
+              <span className="text-sm font-bold text-blue-400">Research Helper — Find News + Sources</span>
+              <span className="text-blue-400 text-xs">{showResearch ? 'Hide' : 'Expand'}</span>
+            </button>
+            {showResearch && (
+              <div className="p-4 space-y-3">
+                <p className="text-xs text-muted">Enter a news topic to generate a research prompt. Copy it into Claude Opus to get verified facts with source URLs, then paste results into News Text below.</p>
+                <input
+                  type="text"
+                  value={newsTopic}
+                  onChange={e => setNewsTopic(e.target.value)}
+                  placeholder="e.g. Anthropic Pentagon deal impact on AI stocks"
+                  className="w-full border border-card-border rounded-lg px-4 py-2.5 bg-background text-foreground placeholder:text-muted-light focus:outline-none focus:border-blue-400 text-sm"
+                />
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (newsTopic.trim()) {
+                        setResearchPrompt(getNewsResearchPrompt(newsTopic.trim()));
+                        setCopied(false);
+                      }
+                    }}
+                    disabled={!newsTopic.trim()}
+                    className="px-4 py-2 rounded-lg bg-blue-500/20 text-blue-400 text-sm font-bold hover:bg-blue-500/30 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                  >
+                    Generate Prompt{newsTopic.trim() ? ` for "${newsTopic.trim().slice(0, 30)}${newsTopic.trim().length > 30 ? '...' : ''}"` : ''}
+                  </button>
+                  {researchPrompt && (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        navigator.clipboard.writeText(researchPrompt);
+                        setCopied(true);
+                        setTimeout(() => setCopied(false), 2000);
+                      }}
+                      className="px-4 py-2 rounded-lg bg-accent/20 text-accent text-sm font-bold hover:bg-accent/30 transition-colors"
+                    >
+                      {copied ? 'Copied!' : 'Copy to Clipboard'}
+                    </button>
+                  )}
+                </div>
+                {researchPrompt && (
+                  <textarea
+                    readOnly
+                    value={researchPrompt}
+                    rows={8}
+                    className="w-full px-3 py-2 rounded-lg border border-card-border bg-card-bg text-muted text-xs font-mono resize-y"
+                    style={{ minHeight: '150px', maxHeight: '400px' }}
+                  />
+                )}
+              </div>
+            )}
+          </div>
+
           <div>
             <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">News Source *</label>
             <input

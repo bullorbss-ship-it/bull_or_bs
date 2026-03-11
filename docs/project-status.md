@@ -130,6 +130,7 @@
 - [ ] Instagram: manual posting via generated captions (API too complex)
 
 ### Future (Month 3+)
+- [ ] **BullOrBS Chat** — AI chatbot on /chat, 10 free prompts then paywall. OpenRouter free models (Gemini Flash). IP/cookie-based prompt counting. Build when traffic hits 100+ daily visits.
 - [ ] WallStreetBets daily recaps (/wsb/[date])
 - [ ] Premium reports ($20/report, personalized portfolio)
 - [ ] Batch API (50% cost reduction for scheduled generation)

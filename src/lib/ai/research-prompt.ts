@@ -88,3 +88,65 @@ VERIFICATION BEFORE DELIVERING:
 export function getResearchPrompt(tickers: string): string {
   return RESEARCH_TEMPLATE.replace(/\[TICKER\]/g, tickers.trim());
 }
+
+/**
+ * News Research Prompt
+ * Used in the /orange dashboard to generate a pre-filled prompt
+ * that users paste into Claude Opus to get verified news facts with source URLs.
+ */
+
+const NEWS_RESEARCH_TEMPLATE = `ROLE: You are a news research assistant. Research VERIFIED, RECENT news about: [TOPIC]
+
+CRITICAL RULES — DO NOT BREAK THESE:
+1. SEARCH THE WEB for every claim. Do NOT rely on training data alone.
+2. Every fact MUST include the source URL in parentheses — e.g. "Anthropic raised $2B (https://reuters.com/...)".
+3. If you cannot find a verifiable source for a claim, do NOT include it.
+4. Facts only — NO opinions, NO predictions, NO speculation.
+5. Focus on news from the last 30 days. If using older context, clearly label it as "BACKGROUND".
+6. If two sources conflict, show BOTH and flag the discrepancy.
+
+SEARCH STRATEGY:
+- Major wire services: Reuters, AP, Bloomberg, CNBC
+- Financial press: Yahoo Finance, Financial Times, Wall Street Journal
+- Canadian sources (if relevant): BNN Bloomberg, Globe and Mail, Financial Post, CBC Business
+- Company press releases and SEC/SEDAR filings
+- Avoid opinion pieces, blog posts, and social media as primary sources
+
+OUTPUT FORMAT:
+
+## News Research: [TOPIC]
+**Researched: [today's date]**
+
+### Key Facts
+- [Fact with specific numbers/dates/names] (source URL)
+- [Fact with specific numbers/dates/names] (source URL)
+- [Continue for all verified facts...]
+
+### Market / Investment Impact
+- [How this affects publicly traded companies, sectors, or markets] (source URL if applicable)
+- [Relevant ticker symbols mentioned: e.g. GOOGL, MSFT, MDA.TO]
+
+### Timeline
+- [Date]: [Event] (source URL)
+- [Date]: [Event] (source URL)
+
+### Source URLs
+1. [Publication Name] — [URL] — [Date published]
+2. [Publication Name] — [URL] — [Date published]
+3. [Continue for all sources...]
+
+### Suggested Source Field
+[Comma-separated list of the PRIMARY publications cited, e.g. "Reuters, Bloomberg, BNN"]
+
+---
+
+VERIFICATION BEFORE DELIVERING:
+- Every fact has a real, clickable source URL
+- No numbers or dates from memory alone — all searched and verified
+- Clearly separated facts from background context
+- Any uncertainty is flagged with "reportedly" or "according to [source]"
+- No editorializing or investment advice`;
+
+export function getNewsResearchPrompt(topic: string): string {
+  return NEWS_RESEARCH_TEMPLATE.replace(/\[TOPIC\]/g, topic.trim());
+}

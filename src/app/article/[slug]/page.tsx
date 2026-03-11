@@ -67,7 +67,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = getArticleBySlug(slug);
   if (!article) return {};
 
-  const grade = getGradeFromVerdict(article.verdict || article.content?.finalVerdict || '');
+  const isTake = article.type === 'take';
+  const grade = isTake ? '' : getGradeFromVerdict(article.verdict || article.content?.finalVerdict || '');
 
   return {
     title: article.title,
@@ -128,7 +129,7 @@ export default async function ArticlePage({ params }: PageProps) {
       : []),
   ];
 
-  const grade = getGradeFromVerdict(article.verdict || content.finalVerdict);
+  const grade = isTake ? null : getGradeFromVerdict(article.verdict || content.finalVerdict);
   const readingTime = getReadingTime(content.analysis);
   const allArticles = getAllArticles();
   const currentIdx = allArticles.findIndex(a => a.slug === article.slug);
@@ -166,12 +167,16 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* Score + Header — always visible, this is the hook */}
       <div className="mb-8">
         <div className="flex items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
-          <div className="flex-shrink-0 hidden sm:block">
-            <ScoreGauge score={grade} size="lg" />
-          </div>
-          <div className="flex-shrink-0 sm:hidden">
-            <ScoreGauge score={grade} size="md" />
-          </div>
+          {grade && (
+            <div className="flex-shrink-0 hidden sm:block">
+              <ScoreGauge score={grade} size="lg" />
+            </div>
+          )}
+          {grade && (
+            <div className="flex-shrink-0 sm:hidden">
+              <ScoreGauge score={grade} size="md" />
+            </div>
+          )}
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
               <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${

@@ -36,7 +36,8 @@ export async function POST(req: NextRequest) {
     try {
       const result = await generateRoast(claim, ticker, source || 'Popular financial publication');
       const today = todayEST();
-      const slug = `${ticker.toLowerCase()}-roast-${today}`;
+      const tickerSlug = ticker.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const slug = `${tickerSlug}-roast-${today}`;
 
       const article: Article = {
         slug,
@@ -170,7 +171,8 @@ export async function POST(req: NextRequest) {
       const result = await generateScreenshotRoast(images || [], source, textData);
       const today = todayEST();
       const ticker = inputTicker || result.content.candidates?.[0]?.ticker || 'unknown';
-      const slug = `${ticker.toLowerCase()}-roast-${today}`;
+      const tickerSlug = ticker.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const slug = `${tickerSlug}-roast-${today}`;
 
       const article: Article = {
         slug,
