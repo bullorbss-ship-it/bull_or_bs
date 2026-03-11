@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/orange', '/api/'],
       },
     ],
     sitemap: 'https://bullorbs.com/sitemap.xml',
