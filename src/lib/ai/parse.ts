@@ -55,9 +55,14 @@ export function parseArticleContent(text: string): ArticleContent {
  * Auto-link ticker symbols and company names to their stock pages.
  * Only links text outside of existing HTML tags.
  */
-export function linkifyTickers(html: string): string {
-  // Build lookup: sort by company name length (longest first) to avoid partial matches
-  const entries = getAllTickersExpanded()
+export function linkifyTickers(html: string, tickerHints?: string[]): string {
+  const allTickers = getAllTickersExpanded();
+
+  // If hints provided, only link those tickers (much faster for large articles)
+  const entries = (tickerHints && tickerHints.length > 0
+    ? allTickers.filter(t => tickerHints.some(h => h.toUpperCase() === t.ticker.toUpperCase()))
+    : allTickers.slice(0, 20) // fallback: limit to first 20 to avoid perf issues
+  )
     .map(t => ({ ticker: t.ticker, company: t.company, slug: tickerToSlug(t.ticker) }))
     .sort((a, b) => b.company.length - a.company.length);
 
@@ -72,7 +77,6 @@ export function linkifyTickers(html: string): string {
     result = result.replace(companyRegex, `<a href="${href}" class="${linkClass}">$1</a>`);
 
     // Link ticker symbols (uppercase, word boundary, not already inside a tag/link)
-    // Avoid matching single-letter tickers that are common words (T, V, L)
     if (ticker.length >= 2) {
       const tickerRegex = new RegExp(`(?<![<\\w/=""])\\b(${ticker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\b(?![^<]*>)`, 'g');
       result = result.replace(tickerRegex, `<a href="${href}" class="${linkClass}">$1</a>`);
@@ -82,7 +86,7 @@ export function linkifyTickers(html: string): string {
   return result;
 }
 
-export function formatMarkdown(text: string): string {
+export function formatMarkdown(text: string, tickerHints?: string[]): string {
   if (!text) return '';
 
   const lines = text.split('\n');
@@ -174,7 +178,7 @@ export function formatMarkdown(text: string): string {
     }
   }
 
-  return linkifyTickers(blocks.join('\n'));
+  return linkifyTickers(blocks.join('\n'), tickerHints);
 }
 
 function inlineFormat(text: string): string {

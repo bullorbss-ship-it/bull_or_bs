@@ -92,6 +92,12 @@ export default async function ArticlePage({ params }: PageProps) {
   const currentIdx = allArticles.findIndex(a => a.slug === article.slug);
   const nextArticle = allArticles[currentIdx + 1] || allArticles[0];
 
+  // Collect tickers mentioned in this article for efficient linkification
+  const articleTickers = [
+    article.ticker,
+    ...(content.candidates?.map(c => c.ticker) || []),
+  ].filter(Boolean) as string[];
+
   const dataPointCount = content.dataPoints?.length || 0;
   const riskCount = content.risks?.length || 0;
   const catalystCount = content.catalysts?.length || 0;
@@ -151,7 +157,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </div>
         <p className="text-muted text-base sm:text-lg leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: linkifyTickers(content.summary || '') }}
+          dangerouslySetInnerHTML={{ __html: linkifyTickers(content.summary || '', articleTickers) }}
         />
         <p className="text-xs text-muted-light mt-3 font-mono">
           Data sourced {new Date(article.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}. Verify current figures before making investment decisions.
@@ -166,7 +172,7 @@ export default async function ArticlePage({ params }: PageProps) {
         <section className="border-l-4 border-red bg-red/5 rounded-r-lg p-4 sm:p-6 mb-6">
           <p className="text-xs font-mono text-red font-bold mb-2">WHAT THEY SAID</p>
           <blockquote className="text-foreground italic leading-relaxed text-sm sm:text-base"
-            dangerouslySetInnerHTML={{ __html: `&quot;${linkifyTickers(content.foolClaim || '')}&quot;` }}
+            dangerouslySetInnerHTML={{ __html: `&quot;${linkifyTickers(content.foolClaim || '', articleTickers)}&quot;` }}
           />
           {content.foolSource && (
             <p className="text-muted text-xs mt-2">
@@ -202,7 +208,7 @@ export default async function ArticlePage({ params }: PageProps) {
       >
         <div
           className="max-w-none"
-          dangerouslySetInnerHTML={{ __html: formatMarkdown(content.analysis) }}
+          dangerouslySetInnerHTML={{ __html: formatMarkdown(content.analysis, articleTickers) }}
         />
       </Collapsible>
 
