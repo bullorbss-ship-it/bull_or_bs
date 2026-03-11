@@ -1,226 +1,118 @@
 {
   "slug": "ai-screenshot-pick-2026-03-11",
   "type": "pick",
-  "title": "PLTR vs. BBAI: David vs. Goliath in the AI-Defense Arms Race",
-  "description": "You're comparing a mega-cap AI powerhouse (PLTR, $361B, 70% revenue growth) against a micro-cap competitor (BBAI, $2B, shrinking revenue). PLTR is the established player with real profits and analyst backing. BBAI is a speculative bet that's currently under investigation. PLTR wins decisively, but comes with a sky-high valuation that leaves little room for error.",
+  "title": "Four AI Infrastructure Giants: Which Bet on GPU Cloud Makes Sense in 2026?",
+  "description": "We're comparing four companies racing to build AI data centers—APLD, CRWV, NBIS, and IREN. All are unprofitable or early-stage, all depend on Nvidia, and all are extremely volatile. NBIS just got a $2B Nvidia vote of confidence and has the wildest growth story. CRWV is the biggest revenue-wise but drowning in debt. IREN is the only profitable one but pivoting away from crypto. APLD is the smallest and riskiest. Winner: NBIS—if you can stomach the volatility.",
   "date": "2026-03-11",
-  "ticker": "PLTR",
-  "verdict": "**Score: 7/10**\n\nPLTR is the clear winner—it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years—any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3–5 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass—too much legal risk, too much revenue decline, too little margin for error.",
+  "ticker": "NBIS",
+  "verdict": "**Score: 7/10 — NBIS is worth a serious look if you can handle volatility.**\n\nNBIS is the growth leader here: $1.25B ARR in 2025 (beat guidance) pointing to $7–9B in 2026. Nvidia just invested $2B, which is not a casual endorsement—it's a structural bet. Analysts rate it Strong Buy with 36% upside to $150+. But here's the honest truth: this is a high-risk, high-reward play. There's no dividend, the company doesn't make money yet, and execution risk is real. If Nebius delivers 2026 guidance and Nvidia keeps funding it, you could see 50%+ returns. If capex slows or the company stumbles on execution, you could lose 30–50%.\n\nIf you're putting this in a TFSA and can afford to ride swings, NBIS beats APLD (too volatile, too small), CRWV (too much debt, new IPO uncertainty), and IREN (stuck in a crypto pivot). **Would I buy?** Yes—but only with money I can afford to lose, and with a 2–3 year time horizon. Don't buy on margin, and don't buy the dip every time it crashes. Position size accordingly.",
   "confidence": 7,
   "tags": [
-    "PLTR",
+    "NBIS",
     "AI pick",
     "screenshot analysis",
     "comparison"
   ],
   "content": {
-    "headline": "PLTR vs. BBAI: David vs. Goliath in the AI-Defense Arms Race",
-    "summary": "You're comparing a mega-cap AI powerhouse (PLTR, $361B, 70% revenue growth) against a micro-cap competitor (BBAI, $2B, shrinking revenue). PLTR is the established player with real profits and analyst backing. BBAI is a speculative bet that's currently under investigation. PLTR wins decisively, but comes with a sky-high valuation that leaves little room for error.",
+    "headline": "Four AI Infrastructure Giants: Which Bet on GPU Cloud Makes Sense in 2026?",
+    "summary": "We're comparing four companies racing to build AI data centers—APLD, CRWV, NBIS, and IREN. All are unprofitable or early-stage, all depend on Nvidia, and all are extremely volatile. NBIS just got a $2B Nvidia vote of confidence and has the wildest growth story. CRWV is the biggest revenue-wise but drowning in debt. IREN is the only profitable one but pivoting away from crypto. APLD is the smallest and riskiest. Winner: NBIS—if you can stomach the volatility.",
     "candidates": [
       {
-        "ticker": "BBAI",
-        "company": "BigBear.ai Holdings, Inc.",
+        "ticker": "APLD",
+        "company": "Applied Digital Corporation",
         "status": "eliminated",
-        "reasonConsidered": "BBAI operates in the hot AI-for-defense space and trades at $4.14 with a $1.97B market cap. The company just redeemed expensive convertible notes, improving its balance sheet. Analysts see upside to $5.50–$7.00 per share if Ask Sage (its new AI product) delivers the promised ~$25M annual recurring revenue.",
-        "reasonEliminated": "Revenue is shrinking (down 19% in 2025, down 38% in Q4), the company is unprofitable (−$0.82 EPS), it's under active securities fraud investigation, and it has almost no analyst coverage (2 analysts). It's a speculative turnaround bet, not an investment.",
-        "score": 3
+        "reasonConsidered": "Strong analyst consensus (12 Buy / 0 Sell) with $45.27 average price target, but revenue estimated at ~$244M with losses of −$0.39 per share. The beta of 7.34 is extreme—it means the stock swings 7x harder than the market.",
+        "reasonEliminated": "Smallest revenue base, highest beta (7.34), customer concentration risk after Nvidia exit, and currently down 36% from highs despite analyst optimism.",
+        "score": 4
       },
       {
-        "ticker": "PLTR",
-        "company": "Palantir Technologies Inc.",
-        "status": "selected",
-        "reasonConsidered": "PLTR is a $361B market-cap AI leader with real, accelerating revenue growth (70% YoY in Q4 2025, guidance of 61% for 2026). It's profitable ($0.37 EPS), holds $6.44B in cash, and has 14 'Buy' ratings from 20 analysts. Bookings surged 138% to $4.3B, showing strong demand for its defense and commercial AI platforms. The catch: it trades at ~400x trailing P/E, meaning the stock price assumes near-perfect execution for years ahead.",
-        "reasonEliminated": null,
-        "score": 7
+        "ticker": "CRWV",
+        "company": "CoreWeave, Inc.",
+        "status": "eliminated",
+        "reasonConsidered": "Largest revenue at $5.1B TTM with strong 71.7% gross margin and $3.1B operating cash flow. Analyst target of $124.70 implies 63% upside. But just IPO'd March 2025 and carries massive debt from GPU financing.",
+        "reasonEliminated": "Lost $1.2B in net income TTM despite high revenue, down 59% from $187 peak, and faces execution risk as a brand-new public company with enormous leverage.",
+        "score": 5
+      },
+      {
+        "ticker": "IREN",
+        "company": "IREN Limited (formerly Iris Energy)",
+        "status": "considered",
+        "reasonConsidered": "Only profitable stock in this group with P/E of 44x and $688.6M TTM revenue. Revenue growth of 355% YoY and $9.7B Microsoft AI Cloud contract provides real revenue visibility. Analyst target of $79.78 implies 106% upside. Lowest beta risk at 1.80–2.84 compared to peers.",
+        "reasonEliminated": "Still heavily exposed to Bitcoin mining (which slumped 28% recently), early-stage AI cloud pivot (<10% of revenue), and $6B equity raise creates significant dilution risk.",
+        "score": 6
       }
     ],
     "winner": {
-      "ticker": "PLTR",
-      "company": "Palantir Technologies Inc.",
+      "ticker": "NBIS",
+      "company": "Nebius Group N.V. (ex-Yandex)",
       "status": "selected",
-      "reasonConsidered": "PLTR is the only legitimately profitable, growing company here. Its Q4 2025 revenue of $1.407B grew 70% year-over-year, and it just guided 2026 revenue growth of 61% — far ahead of what the market expected. It has $6.44B in cash, real earnings ($0.37 per share), and 14 analyst 'Buy' ratings. Yes, the stock trades at 400x earnings (meaning it's expensive), but it's operating in the fastest-growing segment of the tech industry (AI for enterprise and defense). BBAI, by contrast, is smaller, unprofitable, losing revenue, and under legal investigation. If you believe AI is a generational shift, PLTR is the only quality vehicle between these two.",
+      "reasonConsidered": "Fastest revenue growth—$227.7M in Q4 alone, up 547% YoY, on track for $4B revenue in 2026 (>550% growth). Just landed a $2B Nvidia investment TODAY (March 11), proving Nvidia itself believes in the strategy. Exceeded 2025 ARR target by $250M, guided $7–9B for 2026. Analysts rate it Strong Buy with $150.62 average target (+36% upside). This is the highest-conviction growth play in the group—Nvidia is literally putting its money where its mouth is.",
       "score": 7
     },
-    "analysis": "## Head-to-Head\n\n| Metric | BBAI | PLTR | What It Means |\n|--------|------|------|---------------|\n| **Market Cap** | $1.97B | $361.1B | PLTR is 183x larger. Bigger = more stable, more analyst coverage, easier to buy/sell. |\n| **Current Price** | $4.14 | $151.14 | PLTR is much more expensive per share, but that's because it's a real company with real profits. |\n| **Revenue (TTM)** | $127.7M | $3.9B | PLTR generates 31x more revenue. Both are in AI, but PLTR is vastly larger. |\n| **Revenue Growth** | −19% YoY | +70% YoY (Q4) | BBAI is shrinking; PLTR is exploding. This is the biggest difference. |\n| **Profitability (EPS)** | −$0.82 | +$0.37 | PLTR is profitable. BBAI loses money and isn't close to break-even. |\n| **Free Cash Flow (TTM)** | −$42.5M | $1.18B | PLTR converts revenue into cash. BBAI is burning cash. |\n| **Cash on Hand** | $87.1M | $6.44B | PLTR can fund growth for years without raising cash. BBAI's cash dropped from $456.6M at Q3 to $87.1M after $250M Ask Sage acquisition. |\n| **Analyst Consensus** | Buy (2 analysts) | Buy (14 out of 20) | PLTR has real institutional coverage; BBAI has almost none. |\n| **Target Price** | $5.50–$7.00 | $70–$260 avg $191.76 | PLTR upside to $191.76; BBAI upside to $7.00. BBAI has more downside risk (stock down 34% YTD; PLTR down 18%). |\n| **Beta (volatility)** | 3.25 | 1.50–1.54 | BBAI is 2x more volatile. Bigger price swings, bigger losses if you time it wrong. |\n| **Legal Issues** | Active fraud investigation, lawsuits | None disclosed | BBAI has a major overhang; PLTR clean. |\n\n### Why PLTR Wins\n\nThis isn't a close call. PLTR is the established market leader in AI-for-defense and enterprise analytics. Q4 2025 proved it: $1.407B in quarterly revenue (up 70% year-over-year) and $4.3B in bookings (up 138%). That's not hype—that's real customer demand.\n\nMore importantly, PLTR is profitable. It generated $0.37 per share in earnings and $1.18B in free cash flow (the actual cash it makes after paying to run the business). BBAI is still burning money and won't be profitable for years, if ever.\n\nYes, PLTR trades at ~400x earnings. That's expensive. But it's only expensive if growth slows down. The company just guided 2026 revenue growth of 61%—well above what Wall Street expected. As long as it keeps growing, the valuation holds. BBAI, on the other hand, can't afford to slow down at all, because it has no profits to fall back on.\n\n### The Runner-Up\n\nBBAI has a compelling narrative—a smaller, hungrier AI company in the national-security space could explode if its Ask Sage product takes off. But narratives don't pay bills. BBAI's revenue fell 19% in 2025 and 38% in Q4. It's unprofitable, under federal investigation for securities fraud, and has almost no analyst coverage. Even if Ask Sage delivers $25M in annual revenue, the company needs to survive until then. With declining sales and no profitability cushion, cash could run out. It's a micro-cap speculative stock dressed up as a growth story.\n\n",
+    "analysis": "## Head-to-Head\n\n| Metric | APLD | CRWV | NBIS | IREN |\n|--------|------|------|------|------|\n| **Market Cap** | $7.7B | $39.1B | ~$25B | $12.7B |\n| **Revenue (TTM/Recent)** | ~$244M | $5.1B | $529M (2025 ARR) | $688.6M |\n| **Profitable?** | No (−$0.39 EPS) | No (−$2.81 EPS, −$1.2B net loss) | No (early-stage ramp) | Yes (44x P/E) |\n| **Revenue Growth Rate** | ~250% YoY | ~134% YoY | ~547% YoY (Q4) | ~355% YoY (Q1) |\n| **Volatility (Beta)** | **7.34** | N/A (new IPO) | N/A (relisted 2024) | 1.80–2.84 |\n| **Analyst Target** | $45.27 (+61%) | $124.70 (+63%) | $150.62 (+36%) | $79.78 (+106%) |\n| **Key Strength** | Analyst consensus | Revenue scale + margins | Nvidia partnership + hypergrowth | Profitability + diversity |\n| **Key Risk** | Customer concentration, leverage, volatility | Massive debt, new IPO | Yandex heritage, execution | BTC exposure, pivot execution |\n\n**What each number means:**\n- **Revenue Growth**: Shows how fast each company is expanding. NBIS is growing nearly 4x faster than CRWV, even though CRWV has 10x more revenue. This is the hockey-stick moment.\n- **P/E Ratio (Profit Multiple)**: Only IREN has one because it's profitable. The others lose money, so you're betting purely on future profits. Higher P/E = market expects more growth (IREN at 44x is expensive for a mature company, cheap if it's growing fast).\n- **Beta (Volatility)**: APLD's 7.34 means if the S&P 500 drops 10%, APLD could drop 70%. IREN's 1.80–2.84 means it swings 2–3x the market—still high, but manageable.\n\n## Why NBIS Wins\n\nNBIS just got a $2 billion vote of confidence from Nvidia TODAY. Think of it this way: Nvidia is like a manufacturer of ovens. Nebius is building bakeries. Nvidia just wrote a $2B check to help Nebius build faster. That's not a casual investment—it's a strategic bet that Nebius will be a major customer of Nvidia GPUs for years to come.\n\nThe numbers back it up. Nebius's 2025 ARR (annualized revenue run rate) hit $1.25 billion—it beat its own target by $250 million. Now it's guiding $7–9 billion in ARR for 2026. That's roughly a 6–7x jump. Yes, it's a projection. But the company is executing faster than expected, and Nvidia is putting real capital behind it.\n\nCompare that to APLD (smallest, losing money, highest volatility) or CRWV (biggest revenue but drowning in debt and down 59% from its peak). IREN is the safest choice because it's profitable, but it's still mostly a Bitcoin mining company pivoting to AI—the execution risk is real. NBIS is the company where the best-in-class supplier (Nvidia) is literally financing growth. That's a rare signal.\n\n## The Runner-Up\n\nIREN is the most defensible alternative—it's the only profitable company here, has real revenue contracts ($9.7B Microsoft deal), and lower volatility. The 106% analyst upside target is compelling. But here's the catch: 90% of IREN's revenue still comes from Bitcoin mining, which just crashed. The AI cloud business is growing fast (137% QoQ) but is still under 10% of revenue. It's a pivot play, not a pure AI growth story. NBIS, by contrast, *is* the pivot—it started as Yandex, restructured, and is now a pure-play AI cloud company. Less legacy baggage, clearer thesis.\n\n",
     "risks": [
-      "PLTR's 400x P/E assumes the company keeps growing 60%+ annually—if growth slows even moderately, the stock could fall hard as investors reassess the valuation.",
-      "BBAI is under active federal investigation for securities fraud; if the investigation expands or results in fines/leadership changes, the stock could crater.",
-      "BBAI's revenue declined 19% in 2025—if this trend continues instead of reversing, Ask Sage won't matter and cash will run out.",
-      "PLTR faces EU data privacy scrutiny that could limit European expansion and growth; this could surprise investors with slower international revenue.",
-      "Broader tech sector rotation away from high-growth stocks (like PLTR) could pressure the stock even if fundamentals remain strong; BBAI could benefit from sector rotation if micro-cap AI bets get fashionable.",
-      "BBAI's legal overhang (Pomerantz investigation, class action lawsuits) creates execution risk—management distraction, potential settlements, or criminal charges could derail any turnaround."
+      "All four depend on Nvidia GPU supply and continued AI spending growth—if capex slows or Nvidia reallocates chips, all four crater simultaneously.",
+      "NBIS carries geopolitical risk from its Yandex heritage (Russia ties, potential sanctions/regulatory scrutiny even post-restructuring).",
+      "CRWV and NBIS carry enormous debt from GPU financing; if interest rates stay high or revenue slows, both face refinancing pressure.",
+      "APLD has customer concentration risk—after Nvidia and CoreWeave issues, the company is vulnerable if a major customer pulls back.",
+      "IREN's Bitcoin mining exposure (90% of current revenue) makes it a hybrid play that could underperform if crypto crashes while AI ramps.",
+      "None of these companies are profitable on a GAAP basis—you're betting on future earnings, not current cash generation."
     ],
     "catalysts": [
-      "PLTR Investor Day on March 25, 2026—new product launches or 2027 guidance could reignite the stock or disappoint if growth assumptions are questioned.",
-      "BBAI's Ask Sage product rollout—if it lands $25M+ in ARR quickly, it could validate the turnaround narrative; if it flops, the stock could crater below $3.",
-      "BBAI fraud investigation resolution—settlement, dismissal, or guilty verdict will materially affect stock price and investor confidence; uncertainty itself is a drag.",
-      "PLTR wins new US defense or federal contracts (common in Q1/Q2 earnings announcements)—would prove demand is real, push revenue growth higher, justify the valuation.",
-      "Broader AI sector sentiment shift—if investors lose faith in 'AI will save tech valuations,' both stocks could fall, but PLTR's scale and profitability make it more defensive.",
-      "BBAI cash burn rate—quarterly earnings will show if Ask Sage is gaining traction; if cash balance drops sharply without offsetting revenue, bankruptcy risk rises."
+      "NBIS: Nvidia's $2B investment closes (likely Q2–Q3 2026) and company executes 2026 revenue guidance ($4B)—could trigger 20–50% upside if margins hold.",
+      "CRWV: Company reduces debt or reaches free-cash-flow positive status—would validate the investment thesis and reduce refinancing risk.",
+      "IREN: AI cloud business grows to 30%+ of revenue and achieves profitability in AI segment—would prove the pivot is real, not just a rebranding.",
+      "APLD: Secures a major long-term customer contract (not Nvidia or CoreWeave) to reduce concentration risk and stabilize the stock.",
+      "Industry-wide: Nvidia announces new GPU allocation or pricing changes—could either accelerate capex (bullish) or trigger margin compression (bearish) for all four."
     ],
     "dataPoints": [
       {
-        "label": "BBAI Market Cap",
-        "value": "$1.97B",
-        "source": "Yahoo Finance (Mar 11, 2026)"
+        "label": "NBIS Current Price",
+        "value": "$111.71 (up 16% today after Nvidia news)",
+        "source": "Robinhood (March 11, 2026 intraday)"
       },
       {
-        "label": "BBAI Current Price",
-        "value": "$4.14",
-        "source": "TradingView (Mar 11, 2026)"
-      },
-      {
-        "label": "BBAI 52-Week Range",
-        "value": "$2.36–$9.39",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "BBAI 2025 Revenue",
-        "value": "$127.7M (−19.3% YoY)",
+        "label": "NBIS 2025 ARR (Actual)",
+        "value": "$1.25B (beat target by $250M)",
         "source": "StockAnalysis"
       },
       {
-        "label": "BBAI Q4 2025 Revenue",
-        "value": "$27.3M (−37.7% YoY)",
-        "source": "TradingView / Earnings"
+        "label": "NBIS 2026 ARR Guidance",
+        "value": "$7–9B (6–7x growth)",
+        "source": "StockAnalysis"
       },
       {
-        "label": "BBAI EPS (TTM)",
-        "value": "−$0.82",
+        "label": "NBIS Analyst Consensus",
+        "value": "Strong Buy (8 analysts), Avg Target $150.62–$151.71",
+        "source": "Public.com / StockAnalysis"
+      },
+      {
+        "label": "NBIS Nvidia Partnership",
+        "value": "$2B investment announced March 11, 2026 for AI data center buildout",
+        "source": "Robinhood / Company news"
+      },
+      {
+        "label": "APLD Beta (Volatility)",
+        "value": "7.34 (swings 7x harder than the market)",
         "source": "Yahoo Finance"
       },
       {
-        "label": "BBAI Distribution Yield",
-        "value": "0% (no dividend)",
-        "source": "Yahoo Finance"
+        "label": "CRWV Revenue (TTM)",
+        "value": "$5.1B with −$1.2B net loss",
+        "source": "StockTitan"
       },
       {
-        "label": "BBAI Free Cash Flow (FY2025)",
-        "value": "−$42.5M",
-        "source": "SEC filings / StockAnalysis"
+        "label": "IREN Revenue (TTM)",
+        "value": "$688.6M with P/E of 44x (only profitable stock)",
+        "source": "TickerNerd / Robinhood"
       },
       {
-        "label": "BBAI Cash on Hand (Year-End 2025)",
-        "value": "$87.1M (down from $456.6M at Q3 due to $250M Ask Sage acquisition)",
-        "source": "SEC filings / Earnings"
-      },
-      {
-        "label": "BBAI Analyst Consensus & Target",
-        "value": "Buy / $5.50–$7.00 avg (range $5.00–$8.00) — only 2-3 analysts cover, thin coverage makes consensus unreliable",
-        "source": "Public.com / TipRanks / StockAnalysis"
-      },
-      {
-        "label": "BBAI Beta (5Y Monthly)",
-        "value": "3.25",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "BBAI YTD 2026 Return",
-        "value": "Approx. −34%",
-        "source": "Estimated from price data"
-      },
-      {
-        "label": "PLTR Market Cap",
-        "value": "$361.1B",
-        "source": "Investing.com (Mar 11, 2026)"
-      },
-      {
-        "label": "PLTR Current Price",
-        "value": "$151.14 (close Mar 10)",
-        "source": "Yahoo Finance / Investing.com"
-      },
-      {
-        "label": "PLTR 52-Week Range",
-        "value": "$66.12–$207.52",
-        "source": "Yahoo Finance / MacroTrends"
-      },
-      {
-        "label": "PLTR Revenue (TTM)",
-        "value": "$3.9B",
-        "source": "Investing.com"
-      },
-      {
-        "label": "PLTR Q4 2025 Revenue",
-        "value": "$1.407B (+70% YoY)",
-        "source": "Investing.com"
-      },
-      {
-        "label": "PLTR Revenue Growth Guidance 2026",
-        "value": "+61% YoY ($7.18–7.20B)",
-        "source": "Provided data"
-      },
-      {
-        "label": "PLTR EPS (TTM)",
-        "value": "$0.37",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "PLTR Free Cash Flow (TTM)",
-        "value": "$1.18B (guided $4.0B for 2026)",
-        "source": "Yahoo Finance / Investing.com"
-      },
-      {
-        "label": "PLTR Total Cash",
-        "value": "$6.44B",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "PLTR P/E (TTM)",
-        "value": "~396–405x",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "PLTR Q4 2025 Bookings",
-        "value": "$4.3B (+138% YoY)",
-        "source": "Provided data"
-      },
-      {
-        "label": "PLTR Distribution Yield",
-        "value": "0% (no dividend)",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "PLTR Analyst Consensus & Target",
-        "value": "Buy (14/20) / Avg $191.76 (range $70–$260)",
-        "source": "TipRanks (20 analysts)"
-      },
-      {
-        "label": "PLTR Beta (5Y Monthly)",
-        "value": "1.50–1.54",
-        "source": "Yahoo Finance"
-      },
-      {
-        "label": "PLTR YTD 2026 Return",
-        "value": "−18.33%",
-        "source": "FinanceCharts"
-      },
-      {
-        "label": "PLTR TTM Return",
-        "value": "+30.1%",
-        "source": "FinanceCharts"
-      },
-      {
-        "label": "PLTR 3Y CAGR",
-        "value": "160.8%",
-        "source": "FinanceCharts"
-      },
-      {
-        "label": "PLTR 5Y CAGR",
-        "value": "43.5%",
-        "source": "FinanceCharts"
-      },
-      {
-        "label": "BBAI Debt-to-Equity",
-        "value": "Improved (major convertible notes redeemed Jan 2026)",
-        "source": "CNN / TipRanks"
-      },
-      {
-        "label": "PLTR Debt-to-Equity",
-        "value": "3.06–3.52%",
-        "source": "Yahoo Finance / Historical Option Data"
+        "label": "IREN Microsoft AI Cloud Contract",
+        "value": "$9.7B committed over multi-year term",
+        "source": "StockAnalysis"
       }
     ],
-    "finalVerdict": "**Score: 7/10**\n\nPLTR is the clear winner—it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years—any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3–5 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass—too much legal risk, too much revenue decline, too little margin for error."
+    "finalVerdict": "**Score: 7/10 — NBIS is worth a serious look if you can handle volatility.**\n\nNBIS is the growth leader here: $1.25B ARR in 2025 (beat guidance) pointing to $7–9B in 2026. Nvidia just invested $2B, which is not a casual endorsement—it's a structural bet. Analysts rate it Strong Buy with 36% upside to $150+. But here's the honest truth: this is a high-risk, high-reward play. There's no dividend, the company doesn't make money yet, and execution risk is real. If Nebius delivers 2026 guidance and Nvidia keeps funding it, you could see 50%+ returns. If capex slows or the company stumbles on execution, you could lose 30–50%.\n\nIf you're putting this in a TFSA and can afford to ride swings, NBIS beats APLD (too volatile, too small), CRWV (too much debt, new IPO uncertainty), and IREN (stuck in a crypto pivot). **Would I buy?** Yes—but only with money I can afford to lose, and with a 2–3 year time horizon. Don't buy on margin, and don't buy the dip every time it crashes. Position size accordingly."
   },
-  "createdAt": "2026-03-11T18:11:25.000-04:00"
+  "createdAt": "2026-03-11T18:17:29.000-04:00"
 }
