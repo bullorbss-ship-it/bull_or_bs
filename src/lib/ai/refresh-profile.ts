@@ -259,7 +259,7 @@ export async function refreshProfile(ticker: string, autoSave = false): Promise<
       try {
         fs.writeFileSync(filePath, JSON.stringify(profile, null, 2));
       } catch {
-        return { ticker, status: 'error' as const, changes: ['Write failed — read-only filesystem'] };
+        return { ticker, status: 'error' as const, changes: [], error: 'Write failed — read-only filesystem' };
       }
     }
   }
