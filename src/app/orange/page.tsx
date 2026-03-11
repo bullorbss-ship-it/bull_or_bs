@@ -327,7 +327,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       const res = await fetch('/api/admin/distribute', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slug }),
+        body: JSON.stringify({ slug, article: state.result?.article }),
       });
       const data = await res.json();
       if (!res.ok) {

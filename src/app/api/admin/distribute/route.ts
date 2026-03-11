@@ -9,12 +9,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const { slug } = await req.json();
+  const { slug, article: clientArticle } = await req.json();
   if (!slug) {
     return NextResponse.json({ error: 'Missing slug' }, { status: 400 });
   }
 
-  const article = getArticleBySlug(slug);
+  // Prefer article passed from client (works on Vercel's read-only FS)
+  const article = clientArticle || getArticleBySlug(slug);
   if (!article) {
     return NextResponse.json({ error: 'Article not found' }, { status: 404 });
   }
