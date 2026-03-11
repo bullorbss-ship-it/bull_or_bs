@@ -1,5 +1,5 @@
 import { ArticleContent } from '@/lib/types';
-import { ROAST_PROMPT, PICK_PROMPT, SCREENSHOT_ROAST_PROMPT, SCREENSHOT_PICK_PROMPT } from './prompts';
+import { ROAST_PROMPT, PICK_PROMPT, SCREENSHOT_ROAST_PROMPT, SCREENSHOT_PICK_PROMPT, TAKE_PROMPT } from './prompts';
 import { parseArticleContent } from './parse';
 import { auditAndScrub } from './legal';
 import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
@@ -323,6 +323,66 @@ Return ONLY valid JSON.`;
     apiCalls: 0,
     durationMs,
     dataConfidence: 'screenshot',
+    model: response.model,
+    provider: response.provider,
+    profileWarnings: [],
+  };
+}
+
+// ─── News Take generation ──────────────────────────────────────────────────
+
+export async function generateTake(
+  newsText: string,
+  source?: string,
+): Promise<GenerateResult> {
+  const start = Date.now();
+  const today = todayEST();
+
+  const referenceSheet = buildIdentityOnlySheet();
+
+  const userMessage = `Summarize and explain this financial news for everyday investors.
+
+SOURCE: ${source || 'Financial news source'}
+DATE: ${today}
+
+${referenceSheet ? `=== KNOWN TICKERS (for identity verification) ===\n${referenceSheet}\n` : ''}
+=== NEWS CONTENT ===
+${newsText}
+
+Explain this news simply. No speculation. No predictions. Just facts that matter.
+
+Return ONLY valid JSON.`;
+
+  const response = await callAI(TAKE_PROMPT, userMessage, 4000);
+
+  const durationMs = Date.now() - start;
+
+  logCost({
+    date: today,
+    type: 'take',
+    model: response.model,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    costUsd: response.costUsd,
+    fmpCalls: 0,
+    durationMs,
+  });
+
+  const rawContent = parseArticleContent(response.text);
+
+  const { content, audit } = auditAndScrub(rawContent);
+  if (audit.violations.length > 0) {
+    console.log(`[LEGAL AUDIT] Take: scrubbed ${audit.violations.length} violations:`, audit.violations);
+  }
+
+  return {
+    content,
+    costUsd: response.costUsd,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    apiCalls: 0,
+    durationMs,
+    dataConfidence: 'text',
     model: response.model,
     provider: response.provider,
     profileWarnings: [],

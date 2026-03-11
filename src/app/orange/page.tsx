@@ -26,7 +26,7 @@ interface ArticleData {
 interface CostEntry {
   id: string;
   date: string;
-  type: 'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick';
+  type: 'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick' | 'take';
   ticker?: string;
   model: string;
   inputTokens: number;
@@ -283,7 +283,8 @@ export default function AdminPage() {
 // ─── Generate Tab ───────────────────────────────────────────────────────────
 
 function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
-  const [genType, setGenType] = useState<'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick'>('screenshot-roast');
+  const [genType, setGenType] = useState<'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick' | 'take'>('screenshot-roast');
+  const [newsText, setNewsText] = useState('');
   const [ticker, setTicker] = useState('');
   const [claim, setClaim] = useState('');
   const [source, setSource] = useState('');
@@ -351,6 +352,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
       'pick': topic ? `Running tournament: ${topic}...` : 'Running AI tournament...',
       'screenshot-roast': 'Analyzing pasted data...',
       'screenshot-pick': 'Comparing stocks from pasted data...',
+      'take': 'Writing news take...',
     };
     setState({ status: 'generating', message: messages[genType] || 'Generating...' });
 
@@ -362,6 +364,8 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         body = { type: 'pick', topic: topic || undefined };
       } else if (genType === 'screenshot-roast') {
         body = { type: 'screenshot-roast', source: source || undefined, ticker: ticker || undefined, textData: textData || undefined };
+      } else if (genType === 'take') {
+        body = { type: 'take', newsText: newsText || undefined, source: source || undefined };
       } else {
         body = { type: 'screenshot-pick', topic: topic || undefined, textData: textData || undefined };
       }
@@ -384,7 +388,7 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         message: 'Article generated!',
         result: {
           slug: data.slug,
-          type: genType.includes('roast') ? 'roast' : 'pick',
+          type: genType === 'take' ? 'take' : genType.includes('roast') ? 'roast' : 'pick',
           headline: data.article?.content?.headline || data.slug,
           article: data.article,
           cost: data.cost,
@@ -470,6 +474,22 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
             <div>
               <p className="font-bold text-foreground text-sm">Text Pick</p>
               <p className="text-xs text-muted">15-stock tournament (legacy)</p>
+            </div>
+          </div>
+        </button>
+        <button
+          onClick={() => setGenType('take')}
+          className={`border-2 rounded-xl p-5 text-left transition-all ${
+            genType === 'take'
+              ? 'border-muted bg-card-bg'
+              : 'border-card-border hover:border-muted/30'
+          }`}
+        >
+          <div className="flex items-center gap-3">
+            <span className="w-10 h-10 rounded-lg bg-card-bg text-muted font-bold font-mono flex items-center justify-center text-lg border border-card-border">&#9889;</span>
+            <div>
+              <p className="font-bold text-foreground">News Take</p>
+              <p className="text-xs text-muted">Paste news — explain it simply</p>
             </div>
           </div>
         </button>
@@ -755,6 +775,35 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
         </div>
       )}
 
+      {/* Take form */}
+      {genType === 'take' && (
+        <div className="border border-card-border rounded-xl p-6 mb-6 space-y-4">
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">News Source</label>
+            <input
+              type="text"
+              value={source}
+              onChange={e => setSource(e.target.value)}
+              placeholder="Reuters, Bloomberg, CBC, etc."
+              className="w-full border border-card-border rounded-lg px-4 py-2.5 bg-background text-foreground placeholder:text-muted-light focus:outline-none focus:border-accent"
+            />
+          </div>
+          <div>
+            <label className="text-xs font-mono text-muted-light uppercase tracking-wide mb-1.5 block">News Text *</label>
+            <textarea
+              value={newsText}
+              onChange={e => setNewsText(e.target.value)}
+              placeholder="Paste the news article or key facts here..."
+              rows={8}
+              className="w-full border border-card-border rounded-lg px-4 py-2.5 bg-background text-foreground placeholder:text-muted-light focus:outline-none focus:border-accent font-mono text-sm"
+            />
+          </div>
+          <div className="bg-card-bg rounded-lg p-4">
+            <p className="text-xs text-muted">Paste the news content. AI will summarize it in plain English — no speculation, no predictions, just facts explained simply. ~$0.01-0.02/take</p>
+          </div>
+        </div>
+      )}
+
       {/* Generate button */}
       <button
         onClick={handleGenerate}
@@ -762,7 +811,8 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
           state.status === 'generating' ||
           (genType === 'roast' && (!ticker || !claim)) ||
           (genType === 'screenshot-roast' && !textData.trim()) ||
-          (genType === 'screenshot-pick' && !textData.trim())
+          (genType === 'screenshot-pick' && !textData.trim()) ||
+          (genType === 'take' && !newsText.trim())
         }
         className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
           state.status === 'generating'
@@ -780,7 +830,9 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
               ? `Fact-Check & Roast${ticker ? ` ${ticker}` : ''}`
               : genType === 'screenshot-pick'
                 ? 'Compare Stocks'
-                : topic ? `Run: ${topic.slice(0, 30)}${topic.length > 30 ? '...' : ''}` : 'Run AI Tournament'
+                : genType === 'take'
+                  ? 'Generate News Take'
+                  : topic ? `Run: ${topic.slice(0, 30)}${topic.length > 30 ? '...' : ''}` : 'Run AI Tournament'
         }
       </button>
 
@@ -1205,7 +1257,7 @@ function CostsTab({ costs }: { costs: CostSummary | null }) {
               <span className={`text-xs font-mono font-bold px-2 py-0.5 rounded ${
                 entry.type.includes('roast') ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
               }`}>
-                {entry.type === 'screenshot-roast' ? 'SS-ROAST' : entry.type === 'screenshot-pick' ? 'SS-PICK' : entry.type === 'roast' ? 'ROAST' : 'PICK'}
+                {entry.type === 'screenshot-roast' ? 'SS-ROAST' : entry.type === 'screenshot-pick' ? 'SS-PICK' : entry.type === 'take' ? 'TAKE' : entry.type === 'roast' ? 'ROAST' : 'PICK'}
               </span>
               {entry.ticker && (
                 <span className="text-xs font-mono text-muted">{entry.ticker}</span>

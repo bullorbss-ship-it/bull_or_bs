@@ -3,13 +3,19 @@ import { siteConfig } from '@/config/site';
 
 export const runtime = 'nodejs';
 
-const GRADE_COLORS: Record<string, string> = {
-  A: '#F59E0B',
-  B: '#10B981',
-  C: '#F59E0B',
-  D: '#F97316',
-  F: '#EF4444',
-};
+function getGradeColor(grade: string): string {
+  const n = parseInt(grade, 10);
+  if (!isNaN(n)) {
+    if (n >= 8) return '#10B981';
+    if (n >= 6) return '#F59E0B';
+    if (n >= 4) return '#F97316';
+    return '#EF4444';
+  }
+  const LETTER_COLORS: Record<string, string> = {
+    A: '#F59E0B', B: '#10B981', C: '#F59E0B', D: '#F97316', F: '#EF4444',
+  };
+  return LETTER_COLORS[grade?.toUpperCase()] || '#94A3B8';
+}
 
 function BrandName() {
   return (
@@ -77,7 +83,8 @@ function StockOG({ ticker, company, exchange }: { ticker: string; company: strin
 }
 
 function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade: string; articleType: string; ticker: string }) {
-  const gradeColor = GRADE_COLORS[grade?.toUpperCase()] || '#94A3B8';
+  const gradeColor = getGradeColor(grade);
+  const isNumeric = !isNaN(parseInt(grade, 10));
   const isRoast = articleType === 'roast';
 
   return (
@@ -133,17 +140,23 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '90px',
+                width: isNumeric ? '120px' : '90px',
                 height: '90px',
-                borderRadius: '20px',
+                borderRadius: '9999px',
                 backgroundColor: 'rgba(255, 255, 255, 0.05)',
                 border: `3px solid ${gradeColor}`,
                 flexShrink: 0,
+                gap: '2px',
               }}
             >
-              <span style={{ fontSize: 56, fontWeight: 700, color: gradeColor, fontFamily: 'monospace' }}>
-                {grade.toUpperCase()}
+              <span style={{ fontSize: isNumeric ? 48 : 56, fontWeight: 700, color: gradeColor, fontFamily: 'monospace' }}>
+                {isNumeric ? grade : grade.toUpperCase()}
               </span>
+              {isNumeric && (
+                <span style={{ fontSize: 20, fontWeight: 600, color: '#64748B', fontFamily: 'monospace' }}>
+                  /10
+                </span>
+              )}
             </div>
           )}
         </div>

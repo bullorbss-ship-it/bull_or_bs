@@ -1,4 +1,4 @@
-export type ArticleType = 'roast' | 'pick';
+export type ArticleType = 'roast' | 'pick' | 'take';
 
 export interface Article {
   slug: string;
@@ -21,6 +21,9 @@ export interface ArticleContent {
   foolClaim?: string;
   foolDate?: string;
   foolSource?: string;
+  // News take: original source
+  newsSource?: string;
+  newsUrl?: string;
   // The reasoning tournament
   candidates: CandidateStock[];
   winner?: CandidateStock;

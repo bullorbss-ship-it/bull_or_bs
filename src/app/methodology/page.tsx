@@ -48,57 +48,48 @@ export default function MethodologyPage() {
           <li><strong className="text-foreground">Company financials</strong> — revenue, earnings, margins, debt levels, cash flow</li>
         </ul>
 
-        {/* The Grading System */}
-        <h2 className="text-xl font-bold text-foreground pt-4">The Grading System</h2>
+        {/* The Scoring System */}
+        <h2 className="text-xl font-bold text-foreground pt-4">The Scoring System</h2>
 
         <p>
-          Every stock recommendation we audit gets a letter grade from A to F.
-          Here&apos;s what each grade means:
+          Every stock recommendation we audit gets a score from 1 to 10.
+          Here&apos;s what each range means:
         </p>
 
         <div className="space-y-4 pt-2">
           <div className="flex items-start gap-4">
-            <span className="grade-badge grade-badge-sm grade-A shrink-0">A</span>
+            <span className="grade-badge grade-badge-sm grade-9 shrink-0 text-xs">8-10</span>
             <p>
-              <strong className="text-foreground">Strong buy signal.</strong> Data
-              overwhelmingly supports the recommendation. Fundamentals, technicals,
-              and sentiment all align.
+              <strong className="text-foreground">Strong.</strong> The data backs it up,
+              the timing makes sense, and the risks are manageable. This is solid advice
+              worth paying attention to.
             </p>
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="grade-badge grade-badge-sm grade-B shrink-0">B</span>
+            <span className="grade-badge grade-badge-sm grade-6 shrink-0 text-xs">6-7</span>
             <p>
-              <strong className="text-foreground">Positive outlook.</strong> Good
-              fundamentals with minor concerns. The recommendation is solid but not
-              without caveats.
+              <strong className="text-foreground">Decent.</strong> There&apos;s a case here,
+              but there are real concerns or better alternatives out there. Do your own
+              homework before jumping in.
             </p>
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="grade-badge grade-badge-sm grade-C shrink-0">C</span>
+            <span className="grade-badge grade-badge-sm grade-4 shrink-0 text-xs">4-5</span>
             <p>
-              <strong className="text-foreground">Mixed signals.</strong> Proceed
-              with caution. Some data supports the pick, but there are enough red
-              flags to give pause.
+              <strong className="text-foreground">Weak.</strong> More questions than answers.
+              The recommendation has some merit, but the risks are hard to ignore.
+              Proceed with caution.
             </p>
           </div>
 
           <div className="flex items-start gap-4">
-            <span className="grade-badge grade-badge-sm grade-D shrink-0">D</span>
+            <span className="grade-badge grade-badge-sm grade-2 shrink-0 text-xs">1-3</span>
             <p>
-              <strong className="text-foreground">Significant concerns.</strong> More
-              risk than reward. The data doesn&apos;t strongly support the recommendation
-              and key metrics are trending the wrong way.
-            </p>
-          </div>
-
-          <div className="flex items-start gap-4">
-            <span className="grade-badge grade-badge-sm grade-F shrink-0">F</span>
-            <p>
-              <strong className="text-foreground">Failed analysis.</strong> The data
-              doesn&apos;t support the recommendation. Key claims are misleading, outdated,
-              or contradicted by available evidence.
+              <strong className="text-foreground">Bad.</strong> The data doesn&apos;t support
+              this recommendation. Key claims are misleading, the risks are too high,
+              or there are much better options available.
             </p>
           </div>
         </div>

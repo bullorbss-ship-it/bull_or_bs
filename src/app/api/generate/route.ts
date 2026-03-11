@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
-import { generateRoast, generatePick, generateScreenshotRoast, generateScreenshotPick } from '@/lib/ai/generate';
+import { generateRoast, generatePick, generateScreenshotRoast, generateScreenshotPick, generateTake } from '@/lib/ai/generate';
 import { saveArticle } from '@/lib/content';
 import { Article } from '@/lib/types';
 import { timingSafeCompare, verifySession } from '@/lib/auth';
@@ -301,5 +301,60 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  return NextResponse.json({ error: 'Invalid type. Use "roast", "pick", "screenshot-roast", or "screenshot-pick".' }, { status: 400 });
+  if (type === 'take') {
+    const { newsText, source } = body;
+    if (!newsText || typeof newsText !== 'string' || newsText.trim().length < 10) {
+      return NextResponse.json({ error: 'Provide news text to summarize (min 10 chars)' }, { status: 400 });
+    }
+
+    try {
+      const result = await generateTake(newsText, source);
+      const today = todayEST();
+      const topicSlug = result.content.headline
+        ? result.content.headline.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 50)
+        : 'news';
+      const slug = `take-${topicSlug}-${today}`;
+
+      const article: Article = {
+        slug,
+        type: 'take',
+        title: result.content.headline,
+        description: result.content.summary,
+        date: today,
+        ticker: undefined,
+        verdict: result.content.finalVerdict,
+        tags: ['news', 'take', 'market update'],
+        content: {
+          ...result.content,
+          newsSource: source || undefined,
+        },
+      };
+
+      saveArticle(article);
+
+      return NextResponse.json({
+        success: true,
+        slug,
+        article,
+        newTickers: [],
+        profileUpdates: [],
+        profileWarnings: [],
+        cost: {
+          usd: result.costUsd,
+          inputTokens: result.inputTokens,
+          outputTokens: result.outputTokens,
+          apiCalls: result.apiCalls,
+          durationMs: result.durationMs,
+          model: result.model,
+          provider: result.provider,
+          dataConfidence: result.dataConfidence,
+        },
+      });
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Unknown error';
+      return NextResponse.json({ error: 'Generation failed', detail: message }, { status: 500 });
+    }
+  }
+
+  return NextResponse.json({ error: 'Invalid type. Use "roast", "pick", "screenshot-roast", "screenshot-pick", or "take".' }, { status: 400 });
 }

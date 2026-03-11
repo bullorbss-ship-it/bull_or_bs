@@ -132,11 +132,17 @@ body {
   }
 }
 
+/* Legacy letter grades */
 .grade-A { background: var(--gold-light); color: var(--gold); }
 .grade-B { background: var(--green-light); color: var(--green); }
 .grade-C { background: var(--yellow-light); color: var(--yellow); }
 .grade-D { background: var(--orange-light); color: var(--orange); }
 .grade-F { background: var(--red-light); color: var(--red); }
+/* Numeric scores 1-10 */
+.grade-8, .grade-9, .grade-10 { background: var(--green-light); color: var(--green); }
+.grade-6, .grade-7 { background: var(--gold-light); color: var(--gold); }
+.grade-4, .grade-5 { background: var(--orange-light); color: var(--orange); }
+.grade-1, .grade-2, .grade-3 { background: var(--red-light); color: var(--red); }
 
 /* Article tables — scrollable on mobile */
 .overflow-x-auto {

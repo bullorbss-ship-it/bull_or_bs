@@ -3,15 +3,21 @@ import { Article } from '@/lib/types';
 
 export default function ArticleCard({ article }: { article: Article }) {
   const isRoast = article.type === 'roast';
+  const isTake = article.type === 'take';
+
+  const badgeStyle = isRoast
+    ? 'bg-red-light text-red'
+    : isTake
+    ? 'bg-card-bg text-muted border border-card-border'
+    : 'bg-accent-light text-accent';
+  const badgeLabel = isRoast ? 'Roast' : isTake ? 'News' : 'AI Pick';
 
   return (
     <Link href={`/article/${article.slug}`} className="block group">
       <article className="border border-card-border bg-background rounded-xl p-4 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all active:scale-[0.99]">
         <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-          <span className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full ${
-            isRoast ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
-          }`}>
-            {isRoast ? 'Roast' : 'AI Pick'}
+          <span className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full ${badgeStyle}`}>
+            {badgeLabel}
           </span>
           {article.ticker && (
             <span className="text-[10px] sm:text-xs font-mono text-muted bg-card-bg px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">

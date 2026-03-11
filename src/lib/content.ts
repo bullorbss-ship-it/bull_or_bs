@@ -8,7 +8,7 @@ const CONTENT_DIR = path.join(process.cwd(), 'content');
 export function getAllArticles(): Article[] {
   const articles: { article: Article; mtime: number }[] = [];
 
-  for (const type of ['roasts', 'picks'] as const) {
+  for (const type of ['roasts', 'picks', 'takes'] as const) {
     const dir = path.join(CONTENT_DIR, type);
     if (!fs.existsSync(dir)) continue;
 
@@ -31,7 +31,7 @@ export function getAllArticles(): Article[] {
 }
 
 export function getArticleBySlug(slug: string): Article | null {
-  for (const type of ['roasts', 'picks']) {
+  for (const type of ['roasts', 'picks', 'takes']) {
     const filePath = path.join(CONTENT_DIR, type, `${slug}.json`);
     if (fs.existsSync(filePath)) {
       return JSON.parse(fs.readFileSync(filePath, 'utf8'));
@@ -40,7 +40,7 @@ export function getArticleBySlug(slug: string): Article | null {
   return null;
 }
 
-export function getArticlesByType(type: 'roasts' | 'picks'): Article[] {
+export function getArticlesByType(type: 'roasts' | 'picks' | 'takes'): Article[] {
   const dir = path.join(CONTENT_DIR, type);
   if (!fs.existsSync(dir)) return [];
 
@@ -63,7 +63,7 @@ export function saveArticle(article: Article): void {
   if (!article.createdAt) {
     article.createdAt = nowEST();
   }
-  const type = article.type === 'roast' ? 'roasts' : 'picks';
+  const type = article.type === 'roast' ? 'roasts' : article.type === 'take' ? 'takes' : 'picks';
   const dir = path.join(CONTENT_DIR, type);
   try {
     fs.mkdirSync(dir, { recursive: true });

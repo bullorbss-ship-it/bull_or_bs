@@ -14,7 +14,7 @@ export async function GET() {
       <guid>${siteConfig.url}/article/${a.slug}</guid>
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
       <description><![CDATA[${a.description}]]></description>
-      <category>${a.type === 'roast' ? 'The Roast' : 'AI Pick'}</category>
+      <category>${a.type === 'roast' ? 'The Roast' : a.type === 'take' ? 'News' : 'AI Pick'}</category>
     </item>`
     )
     .join('');

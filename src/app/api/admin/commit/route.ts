@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Missing slug or type' }, { status: 400 });
   }
 
-  const folder = type === 'roast' ? 'roasts' : 'picks';
+  const folder = type === 'roast' ? 'roasts' : type === 'take' ? 'takes' : 'picks';
   let content: string;
 
   // Prefer article JSON passed directly from the client (works on Vercel's read-only FS)

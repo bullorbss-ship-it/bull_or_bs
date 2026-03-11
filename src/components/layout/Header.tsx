@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: '/stock', label: 'Stocks' },
   { href: '/#roasts', label: 'Roasts' },
   { href: '/#picks', label: 'Picks' },
+  { href: '/#news', label: 'News' },
   { href: '/learn', label: 'Learn' },
   { href: '/about', label: 'About' },
 ];

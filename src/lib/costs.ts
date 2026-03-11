@@ -11,7 +11,7 @@ const COSTS_FILE = path.join(process.cwd(), 'data', 'costs.json');
 export interface CostEntry {
   id: string;
   date: string;
-  type: 'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick';
+  type: 'roast' | 'pick' | 'screenshot-roast' | 'screenshot-pick' | 'take';
   ticker?: string;
   model: string;
   inputTokens: number;

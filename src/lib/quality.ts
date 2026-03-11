@@ -105,11 +105,12 @@ export function validateArticle(article: Article): QualityResult {
     }
   }
 
-  // 10. Grade present (check tags or content for A-F)
-  const hasGrade = article.tags.some(t => VALID_GRADES.includes(t)) ||
+  // 10. Grade present (check for A-F letter grades OR 1-10 numeric scores)
+  const hasLetterGrade = article.tags.some(t => VALID_GRADES.includes(t)) ||
     VALID_GRADES.some(g => content.headline?.includes(`Grade: ${g}`) || content.headline?.includes(`${g}+`) || content.headline?.includes(`${g}-`));
-  if (!hasGrade && article.type === 'roast') {
-    issues.push('No grade (A-F) found in tags or headline');
+  const hasNumericScore = /\b\d{1,2}\/10\b/.test(content.finalVerdict || '') || /\b\d{1,2}\/10\b/.test(content.headline || '');
+  if (!hasLetterGrade && !hasNumericScore && article.type === 'roast') {
+    issues.push('No grade (A-F or 1-10) found in verdict or headline');
     score -= 5;
   }
 

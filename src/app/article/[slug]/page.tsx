@@ -10,12 +10,42 @@ import RisksAndCatalysts from '@/components/article/RisksAndCatalysts';
 import Verdict from '@/components/article/Verdict';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import ScoreGauge from '@/components/article/ScoreGauge';
 import Collapsible from '@/components/ui/Collapsible';
 import type { Metadata } from 'next';
 
+function getScoreFromVerdict(verdict: string): number | null {
+  // New system: look for "Score: 7/10" or "7/10" pattern
+  const scoreMatch = verdict?.match(/\b(\d{1,2})\/10\b/);
+  if (scoreMatch) {
+    const n = parseInt(scoreMatch[1], 10);
+    if (n >= 1 && n <= 10) return n;
+  }
+  return null;
+}
+
 function getGradeFromVerdict(verdict: string): string {
+  // New 1-10 system
+  const score = getScoreFromVerdict(verdict);
+  if (score !== null) return String(score);
+  // Legacy A-F for old articles
   const match = verdict?.match(/\b([ABCDF][+-]?)\b/);
   return match ? match[1][0] : 'C';
+}
+
+function getScoreColor(grade: string): string {
+  const n = parseInt(grade, 10);
+  if (!isNaN(n)) {
+    if (n >= 8) return 'accent';
+    if (n >= 6) return 'gold';
+    if (n >= 4) return 'orange';
+    return 'red';
+  }
+  // Legacy letter grades
+  if (grade === 'A' || grade === 'B') return 'accent';
+  if (grade === 'C') return 'gold';
+  if (grade === 'D') return 'orange';
+  return 'red';
 }
 
 function getReadingTime(text: string): number {
@@ -81,6 +111,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
   const { content } = article;
   const isRoast = article.type === 'roast';
+  const isTake = article.type === 'take';
 
   const faqQuestions = [
     {
@@ -128,22 +159,25 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* Breadcrumb */}
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
-        { label: isRoast ? 'Roasts' : 'Picks', href: isRoast ? '/#roasts' : '/#picks' },
+        { label: isRoast ? 'Roasts' : isTake ? 'News' : 'Picks', href: isRoast ? '/#roasts' : isTake ? '/#news' : '/#picks' },
         { label: article.ticker || article.slug },
       ]} />
 
-      {/* Grade Badge + Header — always visible, this is the hook */}
+      {/* Score + Header — always visible, this is the hook */}
       <div className="mb-8">
         <div className="flex items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
-          <div className={`grade-badge grade-badge-responsive grade-${grade} flex-shrink-0`}>
-            {grade}
+          <div className="flex-shrink-0 hidden sm:block">
+            <ScoreGauge score={grade} size="lg" />
+          </div>
+          <div className="flex-shrink-0 sm:hidden">
+            <ScoreGauge score={grade} size="md" />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
               <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
-                isRoast ? 'bg-red-light text-red' : 'bg-accent-light text-accent'
+                isRoast ? 'bg-red-light text-red' : isTake ? 'bg-card-bg text-muted border border-card-border' : 'bg-accent-light text-accent'
               }`}>
-                {isRoast ? 'THE ROAST' : 'AI PICK'}
+                {isRoast ? 'THE ROAST' : isTake ? 'NEWS' : 'AI PICK'}
               </span>
               {article.ticker && (
                 <Link href={`/stock/${article.ticker.toLowerCase()}`} className="text-sm font-mono text-accent border border-accent/30 px-2 py-1 rounded hover:bg-accent-light transition-colors">

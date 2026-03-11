@@ -9,6 +9,7 @@ export default function Home() {
   const articles = getAllArticles();
   const roasts = articles.filter(a => a.type === 'roast');
   const picks = articles.filter(a => a.type === 'pick');
+  const takes = articles.filter(a => a.type === 'take');
   const allTickers = getAllTickersExpanded();
   const tsxTickers = allTickers.filter(t => t.exchange === 'TSX');
   const usTickers = allTickers.filter(t => t.exchange !== 'TSX');
@@ -33,7 +34,7 @@ export default function Home() {
             Expose the <span className="text-accent">BS.</span>
           </h1>
           <p className="text-muted text-sm sm:text-base mt-4 sm:mt-6 leading-relaxed max-w-xl">
-            AI audits popular stock recommendations and grades them A through F.
+            AI audits popular stock recommendations and scores them 1 to 10.
             Every claim checked. Every source cited. No paywall. No mercy.
           </p>
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
@@ -65,8 +66,8 @@ export default function Home() {
             <p className="text-[10px] sm:text-xs text-muted mt-0.5">Markets</p>
           </div>
           <div>
-            <p className="text-lg sm:text-2xl font-bold font-mono text-foreground">A-F</p>
-            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Graded</p>
+            <p className="text-lg sm:text-2xl font-bold font-mono text-foreground">1-10</p>
+            <p className="text-[10px] sm:text-xs text-muted mt-0.5">Scored</p>
           </div>
           <div>
             <p className="text-lg sm:text-2xl font-bold font-mono text-accent">Free</p>
@@ -80,8 +81,8 @@ export default function Home() {
         <div id="picks" className="mb-10 sm:mb-12">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gold-light text-gold font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
-                A
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
+                10
               </span>
               <div>
                 <h2 className="text-lg sm:text-xl font-bold">AI Picks</h2>
@@ -120,8 +121,8 @@ export default function Home() {
         <div id="roasts">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-red-light text-red font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
-                F
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-red-light text-red font-bold font-mono flex items-center justify-center text-xs sm:text-sm">
+                1
               </span>
               <div>
                 <h2 className="text-lg sm:text-xl font-bold">The Roast</h2>
@@ -153,6 +154,46 @@ export default function Home() {
           ) : (
             <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
               <p className="text-muted text-sm">First roast dropping soon.</p>
+            </div>
+          )}
+        </div>
+
+        <div id="news" className="mt-10 sm:mt-12">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-card-bg text-muted font-bold font-mono flex items-center justify-center text-sm sm:text-lg border border-card-border">
+                &#9889;
+              </span>
+              <div>
+                <h2 className="text-lg sm:text-xl font-bold">News</h2>
+                <p className="text-[10px] sm:text-xs text-muted">Financial news explained simply</p>
+              </div>
+            </div>
+          </div>
+          {takes.length > 0 ? (
+            <div className="relative">
+              <div className="space-y-3">
+                {takes.slice(0, 3).map((article, i) => (
+                  <div key={article.slug} className={takes.length > 3 && i === 2 ? 'opacity-60' : ''}>
+                    <ArticleCard article={article} />
+                  </div>
+                ))}
+              </div>
+              {takes.length > 3 && (
+                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
+                  <Link
+                    href="/takes"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+                  >
+                    View all {takes.length} news takes
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
+              <p className="text-muted text-sm">First news take coming soon.</p>
             </div>
           )}
         </div>
