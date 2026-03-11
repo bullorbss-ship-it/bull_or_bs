@@ -71,7 +71,7 @@ export function saveArticle(article: Article): void {
       path.join(dir, `${article.slug}.json`),
       JSON.stringify(article, null, 2)
     );
-  } catch (err) {
-    throw new Error(`Cannot save article — filesystem is read-only (Vercel). Use "Publish & Save to Repo" instead. ${err}`);
+  } catch {
+    // Vercel has a read-only filesystem — skip local save, article is returned via API response
   }
 }
