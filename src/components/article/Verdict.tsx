@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { linkifyTickers } from '@/lib/ai/parse';
+import { formatMarkdown } from '@/lib/ai/parse';
 
 export default function Verdict({ verdict }: { verdict: string }) {
   return (
@@ -7,7 +7,7 @@ export default function Verdict({ verdict }: { verdict: string }) {
       <section className="border-2 border-accent bg-accent-light rounded-xl p-8 mb-8">
         <h2 className="text-sm font-bold text-accent mb-3 uppercase tracking-wide">The Verdict</h2>
         <p className="text-foreground text-lg leading-relaxed font-medium"
-          dangerouslySetInnerHTML={{ __html: linkifyTickers(verdict || '') }}
+          dangerouslySetInnerHTML={{ __html: formatMarkdown(verdict || '') }}
         />
       </section>
 
