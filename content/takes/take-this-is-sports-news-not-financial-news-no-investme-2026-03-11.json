@@ -1,0 +1,46 @@
+{
+  "slug": "take-this-is-sports-news-not-financial-news-no-investme-2026-03-11",
+  "type": "take",
+  "title": "This is sports news, not financial news — no investment impact.",
+  "description": "Real Madrid beat Manchester City 3-0 at halftime in a Champions League soccer match on March 11, 2026. Neither club is publicly traded, so this match result has no direct effect on stock prices or investor portfolios.",
+  "date": "2026-03-11",
+  "verdict": "This is sports news, not financial news. Real Madrid and Manchester City are not publicly traded companies, so this soccer match has no direct impact on stock prices, ETFs, or your investment portfolio. Unless you own media/broadcasting stocks that benefit from Champions League viewership, there's nothing here for everyday investors to act on. Keep watching the game — just not your portfolio.",
+  "tags": [
+    "news",
+    "take",
+    "market update"
+  ],
+  "content": {
+    "headline": "This is sports news, not financial news — no investment impact.",
+    "summary": "Real Madrid beat Manchester City 3-0 at halftime in a Champions League soccer match on March 11, 2026. Neither club is publicly traded, so this match result has no direct effect on stock prices or investor portfolios.",
+    "candidates": [],
+    "analysis": "## What Happened\n\nReal Madrid led Manchester City 3-0 at halftime in the first leg of the UEFA Champions League Round of 16 on March 11, 2026. Federico Valverde scored three goals (the 20th, 27th, and 42nd minutes) — his first-ever hat-trick. This is a soccer match, not a financial event.\n\n## Why It Matters (or Doesn't)\n\nNeither Real Madrid nor Manchester City is a publicly traded company. Real Madrid is member-owned. Manchester City's parent company, City Football Group, is privately held by Abu Dhabi United Group.\n\nIf you own stocks in broadcasting companies like Paramount Global (PARA) — which streams Champions League games in the US — the match might affect viewership. But the match result itself doesn't move stock prices.\n\n## What to Watch\n\nIf you're a soccer fan, the second leg is scheduled for March 18, 2026, at Manchester City's Etihad Stadium. For investors: this is sports entertainment news, not a market-moving event.",
+    "risks": [],
+    "catalysts": [],
+    "dataPoints": [
+      {
+        "label": "Real Madrid halftime score",
+        "value": "3-0 lead (vs Manchester City)",
+        "source": "ESPN, March 11, 2026"
+      },
+      {
+        "label": "Goal scorer",
+        "value": "Federico Valverde (hat-trick — 3 goals)",
+        "source": "ESPN, Bolavip, March 11, 2026"
+      },
+      {
+        "label": "Real Madrid parent structure",
+        "value": "Member-owned club (not publicly traded)",
+        "source": "Real Madrid official"
+      },
+      {
+        "label": "Manchester City parent structure",
+        "value": "Privately held by City Football Group / Abu Dhabi United Group",
+        "source": "Al Jazeera, March 10, 2026"
+      }
+    ],
+    "finalVerdict": "This is sports news, not financial news. Real Madrid and Manchester City are not publicly traded companies, so this soccer match has no direct impact on stock prices, ETFs, or your investment portfolio. Unless you own media/broadcasting stocks that benefit from Champions League viewership, there's nothing here for everyday investors to act on. Keep watching the game — just not your portfolio.",
+    "newsSource": "ESPN, Al Jazeera, NBC Sports, Yahoo Sports, Opta Analyst, Bolavip"
+  },
+  "createdAt": "2026-03-11T17:17:06.000-04:00"
+}
