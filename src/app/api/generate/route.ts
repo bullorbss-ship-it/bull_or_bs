@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { rateLimit } from '@/lib/rate-limit';
 import { generateRoast, generatePick, generateScreenshotRoast, generateScreenshotPick } from '@/lib/ai/generate';
 import { saveArticle } from '@/lib/content';
 import { Article } from '@/lib/types';
@@ -8,6 +9,12 @@ import { updateProfileFromArticle, ProfileUpdate } from '@/lib/stock-data';
 import { todayEST } from '@/lib/date';
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 5 requests per minute (costs money)
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  if (!rateLimit(`generate:${ip}`, 5, 60 * 1000)) {
+    return NextResponse.json({ error: 'Too many requests. Try again later.' }, { status: 429 });
+  }
+
   // Auth: accept either SCAN_SECRET query param or admin session cookie
   const secret = req.nextUrl.searchParams.get('secret') || '';
   const hasSecret = timingSafeCompare(secret, process.env.SCAN_SECRET || '');

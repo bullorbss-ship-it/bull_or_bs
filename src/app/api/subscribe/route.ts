@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { rateLimit } from '@/lib/rate-limit';
 import fs from 'fs';
 import path from 'path';
 
@@ -20,6 +21,11 @@ function saveSubscribers(subs: string[]) {
 // CASL compliance: consent is obtained via SubscribeForm UI (privacy policy link + opt-in text)
 // Users agree to privacy policy and consent to emails before submitting
 export async function POST(req: NextRequest) {
+  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  if (!rateLimit(`subscribe:${ip}`, 10, 60 * 1000)) {
+    return NextResponse.json({ error: 'Too many requests. Try again later.' }, { status: 429 });
+  }
+
   let body;
   try {
     body = await req.json();
