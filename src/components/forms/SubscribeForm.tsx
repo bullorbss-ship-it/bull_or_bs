@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { trackEvent } from '@/lib/tracking';
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('');
@@ -23,11 +24,7 @@ export default function SubscribeForm() {
         setStatus('success');
         setMessage('You\'re in. Check your inbox.');
         setEmail('');
-        // Track subscribe event in GA4
-        const w = window as Window & { gtag?: (...args: unknown[]) => void };
-        if (typeof w.gtag === 'function') {
-          w.gtag('event', 'subscribe', { method: 'email' });
-        }
+        trackEvent('subscribe', { method: 'email' });
       } else {
         const data = await res.json();
         setStatus('error');

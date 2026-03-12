@@ -12,6 +12,11 @@ export const envConfig = {
   // Analytics
   gaId: process.env.NEXT_PUBLIC_GA_ID || '',
 
+  // Ad Pixels (inactive until env vars set in Vercel)
+  facebookPixelId: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || '',
+  twitterPixelId: process.env.NEXT_PUBLIC_TWITTER_PIXEL_ID || '',
+  googleAdsId: process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || '',
+
   // Runtime
   nodeEnv: process.env.NODE_ENV || 'development',
   isDev: process.env.NODE_ENV === 'development',

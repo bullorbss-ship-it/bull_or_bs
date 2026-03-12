@@ -108,6 +108,26 @@ export default function PrivacyPage() {
         </section>
 
         <section>
+          <h2 className="text-lg font-bold text-foreground mb-3">Advertising &amp; Retargeting</h2>
+          <p className="mb-2">
+            When advertising features are active, we may use the following
+            third-party services to measure ad performance and build retargeting
+            audiences:
+          </p>
+          <ul className="list-disc pl-6 space-y-1">
+            <li><strong>Meta (Facebook) Pixel</strong> &mdash; tracks page views and conversion events for ad measurement.</li>
+            <li><strong>X (Twitter) Pixel</strong> &mdash; tracks engagement events for ad campaign optimization.</li>
+            <li><strong>Google Ads</strong> &mdash; tracks conversions from Google search ads.</li>
+          </ul>
+          <p className="mt-2">
+            These services are only active when explicitly enabled. When inactive,
+            no advertising scripts are loaded and no advertising cookies are set.
+            You can opt out of personalized advertising through your browser
+            settings or the respective platform&apos;s ad preferences.
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-lg font-bold text-foreground mb-3">Changes to This Policy</h2>
           <p>
             We may update this Privacy Policy from time to time. Changes will be

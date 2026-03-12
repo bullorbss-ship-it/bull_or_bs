@@ -71,13 +71,17 @@ export function articleSchema(article: {
   description: string;
   date: string;
   slug: string;
+  ticker?: string;
+  company?: string;
+  exchange?: string;
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
     description: article.description,
     datePublished: article.date,
+    dateModified: article.date,
     author: { '@type': 'Organization', name: siteConfig.name },
     publisher: {
       '@type': 'Organization',
@@ -86,6 +90,18 @@ export function articleSchema(article: {
     },
     mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,
   };
+
+  if (article.ticker && article.exchange) {
+    schema.tickerSymbol = `${article.exchange}:${article.ticker}`;
+    schema.mentions = [{
+      '@type': 'Corporation',
+      name: article.company || article.ticker,
+      tickerSymbol: article.ticker,
+      exchange: article.exchange,
+    }];
+  }
+
+  return schema;
 }
 
 export function faqSchema(questions: { question: string; answer: string }[]) {
@@ -130,8 +146,11 @@ export function newsArticleSchema(article: {
   date: string;
   slug: string;
   type: string;
+  ticker?: string;
+  company?: string;
+  exchange?: string;
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
     headline: article.title,
@@ -151,4 +170,16 @@ export function newsArticleSchema(article: {
     },
     mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,
   };
+
+  if (article.ticker && article.exchange) {
+    schema.tickerSymbol = `${article.exchange}:${article.ticker}`;
+    schema.mentions = [{
+      '@type': 'Corporation',
+      name: article.company || article.ticker,
+      tickerSymbol: article.ticker,
+      exchange: article.exchange,
+    }];
+  }
+
+  return schema;
 }

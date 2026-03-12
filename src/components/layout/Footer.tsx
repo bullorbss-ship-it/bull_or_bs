@@ -31,6 +31,7 @@ export default function Footer() {
               <Link href="/learn" className="text-muted hover:text-accent transition-colors">Learn</Link>
               <Link href="/about" className="text-muted hover:text-accent transition-colors">About</Link>
               <Link href="/methodology" className="text-muted hover:text-accent transition-colors">Methodology</Link>
+              <Link href="/editorial" className="text-muted hover:text-accent transition-colors">Editorial Standards</Link>
               <Link href="/disclaimer" className="text-muted hover:text-accent transition-colors">Disclaimer</Link>
               <Link href="/privacy" className="text-muted hover:text-accent transition-colors">Privacy Policy</Link>
               <Link href="/terms" className="text-muted hover:text-accent transition-colors">Terms of Service</Link>

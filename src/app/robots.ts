@@ -9,6 +9,9 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/orange', '/api/'],
       },
     ],
-    sitemap: 'https://bullorbs.com/sitemap.xml',
+    sitemap: [
+      'https://bullorbs.com/sitemap.xml',
+      'https://bullorbs.com/news-sitemap.xml',
+    ],
   };
 }

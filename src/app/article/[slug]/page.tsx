@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/content';
+import { getTickerInfo } from '@/lib/tickers';
 import { siteConfig } from '@/config/site';
 import { articleSchema, faqSchema } from '@/config/seo';
 import { formatMarkdown, linkifyTickers } from '@/lib/ai/parse';
@@ -12,6 +13,7 @@ import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ScoreGauge from '@/components/article/ScoreGauge';
 import Collapsible from '@/components/ui/Collapsible';
+import ScrollTracker from '@/components/article/ScrollTracker';
 import type { Metadata } from 'next';
 
 function getScoreFromVerdict(verdict: string): number | null {
@@ -148,9 +150,16 @@ export default async function ArticlePage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 py-8 sm:py-12">
+      <ScrollTracker slug={article.slug} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema(article)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema({
+          ...article,
+          ...(article.ticker ? (() => {
+            const info = getTickerInfo(article.ticker);
+            return info ? { company: info.company, exchange: info.exchange } : {};
+          })() : {}),
+        })) }}
       />
       <script
         type="application/ld+json"
