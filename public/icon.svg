@@ -8,16 +8,24 @@
         rx="115"
         fill="#0F172A"
       />
-      <text
-        x="50%"
-        y="52%"
-        dominant-baseline="central"
-        text-anchor="middle"
-        font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
-        font-weight="800"
-        font-size="210"
-        letter-spacing="-0.08em"
-      >
-        <tspan fill="#ffffff">B</tspan><tspan fill="#94A3B8">o</tspan><tspan fill="#10B981">B</tspan>
-      </text>
+      <path
+        d="M 256 186
+           L 210 176
+           L 100 96
+           L 140 196
+           L 60 226
+           L 140 256
+           L 180 336
+           L 200 406
+           L 256 416
+           L 312 406
+           L 332 336
+           L 372 256
+           L 452 226
+           L 372 196
+           L 412 96
+           L 302 176
+           Z"
+        fill="#10B981"
+      />
     </svg>
