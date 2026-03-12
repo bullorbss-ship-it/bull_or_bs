@@ -1,6 +1,7 @@
 import { getArticlesByType } from '@/lib/content';
 import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -34,6 +35,16 @@ export default function TakesPage() {
           <p className="text-muted text-sm">First news take coming soon.</p>
         </div>
       )}
+
+      <div className="flex flex-wrap items-center gap-4 mt-10 pt-6 border-t border-card-border">
+        <span className="text-xs text-muted-light font-mono">MORE:</span>
+        <Link href="/picks" className="text-sm font-semibold text-accent hover:text-accent-dim transition-colors">
+          All Picks &rarr;
+        </Link>
+        <Link href="/roasts" className="text-sm font-semibold text-red hover:text-red/70 transition-colors">
+          All Roasts &rarr;
+        </Link>
+      </div>
     </div>
   );
 }

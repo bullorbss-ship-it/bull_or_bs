@@ -1,6 +1,7 @@
 import { getArticlesByType } from '@/lib/content';
 import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -27,6 +28,16 @@ export default function PicksPage() {
         {picks.map(article => (
           <ArticleCard key={article.slug} article={article} />
         ))}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-4 mt-10 pt-6 border-t border-card-border">
+        <span className="text-xs text-muted-light font-mono">MORE:</span>
+        <Link href="/roasts" className="text-sm font-semibold text-red hover:text-red/70 transition-colors">
+          All Roasts &rarr;
+        </Link>
+        <Link href="/takes" className="text-sm font-semibold text-gold hover:text-gold/70 transition-colors">
+          All News &rarr;
+        </Link>
       </div>
     </div>
   );

@@ -40,6 +40,17 @@ export default function Home() {
             See Latest &rarr;
           </Link>
         </div>
+        <div className="flex flex-wrap items-center justify-center gap-4 mt-5">
+          <Link href="/picks" className="text-sm font-semibold text-accent hover:text-accent-dim transition-colors">
+            All Picks &rarr;
+          </Link>
+          <Link href="/roasts" className="text-sm font-semibold text-red hover:text-red/70 transition-colors">
+            All Roasts &rarr;
+          </Link>
+          <Link href="/takes" className="text-sm font-semibold text-gold hover:text-gold/70 transition-colors">
+            All News &rarr;
+          </Link>
+        </div>
       </section>
 
       {/* Stats bar */}
@@ -107,17 +118,6 @@ export default function Home() {
           })}
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-          <Link href="/picks" className="text-sm font-semibold text-accent hover:text-accent-dim transition-colors">
-            All Picks &rarr;
-          </Link>
-          <Link href="/roasts" className="text-sm font-semibold text-red hover:text-red/70 transition-colors">
-            All Roasts &rarr;
-          </Link>
-          <Link href="/takes" className="text-sm font-semibold text-gold hover:text-gold/70 transition-colors">
-            All News &rarr;
-          </Link>
-        </div>
       </section>
 
       {/* How It Works */}
