@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/content';
 import { getTickerInfo } from '@/lib/tickers';
 import { siteConfig } from '@/config/site';
-import { articleSchema, faqSchema } from '@/config/seo';
+import { articleSchema, faqSchema, reviewSchema } from '@/config/seo';
 import { formatMarkdown, linkifyTickers } from '@/lib/ai/parse';
 import Tournament from '@/components/article/Tournament';
 import DataPoints from '@/components/article/DataPoints';
@@ -50,6 +50,35 @@ function getScoreColor(grade: string): string {
   return 'red';
 }
 
+/**
+ * Generate an SEO-optimized title for search results.
+ * Catchy headline stays as the on-page H1, but <title> targets search intent.
+ */
+function getSeoTitle(article: { type: string; ticker?: string; title: string; verdict?: string }): string {
+  const ticker = article.ticker;
+  const year = new Date().getFullYear();
+
+  if (article.type === 'roast' && ticker) {
+    // Extract grade for title
+    const gradeMatch = article.verdict?.match(/\bGRADE:\s*([ABCDF][+-]?)\b/i);
+    const scoreMatch = article.verdict?.match(/\b(\d{1,2})\/10\b/);
+    const grade = scoreMatch ? `${scoreMatch[1]}/10` : gradeMatch ? gradeMatch[1] : null;
+    return grade
+      ? `${ticker} Stock Analysis ${year}: Rated ${grade} — Should You Buy?`
+      : `${ticker} Stock Analysis ${year} — Should You Buy ${ticker}?`;
+  }
+
+  if (article.type === 'pick' && ticker) {
+    return `${ticker} Stock Review ${year} — AI Analysis & Rating`;
+  }
+
+  if (article.type === 'take') {
+    return article.title; // Takes are already news-headline style
+  }
+
+  return article.title;
+}
+
 function getReadingTime(text: string): number {
   const words = text.split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 200));
@@ -71,9 +100,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const isTake = article.type === 'take';
   const grade = isTake ? '' : getGradeFromVerdict(article.verdict || article.content?.finalVerdict || '');
+  const seoTitle = getSeoTitle({ ...article, verdict: article.verdict || article.content?.finalVerdict });
 
   return {
-    title: article.title,
+    title: seoTitle,
     description: article.description,
     keywords: [
       article.ticker ? `${article.ticker} stock analysis` : '',
@@ -133,6 +163,14 @@ export default async function ArticlePage({ params }: PageProps) {
 
   const grade = isTake ? null : getGradeFromVerdict(article.verdict || content.finalVerdict);
   const readingTime = getReadingTime(content.analysis);
+
+  // Build Review schema for graded articles (roasts/picks)
+  const tickerInfo = article.ticker ? getTickerInfo(article.ticker) : null;
+  const review = reviewSchema({
+    ...article,
+    verdict: article.verdict || content.finalVerdict,
+    ...(tickerInfo ? { company: tickerInfo.company, exchange: tickerInfo.exchange } : {}),
+  });
   const allArticles = getAllArticles();
   const currentIdx = allArticles.findIndex(a => a.slug === article.slug);
   const nextArticle = allArticles[currentIdx + 1] || allArticles[0];
@@ -155,16 +193,19 @@ export default async function ArticlePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema({
           ...article,
-          ...(article.ticker ? (() => {
-            const info = getTickerInfo(article.ticker);
-            return info ? { company: info.company, exchange: info.exchange } : {};
-          })() : {}),
+          ...(tickerInfo ? { company: tickerInfo.company, exchange: tickerInfo.exchange } : {}),
         })) }}
       />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqQuestions)) }}
       />
+      {review && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(review) }}
+        />
+      )}
 
       {/* Breadcrumb */}
       <Breadcrumbs items={[

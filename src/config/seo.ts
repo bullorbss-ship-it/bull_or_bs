@@ -129,6 +129,71 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
+export function reviewSchema(article: {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+  type: string;
+  verdict: string;
+  ticker?: string;
+  company?: string;
+  exchange?: string;
+}) {
+  // Only generate Review schema for graded content (roasts/picks, not takes)
+  if (article.type === 'take') return null;
+
+  // Extract numeric rating: "Score: 7/10" → 7, or letter grade → number
+  let ratingValue: number | null = null;
+  const scoreMatch = article.verdict?.match(/\b(\d{1,2})\/10\b/);
+  if (scoreMatch) {
+    ratingValue = parseInt(scoreMatch[1], 10);
+  } else {
+    // Convert letter grades to 1-10 scale
+    const gradeMatch = article.verdict?.match(/\bGRADE:\s*([ABCDF][+-]?)\b/i);
+    if (gradeMatch) {
+      const gradeMap: Record<string, number> = {
+        'A+': 10, 'A': 9, 'A-': 8.5,
+        'B+': 8, 'B': 7, 'B-': 6.5,
+        'C+': 6, 'C': 5, 'C-': 4.5,
+        'D+': 4, 'D': 3, 'D-': 2.5,
+        'F': 1,
+      };
+      ratingValue = gradeMap[gradeMatch[1].toUpperCase()] || 5;
+    }
+  }
+
+  if (ratingValue === null) return null;
+
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    headline: article.title,
+    description: article.description,
+    datePublished: article.date,
+    author: { '@type': 'Organization', name: siteConfig.name },
+    publisher: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url },
+    url: `${siteConfig.url}/article/${article.slug}`,
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: ratingValue,
+      bestRating: 10,
+      worstRating: 1,
+    },
+  };
+
+  // Add itemReviewed if we have ticker info
+  if (article.ticker) {
+    schema.itemReviewed = {
+      '@type': article.exchange ? 'Corporation' : 'Thing',
+      name: article.company || article.ticker,
+      ...(article.exchange && { tickerSymbol: article.ticker, exchange: article.exchange }),
+    };
+  }
+
+  return schema;
+}
+
 export function corporationSchema(ticker: string, company: string, exchange: string) {
   return {
     '@context': 'https://schema.org',

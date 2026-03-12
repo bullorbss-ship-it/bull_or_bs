@@ -5,7 +5,7 @@ import { saveArticle } from '@/lib/content';
 import { Article } from '@/lib/types';
 import { timingSafeCompare, verifySession } from '@/lib/auth';
 import { registerArticleTickers } from '@/lib/ticker-registry';
-import { updateProfileFromArticle, ProfileUpdate } from '@/lib/stock-data';
+import { updateProfileFromArticle, updateCandidateProfiles, ProfileUpdate } from '@/lib/stock-data';
 import { todayEST } from '@/lib/date';
 
 export async function POST(req: NextRequest) {
@@ -54,18 +54,23 @@ export async function POST(req: NextRequest) {
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
 
-      // Update all candidate profiles from article data
+      // Update primary ticker profile with full article data
       const profileUpdates: ProfileUpdate[] = [];
       try {
-        const candidates = result.content.candidates || [];
-        for (const c of candidates) {
-          if (c.ticker && result.content.dataPoints?.length > 0) {
-            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
-            profileUpdates.push(...updates);
-          }
+        if (article.ticker) {
+          const updates = updateProfileFromArticle(article.ticker, result.content.dataPoints || [], undefined, {
+            dataPoints: result.content.dataPoints,
+            risks: result.content.risks,
+            catalysts: result.content.catalysts,
+            summary: result.content.summary,
+          });
+          profileUpdates.push(...updates);
         }
+        // Update all candidate profiles with their scores/reasoning
+        const candidateResults = updateCandidateProfiles(result.content.candidates || []);
+        for (const cr of candidateResults) profileUpdates.push(...cr.updates);
       } catch (e) {
-        console.log(`[Profile Update] Failed for roast candidates:`, e instanceof Error ? e.message : e);
+        console.log(`[Profile Update] Failed for roast:`, e instanceof Error ? e.message : e);
       }
 
       return NextResponse.json({
@@ -121,18 +126,22 @@ export async function POST(req: NextRequest) {
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
 
-      // Update all candidate profiles from article data
+      // Update winner profile with full article data + all candidates
       const profileUpdates: ProfileUpdate[] = [];
       try {
-        const candidates = result.content.candidates || [];
-        for (const c of candidates) {
-          if (c.ticker && result.content.dataPoints?.length > 0) {
-            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
-            profileUpdates.push(...updates);
-          }
+        if (article.ticker) {
+          const updates = updateProfileFromArticle(article.ticker, result.content.dataPoints || [], undefined, {
+            dataPoints: result.content.dataPoints,
+            risks: result.content.risks,
+            catalysts: result.content.catalysts,
+            summary: result.content.summary,
+          });
+          profileUpdates.push(...updates);
         }
+        const candidateResults = updateCandidateProfiles(result.content.candidates || []);
+        for (const cr of candidateResults) profileUpdates.push(...cr.updates);
       } catch (e) {
-        console.log(`[Profile Update] Failed for pick candidates:`, e instanceof Error ? e.message : e);
+        console.log(`[Profile Update] Failed for pick:`, e instanceof Error ? e.message : e);
       }
 
       return NextResponse.json({
@@ -189,18 +198,22 @@ export async function POST(req: NextRequest) {
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
 
-      // Update ALL candidate ticker profiles from screenshot data
+      // Update primary ticker + all candidate profiles from screenshot data
       const profileUpdates: ProfileUpdate[] = [];
       try {
-        const candidates = result.content.candidates || [];
-        for (const c of candidates) {
-          if (c.ticker && result.content.dataPoints?.length > 0) {
-            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
-            profileUpdates.push(...updates);
-          }
+        if (article.ticker) {
+          const updates = updateProfileFromArticle(article.ticker, result.content.dataPoints || [], undefined, {
+            dataPoints: result.content.dataPoints,
+            risks: result.content.risks,
+            catalysts: result.content.catalysts,
+            summary: result.content.summary,
+          });
+          profileUpdates.push(...updates);
         }
+        const candidateResults = updateCandidateProfiles(result.content.candidates || []);
+        for (const cr of candidateResults) profileUpdates.push(...cr.updates);
       } catch (e) {
-        console.log(`[Profile Update] Failed for roast candidates:`, e instanceof Error ? e.message : e);
+        console.log(`[Profile Update] Failed for screenshot-roast:`, e instanceof Error ? e.message : e);
       }
 
       return NextResponse.json({
@@ -266,18 +279,22 @@ export async function POST(req: NextRequest) {
       saveArticle(article);
       const newTickers = registerArticleTickers(article);
 
-      // Update all candidate ticker profiles from screenshot data
+      // Update winner profile + all candidate profiles from screenshot data
       const profileUpdates: ProfileUpdate[] = [];
       try {
-        const candidates = result.content.candidates || [];
-        for (const c of candidates) {
-          if (c.ticker && result.content.dataPoints?.length > 0) {
-            const updates = updateProfileFromArticle(c.ticker, result.content.dataPoints, c.company);
-            profileUpdates.push(...updates);
-          }
+        if (article.ticker) {
+          const updates = updateProfileFromArticle(article.ticker, result.content.dataPoints || [], undefined, {
+            dataPoints: result.content.dataPoints,
+            risks: result.content.risks,
+            catalysts: result.content.catalysts,
+            summary: result.content.summary,
+          });
+          profileUpdates.push(...updates);
         }
+        const candidateResults = updateCandidateProfiles(result.content.candidates || []);
+        for (const cr of candidateResults) profileUpdates.push(...cr.updates);
       } catch (e) {
-        console.log(`[Profile Update] Failed for pick candidates:`, e instanceof Error ? e.message : e);
+        console.log(`[Profile Update] Failed for screenshot-pick:`, e instanceof Error ? e.message : e);
       }
 
       return NextResponse.json({
