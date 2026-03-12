@@ -59,6 +59,47 @@ export function getArticlesByType(type: 'roasts' | 'picks' | 'takes'): Article[]
     .map(a => a.article);
 }
 
+export function getArticlesByTicker(ticker: string): Article[] {
+  const upper = ticker.toUpperCase();
+  return getAllArticles().filter(a => {
+    if (a.ticker?.toUpperCase() === upper) return true;
+    if (a.content?.candidates?.some(c => c.ticker?.toUpperCase() === upper)) return true;
+    return false;
+  });
+}
+
+export function getAllArticleTickers(): { ticker: string; company: string; articleCount: number }[] {
+  const articles = getAllArticles();
+  const tickerMap = new Map<string, { company: string; count: number }>();
+
+  for (const a of articles) {
+    if (a.ticker) {
+      const t = a.ticker.toUpperCase();
+      const existing = tickerMap.get(t);
+      tickerMap.set(t, {
+        company: existing?.company || a.content?.candidates?.find(c => c.ticker?.toUpperCase() === t)?.company || t,
+        count: (existing?.count || 0) + 1,
+      });
+    }
+    if (a.content?.candidates) {
+      for (const c of a.content.candidates) {
+        if (c.ticker) {
+          const t = c.ticker.toUpperCase();
+          const existing = tickerMap.get(t);
+          tickerMap.set(t, {
+            company: c.company || existing?.company || t,
+            count: (existing?.count || 0) + 1,
+          });
+        }
+      }
+    }
+  }
+
+  return Array.from(tickerMap.entries())
+    .map(([ticker, { company, count }]) => ({ ticker, company, articleCount: count }))
+    .sort((a, b) => b.articleCount - a.articleCount);
+}
+
 export function saveArticle(article: Article): void {
   if (!article.createdAt) {
     article.createdAt = nowEST();

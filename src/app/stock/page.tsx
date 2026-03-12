@@ -1,9 +1,11 @@
 import { getAllSectors, getTickersByCountry, tickerToSlug } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
+import { getAllArticles, getAllArticleTickers } from '@/lib/content';
 import type { Metadata } from 'next';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import StockGrid from '@/components/stock/StockGrid';
+import TickerSearch from '@/components/stock/TickerSearch';
 
 export const metadata: Metadata = {
   title: 'Stock Analysis — TSX & US Stocks',
@@ -24,6 +26,34 @@ export default function StockIndexPage() {
   const usStocks = getTickersByCountry('US');
   const sectors = getAllSectors();
 
+  // Build ticker search data server-side
+  const articleTickers = getAllArticleTickers();
+  const allArticles = getAllArticles();
+
+  // Build ticker → article slugs map (includes candidate mentions)
+  const tickerToSlugs: Record<string, string[]> = {};
+  for (const a of allArticles) {
+    const tickers = new Set<string>();
+    if (a.ticker) tickers.add(a.ticker.toUpperCase());
+    if (a.content?.candidates) {
+      for (const c of a.content.candidates) {
+        if (c.ticker) tickers.add(c.ticker.toUpperCase());
+      }
+    }
+    for (const t of tickers) {
+      if (!tickerToSlugs[t]) tickerToSlugs[t] = [];
+      tickerToSlugs[t].push(a.slug);
+    }
+  }
+
+  const searchArticles = allArticles.map(a => ({
+    slug: a.slug,
+    title: a.title,
+    type: a.type,
+    date: a.date,
+    description: a.description,
+  }));
+
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-12">
       <Breadcrumbs items={[
@@ -35,6 +65,12 @@ export default function StockIndexPage() {
         AI-generated analysis for {getAllTickersExpanded().length}+ stocks across TSX, NYSE, and NASDAQ.
         Every analysis shows its full reasoning chain.
       </p>
+
+      <TickerSearch
+        tickers={articleTickers}
+        articles={searchArticles}
+        tickerToSlugs={tickerToSlugs}
+      />
 
       <StockGrid
         sectors={sectors}

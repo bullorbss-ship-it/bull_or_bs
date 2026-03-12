@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { tickerToSlug, slugToTicker, getTickerInfo, getTickersBySector } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
-import { getAllArticles } from '@/lib/content';
+import { getArticlesByTicker } from '@/lib/content';
 import { getStockData } from '@/lib/stock-data';
 import { siteConfig } from '@/config/site';
 import { faqSchema, breadcrumbSchema, corporationSchema } from '@/config/seo';
@@ -65,9 +65,7 @@ export default async function StockPage({ params }: PageProps) {
   const info = getTickerInfo(ticker);
   if (!info) notFound();
 
-  const articles = getAllArticles().filter(
-    a => a.ticker?.toUpperCase() === info.ticker.toUpperCase()
-  );
+  const articles = getArticlesByTicker(info.ticker);
 
   const stockData = getStockData(info.ticker);
 
