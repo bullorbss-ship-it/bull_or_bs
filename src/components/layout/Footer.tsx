@@ -26,8 +26,9 @@ export default function Footer() {
             <p className="text-foreground text-sm font-semibold mb-3">Navigate</p>
             <div className="flex flex-col gap-2 text-sm">
               <Link href="/stock" className="text-muted hover:text-accent transition-colors">Stock Analysis</Link>
-              <Link href="/#roasts" className="text-muted hover:text-accent transition-colors">The Roast</Link>
-              <Link href="/#picks" className="text-muted hover:text-accent transition-colors">AI Picks</Link>
+              <Link href="/roasts" className="text-muted hover:text-accent transition-colors">The Roast</Link>
+              <Link href="/picks" className="text-muted hover:text-accent transition-colors">AI Picks</Link>
+              <Link href="/takes" className="text-muted hover:text-accent transition-colors">News</Link>
               <Link href="/learn" className="text-muted hover:text-accent transition-colors">Learn</Link>
               <Link href="/about" className="text-muted hover:text-accent transition-colors">About</Link>
               <Link href="/methodology" className="text-muted hover:text-accent transition-colors">Methodology</Link>

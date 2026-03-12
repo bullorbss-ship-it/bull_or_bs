@@ -210,7 +210,7 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* Breadcrumb */}
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
-        { label: isRoast ? 'Roasts' : isTake ? 'News' : 'Picks', href: isRoast ? '/#roasts' : isTake ? '/#news' : '/#picks' },
+        { label: isRoast ? 'Roasts' : isTake ? 'News' : 'Picks', href: isRoast ? '/roasts' : isTake ? '/takes' : '/picks' },
         { label: article.ticker || article.slug },
       ]} />
 

@@ -6,11 +6,10 @@ import Image from 'next/image';
 
 const NAV_LINKS = [
   { href: '/stock', label: 'Stocks' },
-  { href: '/#roasts', label: 'Roasts' },
-  { href: '/#picks', label: 'Picks' },
-  { href: '/#news', label: 'News' },
+  { href: '/roasts', label: 'Roasts' },
+  { href: '/picks', label: 'Picks' },
+  { href: '/takes', label: 'News' },
   { href: '/learn', label: 'Learn' },
-  { href: '/about', label: 'About' },
 ];
 
 export default function Header() {
