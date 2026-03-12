@@ -8,10 +8,10 @@ interface ScoreGaugeProps {
 function getColor(score: string): { main: string; bg: string; label: string } {
   const n = parseInt(score, 10);
   if (!isNaN(n)) {
-    if (n >= 8) return { main: '#10B981', bg: 'rgba(16, 185, 129, 0.12)', label: 'Great' };
+    if (n >= 8) return { main: '#10B981', bg: 'rgba(16, 185, 129, 0.12)', label: 'Strong' };
     if (n >= 6) return { main: '#F59E0B', bg: 'rgba(245, 158, 11, 0.12)', label: 'Decent' };
-    if (n >= 4) return { main: '#F97316', bg: 'rgba(249, 115, 22, 0.12)', label: 'Weak' };
-    return { main: '#EF4444', bg: 'rgba(239, 68, 68, 0.12)', label: 'Bad' };
+    if (n >= 4) return { main: '#F97316', bg: 'rgba(249, 115, 22, 0.12)', label: 'Cautious' };
+    return { main: '#EF4444', bg: 'rgba(239, 68, 68, 0.12)', label: 'Risky' };
   }
   // Legacy letter grades
   if (score === 'A') return { main: '#F59E0B', bg: 'rgba(245, 158, 11, 0.12)', label: '' };

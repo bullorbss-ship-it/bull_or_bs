@@ -5,7 +5,10 @@ export default function Verdict({ verdict }: { verdict: string }) {
   return (
     <>
       <section className="border-2 border-accent bg-accent-light rounded-xl p-8 mb-8">
-        <h2 className="text-sm font-bold text-accent mb-3 uppercase tracking-wide">The Verdict</h2>
+        <div className="flex items-center justify-between mb-3">
+          <h2 className="text-sm font-bold text-accent uppercase tracking-wide">The Verdict</h2>
+          <span className="text-[10px] font-mono text-muted-light">AI EDITORIAL OPINION</span>
+        </div>
         <p className="text-foreground text-lg leading-relaxed font-medium"
           dangerouslySetInnerHTML={{ __html: formatMarkdown(verdict || '') }}
         />

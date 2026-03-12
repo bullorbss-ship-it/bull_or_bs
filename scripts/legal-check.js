@@ -340,6 +340,40 @@ if (directiveViolations === 0) {
   pass('No direct buy/sell directives found in articles');
 }
 
+// ─── 9. Score floor: no scores below 3 ──────────────────────────────
+console.log('\n9. Score floor check (minimum 3/10)...');
+let scoreViolations = 0;
+for (const type of ['roasts', 'picks', 'takes']) {
+  const dir = path.join(contentDir, type);
+  if (!fs.existsSync(dir)) continue;
+  for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+      // Check verdict for scores like "1/10" or "2/10"
+      const verdict = data.content?.finalVerdict || data.verdict || '';
+      const scoreMatch = verdict.match(/\b(\d{1,2})\/10\b/);
+      if (scoreMatch) {
+        const score = parseInt(scoreMatch[1], 10);
+        if (score < 3) {
+          warn(`Score ${score}/10 below minimum 3 in ${type}/${file}`);
+          scoreViolations++;
+        }
+      }
+      // Check candidate scores
+      const candidates = data.content?.candidates || [];
+      for (const c of candidates) {
+        if (c.score && parseInt(c.score, 10) < 3) {
+          warn(`Candidate ${c.ticker} scored ${c.score}/10 (below 3) in ${type}/${file}`);
+          scoreViolations++;
+        }
+      }
+    } catch { /* skip unparseable */ }
+  }
+}
+if (scoreViolations === 0) {
+  pass('All scores are 3/10 or above');
+}
+
 // ─── Summary ────────────────────────────────────────────────────────
 
 console.log('\n' + '-'.repeat(50));
