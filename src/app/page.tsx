@@ -1,19 +1,12 @@
 import { getAllArticles } from '@/lib/content';
-import ArticleCard from '@/components/article/ArticleCard';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
-import { TSX_TICKERS, US_TICKERS } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 
 export default function Home() {
   const articles = getAllArticles();
-  const roasts = articles.filter(a => a.type === 'roast');
-  const picks = articles.filter(a => a.type === 'pick');
-  const takes = articles.filter(a => a.type === 'take');
-  const allTickers = getAllTickersExpanded();
-  const tsxTickers = allTickers.filter(t => t.exchange === 'TSX');
-  const usTickers = allTickers.filter(t => t.exchange !== 'TSX');
-  const totalStocks = allTickers.length;
+  const latest = articles.slice(0, 4);
+  const totalStocks = getAllTickersExpanded().length;
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -76,126 +69,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Latest Analysis — THE CONTENT HOOK (shows immediately after hero) */}
+      {/* Latest Analysis — compact mini cards */}
       <section id="latest" className="py-10 sm:py-14">
-        <div id="picks" className="mb-10 sm:mb-12">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center text-sm sm:text-lg">
-                10
-              </span>
-              <div>
-                <h2 className="text-lg sm:text-xl font-bold">AI Picks</h2>
-                <p className="text-[10px] sm:text-xs text-muted">Elimination tournament &mdash; only one survives</p>
-              </div>
-            </div>
-          </div>
-          {picks.length > 0 ? (
-            <div className="relative">
-              <div className="space-y-3">
-                {picks.slice(0, 3).map((article, i) => (
-                  <div key={article.slug} className={picks.length > 3 && i === 2 ? 'opacity-60' : ''}>
-                    <ArticleCard article={article} />
-                  </div>
-                ))}
-              </div>
-              {picks.length > 3 && (
-                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
-                  <Link
-                    href="/picks"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
-                  >
-                    View all {picks.length} picks
-                    <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
-              <p className="text-muted text-sm">First AI pick coming soon.</p>
-            </div>
-          )}
-        </div>
+        <h2 className="text-xl sm:text-2xl font-bold mb-6">Latest Analysis</h2>
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+          {latest.map((article) => {
+            const isRoast = article.type === 'roast';
+            const isTake = article.type === 'take';
+            const badgeStyle = isRoast
+              ? 'bg-red-light text-red'
+              : isTake
+              ? 'bg-card-bg text-muted border border-card-border'
+              : 'bg-accent-light text-accent';
+            const badgeLabel = isRoast ? 'Roast' : isTake ? 'News' : 'AI Pick';
 
-        <div id="roasts">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-red-light text-red font-bold font-mono flex items-center justify-center text-xs sm:text-sm">
-                1
-              </span>
-              <div>
-                <h2 className="text-lg sm:text-xl font-bold">The Roast</h2>
-                <p className="text-[10px] sm:text-xs text-muted">Auditing popular recommendations</p>
-              </div>
-            </div>
-          </div>
-          {roasts.length > 0 ? (
-            <div className="relative">
-              <div className="space-y-3">
-                {roasts.slice(0, 3).map((article, i) => (
-                  <div key={article.slug} className={roasts.length > 3 && i === 2 ? 'opacity-60' : ''}>
-                    <ArticleCard article={article} />
-                  </div>
-                ))}
-              </div>
-              {roasts.length > 3 && (
-                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
-                  <Link
-                    href="/roasts"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
-                  >
-                    View all {roasts.length} roasts
-                    <span aria-hidden="true">&rarr;</span>
-                  </Link>
+            return (
+              <Link
+                key={article.slug}
+                href={`/article/${article.slug}`}
+                className="block border border-card-border rounded-xl p-4 hover:border-accent/40 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${badgeStyle}`}>
+                    {badgeLabel}
+                  </span>
+                  {article.ticker && (
+                    <span className="text-[10px] font-mono text-muted bg-card-bg px-1.5 py-0.5 rounded">
+                      {article.ticker}
+                    </span>
+                  )}
+                  <span className="text-[10px] text-muted-light ml-auto">
+                    {new Date(article.date).toLocaleDateString('en-US', {
+                      month: 'short',
+                      day: 'numeric',
+                    })}
+                  </span>
                 </div>
-              )}
-            </div>
-          ) : (
-            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
-              <p className="text-muted text-sm">First roast dropping soon.</p>
-            </div>
-          )}
+                <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug line-clamp-1">
+                  {article.title}
+                </p>
+              </Link>
+            );
+          })}
         </div>
-
-        <div id="news" className="mt-10 sm:mt-12">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-card-bg text-muted font-bold font-mono flex items-center justify-center text-sm sm:text-lg border border-card-border">
-                &#9889;
-              </span>
-              <div>
-                <h2 className="text-lg sm:text-xl font-bold">News</h2>
-                <p className="text-[10px] sm:text-xs text-muted">Financial news explained simply</p>
-              </div>
-            </div>
-          </div>
-          {takes.length > 0 ? (
-            <div className="relative">
-              <div className="space-y-3">
-                {takes.slice(0, 3).map((article, i) => (
-                  <div key={article.slug} className={takes.length > 3 && i === 2 ? 'opacity-60' : ''}>
-                    <ArticleCard article={article} />
-                  </div>
-                ))}
-              </div>
-              {takes.length > 3 && (
-                <div className="relative -mt-8 pt-12 bg-gradient-to-t from-background to-transparent text-center">
-                  <Link
-                    href="/takes"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
-                  >
-                    View all {takes.length} news takes
-                    <span aria-hidden="true">&rarr;</span>
-                  </Link>
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className="border border-dashed border-card-border rounded-xl p-6 text-center">
-              <p className="text-muted text-sm">First news take coming soon.</p>
-            </div>
-          )}
+        <div className="text-center mt-6">
+          <Link
+            href="/picks"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
+          >
+            View all {articles.length} articles
+            <span aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </section>
 
@@ -233,118 +157,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why different — condensed */}
-      <section className="py-10 sm:py-14">
-        <div className="bg-card-bg border border-card-border rounded-2xl p-6 sm:p-10">
-          <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center">Why We&apos;re Different</h2>
-          <div className="grid sm:grid-cols-2 gap-x-8 sm:gap-x-12 gap-y-4 sm:gap-y-6">
-            <div className="flex gap-3">
-              <span className="text-red text-base mt-0.5 shrink-0">&#10007;</span>
-              <div>
-                <p className="font-semibold text-sm">&quot;Buy this stock!&quot;</p>
-                <p className="text-muted text-xs sm:text-sm">No data, no reasoning, just hype.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
-              <div>
-                <p className="font-semibold text-sm">Full analysis with sources</p>
-                <p className="text-muted text-xs sm:text-sm">Every claim backed by verifiable data.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-red text-base mt-0.5 shrink-0">&#10007;</span>
-              <div>
-                <p className="font-semibold text-sm">Hidden conflicts of interest</p>
-                <p className="text-muted text-xs sm:text-sm">Sponsored content as advice.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
-              <div>
-                <p className="font-semibold text-sm">No sponsors, no affiliate bias</p>
-                <p className="text-muted text-xs sm:text-sm">AI doesn&apos;t have a portfolio to pump.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-red text-base mt-0.5 shrink-0">&#10007;</span>
-              <div>
-                <p className="font-semibold text-sm">$299/year paywall</p>
-                <p className="text-muted text-xs sm:text-sm">Pay before you can judge quality.</p>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-accent text-base mt-0.5 shrink-0">&#10003;</span>
-              <div>
-                <p className="font-semibold text-sm">100% free — for now</p>
-                <p className="text-muted text-xs sm:text-sm">No paywall. No tricks. Get in early.</p>
-              </div>
-            </div>
+      {/* Browse Stocks CTA — compact one-liner */}
+      <section className="py-6 sm:py-8">
+        <Link
+          href="/stock"
+          className="flex items-center justify-between border border-card-border rounded-xl p-5 sm:p-6 hover:border-accent/40 hover:shadow-md transition-all group"
+        >
+          <div>
+            <h3 className="font-bold text-base sm:text-lg group-hover:text-accent transition-colors">
+              Browse {totalStocks}+ Stock Pages
+            </h3>
+            <p className="text-xs sm:text-sm text-muted mt-0.5">
+              AI analysis for every ticker across TSX &amp; US markets
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Browse Stocks — split by country, grouped by sector */}
-      <section className="py-10 sm:py-14">
-        <div className="text-center mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold">Browse Stocks</h2>
-          <p className="text-sm text-muted mt-1">AI analysis for {totalStocks}+ tickers across TSX &amp; US markets</p>
-        </div>
-
-        {[
-          { tag: 'TSX', label: 'Canadian Markets', tickers: tsxTickers, market: 'CA' },
-          { tag: 'NYSE', label: 'US Markets', tickers: usTickers, market: 'US' },
-        ].map(({ tag, label, tickers, market }) => {
-          const sectorMap = new Map<string, typeof tickers>();
-          tickers.forEach(t => {
-            const list = sectorMap.get(t.sector) || [];
-            list.push(t);
-            sectorMap.set(t.sector, list);
-          });
-          const sectors = [...sectorMap.entries()].sort((a, b) => b[1].length - a[1].length);
-          const featured = sectors.flatMap(([, list]) => list.slice(0, 2)).slice(0, 6);
-
-          return (
-            <div key={market} className={market === 'CA' ? 'mb-10' : ''}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-mono font-bold text-accent bg-accent-light px-2 py-0.5 rounded">{tag}</span>
-                <h3 className="font-bold text-base sm:text-lg">{label}</h3>
-                <span className="text-xs text-muted font-mono ml-auto">{tickers.length} stocks</span>
-              </div>
-              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
-                {sectors.map(([sector]) => (
-                  <Link key={sector} href="/stock" className="text-[10px] sm:text-xs font-mono text-muted bg-card-bg px-2 py-0.5 rounded hover:text-accent hover:bg-accent-light transition-colors">
-                    {sector}
-                  </Link>
-                ))}
-              </div>
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
-                {featured.map((stock, i) => (
-                  <Link
-                    key={stock.ticker}
-                    href={`/stock/${stock.ticker.toLowerCase()}`}
-                    className={`border border-card-border rounded-lg p-3 sm:p-4 hover:border-accent/40 hover:shadow-sm transition-all text-center group ${i >= 4 ? 'opacity-50' : ''}`}
-                  >
-                    <p className="font-mono font-bold text-sm sm:text-base text-foreground group-hover:text-accent transition-colors">
-                      {stock.ticker}
-                    </p>
-                    <p className="text-[10px] sm:text-xs text-muted mt-0.5 truncate">{stock.company}</p>
-                    <p className="text-[9px] text-muted-light mt-0.5">{stock.sector}</p>
-                  </Link>
-                ))}
-              </div>
-              <div className="text-center mt-4">
-                <Link
-                  href={`/stock?market=${market}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent/80 transition-colors"
-                >
-                  View all {tickers.length} {market === 'CA' ? 'Canadian' : 'US'} stocks
-                  <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
-            </div>
-          );
-        })}
+          <span className="text-accent text-2xl shrink-0 ml-4">&rarr;</span>
+        </Link>
       </section>
 
       {/* Subscribe CTA */}
