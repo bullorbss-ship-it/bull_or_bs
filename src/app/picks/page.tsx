@@ -17,7 +17,7 @@ export default function PicksPage() {
       <Breadcrumbs items={[{ label: 'AI Picks' }]} />
       <div className="flex items-center gap-3 mb-8">
         <span className="w-10 h-10 rounded-full bg-accent-light text-accent font-bold font-mono flex items-center justify-center text-base">
-          10
+          {picks.length}
         </span>
         <div>
           <h1 className="text-2xl font-bold">All AI Picks</h1>
