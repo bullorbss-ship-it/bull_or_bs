@@ -5,7 +5,7 @@
   "description": "You're comparing a mega-cap AI powerhouse (PLTR, $361B, 70% revenue growth) against a micro-cap competitor (BBAI, $2B, shrinking revenue). PLTR is the established player with real profits and analyst backing. BBAI is a speculative bet that's currently under investigation. PLTR wins decisively, but comes with a sky-high valuation that leaves little room for error.",
   "date": "2026-03-11",
   "ticker": "PLTR",
-  "verdict": "**Score: 7/10**\n\nPLTR is the clear winner\u2014it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years\u2014any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3\u20135 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass\u2014too much legal risk, too much revenue decline, too little margin for error.",
+  "verdict": "**Score: 7/10**\n\nPLTR is the clear winner—it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years—any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3–5 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass—too much legal risk, too much revenue decline, too little margin for error.",
   "confidence": 7,
   "tags": [
     "PLTR",
@@ -21,8 +21,8 @@
         "ticker": "BBAI",
         "company": "BigBear.ai Holdings, Inc.",
         "status": "eliminated",
-        "reasonConsidered": "BBAI operates in the hot AI-for-defense space and trades at $4.14 with a $1.97B market cap. The company just redeemed expensive convertible notes, improving its balance sheet. Analysts see upside to $5.50\u2013$7.00 per share if Ask Sage (its new AI product) delivers the promised ~$25M annual recurring revenue.",
-        "reasonEliminated": "Revenue is shrinking (down 19% in 2025, down 38% in Q4), the company is unprofitable (\u2212$0.82 EPS), it's under active securities fraud investigation, and it has almost no analyst coverage (2 analysts). It's a speculative turnaround bet, not an investment.",
+        "reasonConsidered": "BBAI operates in the hot AI-for-defense space and trades at $4.14 with a $1.97B market cap. The company just redeemed expensive convertible notes, improving its balance sheet. Analysts see upside to $5.50–$7.00 per share if Ask Sage (its new AI product) delivers the promised ~$25M annual recurring revenue.",
+        "reasonEliminated": "Revenue is shrinking (down 19% in 2025, down 38% in Q4), the company is unprofitable (−$0.82 EPS), it's under active securities fraud investigation, and it has almost no analyst coverage (2 analysts). It's a speculative turnaround bet, not an investment.",
         "score": 3
       },
       {
@@ -38,25 +38,25 @@
       "ticker": "PLTR",
       "company": "Palantir Technologies Inc.",
       "status": "selected",
-      "reasonConsidered": "PLTR is the only legitimately profitable, growing company here. Its Q4 2025 revenue of $1.407B grew 70% year-over-year, and it just guided 2026 revenue growth of 61% \u2014 far ahead of what the market expected. It has $6.44B in cash, real earnings ($0.37 per share), and 14 analyst 'Buy' ratings. Yes, the stock trades at 400x earnings (meaning it's expensive), but it's operating in the fastest-growing segment of the tech industry (AI for enterprise and defense). BBAI, by contrast, is smaller, unprofitable, losing revenue, and under legal investigation. If you believe AI is a generational shift, PLTR is the only quality vehicle between these two.",
+      "reasonConsidered": "PLTR is the only legitimately profitable, growing company here. Its Q4 2025 revenue of $1.407B grew 70% year-over-year, and it just guided 2026 revenue growth of 61% — far ahead of what the market expected. It has $6.44B in cash, real earnings ($0.37 per share), and 14 analyst 'Buy' ratings. Yes, the stock trades at 400x earnings (meaning it's expensive), but it's operating in the fastest-growing segment of the tech industry (AI for enterprise and defense). BBAI, by contrast, is smaller, unprofitable, losing revenue, and under legal investigation. If you believe AI is a generational shift, PLTR is the only quality vehicle between these two.",
       "score": 7
     },
-    "analysis": "## Head-to-Head\n\n| Metric | BBAI | PLTR | What It Means |\n|--------|------|------|---------------|\n| **Market Cap** | $1.97B | $361.1B | PLTR is 183x larger. Bigger = more stable, more analyst coverage, easier to buy/sell. |\n| **Current Price** | $4.14 | $151.14 | PLTR is much more expensive per share, but that's because it's a real company with real profits. |\n| **Revenue (TTM)** | $127.7M | $3.9B | PLTR generates 31x more revenue. Both are in AI, but PLTR is vastly larger. |\n| **Revenue Growth** | \u221219% YoY | +70% YoY (Q4) | BBAI is shrinking; PLTR is exploding. This is the biggest difference. |\n| **Profitability (EPS)** | \u2212$0.82 | +$0.37 | PLTR is profitable. BBAI loses money and isn't close to break-even. |\n| **Free Cash Flow (TTM)** | \u2212$42.5M | $1.18B | PLTR converts revenue into cash. BBAI is burning cash. |\n| **Cash on Hand** | $87.1M | $6.44B | PLTR can fund growth for years without raising cash. BBAI's cash dropped from $456.6M at Q3 to $87.1M after $250M Ask Sage acquisition. |\n| **Analyst Consensus** | Buy (2 analysts) | Buy (14 out of 20) | PLTR has real institutional coverage; BBAI has almost none. |\n| **Target Price** | $5.50\u2013$7.00 | $70\u2013$260 avg $191.76 | PLTR upside to $191.76; BBAI upside to $7.00. BBAI has more downside risk (stock down 34% YTD; PLTR down 18%). |\n| **Beta (volatility)** | 3.25 | 1.50\u20131.54 | BBAI is 2x more volatile. Bigger price swings, bigger losses if you time it wrong. |\n| **Legal Issues** | Active fraud investigation, lawsuits | None disclosed | BBAI has a major overhang; PLTR clean. |\n\n### Why PLTR Wins\n\nThis isn't a close call. PLTR is the established market leader in AI-for-defense and enterprise analytics. Q4 2025 proved it: $1.407B in quarterly revenue (up 70% year-over-year) and $4.3B in bookings (up 138%). That's not hype\u2014that's real customer demand.\n\nMore importantly, PLTR is profitable. It generated $0.37 per share in earnings and $1.18B in free cash flow (the actual cash it makes after paying to run the business). BBAI is still burning money and won't be profitable for years, if ever.\n\nYes, PLTR trades at ~400x earnings. That's expensive. But it's only expensive if growth slows down. The company just guided 2026 revenue growth of 61%\u2014well above what Wall Street expected. As long as it keeps growing, the valuation holds. BBAI, on the other hand, can't afford to slow down at all, because it has no profits to fall back on.\n\n### The Runner-Up\n\nBBAI has a compelling narrative\u2014a smaller, hungrier AI company in the national-security space could explode if its Ask Sage product takes off. But narratives don't pay bills. BBAI's revenue fell 19% in 2025 and 38% in Q4. It's unprofitable, under federal investigation for securities fraud, and has almost no analyst coverage. Even if Ask Sage delivers $25M in annual revenue, the company needs to survive until then. With declining sales and no profitability cushion, cash could run out. It's a micro-cap speculative stock dressed up as a growth story.\n\n",
+    "analysis": "## Head-to-Head\n\n| Metric | BBAI | PLTR | What It Means |\n|--------|------|------|---------------|\n| **Market Cap** | $1.97B | $361.1B | PLTR is 183x larger. Bigger = more stable, more analyst coverage, easier to buy/sell. |\n| **Current Price** | $4.14 | $151.14 | PLTR is much more expensive per share, but that's because it's a real company with real profits. |\n| **Revenue (TTM)** | $127.7M | $3.9B | PLTR generates 31x more revenue. Both are in AI, but PLTR is vastly larger. |\n| **Revenue Growth** | −19% YoY | +70% YoY (Q4) | BBAI is shrinking; PLTR is exploding. This is the biggest difference. |\n| **Profitability (EPS)** | −$0.82 | +$0.37 | PLTR is profitable. BBAI loses money and isn't close to break-even. |\n| **Free Cash Flow (TTM)** | −$42.5M | $1.18B | PLTR converts revenue into cash. BBAI is burning cash. |\n| **Cash on Hand** | $87.1M | $6.44B | PLTR can fund growth for years without raising cash. BBAI's cash dropped from $456.6M at Q3 to $87.1M after $250M Ask Sage acquisition. |\n| **Analyst Consensus** | Buy (2 analysts) | Buy (14 out of 20) | PLTR has real institutional coverage; BBAI has almost none. |\n| **Target Price** | $5.50–$7.00 | $70–$260 avg $191.76 | PLTR upside to $191.76; BBAI upside to $7.00. BBAI has more downside risk (stock down 34% YTD; PLTR down 18%). |\n| **Beta (volatility)** | 3.25 | 1.50–1.54 | BBAI is 2x more volatile. Bigger price swings, bigger losses if you time it wrong. |\n| **Legal Issues** | Active fraud investigation, lawsuits | None disclosed | BBAI has a major overhang; PLTR clean. |\n\n### Why PLTR Wins\n\nThis isn't a close call. PLTR is the established market leader in AI-for-defense and enterprise analytics. Q4 2025 proved it: $1.407B in quarterly revenue (up 70% year-over-year) and $4.3B in bookings (up 138%). That's not hype—that's real customer demand.\n\nMore importantly, PLTR is profitable. It generated $0.37 per share in earnings and $1.18B in free cash flow (the actual cash it makes after paying to run the business). BBAI is still burning money and won't be profitable for years, if ever.\n\nYes, PLTR trades at ~400x earnings. That's expensive. But it's only expensive if growth slows down. The company just guided 2026 revenue growth of 61%—well above what Wall Street expected. As long as it keeps growing, the valuation holds. BBAI, on the other hand, can't afford to slow down at all, because it has no profits to fall back on.\n\n### The Runner-Up\n\nBBAI has a compelling narrative—a smaller, hungrier AI company in the national-security space could explode if its Ask Sage product takes off. But narratives don't pay bills. BBAI's revenue fell 19% in 2025 and 38% in Q4. It's unprofitable, under federal investigation for securities fraud, and has almost no analyst coverage. Even if Ask Sage delivers $25M in annual revenue, the company needs to survive until then. With declining sales and no profitability cushion, cash could run out. It's a micro-cap speculative stock dressed up as a growth story.\n\n",
     "risks": [
-      "PLTR's 400x P/E assumes the company keeps growing 60%+ annually\u2014if growth slows even moderately, the stock could fall hard as investors reassess the valuation.",
+      "PLTR's 400x P/E assumes the company keeps growing 60%+ annually—if growth slows even moderately, the stock could fall hard as investors reassess the valuation.",
       "BBAI is under active federal investigation for securities fraud; if the investigation expands or results in fines/leadership changes, the stock could crater.",
-      "BBAI's revenue declined 19% in 2025\u2014if this trend continues instead of reversing, Ask Sage won't matter and cash will run out.",
+      "BBAI's revenue declined 19% in 2025—if this trend continues instead of reversing, Ask Sage won't matter and cash will run out.",
       "PLTR faces EU data privacy scrutiny that could limit European expansion and growth; this could surprise investors with slower international revenue.",
       "Broader tech sector rotation away from high-growth stocks (like PLTR) could pressure the stock even if fundamentals remain strong; BBAI could benefit from sector rotation if micro-cap AI bets get fashionable.",
-      "BBAI's legal overhang (Pomerantz investigation, class action lawsuits) creates execution risk\u2014management distraction, potential settlements, or criminal charges could derail any turnaround."
+      "BBAI's legal overhang (Pomerantz investigation, class action lawsuits) creates execution risk—management distraction, potential settlements, or criminal charges could derail any turnaround."
     ],
     "catalysts": [
-      "PLTR Investor Day on March 25, 2026\u2014new product launches or 2027 guidance could reignite the stock or disappoint if growth assumptions are questioned.",
-      "BBAI's Ask Sage product rollout\u2014if it lands $25M+ in ARR quickly, it could validate the turnaround narrative; if it flops, the stock could crater below $3.",
-      "BBAI fraud investigation resolution\u2014settlement, dismissal, or guilty verdict will materially affect stock price and investor confidence; uncertainty itself is a drag.",
-      "PLTR wins new US defense or federal contracts (common in Q1/Q2 earnings announcements)\u2014would prove demand is real, push revenue growth higher, justify the valuation.",
-      "Broader AI sector sentiment shift\u2014if investors lose faith in 'AI will save tech valuations,' both stocks could fall, but PLTR's scale and profitability make it more defensive.",
-      "BBAI cash burn rate\u2014quarterly earnings will show if Ask Sage is gaining traction; if cash balance drops sharply without offsetting revenue, bankruptcy risk rises."
+      "PLTR Investor Day on March 25, 2026—new product launches or 2027 guidance could reignite the stock or disappoint if growth assumptions are questioned.",
+      "BBAI's Ask Sage product rollout—if it lands $25M+ in ARR quickly, it could validate the turnaround narrative; if it flops, the stock could crater below $3.",
+      "BBAI fraud investigation resolution—settlement, dismissal, or guilty verdict will materially affect stock price and investor confidence; uncertainty itself is a drag.",
+      "PLTR wins new US defense or federal contracts (common in Q1/Q2 earnings announcements)—would prove demand is real, push revenue growth higher, justify the valuation.",
+      "Broader AI sector sentiment shift—if investors lose faith in 'AI will save tech valuations,' both stocks could fall, but PLTR's scale and profitability make it more defensive.",
+      "BBAI cash burn rate—quarterly earnings will show if Ask Sage is gaining traction; if cash balance drops sharply without offsetting revenue, bankruptcy risk rises."
     ],
     "dataPoints": [
       {
@@ -71,22 +71,22 @@
       },
       {
         "label": "BBAI 52-Week Range",
-        "value": "$2.36\u2013$9.39",
+        "value": "$2.36–$9.39",
         "source": "Yahoo Finance"
       },
       {
         "label": "BBAI 2025 Revenue",
-        "value": "$127.7M (\u221219.3% YoY)",
+        "value": "$127.7M (−19.3% YoY)",
         "source": "StockAnalysis"
       },
       {
         "label": "BBAI Q4 2025 Revenue",
-        "value": "$27.3M (\u221237.7% YoY)",
+        "value": "$27.3M (−37.7% YoY)",
         "source": "TradingView / Earnings"
       },
       {
         "label": "BBAI EPS (TTM)",
-        "value": "\u2212$0.82",
+        "value": "−$0.82",
         "source": "Yahoo Finance"
       },
       {
@@ -96,7 +96,7 @@
       },
       {
         "label": "BBAI Free Cash Flow (FY2025)",
-        "value": "\u2212$42.5M",
+        "value": "−$42.5M",
         "source": "SEC filings / StockAnalysis"
       },
       {
@@ -106,7 +106,7 @@
       },
       {
         "label": "BBAI Analyst Consensus & Target",
-        "value": "Buy / $5.50\u2013$7.00 avg (range $5.00\u2013$8.00) \u2014 only 2-3 analysts cover, thin coverage makes consensus unreliable",
+        "value": "Buy / $5.50–$7.00 avg (range $5.00–$8.00) — only 2-3 analysts cover, thin coverage makes consensus unreliable",
         "source": "Public.com / TipRanks / StockAnalysis"
       },
       {
@@ -116,7 +116,7 @@
       },
       {
         "label": "BBAI YTD 2026 Return",
-        "value": "Approx. \u221234%",
+        "value": "Approx. −34%",
         "source": "Estimated from price data"
       },
       {
@@ -131,7 +131,7 @@
       },
       {
         "label": "PLTR 52-Week Range",
-        "value": "$66.12\u2013$207.52",
+        "value": "$66.12–$207.52",
         "source": "Yahoo Finance / MacroTrends"
       },
       {
@@ -146,7 +146,7 @@
       },
       {
         "label": "PLTR Revenue Growth Guidance 2026",
-        "value": "+61% YoY ($7.18\u20137.20B)",
+        "value": "+61% YoY ($7.18–7.20B)",
         "source": "Provided data"
       },
       {
@@ -166,7 +166,7 @@
       },
       {
         "label": "PLTR P/E (TTM)",
-        "value": "~396\u2013405x",
+        "value": "~396–405x",
         "source": "Yahoo Finance"
       },
       {
@@ -181,17 +181,17 @@
       },
       {
         "label": "PLTR Analyst Consensus & Target",
-        "value": "Buy (14/20) / Avg $191.76 (range $70\u2013$260)",
+        "value": "Buy (14/20) / Avg $191.76 (range $70–$260)",
         "source": "TipRanks (20 analysts)"
       },
       {
         "label": "PLTR Beta (5Y Monthly)",
-        "value": "1.50\u20131.54",
+        "value": "1.50–1.54",
         "source": "Yahoo Finance"
       },
       {
         "label": "PLTR YTD 2026 Return",
-        "value": "\u221218.33%",
+        "value": "−18.33%",
         "source": "FinanceCharts"
       },
       {
@@ -216,11 +216,12 @@
       },
       {
         "label": "PLTR Debt-to-Equity",
-        "value": "3.06\u20133.52%",
+        "value": "3.06–3.52%",
         "source": "Yahoo Finance / Historical Option Data"
       }
     ],
-    "finalVerdict": "**Score: 7/10**\n\nPLTR is the clear winner\u2014it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years\u2014any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3\u20135 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass\u2014too much legal risk, too much revenue decline, too little margin for error."
+    "finalVerdict": "**Score: 7/10**\n\nPLTR is the clear winner—it's a profitable, fast-growing AI leader with $6.44B in cash, 14 analyst 'Buy' ratings, and real customer traction (70% revenue growth, $4.3B in bookings). BBAI is speculative and shrinking. That said, PLTR's 400x P/E is a heavy anchor. The stock assumes flawless execution for years—any disappointment (even modest growth slowdown) could trigger a painful selloff. If you have a 3–5 year horizon and believe AI is a generational theme, PLTR is the only quality choice here. But don't chase it at all-time highs; wait for any dip below $130 and buy on the March 25 Investor Day if the guidance holds. BBAI is a pass—too much legal risk, too much revenue decline, too little margin for error."
   },
-  "createdAt": "2026-03-11T18:11:25.000-04:00"
+  "createdAt": "2026-03-11T18:11:25.000-04:00",
+  "factChecked": true
 }

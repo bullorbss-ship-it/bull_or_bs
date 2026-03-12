@@ -7,6 +7,7 @@ export interface Article {
   description: string;
   date: string;
   createdAt?: string;
+  factChecked?: boolean;
   ticker?: string;
   verdict: string;
   confidence?: number;

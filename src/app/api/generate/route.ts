@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
 import { generateRoast, generatePick, generateScreenshotRoast, generateScreenshotPick, generateTake } from '@/lib/ai/generate';
-import { saveArticle } from '@/lib/content';
+import { saveArticle, getUncheckedCount } from '@/lib/content';
 import { Article } from '@/lib/types';
 import { timingSafeCompare, verifySession } from '@/lib/auth';
 import { registerArticleTickers } from '@/lib/ticker-registry';
@@ -26,6 +26,18 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   const { type } = body;
+
+  // Fact-check gate: block new roasts/picks if 5+ unchecked articles exist
+  if (type !== 'take') {
+    try {
+      const unchecked = getUncheckedCount();
+      if (unchecked >= 5) {
+        return NextResponse.json({
+          error: `Fact-check backlog: ${unchecked} unchecked roasts/picks. Mark articles as fact-checked before publishing more. Update factChecked: true in article JSON files.`,
+        }, { status: 403 });
+      }
+    } catch { /* don't block on read errors */ }
+  }
 
   if (type === 'roast') {
     const { claim, ticker, source } = body;

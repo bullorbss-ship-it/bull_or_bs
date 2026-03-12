@@ -100,9 +100,32 @@ export function getAllArticleTickers(): { ticker: string; company: string; artic
     .sort((a, b) => b.articleCount - a.articleCount);
 }
 
+/**
+ * Count roasts/picks that haven't been fact-checked yet.
+ * Takes are exempt (low risk — just restructured public news).
+ */
+export function getUncheckedCount(): number {
+  let count = 0;
+  for (const type of ['roasts', 'picks'] as const) {
+    const dir = path.join(CONTENT_DIR, type);
+    if (!fs.existsSync(dir)) continue;
+    for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+        if (!data.factChecked) count++;
+      } catch { /* skip */ }
+    }
+  }
+  return count;
+}
+
 export function saveArticle(article: Article): void {
   if (!article.createdAt) {
     article.createdAt = nowEST();
+  }
+  // Takes are auto-approved (low risk — restructured public news)
+  if (article.type === 'take') {
+    article.factChecked = true;
   }
   const type = article.type === 'roast' ? 'roasts' : article.type === 'take' ? 'takes' : 'picks';
   const dir = path.join(CONTENT_DIR, type);
