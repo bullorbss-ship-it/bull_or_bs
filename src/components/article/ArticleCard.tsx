@@ -6,10 +6,10 @@ export default function ArticleCard({ article }: { article: Article }) {
   const isTake = article.type === 'take';
 
   const badgeStyle = isRoast
-    ? 'bg-red-light text-red'
+    ? 'bg-red/10 text-red border border-red/20'
     : isTake
-    ? 'bg-card-bg text-muted border border-card-border'
-    : 'bg-accent-light text-accent';
+    ? 'bg-gold/10 text-gold border border-gold/20'
+    : 'bg-accent/10 text-accent border border-accent/20';
   const badgeLabel = isRoast ? 'Roast' : isTake ? 'News' : 'AI Pick';
 
   return (

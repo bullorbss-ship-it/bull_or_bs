@@ -230,7 +230,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
               <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
-                isRoast ? 'bg-red-light text-red' : isTake ? 'bg-card-bg text-muted border border-card-border' : 'bg-accent-light text-accent'
+                isRoast ? 'bg-red/10 text-red border border-red/20' : isTake ? 'bg-gold/10 text-gold border border-gold/20' : 'bg-accent/10 text-accent border border-accent/20'
               }`}>
                 {isRoast ? 'THE ROAST' : isTake ? 'NEWS' : 'AI PICK'}
               </span>
