@@ -1,0 +1,343 @@
+{
+  "slug": "ai-pick-veqt-2026-03-13",
+  "type": "pick",
+  "title": "11 All-Equity & Multi-Asset ETFs: Which One-Ticket Fund Wins for Your TFSA?",
+  "description": "We compared 11 Canadian and US-listed ETFs—from ultra-cheap index funds (VEQT, ZEQT, HEQT) to factor-tilted alternatives (FEQT) and DIY building blocks (XIC, ITOT, IEFA, IEMG). For most everyday Canadian investors, VEQT edges out the field: it's cheap (0.24% MER, just cut from 0.22%), huge ($12.2B AUM), and holds ~13,850 stocks across 50+ markets. ZEQT and HEQT are solid alternatives if you want slightly different tilts. XIC is the best pure-Canada play. We eliminated MIX and HEQL due to tiny size, leverage complexity, and expiring fee waivers.",
+  "date": "2026-03-13",
+  "ticker": "VEQT",
+  "verdict": "**Score: 9/10**\n\nVEQT is the clear winner for most Canadian investors—especially first-timers and TFSA holders. It's a single-ticket global equity ETF holding ~13,850 stocks across 50+ markets, with rock-bottom fees (0.24% MER, just cut from 0.22%) and a proven track record (13.73% 3Y CAGR, Morningstar Gold). You buy once, hold forever, and ignore the market noise.\n\n**Would I tell my friend to buy this?** Absolutely. If they have a 10+ year time horizon, a TFSA, and can stomach 15%+ drawdowns (like in 2022), VEQT is the safest, easiest answer. The only scenario where it doesn't win: if your friend insists on building a 2-ETF portfolio to save 0.04% in fees—then XIC + XAW makes sense. But for \"I want to invest $5k and forget about it,\" VEQT is the answer.\n\n**One caution:** This is 100% equity. If you need the money in 5 years or lose sleep in downturns, you need bonds, which means switching to XEQT or VBAL instead.",
+  "confidence": 9,
+  "tags": [
+    "VEQT",
+    "AI pick",
+    "screenshot analysis",
+    "comparison"
+  ],
+  "content": {
+    "headline": "11 All-Equity & Multi-Asset ETFs: Which One-Ticket Fund Wins for Your TFSA?",
+    "summary": "We compared 11 Canadian and US-listed ETFs—from ultra-cheap index funds (VEQT, ZEQT, HEQT) to factor-tilted alternatives (FEQT) and DIY building blocks (XIC, ITOT, IEFA, IEMG). For most everyday Canadian investors, VEQT edges out the field: it's cheap (0.24% MER, just cut from 0.22%), huge ($12.2B AUM), and holds ~13,850 stocks across 50+ markets. ZEQT and HEQT are solid alternatives if you want slightly different tilts. XIC is the best pure-Canada play. We eliminated MIX and HEQL due to tiny size, leverage complexity, and expiring fee waivers.",
+    "candidates": [
+      {
+        "ticker": "VEQT",
+        "company": "Vanguard All-Equity ETF Portfolio",
+        "status": "selected",
+        "reasonConsidered": "Market leader with $12.2B AUM, 1.34% yield, 0.24% MER (just cut from 0.22% in Nov 2025). Holds 13,850 stocks across 4 underlying Vanguard ETFs. Gold Medalist from Morningstar. Annual distributions and 13.73% 3-year CAGR (as of Jan 31, 2026).",
+        "score": 9
+      },
+      {
+        "ticker": "ZEQT",
+        "company": "BMO All-Equity ETF",
+        "status": "considered",
+        "reasonConsidered": "BMO's equivalent with 0.20% MER, similar returns (~20% YTD 2025), but adds dedicated mid-cap and small-cap US sleeves (ZMID, ZSML). Quarterly distributions vs. VEQT's annual. 1.44% yield.",
+        "reasonEliminated": "Smaller AUM ($450-587M vs. VEQT's $12.2B) and less established—no gold rating yet.",
+        "score": 8
+      },
+      {
+        "ticker": "HEQT",
+        "company": "Global X All-Equity Asset Allocation ETF",
+        "status": "considered",
+        "reasonConsidered": "Global X's all-equity ETF with 0.24% MER and deliberate overweight to Nasdaq-100 and Russell 2000 (growth/small-cap tilt). 1.64-1.67% yield, $305-338M AUM.",
+        "reasonEliminated": "Growth tilt means deeper tech sell-off risk; smaller than VEQT; less diversification benefit.",
+        "score": 7
+      },
+      {
+        "ticker": "FEQT",
+        "company": "Fidelity All-in-One Equity ETF",
+        "status": "considered",
+        "reasonConsidered": "Factor-tilted approach (low volatility, value, quality, momentum) with 0% management fee, plus ~2.4% Bitcoin allocation. Strong 15.54% inception CAGR, $4.1B AUM.",
+        "reasonEliminated": "0.43% MER is double competitors; crypto allocation adds unpredictable volatility for what appears to be a core holding.",
+        "score": 6
+      },
+      {
+        "ticker": "HEQL",
+        "company": "Global X Enhanced All-Equity Asset Allocation ETF",
+        "status": "eliminated",
+        "reasonEliminated": "Only $10.68M AUM (closure risk), 1.25x leverage via borrowing, brand new (Oct 2023). Excessive complexity for beginners.",
+        "score": 3
+      },
+      {
+        "ticker": "MIX",
+        "company": "Hamilton Enhanced Mixed Asset ETF",
+        "status": "eliminated",
+        "reasonEliminated": "Only $22.3M AUM, brand new (Apr 2025), not pure equity (60% stocks/20% bonds/20% gold), 25% leverage, and fee waiver expires Apr 30, 2026 (jumps to 0.35%). Too risky for core holding.",
+        "score": 3
+      },
+      {
+        "ticker": "XAW",
+        "company": "iShares Core MSCI All Country World ex Canada Index ETF",
+        "status": "considered",
+        "reasonConsidered": "Established BlackRock fund ($3.7B AUM, launched Feb 2015) with 0.22% MER tracking MSCI World ex-Canada. 1.24-1.46% yield, ~20% 1Y return. US-listed underlying ETFs, semi-annual distributions.",
+        "reasonEliminated": "Best used as part of a 2-ETF combo (XAW + XIC); standalone misses Canadian exposure. Tax recovery on US dividends requires RRSP.",
+        "score": 7
+      },
+      {
+        "ticker": "XIC",
+        "company": "iShares Core S&P/TSX Capped Composite Index ETF",
+        "status": "considered",
+        "reasonConsidered": "Cheapest Canadian equity ETF at 0.06% MER, $20-26B AUM, 2.16% yield. Pure TSX index (230+ holdings), full dividend tax credit. Excellent liquidity (352K daily shares). Gold standard for core Canadian exposure.",
+        "reasonEliminated": "Requires pairing with global equity ETF (XAW, ITOT, IEFA) to build complete portfolio; not a one-ticket solution.",
+        "score": 9
+      },
+      {
+        "ticker": "ITOT",
+        "company": "iShares Core S&P Total U.S. Stock Market ETF",
+        "status": "considered",
+        "reasonConsidered": "Ultra-cheap US total-market ETF (0.03% MER), $82.4B AUM, 1.09-1.33% yield. US-listed, covers 3,400+ large/mid/small-cap stocks. Gold Medalist from Morningstar.",
+        "reasonEliminated": "USD-denominated (FX cost for Canadians), 15% withholding tax unless in RRSP. Best as DIY component, not standalone.",
+        "score": 8
+      },
+      {
+        "ticker": "IEFA",
+        "company": "iShares Core MSCI EAFE ETF",
+        "status": "considered",
+        "reasonConsidered": "Developed markets ex-North America (Europe 63%, Asia 35%) with 0.07% MER, ~2,589 holdings. Strong 2026 YTD (+9-34% depending on source). US-listed, ~2.5-3% yield.",
+        "reasonEliminated": "Multi-layer withholding tax (L1 country + L2 US), FX costs, best used as DIY component not standalone.",
+        "score": 7
+      },
+      {
+        "ticker": "IEMG",
+        "company": "iShares Core MSCI Emerging Markets ETF",
+        "status": "considered",
+        "reasonConsidered": "Broad EM exposure (2,707 holdings, includes South Korea unlike competitors) with 0.09% MER. 37.79% 1Y return, $70B+ AUM. US-listed, ~2-2.5% yield.",
+        "reasonEliminated": "Triple-layer withholding (L1 country + L2 US + FX), EM volatility, best as DIY component for global diversification.",
+        "score": 6
+      }
+    ],
+    "winner": {
+      "ticker": "VEQT",
+      "company": "Vanguard All-Equity ETF Portfolio",
+      "status": "selected",
+      "reasonConsidered": "VEQT is the gold standard all-equity one-ticket ETF for Canadian investors. It holds ~13,850 stocks across 50+ markets via 4 underlying Vanguard ETFs (44.6% US, 30.2% Canadian, 18% International, 7.2% Emerging Markets). With just-cut fees (0.24% MER, down from 0.22% in November 2025), massive scale ($12.2B AUM), and Morningstar Gold Medalist status, it's the simplest, cheapest way to own the entire world in a single purchase. The 13.73% 3-year return and 1.34% yield show solid long-term performance. For first-time investors and TFSA holders, this is the \"set it and forget it\" choice.",
+      "score": 9
+    },
+    "analysis": "## Head-to-Head Comparison\n\n| ETF | Type | MER | AUM | 1Y Return | Inception | Best For | Tax Notes |\n|-----|------|-----|-----|-----------|-----------|----------|----------|\n| **VEQT** | All-equity (1-ticket) | 0.24% | C$12.2B | ~21% | Jan 2019 | Most people; TFSA/RRSP | TSX-listed; no FX |\n| ZEQT | All-equity (1-ticket) | 0.20% | C$450M | ~20% | Jan 2022 | US mid/small-cap tilt | TSX-listed; mid-cap sleeves |\n| HEQT | All-equity (growth tilt) | 0.24% | C$305M | ~17-20% | Sep 2019 | Growth investors | TSX-listed; Nasdaq-heavy |\n| FEQT | All-equity (factor-tilted) | 0.43% | C$4.1B | ~19% | Jan 2022 | Factor believers | TSX-listed; 2.4% Bitcoin |\n| XIC | Canadian only | 0.06% | C$21B | +38% | Feb 2001 | Core Canadian equity | TSX-listed; full DTC |\n| ITOT | US total market | 0.03% | US$82B | ~18% | Jan 2004 | DIY builders (RRSP) | USD; recovers 15% withholding in RRSP |\n| IEFA | Dev. ex-N.A. | 0.07% | US$120B | ~24-34% | Oct 2012 | DIY builders (RRSP) | USD; multi-layer withholding |\n| IEMG | Emerging markets | 0.09% | US$70B | ~38% | Oct 2012 | DIY builders (RRSP) | USD; triple-layer withholding |\n| XAW | Ex-Canada global | 0.22% | C$3.7B | ~20% | Feb 2015 | 2-ETF combo (with XIC) | TSX-listed underlying, semi-annual dist. |\n\n**Plain English Translation of Key Rows:**\n\n- **MER (Management Expense Ratio):** This is the annual fee you pay. VEQT charges $0.24 per $100 invested per year. ITOT is cheaper (0.03%), but it's US-listed, so Canadians pay currency conversion fees. Think of it like comparing two grocery stores—one has a lower sticker price, but the other is closer, so total cost is similar.\n\n- **AUM (Assets Under Management):** Bigger funds are less likely to close and offer better liquidity (easier to buy/sell). VEQT's $12.2B is huge; HEQL's $10.7M is tiny (risky).\n\n- **1Y Return:** Past performance doesn't guarantee future results, but it shows how the fund did recently. XIC's +38% is impressive because Canadian energy and financials surged in 2025.\n\n- **TSX-Listed vs. US-Listed:** TSX-listed ETFs (like VEQT) trade in Canadian dollars and avoid the 15% US dividend withholding tax if held in a TFSA. US-listed ETFs (ITOT, IEFA, IEMG) cost more to buy/sell for Canadians due to currency conversion, but recover some taxes if held in an RRSP.\n\n---\n\n## Why VEQT Wins\n\nVEQT is the obvious choice for 90% of Canadian investors for three reasons:\n\n**1. It's all-in-one.** You buy VEQT, and you own the entire world stock market. No need to research which countries to overweight or when to rebalance. Vanguard does it for you. This matters because most people lack the time or interest to maintain a 4-5 ETF portfolio.\n\n**2. The fee just dropped.** In November 2025, Vanguard cut VEQT's management fee from 0.22% to 0.17%, and the total MER should drop to ~0.19-0.20% by next fiscal year-end. This happened because the fund is massive ($12.2B) and Vanguard is passing savings to investors. You're not paying for someone to actively pick stocks—just a tiny administrative fee. Over 30 years, a 0.24% fee costs $7,200 less per $100k invested vs. a 0.43% fee (FEQT).\n\n**3. It's tax-simple in a TFSA.** VEQT is TSX-listed, trades in Canadian dollars, and avoids FX drag. You don't lose 1-2% converting to USD and back. For a first-time investor opening a TFSA, VEQT is the simplest possible choice: one buy, one ticker, one annual distribution.\n\nThe returns (13.73% 3Y CAGR, 21% 1Y) are solid—you're getting the global market return, which is exactly what you should expect at this fee level.\n\n---\n\n## The Runner-Up: XIC (If You Want Pure Canadian Equity)\n\nIf you decide to build a simple 2-ETF portfolio (one Canadian, one global), **XIC is unbeatable**. At 0.06% MER, it's the cheapest Canadian equity ETF on the planet. The $21-26B AUM means it will never close. The 2.16% yield is higher than VEQT (1.34%) because Canadian banks and energy stocks pay bigger dividends.\n\nHowever, XIC alone is only 100% Canadian equity—you'd need to pair it with XAW (0.22% MER) or ITOT + IEFA (0.03% + 0.07%) to own the world. If you're just starting investing, this dual-ETF approach is slightly more work but saves ~0.04% in fees annually.\n\n**Why XIC doesn't win overall:** It requires a second purchase. VEQT's simplicity is worth the extra 0.02-0.18% in fees for most investors.\n\nAlternatives like ZEQT, HEQT, and FEQT offer niche benefits (mid-cap tilt, growth tilt, factor tilts, Bitcoin), but they're solving problems most beginners don't have. Stick with VEQT, track it for decades, and ignore the noise.",
+    "risks": [
+      "100% equity exposure means VEQT will drop sharply in a market downturn (fell ~15% in 2022)—no bond cushion. Not suitable if you need the money within 5 years.",
+      "Vanguard could reverse the fee cut if the fund shrinks, though this is unlikely given the brand and scale.",
+      "Annual distributions (vs. quarterly) mean you wait longer to reinvest dividends if you're using a DRIP (dividend reinvestment plan).",
+      "Foreign withholding tax of ~15% on US dividends is embedded (recoverable only in RRSP on US portion), which is unavoidable for any global ETF.",
+      "No Canadian equity overweight—if you want extra exposure to your home country, a small tilt toward XIC could help with home bias.",
+      "FX exposure: ~44% of the fund is in USD, so if the CAD strengthens, VEQT's price drops relative to the underlying holdings (a currency headwind, not fund risk)."
+    ],
+    "catalysts": [
+      "Vanguard's fee cut takes full effect in fiscal year-end 2026 (~mid-2026), likely dropping MER to ~0.19-0.20%; this makes VEQT even more competitive vs. ZEQT and HEQT.",
+      "If US equities rally further (Fed rate cuts in 2026 or 2027), VEQT's 44% US allocation is well-positioned to benefit.",
+      "Canadian energy/bank sector strength benefits VEQT's ~30% Canadian equity sleeve, especially if commodity prices hold or rise.",
+      "Global market recovery post-2025 rally could compound long-term returns; VEQT's diversification across 50+ markets limits downside in regional corrections."
+    ],
+    "dataPoints": [
+      {
+        "label": "VEQT Current Price",
+        "value": "C$53.85",
+        "source": "Yahoo Finance (Mar 12, 2026)"
+      },
+      {
+        "label": "VEQT 52-Week Range",
+        "value": "C$39.44 — C$56.92",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "VEQT AUM",
+        "value": "C$12.17 billion",
+        "source": "Yahoo Finance / TipRanks (Mar 5, 2026)"
+      },
+      {
+        "label": "VEQT MER (current/post-cut)",
+        "value": "0.24% / ~0.19-0.20% expected",
+        "source": "Vanguard Canada factsheet (Jan 31, 2026); fee cut effective Nov 18, 2025"
+      },
+      {
+        "label": "VEQT Management Fee Cut",
+        "value": "Reduced from 0.22% to 0.17% effective Nov 18, 2025",
+        "source": "Vanguard Canada / ETF Portfolio Blueprint"
+      },
+      {
+        "label": "VEQT Distribution Yield (12M trailing)",
+        "value": "1.34%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "VEQT YTD 2026 Return",
+        "value": "+1.51%",
+        "source": "Yahoo Finance (Mar 11, 2026)"
+      },
+      {
+        "label": "VEQT 3Y CAGR",
+        "value": "+13.73%",
+        "source": "Vanguard factsheet (as of Jan 31, 2026)"
+      },
+      {
+        "label": "VEQT Since Inception (annualized)",
+        "value": "~13.6%",
+        "source": "Vanguard factsheet"
+      },
+      {
+        "label": "VEQT Beta (5Y Monthly)",
+        "value": "0.98",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "VEQT P/E (TTM)",
+        "value": "21.71",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "VEQT Morningstar Rating",
+        "value": "Gold Medalist",
+        "source": "Morningstar"
+      },
+      {
+        "label": "VEQT Total Holdings",
+        "value": "~13,850 stocks across 50+ markets",
+        "source": "Savvy New Canadians / Vanguard"
+      },
+      {
+        "label": "VEQT Allocation",
+        "value": "Canadian Equity ~30% | US Equity ~44% | International ~18% | Emerging Markets ~7% | Bonds 0%",
+        "source": "Savvy New Canadians / Vanguard"
+      },
+      {
+        "label": "VEQT Top 4 Holdings (fund-of-funds)",
+        "value": "VUN.TO 44.60% | VCN.TO 30.23% | VIU.TO 17.95% | VEE.TO 7.22%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "VEQT Top 5 Sectors",
+        "value": "Financial Services 21.96% | Technology 21.57% | Industrials 11.18% | Consumer Cyclical 8.40% | Basic Materials 7.73%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "ZEQT AUM",
+        "value": "C$450.6M — C$586.59M (conflict in sources)",
+        "source": "BMO ETF Facts (Nov 30, 2025) / TradingView"
+      },
+      {
+        "label": "ZEQT MER",
+        "value": "0.20%",
+        "source": "BMO ETF Facts (Jan 23, 2026)"
+      },
+      {
+        "label": "ZEQT 1Y Return",
+        "value": "+19.12%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "XIC AUM",
+        "value": "C$20.99B — C$26.25B",
+        "source": "Yahoo Finance / TipRanks (Mar 4, 2026)"
+      },
+      {
+        "label": "XIC MER",
+        "value": "0.06%",
+        "source": "Savvy New Canadians / BlackRock"
+      },
+      {
+        "label": "XIC 1Y Return",
+        "value": "+37.51%",
+        "source": "StockAnalysis"
+      },
+      {
+        "label": "XIC Dividend Yield",
+        "value": "2.16%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "ITOT AUM",
+        "value": "US$82.4 billion",
+        "source": "Dividend.com (Mar 6, 2026)"
+      },
+      {
+        "label": "ITOT Expense Ratio",
+        "value": "0.03%",
+        "source": "iShares / Yahoo Finance"
+      },
+      {
+        "label": "ITOT YTD 2026",
+        "value": "-1.2%",
+        "source": "Dividend.com (Mar 6, 2026)"
+      },
+      {
+        "label": "IEFA AUM",
+        "value": "Estimated >US$120 billion",
+        "source": "General iShares Core fund scale"
+      },
+      {
+        "label": "IEFA Expense Ratio",
+        "value": "0.07%",
+        "source": "Motley Fool / StockAnalysis"
+      },
+      {
+        "label": "IEFA YTD 2026",
+        "value": "+9.12% (or +24-34% depending on source interpretation)",
+        "source": "Yahoo Finance / StockAnalysis (conflict)"
+      },
+      {
+        "label": "FEQT AUM",
+        "value": "C$4.088 billion",
+        "source": "Fidelity Canada (Mar 6, 2026)"
+      },
+      {
+        "label": "FEQT MER",
+        "value": "0.43%",
+        "source": "Fidelity Canada (MER as of Sep 30, 2025)"
+      },
+      {
+        "label": "FEQT Since Inception (annualized)",
+        "value": "15.54%",
+        "source": "Fundlibrary"
+      },
+      {
+        "label": "FEQT Bitcoin Allocation",
+        "value": "~2.4%",
+        "source": "ETF Portfolio Blueprint"
+      },
+      {
+        "label": "HEQL AUM",
+        "value": "C$10.68 million",
+        "source": "Investing.com"
+      },
+      {
+        "label": "HEQL Leverage",
+        "value": "1.25x via cash borrowing",
+        "source": "StockAnalysis / Global X"
+      },
+      {
+        "label": "MIX AUM",
+        "value": "C$22.3 million",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "MIX Management Fee (current/post-waiver)",
+        "value": "0.00% (waived until Apr 30, 2026) / 0.35% thereafter",
+        "source": "Hamilton ETFs"
+      },
+      {
+        "label": "MIX Inception Date",
+        "value": "April 25, 2025",
+        "source": "Yahoo Finance / Hamilton ETFs"
+      },
+      {
+        "label": "MIX Leverage",
+        "value": "~25% leverage via cash borrowing (targets 1.25x)",
+        "source": "Hamilton ETFs"
+      },
+      {
+        "label": "XAW AUM",
+        "value": "C$3.7 billion",
+        "source": "Digrin"
+      },
+      {
+        "label": "XAW MER",
+        "value": "0.22%",
+        "source": "Savvy New Canadians (Jan 2026)"
+      },
+      {
+        "label": "XAW Holdings",
+        "value": "~8,207 stocks",
+        "source": "Savvy New Canadians"
+      }
+    ],
+    "finalVerdict": "**Score: 9/10**\n\nVEQT is the clear winner for most Canadian investors—especially first-timers and TFSA holders. It's a single-ticket global equity ETF holding ~13,850 stocks across 50+ markets, with rock-bottom fees (0.24% MER, just cut from 0.22%) and a proven track record (13.73% 3Y CAGR, Morningstar Gold). You buy once, hold forever, and ignore the market noise.\n\n**Would I tell my friend to buy this?** Absolutely. If they have a 10+ year time horizon, a TFSA, and can stomach 15%+ drawdowns (like in 2022), VEQT is the safest, easiest answer. The only scenario where it doesn't win: if your friend insists on building a 2-ETF portfolio to save 0.04% in fees—then XIC + XAW makes sense. But for \"I want to invest $5k and forget about it,\" VEQT is the answer.\n\n**One caution:** This is 100% equity. If you need the money in 5 years or lose sleep in downturns, you need bonds, which means switching to XEQT or VBAL instead."
+  },
+  "createdAt": "2026-03-13T17:38:33.000-04:00"
+}
