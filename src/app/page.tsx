@@ -3,7 +3,15 @@ import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { getArticleBadge, getTickerBadgeStyle, getArticleIcon, getArticleGradient } from '@/lib/badges';
+import { SketchReader, SketchAnalyzer, SketchPresenter, SketchBullDetective, SketchTarget, SketchNewspaper } from '@/components/ui/Sketches';
 import { Article } from '@/lib/types';
+
+/** Pick the right sketch for an article type */
+function ArticleSketch({ type, category }: { type: string; category?: string }) {
+  if (type === 'roast') return <SketchBullDetective className="text-red opacity-60" size={56} />;
+  if (type === 'pick') return <SketchTarget className="text-accent opacity-60" size={56} />;
+  return <SketchNewspaper className="text-gold opacity-60" size={56} />;
+}
 
 /** Pull the first interesting data point from an article (the eye-catching number). */
 function getKeyStat(article: Article): { label: string; value: string } | null {
@@ -66,36 +74,44 @@ export default function Home() {
               {/* Gradient visual strip */}
               <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
               <div className="p-6 sm:p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl sm:text-3xl" aria-hidden="true">{icon}</span>
-                  <span className={`text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md ${badge.style}`}>
-                    {badge.label}
-                  </span>
-                  {featured.ticker && (
-                    <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded ${getTickerBadgeStyle(featured.ticker)}`}>{featured.ticker}</span>
-                  )}
-                  <span className="text-xs font-mono text-muted-light ml-auto">
-                    {new Date(featured.date).toLocaleDateString('en-US', {
-                      month: 'short', day: 'numeric', year: 'numeric',
-                    })}
-                  </span>
-                </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug group-hover:text-accent transition-colors mb-3">
-                  {featured.title}
-                </h2>
-                <p className="text-muted text-sm sm:text-base leading-relaxed line-clamp-2">
-                  {featured.description}
-                </p>
-                {/* Key stat callout */}
-                {stat && (
-                  <div className="mt-4 inline-flex items-center gap-2 bg-card-border/30 rounded-lg px-3 py-1.5">
-                    <span className="text-[10px] font-mono text-muted-light uppercase">{stat.label}</span>
-                    <span className="text-sm font-bold font-mono text-foreground">{stat.value}</span>
+                <div className="flex items-start gap-4">
+                  {/* Sketch illustration */}
+                  <div className="hidden sm:block flex-shrink-0 mt-1">
+                    <ArticleSketch type={featured.type} category={featured.category} />
                   </div>
-                )}
-                <p className="text-accent text-sm font-semibold mt-4">
-                  Read analysis &rarr;
-                </p>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-lg" aria-hidden="true">{icon}</span>
+                      <span className={`text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md ${badge.style}`}>
+                        {badge.label}
+                      </span>
+                      {featured.ticker && (
+                        <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded ${getTickerBadgeStyle(featured.ticker)}`}>{featured.ticker}</span>
+                      )}
+                      <span className="text-xs font-mono text-muted-light ml-auto">
+                        {new Date(featured.date).toLocaleDateString('en-US', {
+                          month: 'short', day: 'numeric', year: 'numeric',
+                        })}
+                      </span>
+                    </div>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug group-hover:text-accent transition-colors mb-3">
+                      {featured.title}
+                    </h2>
+                    <p className="text-muted text-sm sm:text-base leading-relaxed line-clamp-2">
+                      {featured.description}
+                    </p>
+                    {/* Key stat callout */}
+                    {stat && (
+                      <div className="mt-4 inline-flex items-center gap-2 bg-card-border/30 rounded-lg px-3 py-1.5">
+                        <span className="text-[10px] font-mono text-muted-light uppercase">{stat.label}</span>
+                        <span className="text-sm font-bold font-mono text-foreground">{stat.value}</span>
+                      </div>
+                    )}
+                    <p className="text-accent text-sm font-semibold mt-4">
+                      Read analysis &rarr;
+                    </p>
+                  </div>
+                </div>
               </div>
             </Link>
           );
@@ -160,28 +176,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works — compact, on-brand */}
+      {/* How It Works — sketch illustrations */}
       <section className="border-t border-card-border">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
-          <p className="text-xs font-mono tracking-[0.2em] text-muted-light mb-6 text-center">HOW WE CALL BS</p>
-          <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
-            {[
-              { icon: '🔍', title: 'We Read It', desc: 'Someone says "buy this stock." We pull the receipts.' },
-              { icon: '⚔️', title: 'We Test It', desc: 'AI runs the numbers. Every claim gets fact-checked.' },
-              { icon: '🎯', title: 'You Decide', desc: 'Full reasoning published. No paywall. No "trust me bro."' },
-            ].map((step) => (
-              <div key={step.title} className="p-3 sm:p-4">
-                <p className="text-xl sm:text-2xl mb-2">{step.icon}</p>
-                <h3 className="font-bold text-xs sm:text-sm mb-1">{step.title}</h3>
-                <p className="text-muted text-[10px] sm:text-xs leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
+          <p className="text-xs font-mono tracking-[0.2em] text-muted-light mb-8 text-center">HOW WE CALL BS</p>
+          <div className="grid grid-cols-3 gap-4 sm:gap-6">
+            <div className="flex flex-col items-center text-center">
+              <SketchReader className="text-muted mb-3" size={56} />
+              <h3 className="font-bold text-xs sm:text-sm mb-1">We Read It</h3>
+              <p className="text-muted text-[10px] sm:text-xs leading-relaxed">Someone says &quot;buy this stock.&quot; We pull the receipts.</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <SketchAnalyzer className="text-muted mb-3" size={56} />
+              <h3 className="font-bold text-xs sm:text-sm mb-1">We Test It</h3>
+              <p className="text-muted text-[10px] sm:text-xs leading-relaxed">AI runs the numbers. Every claim gets fact-checked.</p>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <SketchPresenter className="text-muted mb-3" size={56} />
+              <h3 className="font-bold text-xs sm:text-sm mb-1">You Decide</h3>
+              <p className="text-muted text-[10px] sm:text-xs leading-relaxed">Full reasoning published. No paywall. No &quot;trust me bro.&quot;</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Subscribe */}
       <section className="mx-auto max-w-4xl px-4 sm:px-6 py-14 sm:py-20 text-center" id="subscribe">
+        <div className="flex justify-center mb-4">
+          <SketchBullDetective className="text-accent opacity-50" size={48} />
+        </div>
         <h2 className="text-xl sm:text-2xl font-bold mb-2">
           Smarter analysis, every week.
         </h2>
