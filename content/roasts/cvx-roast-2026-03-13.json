@@ -1,0 +1,191 @@
+{
+  "slug": "cvx-roast-2026-03-13",
+  "type": "roast",
+  "title": "Chevron (CVX): Strong Dividend & Recent Rally, But Valuation and Payout Ratio Are Screaming Red Flags",
+  "description": "Chevron is trading at $196.97 after a 24.6% YTD run, boosted by oil prices spiking above $75–$100 due to Iran-US tensions. The company offers a 3.6% dividend yield with 39 years of increases, but its payout ratio has ballooned to 104%—meaning it's paying out more than it earns—and the current valuation looks stretched at 28.7x trailing earnings.",
+  "date": "2026-03-13",
+  "ticker": "CVX",
+  "verdict": "**Score: 5/10**\n\n**What's Good:**\n- 39-year dividend growth streak + $13.2B free cash flow show real capital return ability.\n- Hess acquisition adds world-class Guyana deepwater assets (Stabroek Block) with decades of reserve life.\n- Low beta (0.66) provides some insulation from market volatility for conservative investors.\n\n**What's Concerning:**\n- Payout ratio of 103.9% is unsustainable; dividend cuts are likely if oil retreats below $60–$65.\n- Stock trades at 28% premium to Morningstar fair value; much of YTD 24.6% gain is from temporary geopolitical oil premium (Iran-US tensions).\n- Valuation stretched at 28.7x P/E with limited margin of safety; analyst targets cluster $185–$190, implying 5–6% downside.\n\n**Bottom Line:**\nChevron is a quality business, but the timing feels wrong. You're buying near a cyclical peak driven by geopolitical headlines, not fundamentals. The payout ratio is screaming caution. If you own it, hold it. If you're considering buying, wait for a pullback to $170–$180 or a near-term correction in oil prices. For Canadian dividend seekers, compare after-tax yield to CNQ or SU before committing—the 15% US withholding tax stings outside an RRSP.",
+  "tags": [
+    "CVX",
+    "roast",
+    "screenshot analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "Chevron (CVX): Strong Dividend & Recent Rally, But Valuation and Payout Ratio Are Screaming Red Flags",
+    "summary": "Chevron is trading at $196.97 after a 24.6% YTD run, boosted by oil prices spiking above $75–$100 due to Iran-US tensions. The company offers a 3.6% dividend yield with 39 years of increases, but its payout ratio has ballooned to 104%—meaning it's paying out more than it earns—and the current valuation looks stretched at 28.7x trailing earnings.",
+    "foolClaim": "A popular financial publication presented verified research on Chevron highlighting its strong dividend track record, recent analyst upgrades (Piper Sandler raised target to $242), and the value of the Hess acquisition. However, the data also reveals significant warning signs: the stock is trading at a 28% premium to Morningstar's fair value, the payout ratio exceeds 100%, and much of the recent gains are tied to geopolitical oil premiums that could evaporate.",
+    "candidates": [
+      {
+        "ticker": "CVX",
+        "company": "Chevron Corporation",
+        "status": "considered",
+        "reasonConsidered": "Chevron offers a compelling 3.60% dividend yield backed by 39 consecutive years of increases, strong free cash flow of $13.2B (TTM), and a completed $53B Hess acquisition that adds world-class Guyana deepwater assets. The stock is also less volatile than the broader market (beta 0.66).",
+        "reasonEliminated": "The payout ratio of 103.9% is unsustainable—the company is paying out more than it earns, which means the dividend is at risk if oil prices fall. The stock trades at 28.7x trailing P/E and is priced 28% above Morningstar's fair value of $181. Much of the 24.6% YTD gain is driven by temporary geopolitical oil premiums (Iran-US war), not fundamental improvements. For Canadian investors, 15% US withholding tax on dividends (outside RRSP) erodes real yield further.",
+        "score": 5
+      }
+    ],
+    "analysis": "## What They Got Right\n\n- **Rock-solid dividend history**: 39 years of consecutive increases is genuinely impressive and speaks to management's commitment to shareholders.\n- **Massive free cash flow**: $13.2B in levered free cash flow (TTM) gives the company real money to work with for dividends and buybacks.\n- **Strategic acquisition**: The Hess deal adds Guyana's Stabroek Block, one of the world's most prolific deepwater fields. This is a legitimate long-term growth asset.\n- **Analyst consensus is constructive**: Multiple firms upgraded targets in March 2026, and consensus \"Buy\" ratings exist across Investing.com, TipRanks, and StockAnalysis.\n\n## What They Missed\n\n- **Payout ratio exceeds 100%—this is not sustainable**: At 103.9%, Chevron is paying more in dividends than it earned last year. This only works if oil prices stay elevated. The moment Brent crude dips below $60–$65, the dividend is under pressure. The data shows this clearly but the presentation glosses over the risk.\n- **Valuation is stretched, not discounted**: The stock trades at 28% premium to Morningstar's fair value ($196.97 vs. $181.00). Analysts haven't updated Morningstar's model since September 2025—before the recent oil surge and analyst upgrades. This is a classic case of price running ahead of fundamentals.\n- **Oil price spike is geopolitical, not fundamental**: The YTD 24.6% gain is almost entirely due to Iran-US tensions pushing oil above $75–$100. If that conflict de-escalates (which it could, at any moment), the oil premium collapses, and so does CVX's near-term support. The research acknowledges this but buries it in the red flags section.\n- **Integration risks from Hess acquisition are glossed over**: The data says integration is \"ongoing,\" but doesn't quantify execution risk, capital requirements, or timeline. Large M&A integrations often create surprises.\n- **Forward P/E of 24.15 is not cheap**: Even using forward estimates (which assume higher earnings), the stock is trading at roughly 24x next year's earnings. For a cyclical energy company, that's rich.\n\n## The Bottom Line\n\nChevron is a quality business with legitimate dividend appeal and a genuinely valuable acquisition in Guyana. But the recommendation to buy at $197 feels like timing-dependent advice riding an oil price spike, not a valuation-driven opportunity. The payout ratio above 100% is a critical red flag that dominates the risk profile. For Canadian investors, the 15% US withholding tax on dividends (unless held in RRSP) makes TSX-listed Canadian energy (CNQ, SU) worth comparing on an after-tax yield basis. If you're already bullish on oil prices staying above $75–$85, CVX is a reasonable play. If you think geopolitical tensions ease and oil retreats, this pick loses its appeal fast.",
+    "risks": [
+      "Oil price collapse: If Brent falls below $60–$65, the 103.9% payout ratio becomes untenable, forcing dividend cuts.",
+      "Geopolitical de-escalation: A resolution to Iran-US tensions could rapidly reverse the $20+ oil premium driving current valuations.",
+      "Hess integration execution: Large-scale M&A integration often uncovers unexpected costs or delays; early signs are positive but it's not de-risked yet.",
+      "Valuation premium compression: At 28% above fair value with no fundamental change justifying the premium, multiple compression risk is real if analyst enthusiasm fades.",
+      "Analyst target inconsistency: Piper Sandler's $242 target is an outlier; average targets ($185–$190) imply 5–6% downside from current price.",
+      "Withholding tax drag (Canada): 15% US dividend withholding outside RRSP reduces effective yield to ~3.06% vs. 3.60% on paper."
+    ],
+    "catalysts": [
+      "Hess integration milestones: Successful ramping of Guyana production beyond current 340k bbl/day could validate the $53B acquisition price.",
+      "Analyst earnings revisions: Q1–Q2 2026 results showing improved FCF conversion could support higher valuations if oil stays elevated.",
+      "Oil supply disruptions: Further Middle East escalation or supply shock could push Brent above $100, boosting near-term earnings and payout headroom.",
+      "Capital allocation announcement: New shareholder return program (increased buybacks or special dividend) could re-rate the stock if management signals confidence in long-term oil prices.",
+      "M&A: Potential smaller bolt-on deals in Africa or Southeast Asia could add growth optionality post-Hess.",
+      "Dividend raise (late 2026): Historical 4–5% annual dividend increases could be announced at next board meeting, signaling confidence despite elevated payout ratio."
+    ],
+    "dataPoints": [
+      {
+        "label": "Current Stock Price",
+        "value": "$196.97",
+        "source": "TradingView (Mar 13, 2026)"
+      },
+      {
+        "label": "52-Week Range",
+        "value": "$132.04–$191.56 (intraday high $198.51)",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Market Capitalization",
+        "value": "$382.70B",
+        "source": "TradingView"
+      },
+      {
+        "label": "Trailing Dividend Yield",
+        "value": "3.60%",
+        "source": "TradingView"
+      },
+      {
+        "label": "Forward Dividend & Yield",
+        "value": "$7.12 / 3.83%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Consecutive Years of Dividend Increases",
+        "value": "39 years",
+        "source": "FinancialContent"
+      },
+      {
+        "label": "Last Dividend Per Share (Raised)",
+        "value": "$1.78 (4.1% increase from $1.71)",
+        "source": "FullRatio"
+      },
+      {
+        "label": "YTD 2026 Return",
+        "value": "~24.60% (as of Mar 5, 2026)",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "2025 Calendar Year Total Return",
+        "value": "10.11%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "3Y / 5Y CAGR (Total Return)",
+        "value": "4.52% / 20.88%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "10Y CAGR (Total Return)",
+        "value": "12.49%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "P/E Ratio (TTM)",
+        "value": "28.69",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Forward P/E Ratio",
+        "value": "24.15",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Earnings Per Share (TTM)",
+        "value": "$6.62",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Levered Free Cash Flow (TTM)",
+        "value": "$13.2B",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Debt-to-Equity Ratio",
+        "value": "24.32%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Revenue (TTM)",
+        "value": "$184.65B",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Net Income (TTM)",
+        "value": "$12.3B",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Dividend Payout Ratio",
+        "value": "~103.9%",
+        "source": "FullRatio"
+      },
+      {
+        "label": "Analyst Consensus (Investing.com)",
+        "value": "Buy / $185.92 avg target (range $165–$212) — 24 analysts",
+        "source": "Investing.com"
+      },
+      {
+        "label": "Analyst Consensus (TipRanks)",
+        "value": "Moderate Buy / $189.84 avg (range $168–$212) — 21 analysts",
+        "source": "TipRanks"
+      },
+      {
+        "label": "Analyst Consensus (StockAnalysis)",
+        "value": "Buy / $177.37 avg (range $124–$210) — 19 analysts",
+        "source": "StockAnalysis"
+      },
+      {
+        "label": "Latest Price Target Upgrade",
+        "value": "Piper Sandler: $179 → $242 (Mar 12, 2026)",
+        "source": "GuruFocus"
+      },
+      {
+        "label": "Beta (5Y Monthly)",
+        "value": "0.66",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Morningstar Fair Value",
+        "value": "$181.00 (as of Sep 15, 2025) — trading 28% premium; Uncertainty: High",
+        "source": "Morningstar"
+      },
+      {
+        "label": "Company Founded / HQ",
+        "value": "1879, Houston, TX",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Average Daily Volume",
+        "value": "10,884,269 shares",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "US Dividend Withholding Tax (Canada)",
+        "value": "15% (exempt in RRSP only)",
+        "source": "Canada-US Tax Treaty"
+      }
+    ],
+    "finalVerdict": "**Score: 5/10**\n\n**What's Good:**\n- 39-year dividend growth streak + $13.2B free cash flow show real capital return ability.\n- Hess acquisition adds world-class Guyana deepwater assets (Stabroek Block) with decades of reserve life.\n- Low beta (0.66) provides some insulation from market volatility for conservative investors.\n\n**What's Concerning:**\n- Payout ratio of 103.9% is unsustainable; dividend cuts are likely if oil retreats below $60–$65.\n- Stock trades at 28% premium to Morningstar fair value; much of YTD 24.6% gain is from temporary geopolitical oil premium (Iran-US tensions).\n- Valuation stretched at 28.7x P/E with limited margin of safety; analyst targets cluster $185–$190, implying 5–6% downside.\n\n**Bottom Line:**\nChevron is a quality business, but the timing feels wrong. You're buying near a cyclical peak driven by geopolitical headlines, not fundamentals. The payout ratio is screaming caution. If you own it, hold it. If you're considering buying, wait for a pullback to $170–$180 or a near-term correction in oil prices. For Canadian dividend seekers, compare after-tax yield to CNQ or SU before committing—the 15% US withholding tax stings outside an RRSP."
+  },
+  "createdAt": "2026-03-13T11:38:16.000-04:00"
+}
