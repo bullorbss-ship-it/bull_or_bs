@@ -22,14 +22,21 @@ const FACT_CHECK_RULES = `
 FACT-CHECK PROTOCOL (MANDATORY):
 1. TICKER IDENTITY: Check the TICKER REFERENCE SHEET. Use ONLY identities from the sheet. If a ticker is NOT in the sheet, say "based on training knowledge" and flag it as unverified.
 2. ETF SPECIFICS: For ETFs, use the reference sheet for fund name, hedging status, and what it holds. You may cite MER from the sheet since those are stable facts.
-3. NO SPECIFIC NUMBERS: Do NOT cite specific stock prices, market caps, P/E ratios, dividend yields, revenue figures, or interest rates unless they come from [VERIFIED] data. Instead use plain language:
+3. NO SPECIFIC NUMBERS: Do NOT cite specific stock prices, market caps, P/E ratios, dividend yields, revenue figures, or interest rates unless they come from [VERIFIED] data or from the user's PASTED DATA. Instead use plain language:
    - Instead of "$179/share" → "the stock price has dropped a lot from its highs"
    - Instead of "P/E of 36x" → "investors are paying a premium price for this stock"
    - Instead of "3.5% dividend yield" → "pays you a solid chunk of cash just for owning it"
    - Instead of "market cap of $4.3T" → "one of the biggest companies on the planet"
    - Instead of "BoC rate at 2.25%" → "interest rates are still fairly high right now"
 4. TAX RULES: For Canadian tax concepts — interest income gets taxed the most. Eligible dividends get a nice tax break. Capital gains only get partially taxed. Never call interest income "tax efficient" unless in a TFSA/RRSP.
-5. EXPLAIN EVERYTHING: If a concept needs more than 5 seconds to understand, explain it simply. "Moat" → "a moat is what keeps competitors from stealing their customers — like how hard it is to switch away from your bank."`;
+5. EXPLAIN EVERYTHING: If a concept needs more than 5 seconds to understand, explain it simply. "Moat" → "a moat is what keeps competitors from stealing their customers — like how hard it is to switch away from your bank."
+6. INLINE SOURCE CITATIONS (CRITICAL — builds reader trust):
+   - Every time you mention a specific number, fact, or claim in the analysis, cite WHERE it came from in parentheses right after.
+   - Format: "Revenue grew 30% (Shopify Q4 2025 earnings report)" or "Stock is down 29% YTD (Robinhood, March 2026)"
+   - For data from the user's pasted research, cite the original source they provided.
+   - For claims from the publication being roasted, say "(per [publication name])" or "(as claimed by [source])".
+   - For your own training knowledge, say "(based on publicly available information)" — do NOT pretend you have a specific source.
+   - This is NOT optional. Every factual claim needs a parenthetical source. No naked numbers.`;
 
 const SCORING_RULES = `
 SCORING SYSTEM (1-10 scale):
