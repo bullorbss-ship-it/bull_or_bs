@@ -285,7 +285,7 @@ export default function AdminPage() {
       </div>
 
       {tab === 'generate' && <GenerateTab onGenerated={() => { loadAll(); setTab('articles'); }} />}
-      {tab === 'articles' && <ArticlesTab articles={articles} getQualityScore={getQualityScore} />}
+      {tab === 'articles' && <ArticlesTab articles={articles} getQualityScore={getQualityScore} onRefresh={loadAll} />}
       {tab === 'costs' && <CostsTab costs={costs} />}
       {tab === 'subscribers' && <SubscribersTab />}
     </div>
@@ -1130,10 +1130,36 @@ function GenerateTab({ onGenerated }: { onGenerated: () => void }) {
 function ArticlesTab({
   articles,
   getQualityScore,
+  onRefresh,
 }: {
   articles: ArticleData[];
   getQualityScore: (a: ArticleData) => QualityResult;
+  onRefresh: () => void;
 }) {
+  const [deleting, setDeleting] = useState<string | null>(null);
+  const [confirmSlug, setConfirmSlug] = useState<string | null>(null);
+
+  async function handleDelete(slug: string, type: string) {
+    setDeleting(slug);
+    try {
+      const res = await fetch('/api/admin/delete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, type }),
+      });
+      if (res.ok) {
+        setConfirmSlug(null);
+        onRefresh();
+      } else {
+        const data = await res.json();
+        alert(`Delete failed: ${data.error}`);
+      }
+    } catch {
+      alert('Delete failed — check console');
+    } finally {
+      setDeleting(null);
+    }
+  }
   return (
     <>
       {/* Stats */}
@@ -1218,7 +1244,7 @@ function ArticlesTab({
                   </div>
                 )}
 
-                <div className="mt-4 flex gap-3">
+                <div className="mt-4 flex items-center gap-3">
                   <a
                     href={`/article/${article.slug}`}
                     target="_blank"
@@ -1226,6 +1252,31 @@ function ArticlesTab({
                   >
                     View &rarr;
                   </a>
+                  {confirmSlug === article.slug ? (
+                    <div className="flex items-center gap-2 ml-auto">
+                      <span className="text-xs text-red">Delete this?</span>
+                      <button
+                        onClick={() => handleDelete(article.slug, article.type)}
+                        disabled={deleting === article.slug}
+                        className="text-xs font-medium text-white bg-red px-2.5 py-1 rounded hover:opacity-80 disabled:opacity-50"
+                      >
+                        {deleting === article.slug ? 'Deleting...' : 'Yes, delete'}
+                      </button>
+                      <button
+                        onClick={() => setConfirmSlug(null)}
+                        className="text-xs text-muted hover:text-foreground"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setConfirmSlug(article.slug)}
+                      className="text-xs text-muted-light hover:text-red ml-auto"
+                    >
+                      Delete
+                    </button>
+                  )}
                 </div>
               </div>
             );

@@ -60,6 +60,13 @@ export const TSX_TICKERS: TickerInfo[] = [
   { ticker: 'XAW', company: 'iShares Core MSCI All Country World ex Canada Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'HXS', company: 'Global X S&P 500 Index Corporate Class ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'TEC', company: 'TD Global Technology Leaders Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VSP', company: 'Vanguard S&P 500 Index ETF (CAD-Hedged)', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VDY', company: 'Vanguard FTSE Canadian High Dividend Yield Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZGLD', company: 'BMO Gold Bullion ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XMV', company: 'iShares Edge MSCI Min Vol Canada Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XIU', company: 'iShares S&P/TSX 60 Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XIC', company: 'iShares Core S&P/TSX Capped Composite Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'PSA', company: 'Purpose High Interest Savings ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
 ];
 
 // Top US stocks

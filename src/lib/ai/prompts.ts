@@ -36,7 +36,15 @@ FACT-CHECK PROTOCOL (MANDATORY):
    - For data from the user's pasted research, cite the original source they provided.
    - For claims from the publication being roasted, say "(per [publication name])" or "(as claimed by [source])".
    - For your own training knowledge, say "(based on publicly available information)" — do NOT pretend you have a specific source.
-   - This is NOT optional. Every factual claim needs a parenthetical source. No naked numbers.`;
+   - This is NOT optional. Every factual claim needs a parenthetical source. No naked numbers.
+
+COMMON AI MISTAKES (DO NOT REPEAT THESE):
+- VFV.TO is UNHEDGED (full USD/CAD currency exposure). VSP.TO is the HEDGED version. NEVER say VFV is hedged.
+- ZGLD.TO is the BMO Gold Bullion ETF, NOT a banks ETF. ZEB is the BMO Equal Weight Banks ETF. Do NOT confuse them.
+- "Year gain" must be calculated from the price 12 months ago to today, NOT from the 52-week low. Gains from the 52-week low overstate returns.
+- The S&P 500 (and VFV) is heavily concentrated in technology (~35%). Do NOT say "no single sector dominates."
+- A stronger Canadian dollar REDUCES USD-denominated returns when converted to CAD, it does NOT create "currency gains."
+- Always distinguish between MER (Management Expense Ratio, includes all costs) and management fee (lower, excludes trading costs). They are NOT the same number.`;
 
 const SCORING_RULES = `
 SCORING SYSTEM (1-10 scale):
