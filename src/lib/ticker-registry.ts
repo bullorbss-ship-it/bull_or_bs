@@ -3,6 +3,7 @@ import path from 'path';
 import { TickerInfo, ALL_TICKERS } from './tickers';
 
 const DYNAMIC_TICKERS_FILE = path.join(process.cwd(), 'data/dynamic-tickers.json');
+const CONTENT_DIR = path.join(process.cwd(), 'content');
 
 /**
  * Load dynamically registered tickers (added during article generation).
@@ -18,14 +19,82 @@ export function getDynamicTickers(): TickerInfo[] {
 }
 
 /**
- * Get all tickers: static (tickers.ts) + dynamic (data/dynamic-tickers.json).
+ * Scan all published articles and extract tickers mentioned as candidates or primary ticker.
+ * This ensures that any ticker referenced in content gets a stock page at build time,
+ * even when dynamic-tickers.json can't be written (e.g., Vercel read-only filesystem).
+ */
+function getTickersFromArticles(): TickerInfo[] {
+  const found = new Map<string, TickerInfo>();
+
+  for (const dir of ['roasts', 'picks', 'takes']) {
+    const dirPath = path.join(CONTENT_DIR, dir);
+    if (!fs.existsSync(dirPath)) continue;
+
+    for (const file of fs.readdirSync(dirPath).filter(f => f.endsWith('.json'))) {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(dirPath, file), 'utf8'));
+
+        // Primary ticker
+        if (data.ticker && typeof data.ticker === 'string') {
+          const upper = data.ticker.toUpperCase();
+          if (!found.has(upper)) {
+            found.set(upper, {
+              ticker: upper,
+              company: upper,
+              exchange: inferExchange(upper),
+              sector: 'Other',
+              country: inferExchange(upper) === 'TSX' ? 'CA' : 'US',
+            });
+          }
+        }
+
+        // Candidate tickers
+        if (data.content?.candidates && Array.isArray(data.content.candidates)) {
+          for (const c of data.content.candidates) {
+            if (!c.ticker || typeof c.ticker !== 'string') continue;
+            const upper = c.ticker.toUpperCase();
+            if (!found.has(upper)) {
+              found.set(upper, {
+                ticker: upper,
+                company: c.company || c.name || upper,
+                exchange: inferExchange(upper),
+                sector: 'Other',
+                country: inferExchange(upper) === 'TSX' ? 'CA' : 'US',
+              });
+            }
+          }
+        }
+      } catch { /* skip malformed files */ }
+    }
+  }
+
+  return Array.from(found.values());
+}
+
+/**
+ * Get all tickers: static (tickers.ts) + dynamic (data/dynamic-tickers.json) + article-derived.
  * Use this instead of ALL_TICKERS when you need the full expanded pool.
  */
 export function getAllTickersExpanded(): TickerInfo[] {
-  const dynamic = getDynamicTickers();
   const staticTickers = new Set(ALL_TICKERS.map(t => t.ticker.toUpperCase()));
-  const unique = dynamic.filter(t => !staticTickers.has(t.ticker.toUpperCase()));
-  return [...ALL_TICKERS, ...unique];
+
+  const dynamic = getDynamicTickers();
+  const uniqueDynamic = dynamic.filter(t => !staticTickers.has(t.ticker.toUpperCase()));
+  for (const t of uniqueDynamic) staticTickers.add(t.ticker.toUpperCase());
+
+  const fromArticles = getTickersFromArticles();
+  const uniqueArticle = fromArticles.filter(t => !staticTickers.has(t.ticker.toUpperCase()));
+
+  return [...ALL_TICKERS, ...uniqueDynamic, ...uniqueArticle];
+}
+
+/**
+ * Extended lookup: checks static + dynamic + article-derived tickers.
+ * Use this for stock page rendering.
+ */
+export function getTickerInfoExpanded(ticker: string): TickerInfo | undefined {
+  const upper = ticker.toUpperCase();
+  return getAllTickersExpanded().find(t => t.ticker.toUpperCase() === upper);
 }
 
 /**
@@ -62,7 +131,6 @@ export function registerArticleTickers(article: {
   const allExpanded = getAllTickersExpanded();
   const knownSet = new Set(allExpanded.map(t => t.ticker.toUpperCase()));
 
-  // Collect all tickers from article
   const tickers: Array<{ ticker: string; name?: string }> = [];
   if (article.ticker) {
     tickers.push({ ticker: article.ticker });
@@ -77,13 +145,12 @@ export function registerArticleTickers(article: {
     const upper = t.ticker.toUpperCase();
     if (knownSet.has(upper)) continue;
 
-    // Infer exchange from ticker format
     const exchange = inferExchange(upper);
     const country = exchange === 'TSX' ? 'CA' : 'US';
 
     const info: TickerInfo = {
       ticker: upper,
-      company: t.name || upper, // use candidate name if available
+      company: t.name || upper,
       exchange,
       sector: 'Other',
       country,
@@ -103,10 +170,7 @@ export function registerArticleTickers(article: {
  * Infer exchange from ticker format. Simple heuristic.
  */
 function inferExchange(ticker: string): 'TSX' | 'NYSE' | 'NASDAQ' {
-  // TSX tickers often have dots (RCI.B, GIB.A) or are .TO suffixed
   if (ticker.includes('.')) return 'TSX';
-  // Common NASDAQ patterns (longer tickers, tech names)
-  // Default to NYSE for US stocks
   return 'NYSE';
 }
 

@@ -30,22 +30,14 @@ export default function DataPoints({ dataPoints, inline, provenance }: DataPoint
       {dataPoints.map((dp, i) => {
         const sourceText = getSourceText(dp, provenance);
         return (
-          <div key={i} className="group relative border border-card-border bg-card-bg rounded-xl p-3 sm:p-4">
+          <div key={i} className="border border-card-border bg-card-bg rounded-xl p-3 sm:p-4">
             <p className="text-xs text-muted mb-1">{dp.label}</p>
-            <div className="flex items-baseline gap-1.5">
-              <p className="text-lg sm:text-xl font-bold text-foreground">{dp.value}</p>
-              {sourceText && (
-                <span className="text-muted-light cursor-help text-xs flex-shrink-0" tabIndex={0} aria-label={`Source: ${sourceText}`}>
-                  &#9432;
-                </span>
-              )}
-            </div>
-            {/* Tooltip */}
+            <p className="text-lg sm:text-xl font-bold text-foreground">{dp.value}</p>
             {sourceText && (
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 bg-foreground text-background text-[11px] rounded-lg whitespace-nowrap invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity z-10 pointer-events-none max-w-[200px] truncate">
+              <p className="text-[10px] text-muted-light mt-1.5 flex items-center gap-1">
+                <span className="opacity-60">&#9432;</span>
                 {sourceText}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground" />
-              </div>
+              </p>
             )}
           </div>
         );

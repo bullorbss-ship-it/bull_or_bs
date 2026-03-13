@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import { tickerToSlug, slugToTicker, getTickerInfo, getTickersBySector } from '@/lib/tickers';
-import { getAllTickersExpanded } from '@/lib/ticker-registry';
+import { tickerToSlug, slugToTicker, getTickersBySector } from '@/lib/tickers';
+import { getAllTickersExpanded, getTickerInfoExpanded } from '@/lib/ticker-registry';
 import { getArticlesByTicker } from '@/lib/content';
 import { getStockData } from '@/lib/stock-data';
 import { siteConfig } from '@/config/site';
@@ -16,6 +16,9 @@ interface PageProps {
   params: Promise<{ ticker: string }>;
 }
 
+// Allow dynamic rendering for tickers not in static list (e.g., newly registered from articles)
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   return getAllTickersExpanded().map(t => ({ ticker: tickerToSlug(t.ticker) }));
 }
@@ -23,7 +26,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { ticker: slug } = await params;
   const ticker = slugToTicker(slug);
-  const info = getTickerInfo(ticker);
+  const info = getTickerInfoExpanded(ticker);
   if (!info) return {};
 
   const stockData = getStockData(info.ticker);
@@ -62,7 +65,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function StockPage({ params }: PageProps) {
   const { ticker: slug } = await params;
   const ticker = slugToTicker(slug);
-  const info = getTickerInfo(ticker);
+  const info = getTickerInfoExpanded(ticker);
   if (!info) notFound();
 
   const articles = getArticlesByTicker(info.ticker);
