@@ -10,7 +10,7 @@ export default function ArticleCard({ article }: { article: Article }) {
     : isTake
     ? 'bg-gold/10 text-gold border border-gold/20'
     : 'bg-accent/10 text-accent border border-accent/20';
-  const badgeLabel = isRoast ? 'Roast' : isTake ? 'News' : 'AI Pick';
+  const badgeLabel = isRoast ? 'Roast' : isTake ? (article.category ? `News · ${article.category}` : 'News') : 'AI Pick';
 
   return (
     <Link href={`/article/${article.slug}`} className="block group">

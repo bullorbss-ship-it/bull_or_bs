@@ -3,9 +3,9 @@ import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 
-function getBadge(type: string) {
+function getBadge(type: string, category?: string) {
   if (type === 'roast') return { style: 'bg-red/10 text-red border border-red/20', label: 'ROAST' };
-  if (type === 'take') return { style: 'bg-gold/10 text-gold border border-gold/20', label: 'NEWS' };
+  if (type === 'take') return { style: 'bg-gold/10 text-gold border border-gold/20', label: category ? `NEWS · ${category.toUpperCase()}` : 'NEWS' };
   return { style: 'bg-accent/10 text-accent border border-accent/20', label: 'PICK' };
 }
 
@@ -49,7 +49,7 @@ export default function Home() {
 
         {/* Featured article — large card */}
         {featured && (() => {
-          const badge = getBadge(featured.type);
+          const badge = getBadge(featured.type, featured.category);
           return (
             <Link
               href={`/article/${featured.slug}`}
@@ -96,7 +96,7 @@ export default function Home() {
 
         <div className="grid sm:grid-cols-2 gap-4">
           {rest.map((article) => {
-            const badge = getBadge(article.type);
+            const badge = getBadge(article.type, article.category);
             return (
               <Link
                 key={article.slug}

@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "macro"
   ],
   "content": {
     "headline": "Bank of Canada Holding Interest Rates Steady While Inflation Cools and Trade Uncertainty Looms",
@@ -132,5 +133,6 @@
     "finalVerdict": "Interest rates are staying put for now, which is good news for mortgage stability but bad news if you're renewing soon. Inflation is cooling, which is positive. The real risk is a trade deal falling apart in July. For everyday investors: don't panic about the rate hold. If you have a mortgage renewing, lock in a rate soon. If you own Canadian bank stocks (RY.TO, TD.TO, BMO.TO, CM.TO, BNS.TO) or energy stocks, watch the CUSMA review closely—trade uncertainty is the biggest threat to the market.",
     "newsSource": "Bank of Canada, Globe and Mail, Statistics Canada, TD Economics, RBC Economics, Nesto, WOWA, Ratehub, Daily Hive, True North Mortgage, EDC"
   },
-  "createdAt": "2026-03-12T13:34:53.000-04:00"
+  "createdAt": "2026-03-12T13:34:53.000-04:00",
+  "category": "Macro"
 }

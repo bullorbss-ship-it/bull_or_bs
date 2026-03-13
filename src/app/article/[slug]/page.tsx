@@ -232,7 +232,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
                 isRoast ? 'bg-red/10 text-red border border-red/20' : isTake ? 'bg-gold/10 text-gold border border-gold/20' : 'bg-accent/10 text-accent border border-accent/20'
               }`}>
-                {isRoast ? 'THE ROAST' : isTake ? 'NEWS' : 'AI PICK'}
+                {isRoast ? 'THE ROAST' : isTake ? (article.category ? `NEWS · ${article.category.toUpperCase()}` : 'NEWS') : 'AI PICK'}
               </span>
               {article.ticker && (
                 <Link href={`/stock/${article.ticker.toLowerCase()}`} className="text-sm font-mono text-accent border border-accent/30 px-2 py-1 rounded hover:bg-accent-light transition-colors">

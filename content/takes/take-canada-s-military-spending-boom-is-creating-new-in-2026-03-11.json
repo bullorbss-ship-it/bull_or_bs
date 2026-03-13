@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "defense"
   ],
   "content": {
     "headline": "Canada's Military Spending Boom Is Creating New Investment Opportunities in Defense Stocks",
@@ -63,5 +64,6 @@
     "newsSource": "Yahoo Finance Canada",
     "newsUrl": "https://ca.finance.yahoo.com/news/best-canadian-defence-stocks-buy-205000615.html"
   },
-  "createdAt": "2026-03-11T08:50:19.000-04:00"
+  "createdAt": "2026-03-11T08:50:19.000-04:00",
+  "category": "Defense"
 }

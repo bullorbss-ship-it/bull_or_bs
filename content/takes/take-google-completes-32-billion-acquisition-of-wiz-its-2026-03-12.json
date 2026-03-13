@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "m&a"
   ],
   "content": {
     "headline": "Google Completes $32 Billion Acquisition of Wiz, Its Largest Deal Ever",
@@ -82,5 +83,6 @@
     "finalVerdict": "If you own Google stock (GOOGL) or a tech-heavy ETF (like QQQ, VGT, or TEC.TO), this deal is worth understanding but not worth panicking over. Google is spending big on cybersecurity as businesses move to the cloud — smart long-term thinking. The stock barely moved, which suggests investors see this as a logical, expected move. Keep your plan. Don't let one acquisition change your investment strategy.",
     "newsSource": "Google Press Release, TechCrunch, SecurityWeek, Cybersecurity Dive, CNBC, Yahoo Finance​​​​​​​​​​​​​​​​"
   },
-  "createdAt": "2026-03-12T10:27:06.000-04:00"
+  "createdAt": "2026-03-12T10:27:06.000-04:00",
+  "category": "M&A"
 }

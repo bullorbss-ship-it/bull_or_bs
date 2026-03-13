@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "energy"
   ],
   "content": {
     "headline": "War in Middle East Sends Gas Prices Soaring — Then Governments Release Emergency Oil Supplies",
@@ -87,5 +88,6 @@
     "finalVerdict": "If you own stocks, especially energy or oil-related investments, expect continued volatility as geopolitical risks play out. For everyday drivers: brace for higher gas prices until shipping and oil supplies normalize, though the emergency oil release should help prevent prices from climbing much further. Don't panic about markets falling—this is a short-term shock, not a long-term collapse. Stay informed on ceasefire news and keep your investment plan steady. If you need to drive less, this is a good time to carpool or use transit.",
     "newsSource": "CNBC, CNN, Axios, Al Jazeera, CBS News, Reuters, AP, CBC, Global News, BNN Bloomberg, Globe and Mail, Euronews"
   },
-  "createdAt": "2026-03-11T12:22:34.000-04:00"
+  "createdAt": "2026-03-11T12:22:34.000-04:00",
+  "category": "Energy"
 }

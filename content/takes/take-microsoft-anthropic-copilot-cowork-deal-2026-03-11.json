@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "tech"
   ],
   "content": {
     "headline": "Microsoft's Copilot Cowork: A Strategic AI Partnership That Hasn't Convinced The Market Yet",
@@ -84,5 +85,6 @@
     "newsSource": "Multiple Sources",
     "newsUrl": "https://finance.yahoo.com/news/microsoft-copilot-cowork-anthropic-claude-2026/"
   },
-  "createdAt": "2026-03-11T09:38:38.000-04:00"
+  "createdAt": "2026-03-11T09:38:38.000-04:00",
+  "category": "Tech"
 }

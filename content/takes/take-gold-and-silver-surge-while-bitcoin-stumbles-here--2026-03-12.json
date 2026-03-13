@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "commodities"
   ],
   "content": {
     "headline": "Gold and Silver Surge While Bitcoin Stumbles: Here's What Changed in 2026",
@@ -132,5 +133,6 @@
     "finalVerdict": "Gold and silver have dramatically outperformed Bitcoin over the past year, driven by central bank buying and industrial demand. Bitcoin is down 44% from its peak and waiting for regulatory clarity (the CLARITY Act) to unlock institutional buying. If you own gold/silver ETFs or miners, hold steady — central banks are still buying. If you own Bitcoin, watch for the Senate's vote on the CLARITY Act. Don't panic. These are all volatile assets. Stick to your plan.",
     "newsSource": "Fortune, J.P. Morgan, CME Group, APMEX, World Gold Council, CoinDesk, BeInCrypto, Decrypt, Bitcoin Magazine, Chainalysis, Yahoo Finance, ING"
   },
-  "createdAt": "2026-03-12T14:03:00.000-04:00"
+  "createdAt": "2026-03-12T14:03:00.000-04:00",
+  "category": "Commodities"
 }

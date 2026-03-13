@@ -329,8 +329,12 @@ LENGTH RULES:
 - "finalVerdict" must be 50-100 words. The "so what" for everyday investors.
 - NO tournament, NO candidates, NO elimination. This is news, not a competition.
 
+NEWS CATEGORIES — pick exactly ONE that best fits:
+Earnings, M&A, Geopolitics, Commodities, Tech, Macro, Energy, Defense, Infrastructure, Crypto, Banking, Policy, Climate
+
 OUTPUT AS VALID JSON matching this structure:
 {
+  "category": "string — one of the categories above, e.g. 'Geopolitics'",
   "headline": "string — plain English headline about the news. No jargon.",
   "summary": "string — 2-3 sentences. What happened and why you should care.",
   "candidates": [],

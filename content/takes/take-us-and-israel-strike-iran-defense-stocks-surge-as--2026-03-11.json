@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "geopolitics"
   ],
   "content": {
     "headline": "US and Israel Strike Iran, Defense Stocks Surge as Government Orders More Weapons",
@@ -77,5 +78,6 @@
     "finalVerdict": "Defense contractor stocks jumped 3-6% in one day because the government is ordering more weapons due to military strikes. If you own these stocks or defense-focused ETFs, don't panic — but also don't assume this trend continues forever. Wars end, production targets get missed, and stock prices change based on many factors beyond just military spending. If you're a long-term investor, stay informed about production updates and Congressional spending. If you're thinking about buying, remember: past gains don't guarantee future ones.",
     "newsSource": "Reuters, CNBC, Breaking Defense, Navy Times, Al Jazeera, Euronews, Air & Space Forces Magazine, Fox News, GovFacts"
   },
-  "createdAt": "2026-03-11T17:37:43.000-04:00"
+  "createdAt": "2026-03-11T17:37:43.000-04:00",
+  "category": "Geopolitics"
 }

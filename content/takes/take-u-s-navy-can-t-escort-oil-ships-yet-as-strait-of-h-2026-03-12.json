@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "geopolitics"
   ],
   "content": {
     "headline": "U.S. Navy Can't Escort Oil Ships Yet as Strait of Hormuz Shipping Collapses 96%",
@@ -92,5 +93,6 @@
     "finalVerdict": "**Don't panic — but pay attention to oil prices.** If you own energy stocks (Canadian or global oil companies, shipping firms), expect volatility. The emergency reserves will help stabilize prices, but the outcome depends on how long the conflict lasts. For everyday investors in broad ETFs (like VBAL or VEQT), the impact is already priced in; don't sell. Watch for the U.S. Navy readiness update by late March — it's a key signal for whether this crisis is winding down or escalating.",
     "newsSource": "Reuters, CNBC, Bloomberg, USNI News, The Hill, Al Jazeera, Fox News, U.S. EIA, NPR​​​​​​​​​​​​​​​​"
   },
-  "createdAt": "2026-03-12T08:49:53.000-04:00"
+  "createdAt": "2026-03-12T08:49:53.000-04:00",
+  "category": "Geopolitics"
 }

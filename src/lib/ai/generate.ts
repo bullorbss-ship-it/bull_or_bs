@@ -16,6 +16,7 @@ export interface ProfileWarning {
 
 export interface GenerateResult {
   content: ArticleContent;
+  category?: string;
   costUsd: number;
   inputTokens: number;
   outputTokens: number;
@@ -370,6 +371,18 @@ Return ONLY valid JSON.`;
 
   const rawContent = parseArticleContent(response.text);
 
+  // Extract category from raw JSON (not part of ArticleContent type)
+  let category: string | undefined;
+  try {
+    const jsonMatch = response.text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const raw = JSON.parse(jsonMatch[0]);
+      if (raw.category && typeof raw.category === 'string') {
+        category = raw.category;
+      }
+    }
+  } catch { /* ignore */ }
+
   const { content, audit } = auditAndScrub(rawContent);
   if (audit.violations.length > 0) {
     console.log(`[LEGAL AUDIT] Take: scrubbed ${audit.violations.length} violations:`, audit.violations);
@@ -377,6 +390,7 @@ Return ONLY valid JSON.`;
 
   return {
     content,
+    category,
     costUsd: response.costUsd,
     inputTokens: response.inputTokens,
     outputTokens: response.outputTokens,

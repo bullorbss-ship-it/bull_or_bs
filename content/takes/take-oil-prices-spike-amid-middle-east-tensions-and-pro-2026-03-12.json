@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "energy"
   ],
   "content": {
     "headline": "Oil prices spike amid Middle East tensions and production cuts",
@@ -52,5 +53,6 @@
     "finalVerdict": "This is a real news event—oil prices did jump. If you own energy stocks or broad ETFs, you may see short-term volatility. Don't panic or try to time the market. The key unknown is how long Middle East tensions last. Watch for news around March 21 (Goldman's expected stabilization date) to see if prices normalize. Stay informed, but stick to your investment plan.",
     "newsSource": "CNBC, CNN, Reuters/Goldman Sachs, and the IEA’s own press release"
   },
-  "createdAt": "2026-03-12T11:13:33.000-04:00"
+  "createdAt": "2026-03-12T11:13:33.000-04:00",
+  "category": "Energy"
 }

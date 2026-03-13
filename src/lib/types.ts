@@ -8,6 +8,7 @@ export interface Article {
   date: string;
   createdAt?: string;
   factChecked?: boolean;
+  category?: string; // News sub-category (e.g. 'Geopolitics', 'M&A', 'Commodities')
   ticker?: string;
   verdict: string;
   confidence?: number;

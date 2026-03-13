@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "tech"
   ],
   "content": {
     "headline": "AI Data Center Company IREN Buys 50,000 GPUs and Plans $6 Billion Stock Sale",
@@ -97,5 +98,6 @@
     "finalVerdict": "IREN is betting big on AI infrastructure, but the massive stock sale creates near-term dilution risk while execution questions remain after a recent earnings miss. This is a speculative growth play in a volatile sector. Everyday investors should understand: you could lose money if the company doesn't hit its $3.7B revenue targets, and your ownership stake will shrink unless earnings explode. If you're considering buying, treat it as a high-risk, high-reward bet — not a core holding. Keep watching earnings and Bitcoin prices.",
     "newsSource": "GlobeNewswire, SEC, TipRanks, Tokenist, 24/7 Wall St., Data Center Dynamics, CoinDesk, Motley Fool, StockTitan"
   },
-  "createdAt": "2026-03-11T21:02:27.000-04:00"
+  "createdAt": "2026-03-11T21:02:27.000-04:00",
+  "category": "Tech"
 }

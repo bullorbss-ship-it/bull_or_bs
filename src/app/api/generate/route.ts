@@ -347,15 +347,17 @@ export async function POST(req: NextRequest) {
         : 'news';
       const slug = `take-${topicSlug}-${today}`;
 
+      const category = result.category || undefined;
       const article: Article = {
         slug,
         type: 'take',
         title: result.content.headline,
         description: result.content.summary,
         date: today,
+        category,
         ticker: undefined,
         verdict: result.content.finalVerdict,
-        tags: ['news', 'take', 'market update'],
+        tags: ['news', 'take', 'market update', ...(category ? [category.toLowerCase()] : [])],
         content: {
           ...result.content,
           newsSource: source || undefined,

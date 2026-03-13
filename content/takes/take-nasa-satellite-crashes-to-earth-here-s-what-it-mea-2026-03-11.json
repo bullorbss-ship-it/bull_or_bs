@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "tech"
   ],
   "content": {
     "headline": "NASA Satellite Crashes to Earth — Here's What It Means for Your Investments",
@@ -55,5 +56,6 @@
     "finalVerdict": "A 1,300-pound NASA satellite fell to Earth early because the Sun is more active than expected. No stocks moved today. This is not a trade signal. However, it flags a real long-term issue: if satellites keep falling faster than planned, space insurance and satellite operator costs could go up over time. For everyday investors in broad ETFs or tech stocks, this changes nothing. Stay informed, don't panic, stick to your plan.",
     "newsSource": "NASA, CBS News, NBC News, CNN, Space.com, Reuters, Universe Today"
   },
-  "createdAt": "2026-03-11T11:52:18.000-04:00"
+  "createdAt": "2026-03-11T11:52:18.000-04:00",
+  "category": "Tech"
 }

@@ -11,11 +11,12 @@ export const metadata: Metadata = {
 
 export default function TakesPage() {
   const takes = getArticlesByType('takes');
+  const categories = Array.from(new Set(takes.map(a => a.category).filter(Boolean) as string[])).sort();
 
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">
       <Breadcrumbs items={[{ label: 'News' }]} />
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
         <span className="w-10 h-10 rounded-full bg-card-bg text-muted font-bold font-mono flex items-center justify-center text-lg border border-card-border">
           &#9889;
         </span>
@@ -24,6 +25,15 @@ export default function TakesPage() {
           <p className="text-sm text-muted">{takes.length} stories explained simply</p>
         </div>
       </div>
+      {categories.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map(cat => (
+            <span key={cat} className="text-[10px] font-bold font-mono px-2.5 py-1 rounded-md bg-gold/10 text-gold border border-gold/20">
+              {cat.toUpperCase()}
+            </span>
+          ))}
+        </div>
+      )}
       {takes.length > 0 ? (
         <div className="space-y-3">
           {takes.map(article => (

@@ -8,7 +8,8 @@
   "tags": [
     "news",
     "take",
-    "market update"
+    "market update",
+    "geopolitics"
   ],
   "content": {
     "headline": "Countries Release Massive Oil Stockpile as Iran War Disrupts Global Oil Supply",
@@ -67,5 +68,6 @@
     "finalVerdict": "This is a factual, coordinated response to a real supply crisis—not market panic or speculation. The 400 million barrel release is historic and shows governments taking action. However, analysts note it may not fully offset the disruption. If you own energy stocks or broad market ETFs, monitor oil prices and the Strait's status. Don't make major changes based on daily price swings. Stay informed, stick to your investment plan, and remember: oil volatility is temporary; your long-term strategy is what matters.",
     "newsSource": "CNBC"
   },
-  "createdAt": "2026-03-11T12:30:13.000-04:00"
+  "createdAt": "2026-03-11T12:30:13.000-04:00",
+  "category": "Geopolitics"
 }
