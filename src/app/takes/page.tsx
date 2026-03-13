@@ -1,6 +1,7 @@
 import { getArticlesByType } from '@/lib/content';
 import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import { getCategoryChipStyle } from '@/lib/badges';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -28,7 +29,7 @@ export default function TakesPage() {
       {categories.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-8">
           {categories.map(cat => (
-            <span key={cat} className="text-[10px] font-bold font-mono px-2.5 py-1 rounded-md bg-gold/10 text-gold border border-gold/20">
+            <span key={cat} className={`text-[10px] font-bold font-mono px-2.5 py-1 rounded-md ${getCategoryChipStyle(cat)}`}>
               {cat.toUpperCase()}
             </span>
           ))}

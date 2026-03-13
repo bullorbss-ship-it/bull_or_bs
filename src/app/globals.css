@@ -19,6 +19,11 @@
   --gold: #F59E0B;
   --gold-light: #fffbeb;
   --navy: #0F172A;
+  --blue: #3B82F6;
+  --purple: #8B5CF6;
+  --teal: #14B8A6;
+  --sky: #0EA5E9;
+  --rose: #F43F5E;
   --muted: #64748b;
   --muted-light: #94a3b8;
 }
@@ -43,6 +48,11 @@
     --gold: #F59E0B;
     --gold-light: #1c1a0f;
     --navy: #0B0F1A;
+    --blue: #60A5FA;
+    --purple: #A78BFA;
+    --teal: #2DD4BF;
+    --sky: #38BDF8;
+    --rose: #FB7185;
     --muted: #94a3b8;
     --muted-light: #64748b;
   }
@@ -67,6 +77,11 @@
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-navy: var(--navy);
+  --color-blue: var(--blue);
+  --color-purple: var(--purple);
+  --color-teal: var(--teal);
+  --color-sky: var(--sky);
+  --color-rose: var(--rose);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
   --font-sans: var(--font-geist-sans);

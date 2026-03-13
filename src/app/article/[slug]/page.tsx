@@ -14,6 +14,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ScoreGauge from '@/components/article/ScoreGauge';
 import Collapsible from '@/components/ui/Collapsible';
 import ScrollTracker from '@/components/article/ScrollTracker';
+import { getArticleBadge, getTickerBadgeStyle } from '@/lib/badges';
 import type { Metadata } from 'next';
 
 function getScoreFromVerdict(verdict: string): number | null {
@@ -229,13 +230,16 @@ export default async function ArticlePage({ params }: PageProps) {
           )}
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
-              <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${
-                isRoast ? 'bg-red/10 text-red border border-red/20' : isTake ? 'bg-gold/10 text-gold border border-gold/20' : 'bg-accent/10 text-accent border border-accent/20'
-              }`}>
-                {isRoast ? 'THE ROAST' : isTake ? (article.category ? `NEWS · ${article.category.toUpperCase()}` : 'NEWS') : 'AI PICK'}
-              </span>
+              {(() => {
+                const badge = getArticleBadge(article.type, article.category);
+                return (
+                  <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${badge.style}`}>
+                    {badge.label}
+                  </span>
+                );
+              })()}
               {article.ticker && (
-                <Link href={`/stock/${article.ticker.toLowerCase()}`} className="text-sm font-mono text-accent border border-accent/30 px-2 py-1 rounded hover:bg-accent-light transition-colors">
+                <Link href={`/stock/${article.ticker.toLowerCase()}`} className={`text-sm px-2 py-1 rounded hover:opacity-80 transition-opacity ${getTickerBadgeStyle(article.ticker)}`}>
                   {article.ticker}
                 </Link>
               )}

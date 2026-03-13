@@ -2,12 +2,7 @@ import { getAllArticles } from '@/lib/content';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
-
-function getBadge(type: string, category?: string) {
-  if (type === 'roast') return { style: 'bg-red/10 text-red border border-red/20', label: 'ROAST' };
-  if (type === 'take') return { style: 'bg-gold/10 text-gold border border-gold/20', label: category ? `NEWS · ${category.toUpperCase()}` : 'NEWS' };
-  return { style: 'bg-accent/10 text-accent border border-accent/20', label: 'PICK' };
-}
+import { getArticleBadge, getTickerBadgeStyle } from '@/lib/badges';
 
 export default function Home() {
   const articles = getAllArticles();
@@ -49,7 +44,7 @@ export default function Home() {
 
         {/* Featured article — large card */}
         {featured && (() => {
-          const badge = getBadge(featured.type, featured.category);
+          const badge = getArticleBadge(featured.type, featured.category);
           return (
             <Link
               href={`/article/${featured.slug}`}
@@ -60,7 +55,7 @@ export default function Home() {
                   {badge.label}
                 </span>
                 {featured.ticker && (
-                  <span className="text-xs font-mono text-muted-light">{featured.ticker}</span>
+                  <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded ${getTickerBadgeStyle(featured.ticker)}`}>{featured.ticker}</span>
                 )}
                 <span className="text-xs font-mono text-muted-light ml-auto">
                   {new Date(featured.date).toLocaleDateString('en-US', {
@@ -96,7 +91,7 @@ export default function Home() {
 
         <div className="grid sm:grid-cols-2 gap-4">
           {rest.map((article) => {
-            const badge = getBadge(article.type, article.category);
+            const badge = getArticleBadge(article.type, article.category);
             return (
               <Link
                 key={article.slug}
@@ -108,7 +103,7 @@ export default function Home() {
                     {badge.label}
                   </span>
                   {article.ticker && (
-                    <span className="text-[10px] font-mono text-muted-light">{article.ticker}</span>
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
                   )}
                   <span className="text-[10px] font-mono text-muted-light ml-auto">
                     {new Date(article.date).toLocaleDateString('en-US', {
@@ -125,21 +120,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works — dark section */}
-      <section className="bg-navy text-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-16">
-          <p className="text-xs font-mono tracking-[0.2em] text-accent mb-2">HOW IT WORKS</p>
-          <h2 className="text-xl sm:text-2xl font-bold mb-8">Transparent by design</h2>
-          <div className="grid sm:grid-cols-3 gap-6">
+      {/* How It Works — compact, on-brand */}
+      <section className="border-t border-card-border">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10 sm:py-12">
+          <p className="text-xs font-mono tracking-[0.2em] text-muted-light mb-6 text-center">HOW WE CALL BS</p>
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
             {[
-              { num: '01', title: 'AI Scans Markets', desc: 'Movers, earnings, and analyst reports across TSX and US markets — daily.' },
-              { num: '02', title: 'Elimination Tournament', desc: '10–15 candidates scored on valuation, catalysts, risk, and momentum.' },
-              { num: '03', title: 'Full Reasoning Published', desc: 'Every data point sourced. No "trust us" — just verifiable analysis.' },
+              { icon: '🔍', title: 'We Read It', desc: 'Someone says "buy this stock." We pull the receipts.' },
+              { icon: '⚔️', title: 'We Test It', desc: 'AI runs the numbers. Every claim gets fact-checked.' },
+              { icon: '🎯', title: 'You Decide', desc: 'Full reasoning published. No paywall. No "trust me bro."' },
             ].map((step) => (
-              <div key={step.num} className="border border-white/10 rounded-xl p-6">
-                <p className="text-2xl font-bold font-mono text-accent/40 mb-3">{step.num}</p>
-                <h3 className="font-bold text-sm mb-1.5">{step.title}</h3>
-                <p className="text-white/60 text-xs leading-relaxed">{step.desc}</p>
+              <div key={step.title} className="p-3 sm:p-4">
+                <p className="text-xl sm:text-2xl mb-2">{step.icon}</p>
+                <h3 className="font-bold text-xs sm:text-sm mb-1">{step.title}</h3>
+                <p className="text-muted text-[10px] sm:text-xs leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>

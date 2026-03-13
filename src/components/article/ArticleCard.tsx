@@ -1,26 +1,19 @@
 import Link from 'next/link';
 import { Article } from '@/lib/types';
+import { getArticleBadge, getTickerBadgeStyle } from '@/lib/badges';
 
 export default function ArticleCard({ article }: { article: Article }) {
-  const isRoast = article.type === 'roast';
-  const isTake = article.type === 'take';
-
-  const badgeStyle = isRoast
-    ? 'bg-red/10 text-red border border-red/20'
-    : isTake
-    ? 'bg-gold/10 text-gold border border-gold/20'
-    : 'bg-accent/10 text-accent border border-accent/20';
-  const badgeLabel = isRoast ? 'Roast' : isTake ? (article.category ? `News · ${article.category}` : 'News') : 'AI Pick';
+  const badge = getArticleBadge(article.type, article.category);
 
   return (
     <Link href={`/article/${article.slug}`} className="block group">
       <article className="border border-card-border bg-background rounded-xl p-4 sm:p-6 hover:shadow-lg hover:border-accent/30 transition-all active:scale-[0.99]">
         <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
-          <span className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full ${badgeStyle}`}>
-            {badgeLabel}
+          <span className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full ${badge.style}`}>
+            {badge.label}
           </span>
           {article.ticker && (
-            <span className="text-[10px] sm:text-xs font-mono text-muted bg-card-bg px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">
+            <span className={`text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 sm:py-1 rounded ${getTickerBadgeStyle(article.ticker)}`}>
               {article.ticker}
             </span>
           )}
