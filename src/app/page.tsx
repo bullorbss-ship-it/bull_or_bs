@@ -2,7 +2,17 @@ import { getAllArticles } from '@/lib/content';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Link from 'next/link';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
-import { getArticleBadge, getTickerBadgeStyle } from '@/lib/badges';
+import { getArticleBadge, getTickerBadgeStyle, getArticleIcon, getArticleGradient } from '@/lib/badges';
+import { Article } from '@/lib/types';
+
+/** Pull the first interesting data point from an article (the eye-catching number). */
+function getKeyStat(article: Article): { label: string; value: string } | null {
+  const dp = article.content?.dataPoints;
+  if (!dp || dp.length === 0) return null;
+  // Prefer data points with $ or % in the value — those pop visually
+  const money = dp.find(d => /[\$%]/.test(d.value));
+  return money || dp[0];
+}
 
 export default function Home() {
   const articles = getAllArticles();
@@ -42,36 +52,51 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Featured article — large card */}
+        {/* Featured article — large card with gradient strip */}
         {featured && (() => {
           const badge = getArticleBadge(featured.type, featured.category);
+          const gradient = getArticleGradient(featured.type, featured.category);
+          const icon = getArticleIcon(featured.type, featured.category);
+          const stat = getKeyStat(featured);
           return (
             <Link
               href={`/article/${featured.slug}`}
-              className="block border border-card-border rounded-2xl p-6 sm:p-8 hover:border-accent/40 hover:shadow-xl transition-all group bg-card-bg"
+              className="block border border-card-border rounded-2xl overflow-hidden hover:border-accent/40 hover:shadow-xl transition-all group bg-card-bg"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <span className={`text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md ${badge.style}`}>
-                  {badge.label}
-                </span>
-                {featured.ticker && (
-                  <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded ${getTickerBadgeStyle(featured.ticker)}`}>{featured.ticker}</span>
+              {/* Gradient visual strip */}
+              <div className={`h-1.5 bg-gradient-to-r ${gradient}`} />
+              <div className="p-6 sm:p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl sm:text-3xl" aria-hidden="true">{icon}</span>
+                  <span className={`text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md ${badge.style}`}>
+                    {badge.label}
+                  </span>
+                  {featured.ticker && (
+                    <span className={`text-[10px] sm:text-xs px-2 py-0.5 rounded ${getTickerBadgeStyle(featured.ticker)}`}>{featured.ticker}</span>
+                  )}
+                  <span className="text-xs font-mono text-muted-light ml-auto">
+                    {new Date(featured.date).toLocaleDateString('en-US', {
+                      month: 'short', day: 'numeric', year: 'numeric',
+                    })}
+                  </span>
+                </div>
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug group-hover:text-accent transition-colors mb-3">
+                  {featured.title}
+                </h2>
+                <p className="text-muted text-sm sm:text-base leading-relaxed line-clamp-2">
+                  {featured.description}
+                </p>
+                {/* Key stat callout */}
+                {stat && (
+                  <div className="mt-4 inline-flex items-center gap-2 bg-card-border/30 rounded-lg px-3 py-1.5">
+                    <span className="text-[10px] font-mono text-muted-light uppercase">{stat.label}</span>
+                    <span className="text-sm font-bold font-mono text-foreground">{stat.value}</span>
+                  </div>
                 )}
-                <span className="text-xs font-mono text-muted-light ml-auto">
-                  {new Date(featured.date).toLocaleDateString('en-US', {
-                    month: 'short', day: 'numeric', year: 'numeric',
-                  })}
-                </span>
+                <p className="text-accent text-sm font-semibold mt-4">
+                  Read analysis &rarr;
+                </p>
               </div>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold leading-snug group-hover:text-accent transition-colors mb-3">
-                {featured.title}
-              </h2>
-              <p className="text-muted text-sm sm:text-base leading-relaxed line-clamp-2">
-                {featured.description}
-              </p>
-              <p className="text-accent text-sm font-semibold mt-4">
-                Read analysis &rarr;
-              </p>
             </Link>
           );
         })()}
@@ -92,28 +117,43 @@ export default function Home() {
         <div className="grid sm:grid-cols-2 gap-4">
           {rest.map((article) => {
             const badge = getArticleBadge(article.type, article.category);
+            const gradient = getArticleGradient(article.type, article.category);
+            const icon = getArticleIcon(article.type, article.category);
+            const stat = getKeyStat(article);
             return (
               <Link
                 key={article.slug}
                 href={`/article/${article.slug}`}
-                className="flex flex-col border border-card-border rounded-xl p-4 sm:p-5 hover:border-accent/40 hover:shadow-lg transition-all group"
+                className="flex flex-col border border-card-border rounded-xl overflow-hidden hover:border-accent/40 hover:shadow-lg transition-all group"
               >
-                <div className="flex items-center gap-2 mb-2">
-                  <span className={`text-[10px] font-bold font-mono px-2 py-0.5 rounded ${badge.style}`}>
-                    {badge.label}
-                  </span>
-                  {article.ticker && (
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
+                {/* Gradient strip */}
+                <div className={`h-1 bg-gradient-to-r ${gradient}`} />
+                <div className="p-4 sm:p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-base" aria-hidden="true">{icon}</span>
+                    <span className={`text-[10px] font-bold font-mono px-2 py-0.5 rounded ${badge.style}`}>
+                      {badge.label}
+                    </span>
+                    {article.ticker && (
+                      <span className={`text-[10px] px-1.5 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
+                    )}
+                    <span className="text-[10px] font-mono text-muted-light ml-auto">
+                      {new Date(article.date).toLocaleDateString('en-US', {
+                        month: 'short', day: 'numeric',
+                      })}
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug line-clamp-2 flex-1">
+                    {article.title}
+                  </p>
+                  {/* Key stat — compact */}
+                  {stat && (
+                    <div className="mt-2 flex items-center gap-1.5">
+                      <span className="text-[9px] font-mono text-muted-light uppercase">{stat.label}:</span>
+                      <span className="text-[11px] font-bold font-mono text-foreground">{stat.value}</span>
+                    </div>
                   )}
-                  <span className="text-[10px] font-mono text-muted-light ml-auto">
-                    {new Date(article.date).toLocaleDateString('en-US', {
-                      month: 'short', day: 'numeric',
-                    })}
-                  </span>
                 </div>
-                <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug line-clamp-2 flex-1">
-                  {article.title}
-                </p>
               </Link>
             );
           })}
