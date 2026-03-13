@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'Privacy policy for BullOrBS. Learn how we collect, use, and protect your personal information.',
+    'Privacy policy for Bull Or BS. Learn how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPage() {

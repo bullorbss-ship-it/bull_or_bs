@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:
-    'Terms of service for BullOrBS. By using this site, you agree to these terms.',
+    'Terms of service for Bull Or BS. By using this site, you agree to these terms.',
 };
 
 export default function TermsPage() {

@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
+    default: `${siteConfig.displayName} — ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.displayName}`,
   },
   description: siteConfig.description,
   keywords: [
@@ -24,15 +24,15 @@ export const defaultMetadata: Metadata = {
     type: 'website',
     locale: siteConfig.locale,
     url: siteConfig.url,
-    siteName: siteConfig.name,
-    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    siteName: siteConfig.displayName,
+    title: `${siteConfig.displayName} — ${siteConfig.tagline}`,
     description: siteConfig.description,
     images: [
       {
         url: `${siteConfig.url}/og?type=default`,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} — ${siteConfig.tagline}`,
+        alt: `${siteConfig.displayName} — ${siteConfig.tagline}`,
       },
     ],
   },
@@ -59,9 +59,9 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: siteConfig.name,
+    name: siteConfig.displayName,
     url: siteConfig.url,
-    description: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: `${siteConfig.displayName} — ${siteConfig.tagline}`,
     sameAs: Object.values(siteConfig.social),
   };
 }
@@ -82,10 +82,10 @@ export function articleSchema(article: {
     description: article.description,
     datePublished: article.date,
     dateModified: article.date,
-    author: { '@type': 'Organization', name: siteConfig.name },
+    author: { '@type': 'Organization', name: siteConfig.displayName },
     publisher: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: siteConfig.displayName,
       url: siteConfig.url,
     },
     mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,
@@ -171,8 +171,8 @@ export function reviewSchema(article: {
     headline: article.title,
     description: article.description,
     datePublished: article.date,
-    author: { '@type': 'Organization', name: siteConfig.name },
-    publisher: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url },
+    author: { '@type': 'Organization', name: siteConfig.displayName },
+    publisher: { '@type': 'Organization', name: siteConfig.displayName, url: siteConfig.url },
     url: `${siteConfig.url}/article/${article.slug}`,
     reviewRating: {
       '@type': 'Rating',
@@ -225,12 +225,12 @@ export function newsArticleSchema(article: {
     articleSection: article.type,
     author: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: siteConfig.displayName,
       url: siteConfig.url,
     },
     publisher: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: siteConfig.displayName,
       url: siteConfig.url,
     },
     mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,

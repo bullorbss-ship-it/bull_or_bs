@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: 'BullOrBS',
+  displayName: 'Bull Or BS',
   tagline: 'AI-Driven Stock Analysis That Shows Its Work',
   url: 'https://bullorbs.com',
   description:

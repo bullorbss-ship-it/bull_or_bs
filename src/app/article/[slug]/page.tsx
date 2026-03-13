@@ -13,6 +13,7 @@ import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ScoreGauge from '@/components/article/ScoreGauge';
 import Collapsible from '@/components/ui/Collapsible';
+import ConsentGate from '@/components/article/ConsentGate';
 import ScrollTracker from '@/components/article/ScrollTracker';
 import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
 import type { Metadata } from 'next';
@@ -118,7 +119,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: article.description,
       type: 'article',
       publishedTime: article.date,
-      authors: [siteConfig.name],
+      authors: [siteConfig.displayName],
       tags: article.tags,
       images: [
         {
@@ -284,6 +285,7 @@ export default async function ArticlePage({ params }: PageProps) {
         </p>
       </div>
 
+      <ConsentGate articleType={article.type}>
       {/* Verdict — ALWAYS visible (the payoff, keeps them scrolling) */}
       <Verdict verdict={content.finalVerdict} />
 
@@ -340,7 +342,7 @@ export default async function ArticlePage({ params }: PageProps) {
           defaultOpen={false}
           icon={<span className="text-accent text-sm">&#9642;</span>}
         >
-          <DataPoints dataPoints={content.dataPoints} inline />
+          <DataPoints dataPoints={content.dataPoints} inline provenance={{ type: article.type, newsSource: content.newsSource, newsUrl: content.newsUrl }} />
         </Collapsible>
       )}
 
@@ -386,6 +388,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <SubscribeForm />
         </div>
       </section>
+      </ConsentGate>
     </div>
   );
 }

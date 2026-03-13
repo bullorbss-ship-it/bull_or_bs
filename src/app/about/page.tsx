@@ -4,9 +4,9 @@ import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'About BullOrBS',
+  title: 'About Bull Or BS',
   description:
-    'BullOrBS is an AI-driven stock analysis newsletter that shows its full reasoning. We audit popular stock picks and publish transparent, data-driven analysis.',
+    'Bull Or BS is an AI-driven stock analysis newsletter that shows its full reasoning. We audit popular stock picks and publish transparent, data-driven analysis.',
 };
 
 export default function AboutPage() {

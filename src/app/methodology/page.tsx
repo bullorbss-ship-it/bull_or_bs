@@ -3,9 +3,9 @@ import { siteConfig } from '@/config/site';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: `How ${siteConfig.name} Works — Our AI Analysis Methodology`,
+  title: `How ${siteConfig.displayName} Works — Our AI Analysis Methodology`,
   description:
-    'Learn how BullOrBS uses AI to analyze stocks, grade recommendations, and run elimination tournaments. Transparent methodology, every step shown.',
+    'Learn how Bull Or BS uses AI to analyze stocks, grade recommendations, and run elimination tournaments. Transparent methodology, every step shown.',
 };
 
 export default function MethodologyPage() {

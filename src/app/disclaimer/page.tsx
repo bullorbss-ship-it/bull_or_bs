@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 export const metadata: Metadata = {
   title: 'Disclaimer & Terms',
   description:
-    'Legal disclaimer for BullOrBS. All content is AI-generated for educational purposes. Not financial advice.',
+    'Legal disclaimer for Bull Or BS. All content is AI-generated for educational purposes. Not financial advice.',
 };
 
 export default function DisclaimerPage() {

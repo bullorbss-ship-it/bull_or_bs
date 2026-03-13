@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site';
 export const metadata: Metadata = {
   title: 'Editorial Standards',
   description:
-    'How BullOrBS produces AI-driven stock analysis. Our research methodology, fact-checking process, and correction policy.',
+    'How Bull Or BS produces AI-driven stock analysis. Our research methodology, fact-checking process, and correction policy.',
 };
 
 export default function EditorialPage() {
