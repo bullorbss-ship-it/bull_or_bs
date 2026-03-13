@@ -14,7 +14,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ScoreGauge from '@/components/article/ScoreGauge';
 import Collapsible from '@/components/ui/Collapsible';
 import ScrollTracker from '@/components/article/ScrollTracker';
-import { getArticleBadge, getTickerBadgeStyle } from '@/lib/badges';
+import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
 import type { Metadata } from 'next';
 
 function getScoreFromVerdict(verdict: string): number | null {
@@ -238,6 +238,11 @@ export default async function ArticlePage({ params }: PageProps) {
                   </span>
                 );
               })()}
+              {article.category && isTake && (
+                <span className={`text-xs font-mono font-bold px-2 py-1 rounded ${getCategoryChipStyle(article.category)}`}>
+                  {article.category}
+                </span>
+              )}
               {article.ticker && (
                 <Link href={`/stock/${article.ticker.toLowerCase()}`} className={`text-sm px-2 py-1 rounded hover:opacity-80 transition-opacity ${getTickerBadgeStyle(article.ticker)}`}>
                   {article.ticker}
