@@ -1,0 +1,170 @@
+{
+  "slug": "adobe-roast-2026-03-13",
+  "type": "roast",
+  "title": "Adobe Gets Hammered on CEO Exit—But Is the Selloff Overdone?",
+  "description": "Adobe beat Q1 earnings estimates but the stock tanked 8% after CEO Shantanu Narayen announced his departure with no successor named. The data shows a cheap valuation and strong cash generation, but leadership chaos and AI competition create real near-term risk.",
+  "date": "2026-03-13",
+  "ticker": "ADOBE",
+  "verdict": "**Score: 5/10**\n\n**What's Working:**\n- Forward P/E of 11.4x is objectively cheap for a software company throwing off $8.81B in free cash flow annually.\n- Q1 earnings beat ($6.06 non-GAAP EPS vs. $5.87 estimate) shows the core business is solid.\n- Strong balance sheet and cash generation provide strategic flexibility for new leadership.\n\n**What's Concerning:**\n- CEO departure with no successor is a real governance vacuum that will trigger analyst downgrades this week—expect $382 targets to fall 15-25%.\n- Three-year CAGR of -7.72% to -8.50% isn't a dip; it's a market vote of no confidence that one Q1 beat doesn't reverse.\n- AI competition from Google, Canva, and open-source tools is eroding Adobe's pricing power at the low end, threatening margins.\n\n**Bottom Line:** Adobe is trading like a turnaround, not a value buy. The valuation is cheap, but the leadership chaos and competitive pressure create real near-term risk. Wait for a CEO announcement and Q2 guidance before deploying capital here. If you already own it, the forward P/E suggests a 12-month hold; if you're starting fresh, this is a 2027 story, not a 2026 opportunity.",
+  "tags": [
+    "ADOBE",
+    "roast",
+    "screenshot analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "Adobe Gets Hammered on CEO Exit—But Is the Selloff Overdone?",
+    "summary": "Adobe beat Q1 earnings estimates but the stock tanked 8% after CEO Shantanu Narayen announced his departure with no successor named. The data shows a cheap valuation and strong cash generation, but leadership chaos and AI competition create real near-term risk.",
+    "foolClaim": "Adobe reported stronger-than-expected Q1 earnings (non-GAAP EPS of $6.06 vs. $5.87 estimate), but the CEO stepping down without a named replacement sparked a sharp selloff. Analysts are now downgrading the stock and slashing price targets amid concerns about AI disruption from Google, Canva, and others.",
+    "candidates": [
+      {
+        "ticker": "ADBE",
+        "company": "Adobe Inc.",
+        "status": "selected",
+        "reasonConsidered": "Stock is down ~29% YTD despite beating Q1 earnings, trading at forward P/E of ~11.4x with $8.81B in annual free cash flow (the money a company keeps after paying its bills). Morningstar's fair value estimate ($863) vs. current price ($247) suggests significant upside if the company executes on AI and succession stabilizes.",
+        "reasonEliminated": "N/A — this is the stock being analyzed.",
+        "score": 5
+      }
+    ],
+    "analysis": "## What They Got Right\n\n- **The earnings beat is real.** Non-GAAP EPS of $6.06 beat the $5.87 estimate. Q1 results show the core business is still generating revenue (~$23.77B TTM) and free cash flow ($8.81B TTM) at solid rates.\n- **The valuation math is compelling.** Forward P/E of 11.4x and TTM P/E of 16.16x are genuinely cheap for a software company with $8.81B in annual free cash flow. At current prices (~$247), the market is pricing in serious headwinds.\n- **The cash generation is strong.** Adobe throws off billions in free cash flow despite the stock's decline. This gives the company optionality: buybacks, dividends, R&D, or M&A (like the SEMrush deal).\n\n## What They Missed\n\n- **CEO departure is not priced in yet.** Analyst price targets ($382 average) were set before the March 12 announcement. A leadership vacuum—with no successor named—is a real governance risk. Oppenheimer explicitly flagged this as a \"negative overhang.\" These targets will likely be cut 15-25% in the coming weeks.\n- **The framing ignores the severity of AI competition.** Google's advanced image editing in Gemini directly competes with Photoshop. Canva and open-source AI tools are eating into Adobe's low-end pricing power. The data doesn't show whether Adobe's Firefly (its own AI platform) is winning market share or just matching competitors. This is existential to margins, not just growth.\n- **The stock's 2-year decline reveals a trend, not a dip.** Down 21% in 2025, down 25% in 2024, down another 29% YTD 2026. That's a three-year CAGR of -7.72% to -8.50% (3Y and 5Y CAGRs in the data). This isn't a value trap—it's a stock market voters are losing confidence in. Even the Q1 beat didn't move the needle.\n- **Beta of 1.51 means Adobe swings 51% harder than the market.** If tech sells off, ADBE gets hammered worse. Right now, the tech sector is pricing in slower growth ahead, and Adobe—despite being profitable—trades like it has declining prospects.\n\n## The Bottom Line\n\nAdobe's valuation is objectively cheap, and the business still prints cash. But the data shows a 3-year downtrend that a single earnings beat doesn't reverse. The CEO departure without a successor is a real governance red flag that will trigger analyst downgrades this week. The core question: Can Adobe's Firefly AI platform defend pricing power against Google, Canva, and open-source competition? The data doesn't answer that—and the market is clearly betting \"no.\" This is a **turnaround bet**, not a value buy. If you're risk-averse, wait for a new CEO announcement and stabilization. If you believe in Adobe's AI roadmap and can stomach 30-40% swings, the forward P/E of 11.4x may offer upside in 12-24 months.",
+    "risks": [
+      "CEO succession remains vacant—no named replacement creates 3-6 month governance vacuum and potential C-suite departures.",
+      "Analyst downgrades imminent: price targets ($382 avg) set before CEO news; expect 15-25% cuts when revised.",
+      "AI competition from Google (Gemini), Canva, and open-source tools directly threatens Photoshop/Illustrator pricing power at mid and low tiers.",
+      "Beta of 1.51 means a tech sector correction could drive Adobe down 30-40% in a broader selloff.",
+      "Three-year negative CAGR (-7.72% to -8.50%) suggests systemic investor doubt, not just cyclical weakness.",
+      "No dividend yield (0%) and no capital return story offsets valuation appeal for income investors."
+    ],
+    "catalysts": [
+      "New CEO announcement (expected Q2 2026)—credible successor could reverse 20-30% of recent losses if external hire brings AI/growth credibility.",
+      "Firefly AI adoption metrics in Q2 earnings—proof that Adobe's generative AI is winning customer wallet share vs. Google/Canva.",
+      "Analyst consensus reset—watch for target downgrades mid-late March; capitulation could create a tradeable bottom.",
+      "Competitive product launches from Google or Canva—or strategic silence—will signal whether AI moat is sustainable.",
+      "Margin data in FY27 guidance—willingness to invest in AI R&D or protect margins will tell the growth/profitability story."
+    ],
+    "dataPoints": [
+      {
+        "label": "Current Stock Price",
+        "value": "$247.83 (down ~8% from prior close on Mar 13 intraday)",
+        "source": "Robinhood"
+      },
+      {
+        "label": "52-Week Range",
+        "value": "$244.28 — $422.95",
+        "source": "Robinhood / FinanceCharts"
+      },
+      {
+        "label": "Market Cap",
+        "value": "~$110.89B (pre-today; lower at $247)",
+        "source": "Robinhood"
+      },
+      {
+        "label": "YTD 2026 Return",
+        "value": "~-21.4% (as of Mar 11); likely ~-29% after Mar 13 drop",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "2025 Calendar Year Return",
+        "value": "-21.29%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "2024 Calendar Year Return",
+        "value": "-25.46%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "3-Year CAGR",
+        "value": "-7.72%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "5-Year CAGR",
+        "value": "-8.50%",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "P/E (TTM)",
+        "value": "~16.16 (pre-today); ~14.8 at $247",
+        "source": "Robinhood"
+      },
+      {
+        "label": "Forward P/E",
+        "value": "~11.40",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "EPS (TTM, GAAP)",
+        "value": "$16.71",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Q1 FY26 Non-GAAP EPS",
+        "value": "$6.06 (vs. $5.87 estimate, beat)",
+        "source": "Motley Fool / Q1 FY2026 Earnings Call"
+      },
+      {
+        "label": "Free Cash Flow (TTM)",
+        "value": "$8.81B",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Revenue (TTM)",
+        "value": "$23.77B",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Dividend Yield",
+        "value": "0% — Adobe does not pay a dividend",
+        "source": "TradingView / Yahoo"
+      },
+      {
+        "label": "Debt-to-Equity Ratio",
+        "value": "57.27%",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Beta (5Y Monthly)",
+        "value": "1.51",
+        "source": "Yahoo Finance"
+      },
+      {
+        "label": "Average Daily Volume (30-day)",
+        "value": "5.51M shares",
+        "source": "FinanceCharts"
+      },
+      {
+        "label": "Analyst Consensus Rating",
+        "value": "Moderate Buy (pre-CEO announcement; likely changing)",
+        "source": "TipRanks"
+      },
+      {
+        "label": "Analyst Average Price Target",
+        "value": "$382.17 (pre-revision; expect downgrades)",
+        "source": "TipRanks"
+      },
+      {
+        "label": "Analyst Target Range",
+        "value": "$270 (low) — $585 (high)",
+        "source": "Investing.com"
+      },
+      {
+        "label": "Morningstar Fair Value Estimate",
+        "value": "$863 (vs. current $247; data partially obscured, unverified)",
+        "source": "Morningstar"
+      },
+      {
+        "label": "CEO Departure Announcement",
+        "value": "March 12, 2026 after market close; Shantanu Narayen stepping down; no successor named",
+        "source": "Earnings call / Market news"
+      },
+      {
+        "label": "Recent Analyst Downgrades",
+        "value": "Barclays (to Equal Weight), Oppenheimer (to Perform), Stifel ($400 target), Citi ($315 target), TD Cowen ($325 target), Jefferies ($290 target)",
+        "source": "Market news (March 2026)"
+      }
+    ],
+    "finalVerdict": "**Score: 5/10**\n\n**What's Working:**\n- Forward P/E of 11.4x is objectively cheap for a software company throwing off $8.81B in free cash flow annually.\n- Q1 earnings beat ($6.06 non-GAAP EPS vs. $5.87 estimate) shows the core business is solid.\n- Strong balance sheet and cash generation provide strategic flexibility for new leadership.\n\n**What's Concerning:**\n- CEO departure with no successor is a real governance vacuum that will trigger analyst downgrades this week—expect $382 targets to fall 15-25%.\n- Three-year CAGR of -7.72% to -8.50% isn't a dip; it's a market vote of no confidence that one Q1 beat doesn't reverse.\n- AI competition from Google, Canva, and open-source tools is eroding Adobe's pricing power at the low end, threatening margins.\n\n**Bottom Line:** Adobe is trading like a turnaround, not a value buy. The valuation is cheap, but the leadership chaos and competitive pressure create real near-term risk. Wait for a CEO announcement and Q2 guidance before deploying capital here. If you already own it, the forward P/E suggests a 12-month hold; if you're starting fresh, this is a 2027 story, not a 2026 opportunity."
+  },
+  "createdAt": "2026-03-13T07:48:40.000-04:00"
+}
