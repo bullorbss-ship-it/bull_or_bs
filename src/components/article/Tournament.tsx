@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CandidateStock } from '@/lib/types';
-import { inlineFormat } from '@/lib/ai/parse';
+import { inlineFormat } from '@/lib/inline-format';
 
 interface TournamentProps {
   candidates: CandidateStock[];

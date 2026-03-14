@@ -1,5 +1,5 @@
 import { CatalystDetail } from '@/lib/types';
-import { inlineFormat } from '@/lib/ai/parse';
+import { inlineFormat } from '@/lib/inline-format';
 
 interface RisksAndCatalystsProps {
   risks: string[];
