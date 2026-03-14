@@ -1,5 +1,5 @@
 # BullOrBS — Project Status & Roadmap
-**Last updated: 2026-03-09**
+**Last updated: 2026-03-13**
 
 ---
 
@@ -7,15 +7,14 @@
 
 ### Core Platform
 - [x] Next.js 16 App Router + Tailwind CSS v4
-- [x] Render free tier deployment with auto-deploy from main
+- [x] Vercel free tier deployment with auto-deploy from main (migrated from Render)
 - [x] Cloudflare DNS (bullorbs.com + www)
-- [x] Keep-alive cron (cron-job.org → /api/health every 10 min)
 - [x] GA4 analytics + Google Search Console verified
 - [x] Sitemap, robots.txt, RSS feed auto-generated
 
 ### Content & SEO
-- [x] 93+ stock/ETF ticker pages with FAQ schema (61 stocks + 30 ETFs + dynamic)
-- [x] 11 articles published (5 roasts + 6 picks)
+- [x] 167+ stock/ETF ticker pages with FAQ schema (93 static + dynamic)
+- [x] 20+ articles published (7 roasts + 5 picks + 1 screenshot pick + 4 news takes)
 - [x] Programmatic SEO: every /stock/[ticker] targets "should I buy [TICKER]"
 - [x] Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation
 - [x] Learn section: /learn/ with TFSA, RRSP, FHSA guides
@@ -23,7 +22,7 @@
 
 ### AI Generation Pipeline
 - [x] Haiku 4.5 primary (~$0.02/article), OpenRouter free fallback
-- [x] 4 generation types: roast, pick, data-roast, data-pick
+- [x] 5 generation types: roast, pick, data-roast, data-pick, take (news)
 - [x] Text-paste workflow: paste research data → Haiku generates article
 - [x] Identity-only reference sheet (prevents AI using stale profile metrics)
 - [x] Qualitative output style (no specific numbers unless from pasted data)
@@ -54,9 +53,15 @@
 ### Infrastructure
 - [x] EST timezone for all dates (src/lib/date.ts)
 - [x] Article sorting by createdAt (newest first, git-history-accurate)
-- [x] Pre-deploy pipeline: 7 gates (type-check, lint, SAST, SEO, legal, docs, docs-check)
+- [x] Pre-deploy pipeline: 9 gates (type-check, lint, SAST, SEO, legal, content-audit, docs, docs-check)
 - [x] Rate limiting + security headers
 - [x] Timing-safe auth, brute-force protection
+- [x] Inline source hyperlinks: every number links to original source (Yahoo Finance, BlackRock, etc.)
+- [x] Anti-hallucination guardrails: 8 specific rules from observed Haiku errors
+- [x] Auto-linkify all registered tickers mentioned in article text
+- [x] Delete articles from dashboard (two-step confirmation)
+- [x] Dynamic OG images via /og route (stock, article, default variants)
+- [x] Twitter/X card meta tags (summary_large_image)
 
 ---
 
@@ -140,7 +145,7 @@
 ---
 
 ## Architecture Decisions
-See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-006.
+See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-012.
 
 Key decisions:
 1. Haiku over Sonnet (55x cheaper, good enough with structured input)
@@ -149,12 +154,15 @@ Key decisions:
 4. EST timezone for all dates (Canadian audience)
 5. Dynamic ticker registry (no manual tickers.ts editing)
 6. Qualitative analysis style (avoids hallucinated numbers)
+7. Inline source hyperlinks standard across all article types (ADR-010)
+8. Anti-hallucination guardrails from observed Haiku errors (ADR-011)
+9. Auto-linkify all registered tickers in article text (ADR-012)
 
 ## Cost Model
 | Item | Cost |
 |---|---|
 | Article generation (Haiku) | ~$0.02/article |
-| Render hosting | $0 (free tier) |
+| Vercel hosting | $0 (free tier) |
 | Cloudflare DNS | $0 |
 | Domain (bullorbs.com) | ~$10/year |
 | **Monthly (20 articles)** | **~$0.40 + $0.83 domain** |
@@ -163,13 +171,23 @@ Key decisions:
 ## Content Workflow
 ```
 Claude/Gemini Deep Research (free)
-    → Verified comparison table
+    → Verified data table WITH source hyperlinks
         → Paste into /orange dashboard
-            → Haiku generates article ($0.02)
-                → Gemini fact-check (free)
-                    → Publish & Save to Repo
-                        → Render auto-deploys
-                            → Distribute (generates social posts ~$0.005)
-                                → Copy-paste to Reddit/X/Instagram
-                                → (or auto-email if GMAIL configured)
+            → Haiku generates article ($0.02) with inline source links
+                → Opus fact-check (roasts + picks only)
+                    → Fix any errors (editor's cut)
+                        → Publish & Save to Repo
+                            → Vercel auto-deploys
+                                → Distribute (generates social posts ~$0.005)
+                                    → Copy-paste to Reddit/X/Instagram
+```
+
+## Source Citation Pipeline
+```
+Research prompt outputs [Source](URL) in table
+    → Pasted data carries URLs into dashboard
+        → SOURCE_CITATION_RULES enforces inline links in Haiku output
+            → inlineFormat() renders markdown links as <a> tags
+                → DataPoints component renders sourceUrl as clickable link
+                    → Reader clicks to verify any claim
 ```

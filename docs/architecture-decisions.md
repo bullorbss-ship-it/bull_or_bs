@@ -125,7 +125,7 @@ Article Request (roast or pick)
 ┌─────────────────────────┐
 │   HAIKU 4.5             │
 │   (no web search)       │
-│   max_tokens: 8000      │
+│   max_tokens: 8K-12K    │
 └───────────┬─────────────┘
             │
             ▼
@@ -166,6 +166,47 @@ Article Request (roast or pick)
 **Context:** Articles often reference stocks not in the static tickers.ts list (e.g., MSFT, LMT, RTX from pick articles). These need stock pages to exist for internal linking and SEO.
 **Decision:** `registerArticleTickers()` auto-registers unknown tickers with stub profiles. Stored in `data/dynamic-tickers.json`. Homepage uses `getAllTickersExpanded()` for live count.
 **Consequence:** No manual tickers.ts editing needed. New tickers from articles automatically get /stock/[ticker] pages.
+
+---
+
+## ADR-010: Inline Source Hyperlinks as Standard
+**Date:** 2026-03-13
+**Status:** Implemented
+**Context:** Articles lacked verifiable source links. Data claims (AUM, MER, returns) had no way for readers to verify. Opus fact-checks caught errors that sourced links would have surfaced earlier. Trust and legal defensibility both require provenance.
+**Decision:** Three-layer source citation system:
+1. **Research prompts** output markdown hyperlinks in source columns: `[Yahoo Finance](https://finance.yahoo.com/quote/XEQT.TO/)`
+2. **Generation prompts** (`SOURCE_CITATION_RULES` shared across all 6 prompts) require inline hyperlinks next to every number. Zero tolerance for unsourced specific numbers.
+3. **Parser** (`inlineFormat()` in parse.ts) renders `[text](url)` as clickable `<a>` tags in article HTML.
+4. **DataPoints** component renders `sourceUrl` field as clickable link on data cards.
+**Consequence:** End-to-end source chain: research → paste → generate → render → reader clicks to verify. Every number is traceable.
+**Files:** `src/lib/ai/prompts.ts` (SOURCE_CITATION_RULES), `src/lib/ai/research-prompt.ts`, `src/lib/ai/parse.ts` (inlineFormat), `src/components/article/DataPoints.tsx`, `src/lib/types.ts` (sourceUrl on DataPoint).
+
+---
+
+## ADR-011: Anti-Hallucination Guardrails
+**Date:** 2026-03-13
+**Status:** Implemented
+**Context:** Two rounds of Opus fact-checking on the XEQT ETF article revealed 8 specific failure patterns in Haiku output: treating projected fees as current, fabricating return figures, stating numbers not in pasted data, inconsistent scoring for similar products.
+**Decision:** Added 8 specific anti-hallucination rules to `FACT_CHECK_RULES` in prompts.ts:
+1. Projected ≠ current (fee cuts not yet in MER)
+2. "0% management fee" must show effective all-in cost
+3. No numbers outside pasted data
+4. Must flag UNVERIFIED/conflicting data
+5. Similar products must get similar scores (within 0.5 points)
+6. AUM context: C$450M is mid-sized, not "tiny" (only <$50M is tiny)
+7. Distribution frequency is NOT a differentiator
+8. Never fabricate return figures
+**Consequence:** Rules are pattern-matched from observed errors, not generic. Each rule maps to a specific Haiku failure we caught.
+
+---
+
+## ADR-012: Auto-Linkify All Registered Tickers in Articles
+**Date:** 2026-03-13
+**Status:** Implemented
+**Context:** ETF comparison articles mention many tickers (XEQT, VEQT, ITOT, etc.) in analysis text that weren't being linked to /stock/ pages. Only candidates and the primary ticker were linked.
+**Decision:** Scan analysis/summary/verdict text for ALL registered tickers (static + dynamic) and add them to linkification hints.
+**Files:** `src/app/article/[slug]/page.tsx`
+**Consequence:** Any ticker mentioned anywhere in an article becomes a clickable link to its /stock/ page if it exists in the registry.
 
 ---
 
