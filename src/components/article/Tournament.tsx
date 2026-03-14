@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { CandidateStock } from '@/lib/types';
+import { inlineFormat } from '@/lib/ai/parse';
 
 interface TournamentProps {
   candidates: CandidateStock[];
@@ -44,9 +45,11 @@ export default function Tournament({ candidates, isRoast, inline }: TournamentPr
               </span>
             )}
           </div>
-          <p className="text-sm text-muted leading-relaxed">
-            {c.status === 'eliminated' ? c.reasonEliminated : c.reasonConsidered}
-          </p>
+          <p className="text-sm text-muted leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: inlineFormat(
+              (c.status === 'eliminated' ? c.reasonEliminated : c.reasonConsidered) || ''
+            ) }}
+          />
         </div>
       ))}
     </div>

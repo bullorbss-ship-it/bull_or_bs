@@ -354,7 +354,7 @@ Explain this news simply. No speculation. No predictions. Just facts that matter
 
 Return ONLY valid JSON.`;
 
-  const response = await callAI(TAKE_PROMPT, userMessage, 4000);
+  const response = await callAI(TAKE_PROMPT, userMessage, 8000);
 
   const durationMs = Date.now() - start;
 

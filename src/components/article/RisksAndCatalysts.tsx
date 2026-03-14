@@ -1,4 +1,5 @@
 import { CatalystDetail } from '@/lib/types';
+import { inlineFormat } from '@/lib/ai/parse';
 
 interface RisksAndCatalystsProps {
   risks: string[];
@@ -12,7 +13,7 @@ function renderCatalyst(c: string | CatalystDetail, i: number) {
     return (
       <li key={i} className="text-sm text-foreground flex gap-2 leading-relaxed">
         <span className="text-green shrink-0 mt-1">&bull;</span>
-        {c}
+        <span dangerouslySetInnerHTML={{ __html: inlineFormat(c) }} />
       </li>
     );
   }
@@ -22,8 +23,8 @@ function renderCatalyst(c: string | CatalystDetail, i: number) {
       <div className="flex gap-2">
         <span className="text-green shrink-0 mt-1">&bull;</span>
         <div>
-          <p className="font-medium">{c.claimed}</p>
-          <p className="text-muted mt-1">{c.actual}</p>
+          <p className="font-medium" dangerouslySetInnerHTML={{ __html: inlineFormat(c.claimed) }} />
+          <p className="text-muted mt-1" dangerouslySetInnerHTML={{ __html: inlineFormat(c.actual) }} />
           {c.confidence && (
             <p className="text-xs text-muted-light mt-1 font-mono">
               Confidence: {c.confidence}
@@ -47,7 +48,7 @@ export default function RisksAndCatalysts({ risks, catalysts, inline }: RisksAnd
             {risks.map((r, i) => (
               <li key={i} className="text-sm text-foreground flex gap-2 leading-relaxed">
                 <span className="text-red shrink-0 mt-1">&bull;</span>
-                {r}
+                <span dangerouslySetInnerHTML={{ __html: inlineFormat(r) }} />
               </li>
             ))}
           </ul>
