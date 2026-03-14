@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getAllArticles, getArticleBySlug } from '@/lib/content';
 import { getTickerInfo } from '@/lib/tickers';
+import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { siteConfig } from '@/config/site';
 import { articleSchema, faqSchema, reviewSchema } from '@/config/seo';
 import { formatMarkdown, linkifyTickers } from '@/lib/ai/parse';
@@ -178,10 +179,20 @@ export default async function ArticlePage({ params }: PageProps) {
   const nextArticle = allArticles[currentIdx + 1] || allArticles[0];
 
   // Collect tickers mentioned in this article for efficient linkification
-  const articleTickers = [
+  // Include primary ticker, candidates, AND any tickers mentioned in the analysis text
+  const explicitTickers = [
     article.ticker,
     ...(content.candidates?.map(c => c.ticker) || []),
   ].filter(Boolean) as string[];
+
+  // Scan analysis text for any registered tickers not already in the list
+  const analysisText = [content.summary, content.analysis, content.finalVerdict].filter(Boolean).join(' ');
+  const allKnown = getAllTickersExpanded();
+  const mentionedTickers = allKnown
+    .filter(t => t.ticker.length >= 2 && analysisText.includes(t.ticker))
+    .map(t => t.ticker);
+
+  const articleTickers = [...new Set([...explicitTickers, ...mentionedTickers])];
 
   const dataPointCount = content.dataPoints?.length || 0;
   const riskCount = content.risks?.length || 0;

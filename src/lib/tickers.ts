@@ -67,6 +67,15 @@ export const TSX_TICKERS: TickerInfo[] = [
   { ticker: 'XIU', company: 'iShares S&P/TSX 60 Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'XIC', company: 'iShares Core S&P/TSX Capped Composite Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'PSA', company: 'Purpose High Interest Savings ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZEQT', company: 'BMO All-Equity ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'HEQT', company: 'Global X All-Equity Asset Allocation ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'FEQT', company: 'Fidelity All-in-One Equity ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'HEQL', company: 'Global X Enhanced All-Equity Asset Allocation ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'MIX', company: 'Hamilton Enhanced Mixed Asset ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VCN', company: 'Vanguard FTSE Canada All Cap Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'VXC', company: 'Vanguard FTSE Global All Cap ex Canada Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZSP', company: 'BMO S&P 500 Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'ZCN', company: 'BMO S&P/TSX Capped Composite Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
 ];
 
 // Top US stocks
@@ -112,6 +121,12 @@ export const US_TICKERS: TickerInfo[] = [
   { ticker: 'SCHD', company: 'Schwab US Dividend Equity ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
   { ticker: 'VYM', company: 'Vanguard High Dividend Yield ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
   { ticker: 'EEM', company: 'iShares MSCI Emerging Markets ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'ITOT', company: 'iShares Core S&P Total U.S. Stock Market ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'IEFA', company: 'iShares Core MSCI EAFE ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'IEMG', company: 'iShares Core MSCI Emerging Markets ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'VEA', company: 'Vanguard FTSE Developed Markets ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'VWO', company: 'Vanguard FTSE Emerging Markets ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
+  { ticker: 'IVV', company: 'iShares Core S&P 500 ETF', exchange: 'NYSE', sector: 'ETF', country: 'US' },
 ];
 
 export const ALL_TICKERS = [...TSX_TICKERS, ...US_TICKERS];
