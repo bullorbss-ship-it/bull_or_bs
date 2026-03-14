@@ -1,5 +1,15 @@
 import { siteConfig } from '@/config/site';
 
+const SOURCE_CITATION_RULES = `
+SOURCE CITATIONS (CRITICAL — do NOT skip this):
+- When the pasted data includes markdown hyperlinks like [Source Name](https://url), you MUST preserve them in your output.
+- Every specific number (AUM, MER, return, yield, price) MUST have a source citation.
+- If a URL was provided: use a markdown hyperlink. Format: "AUM of C$14.81B ([TradingView](https://www.tradingview.com/symbols/TSX-XEQT/))"
+- If no URL was provided: use plain text. Format: "Revenue grew 30% (Shopify Q4 2025 earnings report)"
+- For dataPoints JSON: include "sourceUrl" field with the full URL when available. Example: { "label": "AUM", "value": "C$14.81B", "source": "TradingView", "sourceUrl": "https://www.tradingview.com/symbols/TSX-XEQT/" }
+- For your own training knowledge, say "(based on publicly available information)" — do NOT pretend you have a specific source.
+- This is NOT optional. Articles without source citations will be rejected.`;
+
 const AUDIENCE_RULES = `
 AUDIENCE (CRITICAL — this defines your tone):
 Your readers are everyday people: students, young professionals, first-time investors, people who just opened a TFSA and googled "what should I invest in."
@@ -76,6 +86,8 @@ ${DATA_CONFIDENCE_RULES}
 
 ${FACT_CHECK_RULES}
 
+${SOURCE_CITATION_RULES}
+
 ${SCORING_RULES}
 
 WRITING STYLE:
@@ -112,7 +124,7 @@ OUTPUT AS VALID JSON matching this structure:
   "risks": ["string — 1 sentence each, 4-6 items max. Written simply."],
   "catalysts": ["string — 1 sentence each, 4-6 items max. Explain WHY each matters."],
   "dataPoints": [
-    { "label": "string", "value": "string — use qualitative descriptors, not specific numbers unless [VERIFIED]", "source": "string" }
+    { "label": "string", "value": "string — use qualitative descriptors, not specific numbers unless [VERIFIED]", "source": "string", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
   "finalVerdict": "string — 150-250 words. Structure: Score X/10 → What's good (3 bullets) → What's concerning (3 bullets) → 'Would I put my own money here?' in 1-2 sentences. Use plain English throughout."
 }
@@ -134,6 +146,8 @@ ${AUDIENCE_RULES}
 ${DATA_CONFIDENCE_RULES}
 
 ${FACT_CHECK_RULES}
+
+${SOURCE_CITATION_RULES}
 
 ${SCORING_RULES}
 
@@ -177,7 +191,7 @@ OUTPUT AS VALID JSON matching this structure:
   "risks": ["string — 1 sentence each, 4-6 items max. Explain in plain English."],
   "catalysts": ["string — 1 sentence each, 4-6 items max. Explain WHY it matters."],
   "dataPoints": [
-    { "label": "string", "value": "string — qualitative descriptors, not specific numbers unless [VERIFIED]", "source": "string" }
+    { "label": "string", "value": "string — qualitative descriptors, not specific numbers unless [VERIFIED]", "source": "string", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
   "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not? Keep it dead simple."
 }
@@ -206,6 +220,8 @@ CRITICAL RULES:
 - For any context beyond what's visible (industry trends, competitive position), you may use general knowledge but clearly state "based on general knowledge" for any specific claims.
 - NEVER invent prices or numbers that aren't in the screenshot.
 - When you cite numbers FROM the screenshots, explain what they mean in plain English.
+
+${SOURCE_CITATION_RULES}
 
 ${SCORING_RULES}
 
@@ -242,7 +258,7 @@ OUTPUT AS VALID JSON matching this structure:
   "risks": ["string — 1 sentence each, 4-6 items max"],
   "catalysts": ["string — 1 sentence each, 4-6 items max"],
   "dataPoints": [
-    { "label": "string", "value": "string — exact numbers FROM the provided data", "source": "string — where in the data this came from" }
+    { "label": "string", "value": "string — exact numbers FROM the provided data", "source": "string — where in the data this came from", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
   "finalVerdict": "string — 150-250 words. Structure: Score X/10 → What's good (3 bullets) → What's concerning (3 bullets) → 'Would I put my own money here?' in 1-2 sentences."
 }
@@ -278,13 +294,7 @@ WRITING STYLE:
 - Be entertaining but data-driven. Every claim must reference the source data.
 - Keep it focused — compare only the stocks provided.
 
-SOURCE CITATIONS (CRITICAL — do NOT skip this):
-- When the pasted data includes markdown hyperlinks like [Source Name](https://url), you MUST preserve them in your output.
-- Every specific number (AUM, MER, return, yield, price) MUST have a source citation as a markdown hyperlink.
-- Format: "AUM of C$14.81B ([TradingView](https://www.tradingview.com/symbols/TSX-XEQT/))" — clickable link to the original source.
-- In the comparison table, add source links in the cells where possible.
-- If no URL was provided for a data point, use plain text: "(source: BMO factsheet)"
-- This is NOT optional. Articles without source links will be rejected.
+${SOURCE_CITATION_RULES}
 
 LENGTH & STRUCTURE RULES (CRITICAL — articles are too long without these):
 - "analysis" must be 400-600 words MAX. Use clear markdown headers. No rambling.
@@ -319,7 +329,7 @@ OUTPUT AS VALID JSON matching this structure:
   "risks": ["string — 1 sentence each, 4-6 items max. Plain English."],
   "catalysts": ["string — 1 sentence each, 4-6 items max. Explain WHY it matters."],
   "dataPoints": [
-    { "label": "string", "value": "string — exact numbers FROM the provided data", "source": "string — where in the data this came from" }
+    { "label": "string", "value": "string — exact numbers FROM the provided data", "source": "string — where in the data this came from", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
   "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not?"
 }
@@ -336,6 +346,8 @@ export const TAKE_PROMPT = `You are a writer at ${siteConfig.name} — an AI-dri
 Your job: Take a piece of financial news and explain what it means for everyday investors. No speculation. No predictions. Just facts explained simply.
 
 ${AUDIENCE_RULES}
+
+${SOURCE_CITATION_RULES}
 
 WRITING STYLE:
 - Write like you're explaining the news to a friend over coffee.
@@ -365,7 +377,7 @@ OUTPUT AS VALID JSON matching this structure:
   "risks": ["string — 1 sentence each, 3-4 items. Things that could go wrong."],
   "catalysts": ["string — 1 sentence each, 3-4 items. Things that could go right."],
   "dataPoints": [
-    { "label": "string", "value": "string", "source": "string — where this fact came from" }
+    { "label": "string", "value": "string", "source": "string — where this fact came from", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
   "finalVerdict": "string — 50-100 words. The 'so what' for everyday investors. What should they do? (Usually: don't panic, stay informed, keep your plan.)"
 }
@@ -385,6 +397,8 @@ Your job: The user has submitted their own list of stocks/ETFs. Run an eliminati
 ${AUDIENCE_RULES}
 
 ${FACT_CHECK_RULES}
+
+${SOURCE_CITATION_RULES}
 
 ${SCORING_RULES}
 
@@ -434,7 +448,7 @@ OUTPUT AS VALID JSON matching this structure:
   "risks": ["string — 1 sentence each, 4-6 items max"],
   "catalysts": ["string — 1 sentence each, 4-6 items max"],
   "dataPoints": [
-    { "label": "string", "value": "string — qualitative descriptors preferred", "source": "string" }
+    { "label": "string", "value": "string — qualitative descriptors preferred", "source": "string", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
   "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not?"
 }

@@ -36,7 +36,13 @@ export default function DataPoints({ dataPoints, inline, provenance }: DataPoint
             {sourceText && (
               <p className="text-[10px] text-muted-light mt-1.5 flex items-center gap-1">
                 <span className="opacity-60">&#9432;</span>
-                {sourceText}
+                {dp.sourceUrl ? (
+                  <a href={dp.sourceUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+                    {sourceText}
+                  </a>
+                ) : (
+                  sourceText
+                )}
               </p>
             )}
           </div>

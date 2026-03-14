@@ -52,6 +52,7 @@ export interface DataPoint {
   label: string;
   value: string;
   source?: string;
+  sourceUrl?: string;
 }
 
 export interface CatalystDetail {
