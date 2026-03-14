@@ -54,7 +54,17 @@ COMMON AI MISTAKES (DO NOT REPEAT THESE):
 - "Year gain" must be calculated from the price 12 months ago to today, NOT from the 52-week low. Gains from the 52-week low overstate returns.
 - The S&P 500 (and VFV) is heavily concentrated in technology (~35%). Do NOT say "no single sector dominates."
 - A stronger Canadian dollar REDUCES USD-denominated returns when converted to CAD, it does NOT create "currency gains."
-- Always distinguish between MER (Management Expense Ratio, includes all costs) and management fee (lower, excludes trading costs). They are NOT the same number.`;
+- Always distinguish between MER (Management Expense Ratio, includes all costs) and management fee (lower, excludes trading costs). They are NOT the same number.
+
+ANTI-HALLUCINATION RULES (CRITICAL — these catch the most common AI errors):
+1. PROJECTED ≠ CURRENT: If a fee cut was announced but the MER hasn't officially updated yet, say "management fee was cut to X%, MER is still reported at Y% and expected to drop at next fiscal year-end." NEVER present a projected future MER as a current fact.
+2. "0% management fee" MUST always include context: if the fund still charges costs via underlying holdings, state the effective all-in cost (e.g., "0% management fee but 0.39% effective MER from underlying fund costs").
+3. DO NOT USE NUMBERS NOT IN THE PASTED DATA. If a return, price, or AUM was not in the pasted data, do NOT invent one. Say "data not available" or describe qualitatively.
+4. UNVERIFIED DATA: If the pasted data marks something as UNVERIFIED or shows conflicting sources, you MUST flag it in the article. Do not silently pick one number.
+5. SCORING HONESTY: If two products are nearly identical (same concept, similar MER, similar returns), their scores must be within 0.5 points of each other. Do NOT inflate small differences. A 0.04% MER difference is NOT worth a full point.
+6. AUM CONTEXT: C$100M+ AUM is adequate for a Canadian ETF. Only call something "tiny" if AUM is under C$50M. C$450M is mid-sized, not tiny.
+7. DISTRIBUTION FREQUENCY is not a meaningful differentiator. Do NOT claim annual distributions are "cleaner for tax" or "simpler" — brokerages handle tax slips regardless of frequency.
+8. NEVER fabricate a return figure. If Yahoo Finance shows a "YTD" number that looks like a 1-year trailing return, flag the discrepancy instead of using it.`;
 
 const SCORING_RULES = `
 SCORING SYSTEM (1-10 scale):
