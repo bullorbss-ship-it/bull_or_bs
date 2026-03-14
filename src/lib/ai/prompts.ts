@@ -1,14 +1,20 @@
 import { siteConfig } from '@/config/site';
 
 const SOURCE_CITATION_RULES = `
-SOURCE CITATIONS (CRITICAL — do NOT skip this):
-- When the pasted data includes markdown hyperlinks like [Source Name](https://url), you MUST preserve them in your output.
-- Every specific number (AUM, MER, return, yield, price) MUST have a source citation.
-- If a URL was provided: use a markdown hyperlink. Format: "AUM of C$14.81B ([TradingView](https://www.tradingview.com/symbols/TSX-XEQT/))"
-- If no URL was provided: use plain text. Format: "Revenue grew 30% (Shopify Q4 2025 earnings report)"
-- For dataPoints JSON: include "sourceUrl" field with the full URL when available. Example: { "label": "AUM", "value": "C$14.81B", "source": "TradingView", "sourceUrl": "https://www.tradingview.com/symbols/TSX-XEQT/" }
-- For your own training knowledge, say "(based on publicly available information)" — do NOT pretend you have a specific source.
-- This is NOT optional. Articles without source citations will be rejected.`;
+SOURCE CITATIONS (CRITICAL — this is what makes us credible):
+- EVERY specific number (AUM, MER, return, yield, price, revenue, earnings, ratio) MUST have an inline source hyperlink.
+- Format: "AUM of C$14.81B ([TradingView](https://www.tradingview.com/symbols/TSX-XEQT/))" — the source link goes RIGHT NEXT to the number.
+- When the pasted data includes markdown hyperlinks like [Source Name](https://url), you MUST preserve them exactly. Do NOT strip URLs.
+- If a URL was provided in the pasted data: use it as a markdown hyperlink. NEVER drop a URL that was given to you.
+- If no URL but a source name was given: use plain text citation. Format: "Revenue grew 30% (Shopify Q4 2025 earnings report)"
+- If you have NO source for a number: do NOT state it as fact. Say "approximately" with "(based on publicly available information)" or omit the number entirely.
+- ZERO tolerance for unsourced specific numbers. If you can't cite it, don't claim it.
+- For dataPoints JSON: ALWAYS include both "source" and "sourceUrl" fields. Every data card must link to where the reader can verify.
+  Example: { "label": "AUM", "value": "C$14.81B", "source": "TradingView", "sourceUrl": "https://www.tradingview.com/symbols/TSX-XEQT/" }
+- For candidate reasonConsidered/reasonEliminated: include inline source links for every data claim.
+- For analysis text: every paragraph with a number must have at least one source link.
+- For risks and catalysts: if stating a specific figure, cite it.
+- Articles without source citations WILL BE REJECTED. Non-negotiable.`;
 
 const AUDIENCE_RULES = `
 AUDIENCE (CRITICAL — this defines your tone):

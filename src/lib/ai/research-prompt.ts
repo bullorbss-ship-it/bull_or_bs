@@ -8,11 +8,13 @@ const RESEARCH_TEMPLATE = `ROLE: You are a financial research analyst. Pull VERI
 
 CRITICAL RULES — DO NOT BREAK THESE:
 1. SEARCH BEFORE YOU ANSWER. Use web search for EVERY data point. Do NOT rely on training data for any numbers.
-2. CITE YOUR SOURCE for every number inline as (Source).
-3. If you cannot verify a number, write **UNVERIFIED** next to it.
-4. NEVER interpolate, estimate, or round AUM/market cap figures.
-5. If two sources conflict, show BOTH numbers and flag it.
-6. Check for RECENT fee changes, restructurings, or name changes (last 12 months).
+2. CITE YOUR SOURCE with a clickable markdown hyperlink for every number. Format: [Source Name](https://full-url). Example: "AUM: C$14.81B [TradingView](https://www.tradingview.com/symbols/TSX-XEQT/)"
+3. The Source column in the table MUST contain a markdown hyperlink, not just a name. Example: [Yahoo Finance](https://finance.yahoo.com/quote/XEQT.TO/)
+4. If you cannot verify a number, write **UNVERIFIED** next to it.
+5. NEVER interpolate, estimate, or round AUM/market cap figures.
+6. If two sources conflict, show BOTH numbers with BOTH source links and flag it.
+7. Check for RECENT fee changes, restructurings, or name changes (last 12 months).
+8. The output will be pasted into an article generator. Source URLs MUST be included so they carry through to the final article.
 
 SEARCH STRATEGY (follow this order):
 - Yahoo Finance — price, AUM, yield, P/E, beta, 52-week range, YTD return
@@ -99,11 +101,12 @@ const NEWS_RESEARCH_TEMPLATE = `ROLE: You are a news research assistant. Researc
 
 CRITICAL RULES — DO NOT BREAK THESE:
 1. SEARCH THE WEB for every claim. Do NOT rely on training data alone.
-2. Every fact MUST include the source URL in parentheses — e.g. "Anthropic raised $2B (https://reuters.com/...)".
-3. If you cannot find a verifiable source for a claim, do NOT include it.
-4. Facts only — NO opinions, NO predictions, NO speculation.
-5. Focus on news from the last 30 days. If using older context, clearly label it as "BACKGROUND".
-6. If two sources conflict, show BOTH and flag the discrepancy.
+2. Every fact MUST include the source as a markdown hyperlink — e.g. "Anthropic raised $2B ([Reuters](https://reuters.com/...))".
+3. Use markdown link format [Source Name](URL) — NOT bare URLs. The output gets pasted into an article generator that renders these as clickable links.
+4. If you cannot find a verifiable source for a claim, do NOT include it.
+5. Facts only — NO opinions, NO predictions, NO speculation.
+6. Focus on news from the last 30 days. If using older context, clearly label it as "BACKGROUND".
+7. If two sources conflict, show BOTH with source links and flag the discrepancy.
 
 SEARCH STRATEGY:
 - Major wire services: Reuters, AP, Bloomberg, CNBC
