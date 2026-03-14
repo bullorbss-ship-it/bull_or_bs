@@ -86,6 +86,9 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
   const gradeColor = getGradeColor(grade);
   const isNumeric = !isNaN(parseInt(grade, 10));
   const isRoast = articleType === 'roast';
+  const isTake = articleType === 'take';
+  const badgeLabel = isRoast ? 'THE ROAST' : isTake ? 'NEWS TAKE' : 'AI PICK';
+  const badgeColor = isRoast ? '#EF4444' : isTake ? '#3B82F6' : '#10B981';
 
   return (
     <div
@@ -106,8 +109,8 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
           style={{
             fontSize: 18,
             fontWeight: 700,
-            color: isRoast ? '#EF4444' : '#10B981',
-            backgroundColor: isRoast ? 'rgba(239, 68, 68, 0.15)' : 'rgba(16, 185, 129, 0.15)',
+            color: badgeColor,
+            backgroundColor: `${badgeColor}26`,
             padding: '8px 20px',
             borderRadius: '9999px',
             fontFamily: 'monospace',
@@ -115,7 +118,7 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
             letterSpacing: '0.05em',
           }}
         >
-          {isRoast ? 'THE ROAST' : 'AI PICK'}
+          {badgeLabel}
         </span>
       </div>
 
@@ -257,5 +260,8 @@ export async function GET(request: Request) {
   return new ImageResponse(element, {
     width: 1200,
     height: 630,
+    headers: {
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800',
+    },
   });
 }
