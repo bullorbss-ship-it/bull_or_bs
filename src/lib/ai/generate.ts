@@ -294,7 +294,7 @@ Include a comparison table in your analysis.
 
 Return ONLY valid JSON.`;
 
-  const response = await callAI(SCREENSHOT_PICK_PROMPT, userMessage, 8000, media.length > 0 ? media : undefined);
+  const response = await callAI(SCREENSHOT_PICK_PROMPT, userMessage, 12000, media.length > 0 ? media : undefined);
 
   const durationMs = Date.now() - start;
 
