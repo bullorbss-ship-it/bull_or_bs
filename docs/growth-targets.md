@@ -24,40 +24,37 @@ Launch date: March 2026
 
 ## Monthly Operating Costs by Phase
 
-### Starter (Month 1-3): ~$3.50/mo
+### Starter (Month 1-3): ~$2.00/mo (CURRENT — as of March 2026)
 | Item | Cost |
 |---|---|
 | Domain (Cloudflare, $10/yr) | $0.83 |
-| Hosting (Render free) | $0 |
-| AI — Roasts (3x/week, Sonnet) | $2.40 |
-| AI — Picks (1x/week, Haiku) | $0.25 |
+| Hosting (Vercel free) | $0 |
+| AI — All articles (Haiku 4.5, ~60/mo) | ~$1.20 |
 | X API (free tier) | $0 |
 | Reddit (manual) | $0 |
 | Instagram (manual + free tools) | $0 |
 | GA4 + Search Console | $0 |
 | Beehiiv newsletter (free tier) | $0 |
 
-### Growth (Month 4-6): ~$15/mo
+### Growth (Month 4-6): ~$12/mo
 | Item | Cost |
 |---|---|
 | Domain | $0.83 |
-| Hosting (Render free) | $0 |
-| AI — Roasts (5x/week, Sonnet) | $4.00 |
-| AI — Picks (2x/week, Haiku) | $0.50 |
+| Hosting (Vercel free) | $0 |
+| AI — All articles (Haiku 4.5, ~100/mo) | ~$2.00 |
 | AI — Premium reports (5/mo, Opus) | $10.00 |
 | X API (free tier) | $0 |
 | Buffer (free tier) | $0 |
 | Canva (free tier) | $0 |
 | **Revenue offset (5 × $20 reports)** | **-$100** |
-| **Net: -$85 (profit)** | |
+| **Net: -$88 (profit)** | |
 
-### Full Scale (Month 7-12): ~$60/mo
+### Full Scale (Month 7-12): ~$50/mo
 | Item | Cost |
 |---|---|
 | Domain | $0.83 |
-| Hosting (Render paid, if needed) | $7.00 |
-| AI — Roasts (daily, Sonnet) | $6.00 |
-| AI — Picks (2x/week, Haiku) | $0.50 |
+| Hosting (Vercel free or Pro $20 if needed) | $0-20 |
+| AI — All articles (Haiku 4.5, ~200/mo) | ~$4.00 |
 | AI — Premium reports (20/mo, Opus) | $40.00 |
 | X API (free tier) | $0 |
 | Buffer (paid, all channels) | $6.00 |

@@ -141,7 +141,7 @@ Every page follows this dopamine loop:
 
 ## Distribution Strategy (Channel-Specific Psychology)
 
-### 1. X / Twitter (@bullorbs)
+### 1. X / Twitter (@bull_or_bs)
 - Auto-post on article publish (X API free tier, 1,500 posts/month)
 - Format: bold claim + grade + "Full analysis →" link
 - Use controversy: "Motley Fool says buy SHOP. We gave it a C+. Here's why."
@@ -155,7 +155,7 @@ Every page follows this dopamine loop:
 - Psychology: Reddit rewards authenticity + depth. Be the helpful expert, not the marketer
 - Risk: full automation = shadowban. Manual review is mandatory
 
-### 3. Instagram (@bullorbs)
+### 3. Instagram (@bull_or_bs)
 - Auto-generate stock analysis image cards (sharp/canvas)
 - Format: ticker + grade + 3 key data points on branded card
 - Stories: "Swipe to see this week's grade" — variable reward

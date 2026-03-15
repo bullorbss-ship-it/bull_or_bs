@@ -1,24 +1,24 @@
 # BullOrBS — Project Status & Roadmap
-**Last updated: 2026-03-13**
+**Last updated: 2026-03-15**
 
 ---
 
-## What's Done (Launch + Day 1)
+## What's Done (Launch + Week 1)
 
 ### Core Platform
 - [x] Next.js 16 App Router + Tailwind CSS v4
 - [x] Vercel free tier deployment with auto-deploy from main (migrated from Render)
 - [x] Cloudflare DNS (bullorbs.com + www)
-- [x] GA4 analytics + Google Search Console verified
-- [x] Sitemap, robots.txt, RSS feed auto-generated
+- [x] GA4 analytics (G-E7ZLH22KZ1) + Google Search Console verified
+- [x] Sitemap, robots.txt, RSS feed, news sitemap auto-generated
 
 ### Content & SEO
-- [x] 167+ stock/ETF ticker pages with FAQ schema (93 static + dynamic)
-- [x] 20+ articles published (7 roasts + 5 picks + 1 screenshot pick + 4 news takes)
+- [x] 115 static tickers + 91 stock profiles (data/stocks/*.json)
+- [x] 34 articles published (10 roasts + 7 picks + 17 news takes)
 - [x] Programmatic SEO: every /stock/[ticker] targets "should I buy [TICKER]"
-- [x] Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation
-- [x] Learn section: /learn/ with TFSA, RRSP, FHSA guides
-- [x] About, disclaimer, methodology, 404 pages
+- [x] Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation, Review
+- [x] Learn section: 5 guides (TFSA, RRSP, FHSA, Dividend Investing, US Stocks from Canada)
+- [x] About, disclaimer, methodology, editorial standards, privacy, terms, 404 pages
 
 ### AI Generation Pipeline
 - [x] Haiku 4.5 primary (~$0.02/article), OpenRouter free fallback
@@ -29,7 +29,7 @@
 - [x] Cost tracking: every run logged to data/costs.json
 
 ### Data & Profiles
-- [x] 93+ stock/ETF JSON profiles (data/stocks/*.json)
+- [x] 91 stock/ETF JSON profiles (data/stocks/*.json)
 - [x] Dynamic ticker registry: auto-registers unknown tickers from articles
 - [x] Profile auto-update: article dataPoints update ALL candidate profiles
 - [x] Profile refresh via Gemini Flash (free web search → diff → update)
@@ -40,7 +40,8 @@
 - [x] TFSA guide: /learn/tfsa — contribution limits, rules, strategies
 - [x] RRSP guide: /learn/rrsp — tax deductions, HBP, withdrawal rules
 - [x] FHSA guide: /learn/fhsa — new account type, eligibility, strategies
-- [ ] More guides planned (see Priority 3 below)
+- [x] Dividend Investing guide: /learn/dividend-investing — yields, DRIP, tax credit, red flags
+- [x] US Stocks from Canada guide: /learn/us-stocks-from-canada — Norbert's Gambit, W-8BEN, withholding tax
 
 ### Admin Dashboard (/orange)
 - [x] Password-protected admin panel
@@ -53,48 +54,51 @@
 ### Infrastructure
 - [x] EST timezone for all dates (src/lib/date.ts)
 - [x] Article sorting by createdAt (newest first, git-history-accurate)
-- [x] Pre-deploy pipeline: 9 gates (type-check, lint, SAST, SEO, legal, content-audit, docs, docs-check)
-- [x] Rate limiting + security headers
-- [x] Timing-safe auth, brute-force protection
+- [x] Pre-deploy pipeline: 8 gates (type-check, lint, SAST, SEO, legal, content-audit, docs, docs-check)
+- [x] Rate limiting on all API routes + security headers in next.config.ts
+- [x] Timing-safe HMAC auth, brute-force protection (5 attempts/15 min)
 - [x] Inline source hyperlinks: every number links to original source (Yahoo Finance, BlackRock, etc.)
 - [x] Anti-hallucination guardrails: 8 specific rules from observed Haiku errors
 - [x] Auto-linkify all registered tickers mentioned in article text
 - [x] Delete articles from dashboard (two-step confirmation)
-- [x] Dynamic OG images via /og route (stock, article, default variants)
+- [x] Dynamic OG images via /og route (stock, article, default variants) — nodejs runtime
 - [x] Twitter/X card meta tags (summary_large_image)
+- [x] News sitemap for Google News (last 2 days)
+- [x] Bracket builder (/bracket) — user-submitted AI tournaments (feature-flagged)
+- [x] Ad pixels (Meta, X, Google Ads) infrastructure ready
 
 ---
 
 ## What's Next (Priority Order)
 
-### Priority 1: Content Volume (NOW — Week of March 10)
-**Goal: 20+ articles by end of week. Content is the moat.**
-- [ ] Generate 2-3 articles/day using text-paste workflow
+### Priority 1: Content Volume (ONGOING)
+**Goal: 3-4 news takes/day + 1-2 roasts/picks per week. Content is the moat.**
+- [x] 34 articles published in first week (10 roasts, 7 picks, 17 takes)
+- [ ] Continue 3-4 takes/day cadence (safest content type for volume)
 - [ ] Focus on high-search-volume tickers: AAPL, MSFT, NVDA, AMZN, GOOGL, TSLA
 - [ ] Canadian focus: RY, TD, ENB, CNR, BCE, SU, BNS
 - [ ] Topic picks: "best dividend stock", "best tech stock", "best Canadian bank"
-- [ ] Every article → auto-registers tickers + updates profiles
 
-### Priority 2: Reddit Distribution (THIS WEEK)
+### Priority 2: Reddit Distribution (IN PROGRESS)
 **Goal: First organic traffic from Reddit.**
-- [ ] Create Reddit throwaway account (maintain anonymity)
-- [ ] Build karma in r/CanadianInvestor, r/PersonalFinanceCanada
+- [x] Reddit account created (building karma — account too new for self-promotion)
+- [ ] Build karma in r/CanadianInvestor, r/PersonalFinanceCanada (targeting 2-3 weeks)
 - [ ] Post first roast as text post with link (anti-Motley-Fool angle)
 - [ ] Answer "should I buy X?" questions with real analysis + link
 - [ ] Do NOT spam — genuine contributions with occasional links
 
-### Priority 3: Financial Education + SEO Landing Pages (Week 2)
-**Goal: Become the go-to Canadian financial literacy resource for young investors.**
+### Priority 3: SEO Landing Pages (Week 2-3)
+**Goal: Capture Motley Fool's ad keywords with better content.**
 
 **New /learn guides (high-SEO-value, evergreen):**
-- [ ] /learn/dividend-investing — how dividends work, DRIP, yield vs growth
+- [x] /learn/dividend-investing — DONE (yields, DRIP, tax credit, red flags)
+- [x] /learn/us-stocks-from-canada — DONE (Norbert's Gambit, W-8BEN, withholding)
 - [ ] /learn/etf-basics — what ETFs are, MER, how to pick one
 - [ ] /learn/how-to-start-investing — beginner guide for 20-somethings
 - [ ] /learn/tax-loss-harvesting — Canadian-specific rules
-- [ ] /learn/us-stocks-from-canada — withholding tax, RRSP trick, currency
 - [ ] /learn/index-investing — XEQT/VEQT/VFV explained simply
 
-**SEO landing pages (target Motley Fool's ad keywords):**
+**SEO landing pages:**
 - [ ] /best-stocks-under-50 — curated from picks data
 - [ ] /tsx-sleeper-stocks-2026 — Canadian focus
 - [ ] /best-dividend-stocks-canada — filtered from ETF/stock analysis
@@ -114,7 +118,7 @@
 - [ ] Grade badge visual upgrade (larger, CSS pulse animation)
 - [ ] Empty stock pages: "Analysis coming soon" + subscribe CTA
 - [ ] Dark mode verification across all pages
-- [ ] OG image generation (Next.js ImageResponse)
+- [x] OG image generation — DONE (dynamic /og route with stock, article, default variants)
 
 ### Priority 6: Email Newsletter (Month 2)
 - [ ] Beehiiv integration (migrate from JSON subscriber storage)
@@ -161,12 +165,12 @@ Key decisions:
 ## Cost Model
 | Item | Cost |
 |---|---|
-| Article generation (Haiku) | ~$0.02/article |
+| Article generation (Haiku 4.5) | ~$0.02/article |
 | Vercel hosting | $0 (free tier) |
 | Cloudflare DNS | $0 |
 | Domain (bullorbs.com) | ~$10/year |
-| **Monthly (20 articles)** | **~$0.40 + $0.83 domain** |
-| **Yearly (500 articles)** | **~$10 + $10 domain** |
+| **Monthly (~60 articles at current pace)** | **~$1.20 + $0.83 domain** |
+| **Yearly (1000+ articles)** | **~$20 + $10 domain** |
 
 ## Content Workflow
 ```

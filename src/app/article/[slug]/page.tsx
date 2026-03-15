@@ -124,7 +124,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       tags: article.tags,
       images: [
         {
-          url: `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&v=${encodeURIComponent(article.date || '1')}`,
+          url: `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}`,
           width: 1200,
           height: 630,
           alt: `${article.title}`,
@@ -135,7 +135,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
-      images: [`${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&v=${encodeURIComponent(article.date || '1')}`],
+      images: [`${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}`],
     },
   };
 }

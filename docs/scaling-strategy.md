@@ -6,23 +6,23 @@ Stay static as long as possible. Static pages = infinite scale at near-zero cost
 
 ---
 
-## Tier 1: 0-5K visitors/mo (CURRENT)
-**Stack:** Render free tier + Cloudflare DNS
+## Tier 1: 0-5K visitors/mo (CURRENT — as of March 2026)
+**Stack:** Vercel free tier + Cloudflare DNS
 **Cost:** $0.83/mo (domain only)
 
 | Component | Solution | Limit |
 |---|---|---|
-| Hosting | Render free tier | 750 hrs/mo, sleeps after 15 min |
+| Hosting | Vercel free tier | No cold starts, auto-deploy from GitHub |
 | CDN/DNS | Cloudflare free | Unlimited bandwidth, DDoS protection |
-| Content storage | JSON files on disk | Fine for <100 articles |
-| Rate limiting | In-memory (middleware.ts) | Resets on deploy, sufficient for now |
-| Email subscribers | JSON file (data/subscribers.json) | Fine for <100 subs |
-| Keep-alive | External pinger (cron-job.org/UptimeRobot) | Prevents cold starts |
+| Content storage | JSON files in repo (content/) | Fine for <100 articles |
+| Rate limiting | In-memory (per-route, src/lib/rate-limit.ts) | Resets on deploy, sufficient for now |
+| Email subscribers | JSON file via GitHub Contents API | Fine for <100 subs |
+| Static generation | Next.js SSG at build time | All stock/article pages pre-rendered |
 
 **Bottlenecks at this tier:**
-- Render cold starts (mitigated by pinger)
-- 512MB RAM limit on free tier
-- No persistent disk (files reset on deploy)
+- Vercel free tier limits (100GB bandwidth/mo, 100 deployments/day)
+- No persistent server-side state (rate limits reset per instance)
+- Content stored in git repo (needs GitHub API for writes)
 
 ---
 
@@ -128,12 +128,12 @@ Render or Cloudflare Workers (API)
 ## Migration Checklist (When Moving Tiers)
 
 ### Tier 1 → Tier 2
-- [ ] Upgrade Render plan to Starter ($7/mo)
+- [ ] Monitor Vercel bandwidth usage — upgrade to Pro ($20/mo) if hitting 100GB
 - [ ] Add `revalidate` to stock + article pages (ISR)
 - [ ] Set up Cloudflare cache rules in dashboard
-- [ ] Add Cache-Control headers in middleware
+- [ ] Add Cache-Control headers for static pages
 - [ ] Migrate subscribers to Beehiiv
-- [ ] Verify persistent disk stores content between deploys
+- [ ] Consider moving content to a database (D1 or Supabase)
 
 ### Tier 2 → Tier 3
 - [ ] Set up Cloudflare Pages project
@@ -156,6 +156,6 @@ Render or Cloudflare Workers (API)
 - Don't scale before you need to — premature optimization kills momentum
 - Don't add a database until JSON files become a bottleneck (>500 articles)
 - Don't split frontend/API until latency or bandwidth is a real problem
-- Don't buy Vercel Pro when Cloudflare Pages does the same for free
+- Don't upgrade Vercel to Pro until bandwidth is a real bottleneck
 - Don't add Redis when in-memory rate limiting handles your traffic fine
 - Every tier change should be preceded by 2+ weeks of data showing the bottleneck

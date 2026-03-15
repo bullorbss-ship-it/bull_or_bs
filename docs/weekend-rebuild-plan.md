@@ -26,16 +26,14 @@
 - [x] Rename docs/notsofoolai-strategy.md → docs/bullorbs-strategy.md
 - [x] Remove Motley Fool trademark from disclaimer (generic "any publication" now)
 
-### Block 0B: DNS + Infra Swap (Rishi — 15 min)
-- [ ] Cloudflare: add bullorbs.com DNS records pointing to Render
-- [ ] Render: update custom domain → bullorbs.com
-- [ ] GitHub: rename repo (notsofoolai → bullorbs)
-- [ ] Create `dev` branch from `main` (all dev work on dev, merge to main to deploy)
-- [ ] Render: keep auto-deploy pointed at `main` only
-- [ ] Create new git identity for commits (bullorbs)
-- [ ] Create @bullorbs on X, Instagram
-- [ ] Create bullorbs@proton.me email (for GA4/Search Console)
-- [ ] Take down notsofoolai.com (remove Render custom domain + Cloudflare DNS)
+### Block 0B: DNS + Infra Swap (Rishi — 15 min) — DONE
+- [x] Cloudflare: bullorbs.com DNS → Vercel (A record 216.198.79.1, www CNAME)
+- [x] Vercel: connected via notsofoolai GitHub account, auto-deploy from main
+- [x] GitHub: repo at github.com/bullorbss-ship-it/bull_or_bs
+- [x] Git identity: BullOrBS <bull.or.bss@gmail.com>
+- [x] Create @bull_or_bs on X, Instagram, TikTok, YouTube
+- [x] Email: bull.or.bss@gmail.com
+- [x] notsofoolai.com taken down
 
 ### Block 0C: Branding Assets — DONE
 - [x] Logo wordmark: public/logo.svg — "Bull Or BS" monospace
@@ -51,147 +49,107 @@
 - [x] globals.css full rewrite
 - [ ] Grade badges CSS (72-120px, color-coded circles)
 
-### Block 2: SEO Schema Engine (Claude codes)
-- [ ] breadcrumbSchema() helper in seo.ts
-- [ ] corporationSchema(ticker, company, exchange) helper
-- [ ] newsArticleSchema() for roasts/picks
-- [ ] Expand faqSchema() to 5-10 questions per stock page
-- [ ] BreadcrumbList JSON-LD on stock + article pages
-- [ ] Corporation+tickerSymbol on every stock mention
-- [ ] Long-tail H1s: "Should You Buy SHOP? Shopify Stock Analysis"
+### Block 2: SEO Schema Engine — DONE
+- [x] breadcrumbSchema() helper in seo.ts
+- [x] corporationSchema(ticker, company, exchange) helper
+- [x] newsArticleSchema() for news takes
+- [x] Expand faqSchema() to 10 questions per stock page
+- [x] BreadcrumbList JSON-LD on stock + article pages
+- [x] Corporation+tickerSymbol on every stock mention
+- [x] Long-tail H1s: "Should You Buy SHOP? Shopify Stock Analysis"
 
-### Block 3: OG Image Generation (Claude codes)
-- [ ] Dynamic OG images via Next.js ImageResponse (src/app/og/route.tsx)
-- [ ] Stock pages: ticker + company + exchange + sector on branded template
-- [ ] Article pages: headline + grade badge + type (Roast/Pick)
-- [ ] Default fallback OG image for homepage (uses public/logo.svg)
-- [ ] Wire og:image into metadata on every page
+### Block 3: OG Image Generation — DONE
+- [x] Dynamic OG images via /og route (src/app/og/route.tsx, nodejs runtime)
+- [x] Stock pages: ticker + company + exchange on branded template
+- [x] Article pages: headline + grade badge + type (Roast/Pick/Take)
+- [x] Default fallback OG image for homepage
+- [x] Wire og:image into metadata on every page
 
-### Block 4: Internal Linking Overhaul (Claude codes)
-- [ ] Tournament.tsx: every ticker clickable → /stock/[ticker]
-- [ ] Article page: breadcrumb nav (Home > Roasts > SHOP Roast)
-- [ ] Article page: link to ticker page (/stock/shop)
-- [ ] Article page: "Related articles" section
-- [ ] Stock page: "See more in [Sector]" link
-- [ ] About page: add links to /stock, sample article
-- [ ] Disclaimer page: add links to /about, /stock
-- [ ] Stock index: sectors clickable (filter or anchor)
+### Block 4: Internal Linking Overhaul — DONE
+- [x] Tournament.tsx: every ticker clickable → /stock/[ticker]
+- [x] Article page: breadcrumb nav (Home > Roasts > SHOP Roast)
+- [x] Article page: link to ticker page (/stock/shop)
+- [x] Auto-linkify ALL registered tickers in article text
+- [x] Stock page: sector peers linked
+- [x] About page: links to /stock, /methodology, /disclaimer
+- [x] Disclaimer page: links to /about, /stock, /methodology
+- [x] Stock index: searchable + sector-filtered grid
 
-### Block 5: New Pages (Claude codes)
-- [ ] 404 page (not-found.tsx) — branded, stock browsing CTA
-- [ ] Methodology page (/methodology) — how AI works, data sources, grading (E-E-A-T)
+### Block 5: New Pages — DONE
+- [x] 404 page (not-found.tsx) — branded, stock browsing CTA
+- [x] Methodology page (/methodology) — scoring system, tournament mechanics
+- [x] Editorial standards page (/editorial)
+- [x] Privacy policy (/privacy), Terms of service (/terms)
 
-### Block 6: Branding Integration (Claude codes)
-- [ ] Logo SVG in Header (replace text-only branding with public/logo.svg or inline SVG)
-- [ ] Logo SVG in Footer
-- [ ] Favicon swap: convert icon.svg → favicon.ico (replace src/app/favicon.ico)
-- [ ] Apple touch icon from icon.svg
-- [ ] "Made in Canada" maple leaf badge (use star from profile.svg)
-- [x] Brand assets in /public/ — done
+### Block 6: Branding Integration — DONE
+- [x] Logo SVG in Header + Footer
+- [x] Favicon: icon.svg in src/app/
+- [x] Brand assets in /public/
+- [x] Three-color branding: "Bull" (navy) "Or" (gray) "BS" (green)
 
 ---
 
 ## SUNDAY — Admin, Quality Gates, Content, Deploy
 
-### Block 7: Admin Dashboard (Claude codes — mobile-friendly)
-- [ ] /admin page — password-protected (ADMIN_PASSWORD env var)
-- [ ] Draft queue: list pending articles with quality scores
-- [ ] One-tap APPROVE button (big, green, works on phone)
-- [ ] One-tap REJECT button
-- [ ] Inline edit: headline + verdict before publish
-- [ ] Mobile-responsive: phone-friendly at 7 AM
-- [ ] On approve: saves to content/, triggers rebuild
+### Block 7: Admin Dashboard — DONE
+- [x] /orange page — password-protected (ADMIN_PASSWORD env var)
+- [x] Generate tab: roast, pick, data-roast, data-pick, take forms
+- [x] Articles tab: list all with "Publish & Save to Repo" + delete (two-step)
+- [x] Costs tab: per-run detail, monthly breakdown, yearly projection
+- [x] Subscribers tab: fetch from GitHub Contents API
+- [x] Social distribution: generate Reddit/X/Instagram copy
+- [x] Preview before publish workflow
+- [x] Fact-check gate: blocks new roasts/picks if 5+ unchecked
 
-### Block 8: Quality Gate System (Claude codes)
-- [ ] validateArticle() in src/lib/quality.ts
-  - Valid JSON structure
-  - 3+ data points with sources
-  - 3+ risks AND 3+ catalysts
-  - Analysis > 500 words
-  - Grade present (A-F)
-  - All candidates have scores
-  - No hallucinated tickers (check against tickers.ts)
-- [ ] Quality score (0-100) displayed on admin dashboard
+### Block 8: Quality Gate System — DONE
+- [x] validateArticle() in src/lib/quality.ts
+- [x] Validates: JSON structure, data points, risks/catalysts, analysis length, grades, tickers
 
-### Block 9: Article Page Redesign (Claude codes)
-- [ ] Grade badge: HUGE, color-coded, above the fold
-- [ ] Hook sequence: Grade → Data table → Tournament → Analysis → Verdict
-- [ ] Reading time estimate at top
-- [ ] "Next analysis →" link at bottom
-- [ ] Social proof placeholder: "X people read this"
+### Block 9: Article Page Redesign — DONE
+- [x] Grade badge: color-coded ScoreGauge component (1-10 and A-F)
+- [x] Hook sequence: Grade → Data table → Tournament → Analysis → Verdict
+- [x] Reading time estimate at top
+- [x] "Next analysis →" link at bottom
+- [x] ConsentGate: AI disclosure overlay
+- [x] ScrollTracker: scroll depth analytics
 
-### Block 10: GA4 + Search Console (Rishi — 30 min)
-- [ ] analytics.google.com → create property → get G-XXXXXXXXXX
-- [ ] Add NEXT_PUBLIC_GA_ID to Render env vars
-- [ ] search.google.com/search-console → add domain
-- [ ] Add TXT record in Cloudflare DNS → verify
-- [ ] Submit sitemap: bullorbs.com/sitemap.xml
+### Block 10: GA4 + Search Console — DONE
+- [x] GA4: G-E7ZLH22KZ1 (NEXT_PUBLIC_GA_ID)
+- [x] Search Console: verified, sitemap submitted
+- [x] Cloudflare DNS records configured
 
-### Block 11: Generate First Real Articles (Claude codes + API)
-- [ ] RY (Royal Bank) roast — most searched Canadian stock
-- [ ] SHOP (Shopify) roast — tech sector
-- [ ] AI Pick of the week — first tournament
+### Block 11: First Articles — DONE
+- [x] 10 roasts (RY, SHOP×2, TSLA, OTEX, SU.TO, CSU.TO, ORCL, ADOBE, CVX)
+- [x] 7 picks (energy, EV, dividend, defense AI, XEQT ETF comparison, etc.)
+- [x] 17 news takes
 
-### Block 12: Keep-Alive Setup (Rishi — 5 min)
-- [x] /api/health endpoint already added
-- [ ] Sign up at cron-job.org or UptimeRobot (free)
-- [ ] Create job: ping https://bullorbs.com/api/health every 14 min
+### Block 12: Keep-Alive — N/A (migrated to Vercel, no cold starts)
 
-### Block 13: Adopt platform-core Patterns (Claude codes)
-Reference: ~/Documents/platform-core/ — shared Python agent framework
-- [ ] **Timing-safe auth**: use crypto.timingSafeEqual for SCAN_SECRET + admin auth
-- [ ] **Dashboard auth**: cookie-based session with httpOnly flag
-- [ ] **Resilient JSON parsing**: adopt parse_json_response() logic → src/lib/ai/parse.ts
-- [ ] **Config centralization**: single config file with all env vars + defaults
-- [ ] **Rich health endpoint**: expand /api/health with last_run, pending_reviews, total_published
+### Block 13: Platform-Core Patterns — DONE
+- [x] Timing-safe auth: crypto.timingSafeEqual in src/lib/auth.ts
+- [x] HMAC session cookies (stateless, httpOnly, secure, sameSite=strict)
+- [x] Resilient JSON parsing in src/lib/ai/parse.ts
+- [x] Rich health endpoint with article stats
 
-### Block 14: SAST Pipeline Setup (Claude codes)
-- [ ] Add `npm audit` to pre-deploy checks
-- [ ] Add ESLint security plugin (eslint-plugin-security)
-- [ ] Add npm script: `"security": "npm audit --audit-level=moderate && npx eslint --config .eslintrc.security.js src/"`
-- [ ] Create pre-push check script: type-check + lint + security scan
-- [ ] Document in CLAUDE.md: SAST must pass before every deploy
+### Block 14: SAST Pipeline — DONE
+- [x] npm audit + eslint-plugin-security (6 rules)
+- [x] `npm run security` script
+- [x] 8-gate pre-deploy pipeline: `npm run pre-deploy`
 
-### Block 15: SEO Validation Check (Claude codes — runs before every deploy)
-- [ ] **Sitemap integrity**: all stock pages + articles present in sitemap.xml
-- [ ] **Meta tags check**: every page has unique title, description, og:image
-- [ ] **Schema.org validation**: JSON-LD present on every page (Organization, Article, FAQPage, BreadcrumbList)
-- [ ] **Canonical URLs**: every page has correct canonical pointing to bullorbs.com
-- [ ] **Robots.txt check**: no accidental disallow rules blocking crawlers
-- [ ] **H1 uniqueness**: every page has exactly one H1, all H1s unique across site
-- [ ] **Internal link audit**: no broken internal links, no orphan pages
-- [ ] **Image alt tags**: all images have descriptive alt text
-- [ ] **OG image validation**: og:image URL resolves for every page type
-- [ ] **Keyword coverage**: each stock page targets "[TICKER] stock analysis" + "should I buy [TICKER]"
-- [ ] **Mobile-friendly check**: all pages pass viewport/responsive test
-- [ ] **Page speed baseline**: no page > 3s load time (Lighthouse CI or manual)
-- [ ] Create npm script: `"seo-check": "node scripts/seo-validate.js"` — automated checks
-- [ ] Add to pre-deploy pipeline: SAST + SEO check must both pass
+### Block 15: SEO Validation — DONE
+- [x] `npm run seo-check` (scripts/seo-validate.js)
+- [x] Checks: sitemap, robots, schema helpers, brand consistency, ticker count, key pages, RSS
 
-### Block 16: Legal Health Check (Claude + Rishi — before every deploy)
-- [ ] **No competitor trademarks in branding**: site name, logo, headers, meta tags, OG images
-- [ ] **No competitor names in code identifiers**: file names, CSS classes, config keys, git identity
-- [ ] **Disclaimer on every page**: "not financial advice" + "not affiliated with any publication"
-- [ ] **Fair dealing compliance**: roasts reference publications by name ONLY in editorial content (criticism/review), never in branding or SEO meta tags
-- [ ] **No scraped/copied content**: all article text is AI-generated original analysis
-- [ ] **WHOIS redacted**: domain privacy enabled on Cloudflare
-- [ ] **No personal identity exposed**: no real name, email, or address in code, commits, or config
-- [ ] **Data attribution**: if using IBKR/Yahoo data, cite source + comply with redistribution terms
-- [ ] **Canadian compliance**: no "buy/sell" directives — always "analysis", "opinion", "educational"
-- [ ] **Copyright**: no copied images, logos, charts from other sites
+### Block 16: Legal Health Check — DONE
+- [x] `npm run legal-check` (scripts/legal-check.js)
+- [x] Checks: competitor trademarks, disclaimers, anonymity, CASL, Canadian compliance, score floor
 
-### Block 17: Push + Deploy (Rishi + Claude — 15 min)
-- [ ] Legal health check passes
-- [ ] SAST scan passes (zero high/critical)
-- [ ] SEO validation passes
-- [ ] Full code review
-- [ ] Push to main → Render auto-deploys
-- [ ] Verify all pages render
-- [ ] Test admin dashboard on phone
-- [ ] Test OG images with Twitter card validator
-- [ ] Submit sitemap to Search Console
-- [ ] Verify robots.txt accessible
-- [ ] Spot-check 3 stock pages in Google Rich Results Test
+### Block 17: Deployed on Vercel — DONE
+- [x] All gates pass
+- [x] Auto-deploy from main via Vercel
+- [x] OG images verified
+- [x] Sitemap submitted
+- [x] robots.txt blocks /orange and /api/
 
 ---
 

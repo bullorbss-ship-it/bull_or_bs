@@ -210,6 +210,25 @@ Article Request (roast or pick)
 
 ---
 
+## ADR-013: Vercel Migration (from Render)
+**Date:** 2026-03-10
+**Status:** Implemented
+**Context:** Render free tier (512MB RAM) was inadequate for Next.js 16 builds. Cold starts and memory limits caused frequent failures. Vercel free tier has no cold starts and handles Next.js natively.
+**Decision:** Migrate hosting from Render to Vercel free tier. Auto-deploy from GitHub main branch.
+**Consequence:** Builds succeed reliably. No cold starts. Render kept as legacy fallback (render.yaml still in repo). middleware.ts removed entirely (edge runtime detection blocked static generation). Rate limiting moved to per-route.
+
+---
+
+## ADR-014: News Takes as 3rd Content Pillar
+**Date:** 2026-03-11
+**Status:** Implemented
+**Context:** Roasts and picks require fact-checking with Opus before publishing. Need a faster content type for daily volume. Financial news summarization is lowest risk — restructuring public facts with source links.
+**Decision:** Add "take" content type. Curate news, summarize in plain English, link to original source. Frame through "Bull or BS for investors?" lens. No speculation, no price predictions.
+**Legal model:** Morning Brew / TLDR style (summarize + link + add original commentary).
+**Consequence:** 17 takes published in 4 days. No fact-check gate needed. Stored in content/takes/.
+
+---
+
 ## Open Questions / Future Decisions
 
 1. **Batch API:** Should we switch to async batch generation (50% cost reduction, 24hr turnaround)? Makes sense for scheduled daily generation but breaks real-time /api/generate.
@@ -217,3 +236,4 @@ Article Request (roast or pick)
 3. **Haiku reliability:** Monitor JSON parse failure rate. If >10%, consider switching back to Sonnet (cost diff is minimal at ~15K tokens).
 4. **Compare pages:** Should /compare/[ticker-vs-ticker] auto-generate from pick articles, or be a separate generation type?
 5. **Reddit distribution:** Best posting strategy for r/CanadianInvestor without getting banned for self-promotion.
+6. **BullOrBS Chat:** AI chatbot on /chat, 10 free prompts then paywall. Build when traffic hits 100+ daily visits.

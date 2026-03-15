@@ -37,9 +37,9 @@ hr();
 h2('Article Inventory');
 
 const contentDir = path.join(ROOT, 'content');
-const articles = { roasts: [], picks: [] };
+const articles = { roasts: [], picks: [], takes: [] };
 
-for (const type of ['roasts', 'picks']) {
+for (const type of ['roasts', 'picks', 'takes']) {
   const dir = path.join(contentDir, type);
   if (!fs.existsSync(dir)) continue;
   for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
@@ -61,7 +61,8 @@ row('Type', 'Count');
 row('---', '---');
 row('Roasts', articles.roasts.length);
 row('Picks', articles.picks.length);
-row('**Total**', articles.roasts.length + articles.picks.length);
+row('Takes', articles.takes.length);
+row('**Total**', articles.roasts.length + articles.picks.length + articles.takes.length);
 lines.push('');
 
 if (articles.roasts.length > 0) {
@@ -80,6 +81,16 @@ if (articles.picks.length > 0) {
   row('---', '---', '---');
   for (const a of articles.picks.sort((a, b) => b.date.localeCompare(a.date))) {
     row(a.date, a.ticker, a.title.substring(0, 60));
+  }
+  lines.push('');
+}
+
+if (articles.takes.length > 0) {
+  h3('Takes');
+  row('Date', 'Title');
+  row('---', '---');
+  for (const a of articles.takes.sort((a, b) => b.date.localeCompare(a.date))) {
+    row(a.date, a.title.substring(0, 70));
   }
   lines.push('');
 }
@@ -204,5 +215,5 @@ try {
 fs.mkdirSync(path.dirname(OUTPUT), { recursive: true });
 fs.writeFileSync(OUTPUT, lines.join('\n'));
 console.log(`\nDocs generated: docs/DEPLOY-STATUS.md`);
-console.log(`  Articles: ${articles.roasts.length + articles.picks.length}`);
+console.log(`  Articles: ${articles.roasts.length + articles.picks.length + articles.takes.length}`);
 console.log(`  Routes: ${routes.length}`);
