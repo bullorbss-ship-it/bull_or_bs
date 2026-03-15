@@ -1,98 +1,231 @@
 # BullOrBS — Project Instructions
 
-## What This Is
-AI-driven stock analysis site competing on SEO/AIO with major financial publications. Covers TSX and US markets. "Made in Canada, for everyone."
+## Session Management — READ THIS FIRST
+1. **Every session START**: Read `CLAUDE.md` + `DESIGN_QUEUE.md` before doing anything
+2. **Every 45 minutes**: Remind user: "Hey — 45 min mark. Open a new session, start by loading CLAUDE.md and DESIGN_QUEUE.md so context stays fresh."
+3. **Every session END**: Update `DESIGN_QUEUE.md` with what was done, what's next, and any blockers
+4. **After significant work**: Update `DESIGN_QUEUE.md` inline (don't wait until end)
 
-## Core Strategy: SEO is the Moat
-- Must rank for EVERY stock search in Canadian market
-- Programmatic SEO: 61+ ticker pages auto-generated
-- Long-tail targeting: "should I buy [TICKER]", "[TICKER] stock analysis 2026"
-- Audit angle targeting multiple newsletters (Motley Fool, Seeking Alpha, Zacks, etc.)
-- Every claim must have facts, data, and references
+## What This Is
+AI-driven stock analysis site competing on SEO/AIO with major financial publications. Covers TSX, US, and emerging markets. Anti-newsletter angle — we fact-check stock recommendations so readers don't have to.
+
+## Workflow
+1. **Understand** — Listen to what the user wants. Do not edit code yet.
+2. **Review** — Read the existing files that will be affected.
+3. **Plan** — Describe the changes in plain English. Get approval before editing if >3 files affected.
+4. **Build** — Make the changes, following existing code style.
+5. **Test** — Run `npx tsc --noEmit` at minimum. Run `npm run pre-deploy` for significant changes.
+6. **Commit** — Stage and commit with a clear message. Always ask before pushing.
 
 ## Anonymity — CRITICAL
-- Owner identity must NEVER appear in code, commits, comments, or config
-- Git user: `bullorbss-ship-it <noreply@github.com>`
+- Owner identity must NEVER appear in code, commits, comments, config, or docs
+- Git user: `BullOrBS <bull.or.bss@gmail.com>` / `bullorbss-ship-it`
 - No personal names, emails, or identifiers anywhere in the codebase
 - Domain WHOIS is redacted via Cloudflare
+- Scan for leaks before every push: names, personal emails, API keys
+
+## Tech Stack
+- **Framework**: Next.js 16 App Router + React 19
+- **Styling**: Tailwind CSS v4
+- **AI**: Claude Haiku 4.5 via @anthropic-ai/sdk, OpenRouter free models as fallback
+- **Hosting**: Vercel free tier (auto-deploy from main)
+- **DNS**: Cloudflare
+- **Analytics**: GA4 (G-E7ZLH22KZ1)
+- **Data**: Local JSON files (content/, data/stocks/), GitHub Contents API for writes
 
 ## Project Structure
 ```
-content/              # Article JSON files (roasts/, picks/)
-data/                 # App data (subscribers.json)
-docs/                 # Strategy docs, plans, scaling docs
+content/              # Article JSON (roasts/, picks/, takes/)
+data/                 # Stock profiles (stocks/*.json), subscribers, dynamic tickers
+docs/                 # Strategy docs, architecture decisions, fact-check log
 public/               # Brand assets (logo.svg, icon.svg, profile.svg)
+scripts/              # Pre-deploy gates + bulk generators
 src/
   app/                # Next.js App Router pages & API routes
     stock/            # /stock index + /stock/[ticker] programmatic pages
     article/[slug]/   # Article detail pages
-    api/              # generate, subscribe, health endpoints
+    api/              # generate, subscribe, health, admin/* endpoints
+    orange/           # Admin dashboard (password-protected, noindex)
+    learn/            # Financial education guides (TFSA, RRSP, FHSA, etc.)
+    og/               # Dynamic OG image generation (nodejs runtime ONLY)
   components/
-    article/          # ArticleCard, Tournament, DataPoints, RisksAndCatalysts, Verdict
+    article/          # ArticleCard, Tournament, DataPoints, RisksAndCatalysts, Verdict, ScoreGauge
     forms/            # SubscribeForm
-    layout/           # Header, Footer
+    layout/           # Header, Footer, Breadcrumbs
+    stock/            # StockGrid, TickerSearch
+    bracket/          # BracketBuilder
+    ui/               # Collapsible
   config/
     site.ts           # Single source of truth — name, URL, social links
     seo.ts            # Default metadata, Schema.org helpers
   lib/
     ai/
-      prompts.ts      # System prompts for Claude
-      generate.ts     # Claude API calls (Sonnet for roasts, Haiku for picks)
-      parse.ts        # Response parsing, markdown formatting
-    content.ts        # Article CRUD (read/write JSON from content/)
-    tickers.ts        # TSX + US ticker data for programmatic pages
+      prompts.ts      # System prompts for all 6 content types
+      generate.ts     # Claude API orchestrator (Haiku 4.5 for everything)
+      parse.ts        # JSON extraction, markdown→HTML, ticker auto-linking
+      providers.ts    # Multi-provider adapter (Anthropic + OpenRouter)
+      legal.ts        # Compliance — trademark scrubbing
+      ticker-profiles.ts  # Reference sheets from local JSON
+      refresh-profile.ts  # Profile freshness updater via Gemini
+      research-prompt.ts  # Research templates for manual data gathering
+    content.ts        # Article CRUD (read/write JSON)
+    tickers.ts        # Static TSX + US ticker data (115 tickers)
+    ticker-registry.ts # Dynamic ticker registration
+    stock-data.ts     # Read/write data/stocks/*.json profiles
     types.ts          # All TypeScript types
-  middleware.ts       # Rate limiting + security headers
+    auth.ts           # HMAC session tokens (stateless)
+    rate-limit.ts     # In-memory rate limiter (per API route)
+    inline-format.ts  # Markdown → safe HTML
+    badges.ts         # Article/ticker badge styling
+    costs.ts          # AI cost tracking
+    date.ts           # EST timezone utils
 ```
 
 ## Design
 - Light/clean theme with dark mode support (prefers-color-scheme)
 - Accessible to all ages — not hacker aesthetic
-- Fast loading (Core Web Vitals = SEO ranking factor)
 - Green accent (#10B981), gold (#F59E0B), red (#EF4444), navy (#0F172A)
 - Branding: "Bull" (navy) "Or" (gray) "BS" (green) — three-color split
+- Target Lighthouse 90+ on all categories
 
 ## Conventions
 - Always use `siteConfig` from `src/config/site.ts` — never hardcode site name/URL
 - Always use SEO helpers from `src/config/seo.ts` — never inline Schema.org JSON
-- New components go in the appropriate subdirectory (layout/, article/, forms/)
+- New components go in the appropriate subdirectory (layout/, article/, forms/, stock/, ui/)
 - AI logic stays in `src/lib/ai/`
 - Content (articles) in `content/`, app data in `data/`
 - Ticker data in `src/lib/tickers.ts` — add new tickers there
-
-## Audit Targets
-- Motley Fool Canada (fool.ca), Seeking Alpha, Zacks
-- Globe and Mail, BNN Bloomberg stock picks
-- Any popular newsletter making public recommendations
-- Roast = commentary/criticism (fair dealing / fair use) — names only in editorial content, never in branding
+- All dates use `todayEST()` / `nowEST()` from `src/lib/date.ts`
+- OG route MUST use `runtime = 'nodejs'` — edge runtime blocks static generation
 
 ## Content Types
-- **Roast** (`content/roasts/`): Audits a stock recommendation. Grade A-F.
+- **Roast** (`content/roasts/`): Audits a stock recommendation. Score 1-10.
 - **Pick** (`content/picks/`): AI elimination tournament. 10-15 candidates.
+- **Take** (`content/takes/`): News summary in plain English. Source + link required. No speculation.
 - **Stock Page** (`/stock/[ticker]`): Programmatic SEO page per ticker with FAQ schema.
 
 ## Deployment
-- Render free tier, GitHub repo (github.com/bullorbss-ship-it/bull_or_bs)
-- Env vars in Render: `ANTHROPIC_API_KEY`, `SCAN_SECRET`, `ADMIN_PASSWORD`
-- Branch strategy: `dev` (work) → `main` (auto-deploys to Render)
-- Domain: bullorbs.com (Cloudflare DNS)
+- **Vercel free tier**, auto-deploy from `main` branch
+- GitHub repo: `github.com/bullorbss-ship-it/bull_or_bs`
+- Env vars in Vercel: `ANTHROPIC_API_KEY`, `SCAN_SECRET`, `ADMIN_PASSWORD`, `GITHUB_TOKEN`
+- Domain: bullorbs.com (Cloudflare DNS → Vercel)
 
-## Pre-Deploy Pipeline
-All three gates must pass before pushing to main:
-1. **SAST**: `npm run security` (npm audit + eslint-plugin-security)
-2. **SEO Check**: `npm run seo-check` (sitemap, meta, schema, canonicals)
-3. **Legal Check**: manual checklist (trademarks, disclaimers, anonymity, compliance)
+## Pre-Deploy Pipeline (8 gates)
+All gates must pass before pushing to main: `npm run pre-deploy`
+1. **Type Check**: `npm run type-check`
+2. **Lint**: `npm run lint`
+3. **SAST**: `npm run security` (npm audit + eslint-plugin-security)
+4. **SEO Check**: `npm run seo-check` (sitemap, meta, schema, brand consistency)
+5. **Legal Check**: `npm run legal-check` (trademarks, disclaimers, anonymity, CASL, score floor)
+6. **Content Audit**: `npm run content-audit` (learn page + profile freshness)
+7. **Docs**: `npm run docs` (auto-generate DEPLOY-STATUS.md)
+8. **Docs Check**: `npm run docs-check` (code/docs sync)
+
+## Security
+
+### Rules
+- Never commit `.env` files or any file containing secrets
+- Store all API keys, passwords, and tokens in environment variables
+- Never log passwords, tokens, or personally identifiable information
+- Use generic error messages for users — log details server-side only
+- All admin routes require HMAC session auth (`src/lib/auth.ts`)
+- Rate limiting on all public API routes (`src/lib/rate-limit.ts`)
+- Timing-safe comparison for all auth checks (`crypto.timingSafeEqual`)
+- Brute-force protection: 5 login attempts per 15 min per IP
+
+### Security Headers (in next.config.ts)
+- `X-Content-Type-Options: nosniff`
+- `X-Frame-Options: DENY`
+- `X-XSS-Protection: 1; mode=block`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Permissions-Policy` — camera, mic, geolocation blocked
+
+### Pre-Push Security Checklist
+- [ ] All secrets in environment variables (none in code)
+- [ ] `.env` in `.gitignore`
+- [ ] No personal names, emails, or identifiers in code/docs
+- [ ] No `ghp_*`, `sk-*`, or API key strings in source
+- [ ] `npm audit` passes (no critical vulns)
+- [ ] Admin routes behind auth
+- [ ] Cookies use `httpOnly`, `secure`, `SameSite=strict`
+- [ ] Error messages don't leak internals
+- [ ] Rate limiting on all public endpoints
 
 ## Legal
 - Every page: "not financial advice" + "not affiliated with any publication" disclaimer
 - No competitor trademarks in branding, meta tags, OG images, or code identifiers
 - Footer legal notice on all pages
 - Canadian compliance: "analysis", "opinion", "educational" — never "buy/sell" directives
+- Roast = commentary/criticism (fair dealing / fair use) — competitor names only in editorial content
 
-## SEO/AIO
-- Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation structured data
-- 61+ programmatic /stock/[ticker] pages with FAQ schema
-- Sitemap includes all stock pages + articles
-- RSS feed, robots.txt auto-generated
-- Every stock page targets: "should I buy [TICKER]", "[TICKER] stock analysis"
-- Dynamic OG images for every page type
+## SEO Best Practices
+Every public page MUST include:
+- Unique `<title>` tag (under 60 characters)
+- Unique `<meta name="description">` (150-160 characters)
+- `<link rel="canonical">` pointing to the canonical URL
+- Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
+- Twitter Card tags (`twitter:card: summary_large_image`)
+- Semantic HTML (`<header>`, `<main>`, `<nav>`, `<footer>`)
+- One `<h1>` per page — unique and descriptive
+- `alt` text on all images
+- JSON-LD structured data (Schema.org) via helpers in `seo.ts`
+
+### Schema.org Types in Use
+- Article, FAQPage, Organization, BreadcrumbList, Corporation, Review, NewsArticle
+
+### Programmatic SEO
+- 115+ /stock/[ticker] pages with FAQ schema (10 Q&A per page)
+- Every stock page targets: "should I buy [TICKER]", "[TICKER] stock analysis 2026"
+- Sitemap, news sitemap, RSS feed, robots.txt auto-generated
+- Dynamic OG images for every page type via `/og` route
+
+## AIO (AI Search Optimization)
+Optimize content for AI search engines (ChatGPT, Perplexity, Google AI Overviews):
+- Use Q&A format and FAQ sections — AI extracts answers from these
+- Add FAQPage schema markup (JSON-LD) for AI citation
+- Write concise first-paragraph summaries that directly answer the main question
+- Use clear H2/H3 heading hierarchy — AI uses structure to understand topics
+- Include specific data, credentials, and sources — AI prefers authoritative content
+- Keep content fresh and recently updated
+- Allow AI crawlers in `robots.txt` (GPTBot, ClaudeBot, PerplexityBot)
+
+## Performance
+Target Lighthouse 90+ on all categories:
+- LCP (Largest Contentful Paint) MUST be under 2.5s
+- No middleware.ts — edge runtime blocks static generation in Next.js 16
+- OG route must be `nodejs` runtime, never `edge`
+- Lazy-load images below the fold
+- Defer non-critical JavaScript
+- Only link article-relevant tickers (avoid catastrophic regex backtracking)
+- No JS animation libraries — CSS-only animations
+
+## Git Workflow
+
+### Commits
+- Concise messages focused on the "why"
+- One logical change per commit
+- Never commit `.env` or files containing secrets
+- Always ask before pushing
+
+### Boundaries
+
+**Always ask before:**
+- Deploying / pushing to remote
+- Deleting files, data, or branches
+- Adding new dependencies
+- Changing the design system (colors, fonts, layout)
+
+**Never do:**
+- Commit `.env` files or secrets
+- Expose detailed error messages to end users
+- Skip pre-deploy gates
+- Use `edge` runtime on any route
+- Hardcode site name/URL (use `siteConfig`)
+- Add personal identifiers to code/docs
+
+**Always do:**
+- Read existing code before modifying it
+- Explain changes before making them if >3 files affected
+- Match existing code style and conventions
+- Run `npx tsc --noEmit` after changes
+- Test OG images with Twitter card validator after OG changes

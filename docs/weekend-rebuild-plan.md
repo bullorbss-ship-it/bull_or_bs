@@ -26,7 +26,7 @@
 - [x] Rename docs/notsofoolai-strategy.md → docs/bullorbs-strategy.md
 - [x] Remove Motley Fool trademark from disclaimer (generic "any publication" now)
 
-### Block 0B: DNS + Infra Swap (Rishi — 15 min) — DONE
+### Block 0B: DNS + Infra Swap (Admin — 15 min) — DONE
 - [x] Cloudflare: bullorbs.com DNS → Vercel (A record 216.198.79.1, www CNAME)
 - [x] Vercel: connected via notsofoolai GitHub account, auto-deploy from main
 - [x] GitHub: repo at github.com/bullorbss-ship-it/bull_or_bs
@@ -373,7 +373,7 @@ All three green → push to main → Render auto-deploys.
 
 ---
 
-## Rishi's Total Time This Weekend
+## Admin's Total Time This Weekend
 | Task | Time |
 |---|---|
 | DNS + infra swap (Cloudflare, Render, GitHub) | 15 min |
