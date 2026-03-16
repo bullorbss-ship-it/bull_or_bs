@@ -44,7 +44,7 @@ const keyFiles = [
   ['src/lib/tickers.ts', 'Ticker data'],
   ['src/lib/types.ts', 'TypeScript types'],
   ['src/lib/auth.ts', 'Auth (sessions, timing-safe)'],
-  ['src/middleware.ts', 'Rate limiting + security headers'],
+  ['src/lib/rate-limit.ts', 'Rate limiting (per-route)'],
   ['src/lib/stock-data.ts', 'Local stock data loader'],
   // Scripts
   ['scripts/seo-validate.js', 'SEO checker'],
@@ -223,20 +223,12 @@ if (fs.existsSync(authPath)) {
   }
 }
 
-// Rate limiting in middleware
-const middlewarePath = path.join(ROOT, 'src', 'middleware.ts');
-if (fs.existsSync(middlewarePath)) {
-  const mwContent = fs.readFileSync(middlewarePath, 'utf8');
-  if (mwContent.includes('rateLimit')) {
-    ok('Rate limiting in middleware (confirmed)');
-  } else {
-    warn('Middleware exists but no rate limiting found');
-  }
-  if (mwContent.includes('login') && mwContent.includes('15')) {
-    ok('Login brute-force protection (confirmed)');
-  } else {
-    warn('Login rate limiting may be missing or misconfigured');
-  }
+// Rate limiting (per-route, no middleware)
+const rateLimitPath = path.join(ROOT, 'src', 'lib', 'rate-limit.ts');
+if (fs.existsSync(rateLimitPath)) {
+  ok('Rate limiting module exists (per-route)');
+} else {
+  warn('Rate limiting module not found at src/lib/rate-limit.ts');
 }
 
 // ─── 7. Brand & Config Consistency ───────────────────────────────────

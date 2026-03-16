@@ -1,9 +1,21 @@
 'use client';
 
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useSyncExternalStore, ReactNode, useCallback } from 'react';
 
 const CONSENT_KEY = 'bullorbs_ai_consent';
 const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;
+
+function checkConsent(articleType: string): boolean {
+  if (articleType === 'take') return true;
+  try {
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (raw) {
+      const data = JSON.parse(raw);
+      if (data.accepted && Date.now() - data.ts < THIRTY_DAYS) return true;
+    }
+  } catch { /* fall through */ }
+  return false;
+}
 
 interface ConsentGateProps {
   articleType: string;
@@ -11,30 +23,25 @@ interface ConsentGateProps {
 }
 
 export default function ConsentGate({ articleType, children }: ConsentGateProps) {
-  const [consented, setConsented] = useState(true); // default true for SSR (crawlers see content)
+  // Subscribe to localStorage for consent state
+  const subscribe = useCallback((cb: () => void) => {
+    window.addEventListener('storage', cb);
+    return () => window.removeEventListener('storage', cb);
+  }, []);
+  const hasConsent = useSyncExternalStore(
+    subscribe,
+    () => checkConsent(articleType),
+    () => true // SSR: crawlers see content
+  );
 
-  useEffect(() => {
-    // Takes skip the gate
-    if (articleType === 'take') return;
-
-    try {
-      const raw = localStorage.getItem(CONSENT_KEY);
-      if (raw) {
-        const data = JSON.parse(raw);
-        if (data.accepted && Date.now() - data.ts < THIRTY_DAYS) return;
-      }
-      setConsented(false);
-    } catch {
-      setConsented(false);
-    }
-  }, [articleType]);
+  const [accepted, setAccepted] = useState(false);
 
   function handleAccept() {
     localStorage.setItem(CONSENT_KEY, JSON.stringify({ accepted: true, ts: Date.now() }));
-    setConsented(true);
+    setAccepted(true);
   }
 
-  if (consented) return <>{children}</>;
+  if (hasConsent || accepted) return <>{children}</>;
 
   return (
     <div className="relative">

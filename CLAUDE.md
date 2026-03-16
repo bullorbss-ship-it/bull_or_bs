@@ -1,21 +1,28 @@
 # BullOrBS — Project Instructions
 
-## Session Management — READ THIS FIRST
-1. **Every session START**: Read `CLAUDE.md` + `DESIGN_QUEUE.md` before doing anything
-2. **Every 45 minutes**: Remind user: "Hey — 45 min mark. Open a new session, start by loading CLAUDE.md and DESIGN_QUEUE.md so context stays fresh."
-3. **Every session END**: Update `DESIGN_QUEUE.md` with what was done, what's next, and any blockers
-4. **After significant work**: Update `DESIGN_QUEUE.md` inline (don't wait until end)
+## Session Protocol — READ THIS FIRST
+
+### Start of Every Session
+1. **Re-read this file** (`CLAUDE.md`) and `DESIGN_QUEUE.md` before doing anything
+2. State what you see as the current task from DESIGN_QUEUE.md
+3. Ask: "Is this still the priority, or has something changed?"
+
+### Before Writing Any Code
+**MANDATORY** — Before touching a single file, tell me:
+- Which files you will **modify**
+- What functions/components you will **add**
+- What you will **NOT touch**
+- Wait for my OK before proceeding
+
+### After Completing Any Task
+1. Update `DESIGN_QUEUE.md` — mark task done, add any new tasks discovered
+2. If anything significant was learned or decided, save to memory
+
+### Remind Me
+- After 45 minutes of active work, remind me: "Hey — good time to start a new session. Re-paste CLAUDE.md and DESIGN_QUEUE.md when you do."
 
 ## What This Is
 AI-driven stock analysis site competing on SEO/AIO with major financial publications. Covers TSX, US, and emerging markets. Anti-newsletter angle — we fact-check stock recommendations so readers don't have to.
-
-## Workflow
-1. **Understand** — Listen to what the user wants. Do not edit code yet.
-2. **Review** — Read the existing files that will be affected.
-3. **Plan** — Describe the changes in plain English. Get approval before editing if >3 files affected.
-4. **Build** — Make the changes, following existing code style.
-5. **Test** — Run `npx tsc --noEmit` at minimum. Run `npm run pre-deploy` for significant changes.
-6. **Commit** — Stage and commit with a clear message. Always ask before pushing.
 
 ## Anonymity — CRITICAL
 - Owner identity must NEVER appear in code, commits, comments, config, or docs
@@ -199,6 +206,43 @@ Target Lighthouse 90+ on all categories:
 - Only link article-relevant tickers (avoid catastrophic regex backtracking)
 - No JS animation libraries — CSS-only animations
 
+## Skills (Slash Commands)
+
+Custom workflows available via `/command`:
+
+| Skill | Purpose |
+|-------|---------|
+| `/deploy` | Run pre-deploy pipeline, commit, and push to Vercel |
+| `/pre-deploy` | Run all 8 quality gates and report results |
+| `/security-scan` | Scan for leaked secrets, API keys, anonymity violations |
+| `/code-review` | Review code for quality, bugs, performance, SEO |
+| `/new-take` | Quick-add a news take article from a topic |
+| `/new-ticker` | Add new stock/ETF tickers to the platform |
+| `/doc-updater` | Sync all documentation with current code state |
+
+Skill definitions live in `.claude/skills/[name]/SKILL.md`.
+
+## Hooks (Automated Quality Checks)
+
+Hooks run automatically — no manual invocation needed:
+
+| Trigger | Action |
+|---------|--------|
+| Before git commit | Scan staged files for secrets (`sk-*`, `ghp_*`, hardcoded keys) — blocks commit |
+| After any file edit | Scan for personal identity leaks (owner name/email) — blocks save |
+
+Hook config lives in `.claude/settings.json`. If a hook blocks an action, **fix the issue** — never disable the hook.
+
+## Subagents (Specialist Reviewers)
+
+Use these for focused review tasks that benefit from isolated context:
+
+| Agent | When to Use |
+|-------|-------------|
+| **Explore agent** | Deep codebase research, find all callers of a function, trace data flow |
+| **Security scan** | Before any push — run `/security-scan` |
+| **Code review** | After significant changes — run `/code-review` |
+
 ## Git Workflow
 
 ### Commits
@@ -222,6 +266,7 @@ Target Lighthouse 90+ on all categories:
 - Use `edge` runtime on any route
 - Hardcode site name/URL (use `siteConfig`)
 - Add personal identifiers to code/docs
+- Disable hooks or bypass quality checks
 
 **Always do:**
 - Read existing code before modifying it
@@ -229,3 +274,5 @@ Target Lighthouse 90+ on all categories:
 - Match existing code style and conventions
 - Run `npx tsc --noEmit` after changes
 - Test OG images with Twitter card validator after OG changes
+- Update `DESIGN_QUEUE.md` after completing tasks
+- Run `/security-scan` before pushing to catch leaks

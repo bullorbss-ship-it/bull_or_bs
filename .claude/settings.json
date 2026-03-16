@@ -1,5 +1,25 @@
 {
   "permissions": {
     "allow": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash(git commit*)",
+        "hook": {
+          "type": "command",
+          "command": "git diff --cached | grep -iE '(sk-[a-zA-Z0-9]{20,}|ghp_[a-zA-Z0-9]{30,}|ANTHROPIC_API_KEY\\s*=\\s*[\"'\\''\"a-z]|password\\s*=\\s*[\"'\\''\"a-z])' && echo '❌ SECRETS DETECTED IN STAGED FILES' && exit 1 || true"
+        }
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hook": {
+          "type": "command",
+          "command": "grep -rlE '(reshevyas|rishivyas|mr\\.rishi)' \"$CLAUDE_FILE_PATH\" 2>/dev/null && echo '❌ PERSONAL IDENTITY DETECTED' && exit 1 || true"
+        }
+      }
+    ]
   }
 }

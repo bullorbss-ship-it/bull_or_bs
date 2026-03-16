@@ -341,16 +341,16 @@ export async function generateTake(
 
   const referenceSheet = buildIdentityOnlySheet();
 
-  const userMessage = `Summarize and explain this financial news for everyday investors.
+  const userMessage = `Turn this source material into a 5-minute story. Every fact and number in your output must come from what's pasted below — retell it with hooks, narrative, and structure, but add NOTHING that isn't sourced here.
 
 SOURCE: ${source || 'Financial news source'}
 DATE: ${today}
 
 ${referenceSheet ? `=== KNOWN TICKERS (for identity verification) ===\n${referenceSheet}\n` : ''}
-=== NEWS CONTENT ===
+=== SOURCE MATERIAL (use ONLY these facts) ===
 ${newsText}
 
-Explain this news simply. No speculation. No predictions. Just facts that matter.
+Use all 5 sections (The Headlines, The Backstory, The Takes, Real Talk, The Bottom Line). Stay unbiased — present all sides from the sources, never take a directional stance.
 
 Return ONLY valid JSON.`;
 

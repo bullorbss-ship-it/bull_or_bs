@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-15T17:31:34.273Z*
+*Auto-generated: 2026-03-16T23:17:54.629Z*
 
 ---
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | Roasts | 10 |
 | Picks | 7 |
-| Takes | 17 |
-| **Total** | 34 |
+| Takes | 19 |
+| **Total** | 36 |
 
 ### Roasts
 
@@ -44,6 +44,8 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-03-15 | India's Auto Market Hits Record Sales in February, but Geopolitical Te |
+| 2026-03-15 | Middle East Conflict Triggers Oil Spike and Stock Selloff; Fed Meeting |
 | 2026-03-14 | AI Coding Tools Spark Massive Selloff in India's IT Outsourcing Giants |
 | 2026-03-14 | Big Tech Companies Are Spending $650+ Billion on AI in 2026 — and Cutt |
 | 2026-03-14 | Stock Market Hits 2026 Lows as Iran Conflict Disrupts Oil Supplies and |
