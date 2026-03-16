@@ -6,6 +6,7 @@ import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { siteConfig } from '@/config/site';
 import { articleSchema, faqSchema, reviewSchema } from '@/config/seo';
 import { formatMarkdown, linkifyTickers } from '@/lib/ai/parse';
+import { inlineFormat } from '@/lib/inline-format';
 import Tournament from '@/components/article/Tournament';
 import DataPoints from '@/components/article/DataPoints';
 import RisksAndCatalysts from '@/components/article/RisksAndCatalysts';
@@ -289,7 +290,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </div>
         <p className="text-muted text-base sm:text-lg leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: linkifyTickers(content.summary || '', articleTickers) }}
+          dangerouslySetInnerHTML={{ __html: linkifyTickers(inlineFormat(content.summary || ''), articleTickers) }}
         />
         <p className="text-xs text-muted-light mt-3 font-mono">
           Data sourced {new Date(article.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}. Verify current figures before making investment decisions.
