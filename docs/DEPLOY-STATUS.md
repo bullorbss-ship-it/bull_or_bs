@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-16T23:17:54.629Z*
+*Auto-generated: 2026-03-18T13:27:29.534Z*
 
 ---
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | Roasts | 10 |
 | Picks | 7 |
-| Takes | 19 |
-| **Total** | 36 |
+| Takes | 22 |
+| **Total** | 39 |
 
 ### Roasts
 
@@ -44,6 +44,9 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-03-16 | Gold, Silver, and Copper Hit Records Then Crashed—Here's Why Markets A |
+| 2026-03-16 | Markets Rally as Oil Prices Fall; IEA Releases Emergency Reserves Amid |
+| 2026-03-16 | NVIDIA Unveils Next-Gen Vera Rubin AI Chip at GTC 2026 — What It Means |
 | 2026-03-15 | India's Auto Market Hits Record Sales in February, but Geopolitical Te |
 | 2026-03-15 | Middle East Conflict Triggers Oil Spike and Stock Selloff; Fed Meeting |
 | 2026-03-14 | AI Coding Tools Spark Massive Selloff in India's IT Outsourcing Giants |
@@ -133,7 +136,7 @@ No cost data file found.
 
 | Package | Version |
 | --- | --- |
-| next | 16.1.6 |
+| next | ^16.1.7 |
 | react | 19.2.3 |
 | @anthropic-ai/sdk | ^0.78.0 |
 | tailwindcss | ^4 |

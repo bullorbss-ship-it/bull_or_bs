@@ -354,7 +354,7 @@ Use all 5 sections (The Headlines, The Backstory, The Takes, Real Talk, The Bott
 
 Return ONLY valid JSON.`;
 
-  const response = await callAI(TAKE_PROMPT, userMessage, 8000);
+  const response = await callAI(TAKE_PROMPT, userMessage, 10000);
 
   const durationMs = Date.now() - start;
 
