@@ -13,7 +13,7 @@ function renderCatalyst(c: string | CatalystDetail, i: number) {
     return (
       <li key={i} className="text-sm text-foreground flex gap-2 leading-relaxed">
         <span className="text-green shrink-0 mt-1">&bull;</span>
-        <span dangerouslySetInnerHTML={{ __html: inlineFormat(c) }} />
+        <span className="break-words min-w-0" dangerouslySetInnerHTML={{ __html: inlineFormat(c) }} />
       </li>
     );
   }
@@ -48,7 +48,7 @@ export default function RisksAndCatalysts({ risks, catalysts, inline }: RisksAnd
             {risks.map((r, i) => (
               <li key={i} className="text-sm text-foreground flex gap-2 leading-relaxed">
                 <span className="text-red shrink-0 mt-1">&bull;</span>
-                <span dangerouslySetInnerHTML={{ __html: inlineFormat(r) }} />
+                <span className="break-words min-w-0" dangerouslySetInnerHTML={{ __html: inlineFormat(r) }} />
               </li>
             ))}
           </ul>
