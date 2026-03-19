@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-18T13:27:29.534Z*
+*Auto-generated: 2026-03-19T02:50:17.201Z*
 
 ---
 
@@ -8,15 +8,17 @@
 
 | Type | Count |
 | --- | --- |
-| Roasts | 10 |
+| Roasts | 12 |
 | Picks | 7 |
-| Takes | 22 |
-| **Total** | 39 |
+| Takes | 25 |
+| **Total** | 44 |
 
 ### Roasts
 
 | Date | Ticker | Title |
 | --- | --- | --- |
+| 2026-03-17 | GOOGLE | Google (GOOGL) at $305.56: The AI Bet Is Priced In—and Comin |
+| 2026-03-17 | MU | Micron Stock at $445: AI Hype Train or Earnings Roulette? |
 | 2026-03-13 | ADOBE | Adobe Gets Hammered on CEO Exit—But Is the Selloff Overdone? |
 | 2026-03-13 | CVX | Chevron (CVX): Strong Dividend & Recent Rally, But Valuation |
 | 2026-03-11 | ORCL | Oracle Stock Surges 10% on Earnings Beat, But Red Flags Are  |
@@ -44,9 +46,12 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-03-18 | Delta Just Blew Past Wall Street—And the Airline Sector Is Following |
+| 2026-03-18 | The Nitrogen King's Lucky Break: When Geopolitics Beats Bad Timing |
 | 2026-03-16 | Gold, Silver, and Copper Hit Records Then Crashed—Here's Why Markets A |
 | 2026-03-16 | Markets Rally as Oil Prices Fall; IEA Releases Emergency Reserves Amid |
 | 2026-03-16 | NVIDIA Unveils Next-Gen Vera Rubin AI Chip at GTC 2026 — What It Means |
+| 2026-03-16 | The Trump Crypto Empire: $1.4B in 16 Months—But at What Cost? |
 | 2026-03-15 | India's Auto Market Hits Record Sales in February, but Geopolitical Te |
 | 2026-03-15 | Middle East Conflict Triggers Oil Spike and Stock Selloff; Fed Meeting |
 | 2026-03-14 | AI Coding Tools Spark Massive Selloff in India's IT Outsourcing Giants |
