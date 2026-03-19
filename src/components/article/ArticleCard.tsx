@@ -13,8 +13,21 @@ export default function ArticleCard({ article }: { article: Article }) {
   return (
     <Link href={`/article/${article.slug}`} className="block group">
       <article className="border border-card-border bg-background rounded-xl overflow-hidden hover:shadow-lg hover:border-accent/30 transition-all active:scale-[0.99]">
-        {/* Gradient strip */}
-        <div className={`h-1 bg-gradient-to-r ${gradient}`} />
+        {/* Hero image or gradient strip */}
+        {article.heroImage?.url ? (
+          <div className="relative h-36 sm:h-44 overflow-hidden">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={article.heroImage.url}
+              alt=""
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+          </div>
+        ) : (
+          <div className={`h-1 bg-gradient-to-r ${gradient}`} />
+        )}
         <div className="p-4 sm:p-6">
           <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3 flex-wrap">
             <span className={`text-[10px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full ${badge.style}`}>

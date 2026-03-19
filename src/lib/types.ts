@@ -9,6 +9,12 @@ export interface Article {
   createdAt?: string;
   factChecked?: boolean;
   category?: string; // News sub-category (e.g. 'Geopolitics', 'M&A', 'Commodities')
+  heroImage?: {
+    url: string;
+    photographer: string;
+    photographerUrl: string;
+    unsplashUrl: string;
+  };
   ticker?: string;
   verdict: string;
   confidence?: number;

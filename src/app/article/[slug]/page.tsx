@@ -106,6 +106,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const grade = isTake ? '' : getGradeFromVerdict(article.verdict || article.content?.finalVerdict || '');
   const seoTitle = getSeoTitle({ ...article, verdict: article.verdict || article.content?.finalVerdict });
 
+  const bgParam = article.heroImage?.url ? `&bg=${encodeURIComponent(article.heroImage.url)}` : '';
+  const ogUrl = `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}${bgParam}`;
+
   return {
     title: seoTitle,
     description: article.description,
@@ -125,7 +128,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       tags: article.tags,
       images: [
         {
-          url: `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}`,
+          url: ogUrl,
           width: 1200,
           height: 630,
           alt: `${article.title}`,
@@ -136,7 +139,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
-      images: [`${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}`],
+      images: [ogUrl],
     },
   };
 }
@@ -227,6 +230,32 @@ export default async function ArticlePage({ params }: PageProps) {
         { label: isRoast ? 'Roasts' : isTake ? 'News' : 'Picks', href: isRoast ? '/roasts' : isTake ? '/takes' : '/picks' },
         { label: article.ticker || article.slug },
       ]} />
+
+      {/* Hero Image */}
+      {article.heroImage?.url && (
+        <div className="relative rounded-xl overflow-hidden mb-6 -mx-1 sm:mx-0">
+          <div className="aspect-[1200/630] relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={article.heroImage.url}
+              alt={content.headline}
+              className="w-full h-full object-cover"
+              loading="eager"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          </div>
+          <p className="text-[10px] text-muted-light mt-1 px-1">
+            Photo by{' '}
+            <a href={`${article.heroImage.photographerUrl}?utm_source=bullorbs&utm_medium=referral`} target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+              {article.heroImage.photographer}
+            </a>
+            {' on '}
+            <a href={`${article.heroImage.unsplashUrl}?utm_source=bullorbs&utm_medium=referral`} target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+              Unsplash
+            </a>
+          </p>
+        </div>
+      )}
 
       {/* Score + Header — always visible, this is the hook */}
       <div className="mb-8">

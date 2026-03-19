@@ -34,15 +34,81 @@ function getGradeLabel(grade: string): string {
   return '';
 }
 
-function getAccentBg(grade: string): string {
-  const n = parseInt(grade, 10);
-  if (!isNaN(n)) {
-    if (n >= 8) return 'rgba(16, 185, 129, 0.08)';
-    if (n >= 6) return 'rgba(245, 158, 11, 0.08)';
-    if (n >= 4) return 'rgba(249, 115, 22, 0.08)';
-    return 'rgba(239, 68, 68, 0.08)';
+/**
+ * Wrapper that renders a background photo with dark overlay,
+ * or falls back to solid navy if no bg image URL is provided.
+ */
+function PhotoBackground({ bgUrl, children }: { bgUrl?: string; children: React.ReactNode }) {
+  if (!bgUrl) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#0F172A',
+          padding: '50px 60px',
+        }}
+      >
+        {children}
+      </div>
+    );
   }
-  return 'rgba(16, 185, 129, 0.08)';
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+        position: 'relative',
+      }}
+    >
+      {/* Background photo */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={bgUrl}
+        alt=""
+        width={1200}
+        height={630}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+        }}
+      />
+      {/* Dark overlay for text readability */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient(180deg, rgba(15,23,42,0.82) 0%, rgba(15,23,42,0.88) 50%, rgba(15,23,42,0.95) 100%)',
+        }}
+      />
+      {/* Content on top */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          width: '100%',
+          height: '100%',
+          padding: '50px 60px',
+          position: 'relative',
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
 }
 
 function BrandBar() {
@@ -50,29 +116,19 @@ function BrandBar() {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <span style={{ fontSize: 32, fontWeight: 700, color: '#FFFFFF', fontFamily: 'monospace' }}>Bull</span>
-        <span style={{ fontSize: 32, fontWeight: 700, color: '#64748B', fontFamily: 'monospace' }}>Or</span>
+        <span style={{ fontSize: 32, fontWeight: 700, color: '#94A3B8', fontFamily: 'monospace' }}>Or</span>
         <span style={{ fontSize: 32, fontWeight: 700, color: '#10B981', fontFamily: 'monospace' }}>BS</span>
       </div>
-      <span style={{ fontSize: 16, color: '#475569', fontFamily: 'monospace' }}>
+      <span style={{ fontSize: 16, color: '#94A3B8', fontFamily: 'monospace' }}>
         {siteConfig.url.replace('https://', '')}
       </span>
     </div>
   );
 }
 
-function StockOG({ ticker, company, exchange }: { ticker: string; company: string; exchange: string }) {
+function StockOG({ ticker, company, exchange, bgUrl }: { ticker: string; company: string; exchange: string; bgUrl?: string }) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#0F172A',
-        padding: '50px 60px',
-      }}
-    >
+    <PhotoBackground bgUrl={bgUrl}>
       <BrandBar />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -85,7 +141,7 @@ function StockOG({ ticker, company, exchange }: { ticker: string; company: strin
               fontSize: 22,
               fontWeight: 700,
               color: '#10B981',
-              backgroundColor: 'rgba(16, 185, 129, 0.12)',
+              backgroundColor: 'rgba(16, 185, 129, 0.2)',
               padding: '6px 18px',
               borderRadius: '9999px',
               fontFamily: 'monospace',
@@ -94,49 +150,36 @@ function StockOG({ ticker, company, exchange }: { ticker: string; company: strin
             {exchange}
           </span>
         </div>
-        <span style={{ fontSize: 28, color: '#94A3B8', lineHeight: 1.3 }}>
+        <span style={{ fontSize: 28, color: '#CBD5E1', lineHeight: 1.3 }}>
           {company}
         </span>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{ width: 4, height: 20, backgroundColor: '#10B981', borderRadius: 2 }} />
-        <span style={{ fontSize: 18, color: '#94A3B8', fontFamily: 'monospace' }}>
+        <span style={{ fontSize: 18, color: '#CBD5E1', fontFamily: 'monospace' }}>
           Should you buy {ticker}? Read the AI analysis →
         </span>
       </div>
-    </div>
+    </PhotoBackground>
   );
 }
 
-function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade: string; articleType: string; ticker: string }) {
+function ArticleOG({ title, grade, articleType, ticker, bgUrl }: { title: string; grade: string; articleType: string; ticker: string; bgUrl?: string }) {
   const gradeColor = getGradeColor(grade);
   const isNumeric = !isNaN(parseInt(grade, 10));
   const isRoast = articleType === 'roast';
   const isTake = articleType === 'take';
   const gradeLabel = getGradeLabel(grade);
-  const accentBg = getAccentBg(grade);
 
   const badgeLabel = isRoast ? '🔥 ROAST' : isTake ? '📰 NEWS TAKE' : '🏆 AI PICK';
   const badgeColor = isRoast ? '#EF4444' : isTake ? '#3B82F6' : '#10B981';
 
-  // Truncate title smartly for readability
   const displayTitle = title.length > 80 ? title.substring(0, 77) + '...' : title;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#0F172A',
-        padding: '50px 60px',
-        backgroundImage: `radial-gradient(ellipse 80% 60% at 80% 100%, ${accentBg}, transparent)`,
-      }}
-    >
-      {/* Top: brand + type badge */}
+    <PhotoBackground bgUrl={bgUrl}>
+      {/* Top: brand */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <BrandBar />
       </div>
@@ -145,14 +188,13 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
       <div style={{ display: 'flex', gap: '40px', alignItems: 'center' }}>
         {/* Left: Title + badge */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', flex: 1 }}>
-          {/* Type badge */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <span
               style={{
                 fontSize: 16,
                 fontWeight: 700,
                 color: badgeColor,
-                backgroundColor: `${badgeColor}1A`,
+                backgroundColor: `${badgeColor}30`,
                 padding: '6px 16px',
                 borderRadius: '9999px',
                 fontFamily: 'monospace',
@@ -163,26 +205,26 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
               {badgeLabel}
             </span>
             {ticker && (
-              <span style={{ fontSize: 24, fontWeight: 700, color: '#94A3B8', fontFamily: 'monospace' }}>
+              <span style={{ fontSize: 24, fontWeight: 700, color: '#CBD5E1', fontFamily: 'monospace' }}>
                 {ticker}
               </span>
             )}
           </div>
 
-          {/* Title — the hook */}
           <span
             style={{
               fontSize: displayTitle.length > 60 ? 30 : displayTitle.length > 40 ? 36 : 40,
               fontWeight: 700,
               color: '#FFFFFF',
               lineHeight: 1.25,
+              textShadow: '0 2px 8px rgba(0,0,0,0.3)',
             }}
           >
             {displayTitle}
           </span>
         </div>
 
-        {/* Right: Grade circle (big, dominant) */}
+        {/* Right: Grade circle */}
         {grade && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <div
@@ -193,9 +235,10 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
                 width: '140px',
                 height: '140px',
                 borderRadius: '9999px',
-                backgroundColor: `${gradeColor}1A`,
+                backgroundColor: `${gradeColor}25`,
                 border: `4px solid ${gradeColor}`,
                 gap: '2px',
+                boxShadow: `0 0 30px ${gradeColor}40`,
               }}
             >
               <span style={{ fontSize: isNumeric ? 64 : 72, fontWeight: 700, color: gradeColor, fontFamily: 'monospace' }}>
@@ -219,32 +262,21 @@ function ArticleOG({ title, grade, articleType, ticker }: { title: string; grade
       {/* Bottom: CTA line */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{ width: 4, height: 20, backgroundColor: gradeColor || '#10B981', borderRadius: 2 }} />
-        <span style={{ fontSize: 17, color: '#94A3B8', fontFamily: 'monospace' }}>
+        <span style={{ fontSize: 17, color: '#CBD5E1', fontFamily: 'monospace' }}>
           {isRoast ? 'AI fact-checked this stock recommendation →' :
            isTake ? 'What this means for your portfolio →' :
            'See which stock survived the AI tournament →'}
         </span>
       </div>
-    </div>
+    </PhotoBackground>
   );
 }
 
-function TakeOG({ title, source }: { title: string; source: string }) {
+function TakeOG({ title, source, bgUrl }: { title: string; source: string; bgUrl?: string }) {
   const displayTitle = title.length > 90 ? title.substring(0, 87) + '...' : title;
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#0F172A',
-        padding: '50px 60px',
-        backgroundImage: 'radial-gradient(ellipse 80% 60% at 20% 0%, rgba(59, 130, 246, 0.06), transparent)',
-      }}
-    >
+    <PhotoBackground bgUrl={bgUrl}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <BrandBar />
       </div>
@@ -256,7 +288,7 @@ function TakeOG({ title, source }: { title: string; source: string }) {
               fontSize: 16,
               fontWeight: 700,
               color: '#3B82F6',
-              backgroundColor: 'rgba(59, 130, 246, 0.15)',
+              backgroundColor: 'rgba(59, 130, 246, 0.25)',
               padding: '6px 16px',
               borderRadius: '9999px',
               fontFamily: 'monospace',
@@ -267,7 +299,7 @@ function TakeOG({ title, source }: { title: string; source: string }) {
             📰 BREAKING
           </span>
           {source && (
-            <span style={{ fontSize: 16, color: '#64748B', fontFamily: 'monospace' }}>
+            <span style={{ fontSize: 16, color: '#94A3B8', fontFamily: 'monospace' }}>
               via {source}
             </span>
           )}
@@ -278,6 +310,7 @@ function TakeOG({ title, source }: { title: string; source: string }) {
             fontWeight: 700,
             color: '#FFFFFF',
             lineHeight: 1.3,
+            textShadow: '0 2px 8px rgba(0,0,0,0.3)',
           }}
         >
           {displayTitle}
@@ -286,28 +319,17 @@ function TakeOG({ title, source }: { title: string; source: string }) {
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{ width: 4, height: 20, backgroundColor: '#3B82F6', borderRadius: 2 }} />
-        <span style={{ fontSize: 17, color: '#94A3B8', fontFamily: 'monospace' }}>
+        <span style={{ fontSize: 17, color: '#CBD5E1', fontFamily: 'monospace' }}>
           Bull or BS for your portfolio? Read the breakdown →
         </span>
       </div>
-    </div>
+    </PhotoBackground>
   );
 }
 
 function DefaultOG() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#0F172A',
-        padding: '50px 60px',
-        backgroundImage: 'radial-gradient(ellipse 60% 50% at 50% 80%, rgba(16, 185, 129, 0.08), transparent)',
-      }}
-    >
+    <PhotoBackground>
       <BrandBar />
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -345,13 +367,14 @@ function DefaultOG() {
           Free. Transparent. No paywall. No BS.
         </span>
       </div>
-    </div>
+    </PhotoBackground>
   );
 }
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const type = searchParams.get('type') || 'default';
+  const bgUrl = searchParams.get('bg') || undefined;
 
   let element: React.JSX.Element;
 
@@ -362,6 +385,7 @@ export async function GET(request: Request) {
           ticker={searchParams.get('ticker') || 'TICKER'}
           company={searchParams.get('company') || 'Company Name'}
           exchange={searchParams.get('exchange') || 'TSX'}
+          bgUrl={bgUrl}
         />
       );
       break;
@@ -372,6 +396,7 @@ export async function GET(request: Request) {
           <TakeOG
             title={searchParams.get('title') || 'News Take'}
             source={decodeURIComponent(searchParams.get('source') || '')}
+            bgUrl={bgUrl}
           />
         );
       } else {
@@ -381,6 +406,7 @@ export async function GET(request: Request) {
             grade={searchParams.get('grade') || ''}
             articleType={articleType}
             ticker={searchParams.get('ticker') || ''}
+            bgUrl={bgUrl}
           />
         );
       }

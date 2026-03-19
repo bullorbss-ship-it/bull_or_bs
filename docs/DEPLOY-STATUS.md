@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-19T02:50:17.201Z*
+*Auto-generated: 2026-03-19T16:18:05.594Z*
 
 ---
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | Roasts | 12 |
 | Picks | 7 |
-| Takes | 25 |
-| **Total** | 44 |
+| Takes | 26 |
+| **Total** | 45 |
 
 ### Roasts
 
@@ -47,6 +47,7 @@
 | Date | Title |
 | --- | --- |
 | 2026-03-18 | Delta Just Blew Past Wall Street—And the Airline Sector Is Following |
+| 2026-03-18 | Microsoft Is Threatening to Sue OpenAI and Amazon Over a $50 Billion C |
 | 2026-03-18 | The Nitrogen King's Lucky Break: When Geopolitics Beats Bad Timing |
 | 2026-03-16 | Gold, Silver, and Copper Hit Records Then Crashed—Here's Why Markets A |
 | 2026-03-16 | Markets Rally as Oil Prices Fall; IEA Releases Emergency Reserves Amid |
