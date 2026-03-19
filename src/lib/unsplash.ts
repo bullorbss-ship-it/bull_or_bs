@@ -136,19 +136,31 @@ export async function getArticleImages(opts: {
   const { imageSearchTerms } = opts;
 
   // Use AI-suggested terms if available, otherwise fallback
-  const primaryQuery = imageSearchTerms?.[0] || getFallbackQuery(opts);
-  const secondaryQuery = imageSearchTerms?.[1] || imageSearchTerms?.[0] || getFallbackQuery(opts);
+  const queries = [
+    imageSearchTerms?.[0],
+    imageSearchTerms?.[1],
+    imageSearchTerms?.[2],
+    getFallbackQuery(opts),
+  ].filter(Boolean) as string[];
 
   // Fetch hero image with primary query
-  const heroPhotos = await fetchPhotos(primaryQuery, 1);
+  const heroPhotos = await fetchPhotos(queries[0], 1);
   const hero = heroPhotos[0] || null;
 
-  // Fetch 2 inline images with secondary query (different from hero)
-  const inlinePhotos = await fetchPhotos(secondaryQuery, 3);
-  // Filter out the hero photo URL to avoid duplicates
-  const inline = inlinePhotos
-    .filter(p => p.url !== hero?.url)
-    .slice(0, 2);
+  // Fetch inline images — try each remaining query until we have 2
+  const inline: UnsplashPhoto[] = [];
+  const usedUrls = new Set(hero ? [hero.url] : []);
+
+  for (let i = 1; i < queries.length && inline.length < 2; i++) {
+    const photos = await fetchPhotos(queries[i], 3);
+    for (const p of photos) {
+      if (inline.length >= 2) break;
+      if (!usedUrls.has(p.url)) {
+        inline.push(p);
+        usedUrls.add(p.url);
+      }
+    }
+  }
 
   return { hero, inline };
 }
