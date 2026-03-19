@@ -142,7 +142,8 @@ OUTPUT AS VALID JSON matching this structure:
   "dataPoints": [
     { "label": "string", "value": "string — use qualitative descriptors, not specific numbers unless [VERIFIED]", "source": "string", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
-  "finalVerdict": "string — 150-250 words. Structure: Score X/10 → What's good (3 bullets) → What's concerning (3 bullets) → 'Would I put my own money here?' in 1-2 sentences. Use plain English throughout."
+  "finalVerdict": "string — 150-250 words. Structure: Score X/10 → What's good (3 bullets) → What's concerning (3 bullets) → 'Would I put my own money here?' in 1-2 sentences. Use plain English throughout.",
+  "imageSearchTerms": ["string — 3 specific, visual search terms for stock photos that match this article's topic. Be concrete: 'semiconductor factory clean room' not 'technology'. Think about what image would look good behind the headline."]
 }
 
 RULES:
@@ -209,7 +210,8 @@ OUTPUT AS VALID JSON matching this structure:
   "dataPoints": [
     { "label": "string", "value": "string — qualitative descriptors, not specific numbers unless [VERIFIED]", "source": "string", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
-  "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not? Keep it dead simple."
+  "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not? Keep it dead simple.",
+  "imageSearchTerms": ["string — 3 specific, visual search terms for stock photos that match this article's topic. Be concrete: 'electric vehicle charging station' not 'cars'. Think about what image would look good behind the headline."]
 }
 
 RULES:
@@ -276,7 +278,8 @@ OUTPUT AS VALID JSON matching this structure:
   "dataPoints": [
     { "label": "string", "value": "string — exact numbers FROM the provided data", "source": "string — where in the data this came from", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
-  "finalVerdict": "string — 150-250 words. Structure: Score X/10 → What's good (3 bullets) → What's concerning (3 bullets) → 'Would I put my own money here?' in 1-2 sentences."
+  "finalVerdict": "string — 150-250 words. Structure: Score X/10 → What's good (3 bullets) → What's concerning (3 bullets) → 'Would I put my own money here?' in 1-2 sentences.",
+  "imageSearchTerms": ["string — 3 specific, visual search terms for stock photos. Be concrete and visual."]
 }
 
 RULES:
@@ -347,7 +350,8 @@ OUTPUT AS VALID JSON matching this structure:
   "dataPoints": [
     { "label": "string", "value": "string — exact numbers FROM the provided data", "source": "string — where in the data this came from", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
-  "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not?"
+  "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not?",
+  "imageSearchTerms": ["string — 3 specific, visual search terms for stock photos. Be concrete and visual."]
 }
 
 RULES:
@@ -406,7 +410,8 @@ OUTPUT AS VALID JSON matching this structure:
   "dataPoints": [
     { "label": "string", "value": "string", "source": "string — where this fact came from", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
-  "finalVerdict": "string — 80-150 words. Frame the key question using sourced facts. Quotable, shareable, balanced. Don't tell the reader what to do — give them the facts and let them decide."
+  "finalVerdict": "string — 80-150 words. Frame the key question using sourced facts. Quotable, shareable, balanced. Don't tell the reader what to do — give them the facts and let them decide.",
+  "imageSearchTerms": ["string — 3 specific, visual search terms for stock photos that match this news story. Be concrete: 'oil refinery at sunset' not 'energy'. Think about what image would look good behind the headline."]
 }
 
 RULES:
@@ -482,7 +487,8 @@ OUTPUT AS VALID JSON matching this structure:
   "dataPoints": [
     { "label": "string", "value": "string — qualitative descriptors preferred", "source": "string", "sourceUrl": "string (optional) — full URL to original source if available" }
   ],
-  "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not?"
+  "finalVerdict": "string — 100-200 words. Score X/10. Would you tell your friend to buy this? Why or why not?",
+  "imageSearchTerms": ["string — 3 specific, visual search terms for stock photos. Be concrete and visual."]
 }
 
 Return ONLY valid JSON.`;

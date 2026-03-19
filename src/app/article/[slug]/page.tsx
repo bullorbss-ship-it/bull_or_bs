@@ -362,6 +362,29 @@ export default async function ArticlePage({ params }: PageProps) {
         </Collapsible>
       )}
 
+      {/* Inline image 1 — between tournament and analysis */}
+      {article.inlineImages?.[0] && (
+        <div className="my-6 rounded-xl overflow-hidden -mx-1 sm:mx-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={article.inlineImages[0].url}
+            alt=""
+            className="w-full h-48 sm:h-56 object-cover"
+            loading="lazy"
+          />
+          <p className="text-[10px] text-muted-light mt-1 px-1">
+            Photo by{' '}
+            <a href={`${article.inlineImages[0].photographerUrl}?utm_source=bullorbs&utm_medium=referral`} target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+              {article.inlineImages[0].photographer}
+            </a>
+            {' / '}
+            <a href="https://unsplash.com/?utm_source=bullorbs&utm_medium=referral" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+              Unsplash
+            </a>
+          </p>
+        </div>
+      )}
+
       {/* Full Analysis — collapsible (the deep dive) */}
       <Collapsible
         title="Full Analysis"
@@ -374,6 +397,29 @@ export default async function ArticlePage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: formatMarkdown(content.analysis, articleTickers) }}
         />
       </Collapsible>
+
+      {/* Inline image 2 — between analysis and key data */}
+      {article.inlineImages?.[1] && (
+        <div className="my-6 rounded-xl overflow-hidden -mx-1 sm:mx-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={article.inlineImages[1].url}
+            alt=""
+            className="w-full h-48 sm:h-56 object-cover"
+            loading="lazy"
+          />
+          <p className="text-[10px] text-muted-light mt-1 px-1">
+            Photo by{' '}
+            <a href={`${article.inlineImages[1].photographerUrl}?utm_source=bullorbs&utm_medium=referral`} target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+              {article.inlineImages[1].photographer}
+            </a>
+            {' / '}
+            <a href="https://unsplash.com/?utm_source=bullorbs&utm_medium=referral" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">
+              Unsplash
+            </a>
+          </p>
+        </div>
+      )}
 
       {/* Key Data — collapsible */}
       {content.dataPoints && content.dataPoints.length > 0 && (

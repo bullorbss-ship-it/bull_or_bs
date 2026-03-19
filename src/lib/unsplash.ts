@@ -1,5 +1,5 @@
 /**
- * Unsplash API helper — fetches relevant stock photos for article hero images.
+ * Unsplash API helper — fetches relevant stock photos for article hero + inline images.
  * Free tier: 50 requests/hour. Requires UNSPLASH_ACCESS_KEY env var.
  * Attribution is required per Unsplash ToS.
  */
@@ -12,20 +12,18 @@ export interface UnsplashPhoto {
   photographer: string;
   photographerUrl: string;
   unsplashUrl: string;   // Link back to Unsplash (required by ToS)
-  blurHash?: string;
 }
 
-/** Map article context to a good Unsplash search query */
-export function getSearchQuery(opts: {
+/** Fallback: map article context to an Unsplash search query when AI terms aren't available */
+function getFallbackQuery(opts: {
   ticker?: string;
   type: 'roast' | 'pick' | 'take';
   title: string;
   category?: string;
 }): string {
-  const { ticker, type, title, category } = opts;
+  const { type, title, category } = opts;
   const titleLower = title.toLowerCase();
 
-  // Category-based queries for takes
   if (category) {
     const categoryMap: Record<string, string> = {
       'geopolitics': 'global politics economy',
@@ -33,17 +31,9 @@ export function getSearchQuery(opts: {
       'tech': 'technology stocks silicon valley',
       'earnings': 'stock market earnings report',
       'macro': 'economy federal reserve finance',
-      'crypto': 'cryptocurrency bitcoin digital',
       'energy': 'energy oil gas renewable',
-      'm&a': 'corporate merger acquisition business',
-      'banking': 'banking finance wall street',
-      'healthcare': 'healthcare pharmaceutical',
-      'real estate': 'real estate property market',
-      'automotive': 'automotive cars manufacturing',
-      'ai': 'artificial intelligence technology',
       'semiconductor': 'semiconductor chip technology',
       'defense': 'defense military aerospace',
-      'retail': 'retail shopping consumer',
       'airlines': 'airlines aviation airport',
     };
     const mapped = Object.entries(categoryMap).find(([key]) =>
@@ -52,52 +42,41 @@ export function getSearchQuery(opts: {
     if (mapped) return mapped[1];
   }
 
-  // Keyword detection from title
   const keywordMap: [RegExp, string][] = [
-    [/nvidia|gpu|chip|semiconductor/i, 'semiconductor chip technology'],
-    [/apple|iphone/i, 'apple technology'],
-    [/tesla|ev|electric vehicle/i, 'electric vehicle tesla'],
-    [/oil|petroleum|crude|energy/i, 'oil energy petroleum'],
-    [/gold|mining|commodit/i, 'gold mining commodities'],
-    [/bank|financ/i, 'banking finance wall street'],
-    [/pharma|drug|health/i, 'pharmaceutical healthcare'],
-    [/ai|artificial intelligence|machine learning/i, 'artificial intelligence technology'],
-    [/crypto|bitcoin|blockchain/i, 'cryptocurrency bitcoin'],
-    [/real estate|reit|property/i, 'real estate property'],
-    [/dividend|income|yield/i, 'investment dividend income'],
-    [/etf|index fund|portfolio/i, 'investment portfolio diversification'],
-    [/defense|military|weapon/i, 'defense military aerospace'],
-    [/airline|aviation|flight/i, 'airlines aviation airport'],
-    [/retail|consumer|shop/i, 'retail shopping consumer'],
-    [/tariff|trade war|geopolit/i, 'global trade politics economy'],
-    [/meta|facebook|social media/i, 'social media technology'],
-    [/google|alphabet|search/i, 'google technology search'],
+    [/nvidia|gpu|chip|semiconductor/i, 'semiconductor factory clean room'],
+    [/tesla|ev|electric vehicle/i, 'electric vehicle charging station'],
+    [/oil|petroleum|crude|energy/i, 'oil refinery industrial'],
+    [/gold|mining/i, 'gold bars vault'],
+    [/bank|financ/i, 'wall street banking district'],
+    [/pharma|drug|health/i, 'pharmaceutical laboratory research'],
+    [/ai|artificial intelligence/i, 'artificial intelligence server room'],
+    [/crypto|bitcoin/i, 'cryptocurrency digital currency'],
+    [/meta|facebook|social media/i, 'social media smartphone network'],
+    [/google|alphabet/i, 'search engine technology office'],
     [/amazon|ecommerce/i, 'ecommerce warehouse logistics'],
-    [/microsoft|cloud|azure/i, 'cloud computing technology'],
+    [/tariff|trade war|geopolit/i, 'shipping containers global trade'],
+    [/airline|aviation/i, 'airplane airport commercial aviation'],
   ];
 
   for (const [pattern, query] of keywordMap) {
-    if (pattern.test(titleLower) || (ticker && pattern.test(ticker))) {
-      return query;
-    }
+    if (pattern.test(titleLower)) return query;
   }
 
-  // Default fallbacks by type
-  if (type === 'roast') return 'stock market analysis finance';
-  if (type === 'pick') return 'stock market trading investment';
-  return 'financial news economy market';
+  if (type === 'roast') return 'stock market trading floor';
+  if (type === 'pick') return 'stock market investment chart';
+  return 'financial news newspaper economy';
 }
 
-/** Fetch a relevant photo from Unsplash. Returns null if API key missing or request fails. */
-export async function fetchUnsplashPhoto(query: string): Promise<UnsplashPhoto | null> {
+/** Fetch photos from Unsplash for a given query. Returns up to `count` unique photos. */
+async function fetchPhotos(query: string, count: number): Promise<UnsplashPhoto[]> {
   const accessKey = process.env.UNSPLASH_ACCESS_KEY;
   if (!accessKey) {
     console.log('[Unsplash] No UNSPLASH_ACCESS_KEY — skipping image fetch');
-    return null;
+    return [];
   }
 
   try {
-    const url = `${UNSPLASH_API}/search/photos?query=${encodeURIComponent(query)}&orientation=landscape&per_page=5&content_filter=high`;
+    const url = `${UNSPLASH_API}/search/photos?query=${encodeURIComponent(query)}&orientation=landscape&per_page=${Math.min(count + 5, 15)}&content_filter=high`;
     const res = await fetch(url, {
       headers: { Authorization: `Client-ID ${accessKey}` },
       signal: AbortSignal.timeout(5000),
@@ -105,44 +84,84 @@ export async function fetchUnsplashPhoto(query: string): Promise<UnsplashPhoto |
 
     if (!res.ok) {
       console.log(`[Unsplash] API error: ${res.status} ${res.statusText}`);
-      return null;
+      return [];
     }
 
     const data = await res.json();
     if (!data.results?.length) {
       console.log(`[Unsplash] No results for query: ${query}`);
-      return null;
+      return [];
     }
 
-    // Pick a random photo from top 5 for variety
-    const photo = data.results[Math.floor(Math.random() * Math.min(5, data.results.length))];
+    // Shuffle results for variety, then take what we need
+    const shuffled = data.results.sort(() => Math.random() - 0.5);
+    const photos: UnsplashPhoto[] = [];
 
-    // Trigger Unsplash download tracking (required by API guidelines)
-    if (photo.links?.download_location) {
-      fetch(`${photo.links.download_location}?client_id=${accessKey}`, { signal: AbortSignal.timeout(3000) }).catch(() => {});
+    for (const photo of shuffled) {
+      if (photos.length >= count) break;
+
+      // Trigger Unsplash download tracking (required by API guidelines)
+      if (photo.links?.download_location) {
+        fetch(`${photo.links.download_location}?client_id=${accessKey}`, { signal: AbortSignal.timeout(3000) }).catch(() => {});
+      }
+
+      photos.push({
+        url: photo.urls?.regular || photo.urls?.full,
+        thumbUrl: photo.urls?.small || photo.urls?.thumb,
+        photographer: photo.user?.name || 'Unknown',
+        photographerUrl: photo.user?.links?.html || 'https://unsplash.com',
+        unsplashUrl: photo.links?.html || 'https://unsplash.com',
+      });
     }
 
-    return {
-      url: photo.urls?.regular || photo.urls?.full,
-      thumbUrl: photo.urls?.small || photo.urls?.thumb,
-      photographer: photo.user?.name || 'Unknown',
-      photographerUrl: photo.user?.links?.html || 'https://unsplash.com',
-      unsplashUrl: photo.links?.html || 'https://unsplash.com',
-      blurHash: photo.blur_hash,
-    };
+    return photos;
   } catch (err) {
     console.log('[Unsplash] Fetch failed:', err instanceof Error ? err.message : err);
-    return null;
+    return [];
   }
 }
 
-/** Convenience: search + fetch in one call */
+/**
+ * Fetch article images: 1 hero + 2 inline.
+ * Uses AI-suggested search terms when available, falls back to keyword mapping.
+ * Makes 1-2 API calls (one per unique search term used).
+ */
+export async function getArticleImages(opts: {
+  ticker?: string;
+  type: 'roast' | 'pick' | 'take';
+  title: string;
+  category?: string;
+  imageSearchTerms?: string[];
+}): Promise<{ hero: UnsplashPhoto | null; inline: UnsplashPhoto[] }> {
+  const { imageSearchTerms } = opts;
+
+  // Use AI-suggested terms if available, otherwise fallback
+  const primaryQuery = imageSearchTerms?.[0] || getFallbackQuery(opts);
+  const secondaryQuery = imageSearchTerms?.[1] || imageSearchTerms?.[0] || getFallbackQuery(opts);
+
+  // Fetch hero image with primary query
+  const heroPhotos = await fetchPhotos(primaryQuery, 1);
+  const hero = heroPhotos[0] || null;
+
+  // Fetch 2 inline images with secondary query (different from hero)
+  const inlinePhotos = await fetchPhotos(secondaryQuery, 3);
+  // Filter out the hero photo URL to avoid duplicates
+  const inline = inlinePhotos
+    .filter(p => p.url !== hero?.url)
+    .slice(0, 2);
+
+  return { hero, inline };
+}
+
+/** Legacy single-image convenience function */
 export async function getArticleImage(opts: {
   ticker?: string;
   type: 'roast' | 'pick' | 'take';
   title: string;
   category?: string;
+  imageSearchTerms?: string[];
 }): Promise<UnsplashPhoto | null> {
-  const query = getSearchQuery(opts);
-  return fetchUnsplashPhoto(query);
+  const primaryQuery = opts.imageSearchTerms?.[0] || getFallbackQuery(opts);
+  const photos = await fetchPhotos(primaryQuery, 1);
+  return photos[0] || null;
 }

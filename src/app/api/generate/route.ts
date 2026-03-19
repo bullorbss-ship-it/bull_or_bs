@@ -7,7 +7,12 @@ import { timingSafeCompare, verifySession } from '@/lib/auth';
 import { registerArticleTickers } from '@/lib/ticker-registry';
 import { updateProfileFromArticle, updateCandidateProfiles, ProfileUpdate } from '@/lib/stock-data';
 import { todayEST } from '@/lib/date';
-import { getArticleImage } from '@/lib/unsplash';
+import { getArticleImages } from '@/lib/unsplash';
+import type { UnsplashPhoto } from '@/lib/unsplash';
+
+function photoToField(p: UnsplashPhoto) {
+  return { url: p.url, photographer: p.photographer, photographerUrl: p.photographerUrl, unsplashUrl: p.unsplashUrl };
+}
 
 export async function POST(req: NextRequest) {
   // Rate limit: 5 requests per minute (costs money)
@@ -52,8 +57,8 @@ export async function POST(req: NextRequest) {
       const tickerSlug = ticker.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const slug = `${tickerSlug}-roast-${today}`;
 
-      // Fetch hero image from Unsplash (non-blocking — if it fails, article still works)
-      const heroPhoto = await getArticleImage({ ticker: ticker.toUpperCase(), type: 'roast', title: result.content.headline });
+      // Fetch hero + inline images from Unsplash using AI-suggested search terms
+      const images = await getArticleImages({ ticker: ticker.toUpperCase(), type: 'roast', title: result.content.headline, imageSearchTerms: result.imageSearchTerms });
 
       const article: Article = {
         slug,
@@ -65,7 +70,8 @@ export async function POST(req: NextRequest) {
         verdict: result.content.finalVerdict,
         tags: [ticker.toUpperCase(), 'roast', 'stock analysis', 'AI analysis'],
         content: result.content,
-        ...(heroPhoto ? { heroImage: { url: heroPhoto.url, photographer: heroPhoto.photographer, photographerUrl: heroPhoto.photographerUrl, unsplashUrl: heroPhoto.unsplashUrl } } : {}),
+        ...(images.hero ? { heroImage: photoToField(images.hero) } : {}),
+        ...(images.inline.length > 0 ? { inlineImages: images.inline.map(photoToField) } : {}),
       };
 
       saveArticle(article);
@@ -122,7 +128,7 @@ export async function POST(req: NextRequest) {
       const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
       const slug = `ai-pick${topicSlug}-${today}`;
 
-      const heroPhoto = await getArticleImage({ ticker: result.content.winner?.ticker, type: 'pick', title: result.content.headline });
+      const images = await getArticleImages({ ticker: result.content.winner?.ticker, type: 'pick', title: result.content.headline, imageSearchTerms: result.imageSearchTerms });
 
       const article: Article = {
         slug,
@@ -140,7 +146,8 @@ export async function POST(req: NextRequest) {
           topic || 'weekly pick',
         ].filter(Boolean),
         content: result.content,
-        ...(heroPhoto ? { heroImage: { url: heroPhoto.url, photographer: heroPhoto.photographer, photographerUrl: heroPhoto.photographerUrl, unsplashUrl: heroPhoto.unsplashUrl } } : {}),
+        ...(images.hero ? { heroImage: photoToField(images.hero) } : {}),
+        ...(images.inline.length > 0 ? { inlineImages: images.inline.map(photoToField) } : {}),
       };
 
       saveArticle(article);
@@ -203,7 +210,7 @@ export async function POST(req: NextRequest) {
       const tickerSlug = ticker.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const slug = `${tickerSlug}-roast-${today}`;
 
-      const heroPhoto = await getArticleImage({ ticker: ticker.toUpperCase(), type: 'roast', title: result.content.headline });
+      const articleImages = await getArticleImages({ ticker: ticker.toUpperCase(), type: 'roast', title: result.content.headline, imageSearchTerms: result.imageSearchTerms });
 
       const article: Article = {
         slug,
@@ -215,7 +222,8 @@ export async function POST(req: NextRequest) {
         verdict: result.content.finalVerdict,
         tags: [ticker.toUpperCase(), 'roast', 'screenshot analysis', 'AI analysis'],
         content: result.content,
-        ...(heroPhoto ? { heroImage: { url: heroPhoto.url, photographer: heroPhoto.photographer, photographerUrl: heroPhoto.photographerUrl, unsplashUrl: heroPhoto.unsplashUrl } } : {}),
+        ...(articleImages.hero ? { heroImage: photoToField(articleImages.hero) } : {}),
+        ...(articleImages.inline.length > 0 ? { inlineImages: articleImages.inline.map(photoToField) } : {}),
       };
 
       saveArticle(article);
@@ -281,7 +289,7 @@ export async function POST(req: NextRequest) {
       const topicSlug = topic ? `-${topic.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 40)}` : '';
       const slug = `ai-pick${winnerTicker}${topicSlug}-${today}`;
 
-      const heroPhoto = await getArticleImage({ ticker: result.content.winner?.ticker, type: 'pick', title: result.content.headline });
+      const articleImages = await getArticleImages({ ticker: result.content.winner?.ticker, type: 'pick', title: result.content.headline, imageSearchTerms: result.imageSearchTerms });
 
       const article: Article = {
         slug,
@@ -299,7 +307,8 @@ export async function POST(req: NextRequest) {
           topic || 'comparison',
         ].filter(Boolean),
         content: result.content,
-        ...(heroPhoto ? { heroImage: { url: heroPhoto.url, photographer: heroPhoto.photographer, photographerUrl: heroPhoto.photographerUrl, unsplashUrl: heroPhoto.unsplashUrl } } : {}),
+        ...(articleImages.hero ? { heroImage: photoToField(articleImages.hero) } : {}),
+        ...(articleImages.inline.length > 0 ? { inlineImages: articleImages.inline.map(photoToField) } : {}),
       };
 
       saveArticle(article);
@@ -362,7 +371,7 @@ export async function POST(req: NextRequest) {
       const slug = `take-${topicSlug}-${today}`;
 
       const category = result.category || undefined;
-      const heroPhoto = await getArticleImage({ type: 'take', title: result.content.headline, category });
+      const images = await getArticleImages({ type: 'take', title: result.content.headline, category, imageSearchTerms: result.imageSearchTerms });
 
       const article: Article = {
         slug,
@@ -378,7 +387,8 @@ export async function POST(req: NextRequest) {
           ...result.content,
           newsSource: source || undefined,
         },
-        ...(heroPhoto ? { heroImage: { url: heroPhoto.url, photographer: heroPhoto.photographer, photographerUrl: heroPhoto.photographerUrl, unsplashUrl: heroPhoto.unsplashUrl } } : {}),
+        ...(images.hero ? { heroImage: photoToField(images.hero) } : {}),
+        ...(images.inline.length > 0 ? { inlineImages: images.inline.map(photoToField) } : {}),
       };
 
       saveArticle(article);

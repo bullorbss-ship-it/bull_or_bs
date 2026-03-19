@@ -15,6 +15,12 @@ export interface Article {
     photographerUrl: string;
     unsplashUrl: string;
   };
+  inlineImages?: {
+    url: string;
+    photographer: string;
+    photographerUrl: string;
+    unsplashUrl: string;
+  }[];
   ticker?: string;
   verdict: string;
   confidence?: number;

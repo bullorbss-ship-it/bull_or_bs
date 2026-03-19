@@ -90,7 +90,7 @@ function PhotoBackground({ bgUrl, children }: { bgUrl?: string; children: React.
           left: 0,
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(180deg, rgba(15,23,42,0.82) 0%, rgba(15,23,42,0.88) 50%, rgba(15,23,42,0.95) 100%)',
+          background: 'linear-gradient(180deg, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.65) 50%, rgba(15,23,42,0.80) 100%)',
         }}
       />
       {/* Content on top */}

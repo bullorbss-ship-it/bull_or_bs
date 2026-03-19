@@ -9,6 +9,20 @@ import { buildTickerReferenceSheet, buildIdentityOnlySheet, getTickerProfile } f
 import { refreshProfile, ProfileChange } from './refresh-profile';
 import { todayEST } from '@/lib/date';
 
+/** Extract imageSearchTerms from raw AI JSON response */
+function extractImageTerms(text: string): string[] | undefined {
+  try {
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const raw = JSON.parse(jsonMatch[0]);
+      if (Array.isArray(raw.imageSearchTerms) && raw.imageSearchTerms.length > 0) {
+        return raw.imageSearchTerms.filter((t: unknown) => typeof t === 'string' && t.length > 0);
+      }
+    }
+  } catch { /* ignore */ }
+  return undefined;
+}
+
 export interface ProfileWarning {
   ticker: string;
   changes: ProfileChange[];
@@ -17,6 +31,7 @@ export interface ProfileWarning {
 export interface GenerateResult {
   content: ArticleContent;
   category?: string;
+  imageSearchTerms?: string[];
   costUsd: number;
   inputTokens: number;
   outputTokens: number;
@@ -88,6 +103,7 @@ Return ONLY valid JSON.`;
   });
 
   const rawContent = parseArticleContent(response.text);
+  const imageSearchTerms = extractImageTerms(response.text);
 
   // Legal audit: scrub competitor names from headlines/summaries/verdicts
   const { content, audit } = auditAndScrub(rawContent);
@@ -97,6 +113,7 @@ Return ONLY valid JSON.`;
 
   return {
     content,
+    imageSearchTerms,
     costUsd: response.costUsd,
     inputTokens: response.inputTokens,
     outputTokens: response.outputTokens,
@@ -160,6 +177,7 @@ Return ONLY valid JSON.`;
   });
 
   const rawContent = parseArticleContent(response.text);
+  const imageSearchTerms = extractImageTerms(response.text);
 
   // Legal audit: scrub competitor names from headlines/summaries/verdicts
   const { content, audit } = auditAndScrub(rawContent);
@@ -190,6 +208,7 @@ Return ONLY valid JSON.`;
 
   return {
     content,
+    imageSearchTerms,
     costUsd: response.costUsd,
     inputTokens: response.inputTokens,
     outputTokens: response.outputTokens,
@@ -245,6 +264,7 @@ Return ONLY valid JSON.`;
   });
 
   const rawContent = parseArticleContent(response.text);
+  const imageSearchTerms = extractImageTerms(response.text);
 
   const { content, audit } = auditAndScrub(rawContent);
   if (audit.violations.length > 0) {
@@ -253,6 +273,7 @@ Return ONLY valid JSON.`;
 
   return {
     content,
+    imageSearchTerms,
     costUsd: response.costUsd,
     inputTokens: response.inputTokens,
     outputTokens: response.outputTokens,
@@ -310,6 +331,7 @@ Return ONLY valid JSON.`;
   });
 
   const rawContent = parseArticleContent(response.text);
+  const imageSearchTerms = extractImageTerms(response.text);
 
   const { content, audit } = auditAndScrub(rawContent);
   if (audit.violations.length > 0) {
@@ -318,6 +340,7 @@ Return ONLY valid JSON.`;
 
   return {
     content,
+    imageSearchTerms,
     costUsd: response.costUsd,
     inputTokens: response.inputTokens,
     outputTokens: response.outputTokens,
@@ -370,6 +393,7 @@ Return ONLY valid JSON.`;
   });
 
   const rawContent = parseArticleContent(response.text);
+  const imageSearchTerms = extractImageTerms(response.text);
 
   // Extract category from raw JSON (not part of ArticleContent type)
   let category: string | undefined;
@@ -391,6 +415,7 @@ Return ONLY valid JSON.`;
   return {
     content,
     category,
+    imageSearchTerms,
     costUsd: response.costUsd,
     inputTokens: response.inputTokens,
     outputTokens: response.outputTokens,
