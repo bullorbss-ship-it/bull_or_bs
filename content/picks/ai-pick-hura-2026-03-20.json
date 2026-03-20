@@ -1,0 +1,67 @@
+{
+  "slug": "ai-pick-hura-2026-03-20",
+  "type": "pick",
+  "title": "5 Uranium Plays Compared: Which Bet Wins in 2026?",
+  "description": "We compared five uranium ETFs and trusts as uranium prices surge past $100/lb. HURA edges out the field with the strongest 1-year returns (+104.73%) and Canadian tax efficiency, but it comes with a higher fee. URNM offers the safest, most liquid foundation for uranium exposure with lower costs. If you want pure commodity betting, the Sprott Physical Uranium Trust (U.UN) holds actual uranium metal—no mining risk, but also no upside from company growth.",
+  "date": "2026-03-20",
+  "ticker": "HURA",
+  "confidence": 9,
+  "tags": [
+    "HURA",
+    "AI pick",
+    "screenshot analysis",
+    "comparison"
+  ],
+  "content": {
+    "headline": "5 Uranium Plays Compared: Which Bet Wins in 2026?",
+    "summary": "We compared five uranium ETFs and trusts as uranium prices surge past $100/lb. HURA edges out the field with the strongest 1-year returns (+104.73%) and Canadian tax efficiency, but it comes with a higher fee. URNM offers the safest, most liquid foundation for uranium exposure with lower costs. If you want pure commodity betting, the Sprott Physical Uranium Trust (U.UN) holds actual uranium metal—no mining risk, but also no upside from company growth.",
+    "candidates": [
+      {
+        "ticker": "URNM",
+        "company": "Sprott Uranium Miners ETF",
+        "status": "considered",
+        "reasonConsidered": "Largest uranium miners ETF with [US$1.72B in AUM](https://finance.yahoo.com/quote/URNM/), solid [+40.73% YTD return](https://finance.yahoo.com/quote/URNM/), and the lowest fee at [0.75% MER](https://www.sprottusa.com/etfs-update/urnm-sprott-uranium-miners-etf/). Strong liquidity with [729,829 avg daily volume](https://finance.yahoo.com/quote/URNM/). Holds 31–40 stocks including Cameco and Sprott Physical Uranium Trust.",
+        "reasonEliminated": "U.S.-listed, so Canadians face 15% dividend withholding tax outside RRSPs and miss out on Canadian tax-friendly structures.",
+        "score": 8
+      },
+      {
+        "ticker": "URNJ",
+        "company": "Sprott Junior Uranium Miners ETF",
+        "status": "considered",
+        "reasonConsidered": "Aggressive growth play with [+41.98% YTD return](https://finance.yahoo.com/quote/URNJ/) and the highest trailing yield at [3.15%](https://finance.yahoo.com/quote/URNJ/). Focused on small-cap explorers and developers—many pre-revenue, so captures extreme leverage to uranium upside.",
+        "reasonEliminated": "Negative [P/E ratio of -33.74](https://robinhood.com/us/en/stocks/URNJ/) (no earnings yet), smallest AUM at [US$425M](https://www.sprottusa.com/etfs-update/urnj-sprott-junior-uranium-miners-etf/), and highest risk of total loss if junior miners fail to reach production.",
+        "score": 5
+      },
+      {
+        "ticker": "U.UN",
+        "company": "Sprott Physical Uranium Trust (USD units)",
+        "status": "considered",
+        "reasonConsidered": "[Holds 100% physical U3O8](https://sprott.com/investment-strategies/exchange-listed-products/physical-commodity-funds/uranium/)—actual uranium metal, not mining stocks—eliminating company-specific risk. [+37.14% 1-year return](https://www.stockopedia.com/share-prices/sprott-physical-uranium-trust-TSE:U.UN/), and the world's largest physical uranium fund with [C$8.98B market cap](https://www.stockopedia.com/share-prices/sprott-physical-uranium-trust-TSE:U.UN/). Lowest fee at [0.35% management fee](https://sprott.com/investment-strategies/exchange-listed-products/physical-commodity-funds/faqs-sprott-physical-uranium-trust/).",
+        "reasonEliminated": "Pays zero distributions, trades as a closed-end trust (can drift from NAV), and pure commodity betting means no upside from mining innovation or production growth—only uranium spot price moves matter.",
+        "score": 7
+      },
+      {
+        "ticker": "HURA",
+        "company": "Global X Uranium Index ETF",
+        "status": "selected",
+        "reasonConsidered": "Only TSX-listed uranium ETF, meaning Canadian investors avoid currency conversion and get the best tax treatment in TFSA/RRSP accounts. Stunning [+104.73% 1-year return](https://stockanalysis.com/quote/tsx/HURA/) beats all peers. Tracks 35 global uranium stocks passively. Won [Fundata FundGrade A+® Award for 2024](https://www.globalx.ca/product/hura). Top holdings are diversified: Cameco (20.76%), Sprott Physical Uranium Trust (15.36%), Kazatomprom (14.64%). Canadian-listed structure eliminates foreign dividend withholding tax complexity.",
+        "score": 9
+      }
+    ],
+    "winner": {
+      "ticker": "HURA",
+      "company": "Global X Uranium Index ETF (TSX)",
+      "status": "selected",
+      "reasonConsidered": "HURA is a no-brainer for Canadian investors. It delivers the best performance—[+104.73% in 1 year](https://stockanalysis.com/quote/tsx/HURA/)—while being TSX-listed and priced in CAD. That means zero currency risk, zero foreign withholding tax headaches, and perfect fit for TFSA/RRSP accounts. The [1.06% MER](https://www.tradingview.com/symbols/TSX-HURA/) is only 0.31% higher than URNM, but you're getting tax efficiency and Canadian convenience worth far more. Holds 35 uranium stocks with smart diversification—not over-dependent on any single name. Even though it's smaller ([C$189.40M AUM](https://www.tradingview.com/symbols/TSX-HURA/)) than URNM, liquidity is solid for retail investors.",
+      "score": 9
+    },
+    "analysis": "## Head-to-Head\n\n| Metric | HURA | URNM | URNJ | U.UN | Impact & Explanation |\n|--------|------|------|------|------|----------------------|\n| **1-Year Return** | [+104.73%](https://stockanalysis.com/quote/tsx/HURA/) | [+40.73% YTD](https://finance.yahoo.com/quote/URNM/) | [+41.98% YTD](https://finance.yahoo.com/quote/URNJ/) | [+37.14%](https://www.stockopedia.com/share-prices/sprott-physical-uranium-trust-TSE:U.UN/) | HURA's 1-year window includes more uranium rally momentum than YTD-only figures. Over a full year, HURA crushed the pack. |\n| **Fee (MER/Annual)** | [1.06%](https://www.tradingview.com/symbols/TSX-HURA/) | [0.75%](https://www.sprottusa.com/etfs-update/urnm-sprott-uranium-miners-etf/) | [0.80%](https://www.sprottusa.com/etfs-update/urnj-sprott-junior-uranium-miners-etf/) | [0.35% mgmt + 1.0% buy/sell commission](https://sprott.com/investment-strategies/exchange-listed-products/physical-commodity-funds/faqs-sprott-physical-uranium-trust/) | URNM is cheapest for miners. U.UN has low fee but charges on trades. HURA's 1.06% is reasonable given tax efficiency. |\n| **AUM (Size & Liquidity)** | [C$189.40M](https://www.tradingview.com/symbols/TSX-HURA/) | [US$1.72B](https://finance.yahoo.com/quote/URNM/) | [US$425M](https://www.sprottusa.com/etfs-update/urnj-sprott-junior-uranium-miners-etf/) | [C$8.98B market cap](https://www.stockopedia.com/share-prices/sprott-physical-uranium-trust-TSE:U.UN/) | URNM is the liquidity king; U.UN is massive but it's a trust, not an ETF. HURA is smaller but still liquid for retail. |\n| **Dividend Yield** | [0.08%](https://www.tradingview.com/symbols/TSX-HURA/) | [2.32% trailing](https://finance.yahoo.com/quote/URNM/) | [3.15% trailing](https://finance.yahoo.com/quote/URNJ/) | [0%](https://www.stockopedia.com/share-prices/sprott-physical-uranium-trust-TSE:U.UN/) | URNM and URNJ pay modest dividends (good for RRSP). HURA and U.UN are capital-appreciation plays only. |\n| **Holdings Focus** | [35 global uranium stocks](https://stockanalysis.com/quote/tsx/HURA/) (diversified) | [31–40 miners + physical uranium](https://www.sprottusa.com/etfs-update/urnm-sprott-uranium-miners-etf/) | [33 junior explorers](https://www.sprottusa.com/etfs-update/urnj-sprott-junior-uranium-miners-etf/) (pre-revenue risk) | [100% physical U3O8](https://sprott.com/investment-strategies/exchange-listed-products/physical-commodity-funds/uranium/) (no mining equity risk) | HURA and URNM offer balanced miner exposure. URNJ is pure gambling on junior success. U.UN isolates commodity risk. |\n| **Currency & Tax (for Canadians)** | TSX-listed, CAD, no WHT | U.S.-listed, USD, 15% WHT outside RRSP | U.S.-listed, USD, 15% WHT | TSX-listed, CAD, no WHT | **HURA and U.UN win decisively for Canadians.** No currency drag, no foreign tax complexity. |\n| **P/E Ratio (Valuation)** | Not separately listed | [12.64](https://finance.yahoo.com/quote/URNM/) | [-33.74 (no earnings)](https://robinhood.com/us/en/stocks/URNJ/) | N/A (physical commodity) | URNM trades at reasonable 12.64x; URNJ is mostly pre-revenue so P/E is meaningless. |\n| **Risk Profile** | High (commodity + equity) | Medium-High (diversified miners) | Extreme (junior explorers) | High (single commodity) | URNM is the Goldilocks option. URNJ is a lottery ticket. U.UN and HURA are pure uranium bets. |\n\n---\n\n## Why HURA Wins\n\nHURA's [+104.73% 1-year return](https://stockanalysis.com/quote/tsx/HURA/) is the headline-grabber, but the real story is **Canadian tax efficiency meeting explosive uranium upside**.\n\nFor a Canadian investor, HURA is objectively simpler than URNM. You buy it in your TFSA or RRSP, it trades in CAD, and you dodge the foreign withholding tax that hits URNM dividends. URNM's [0.75% fee](https://www.sprottusa.com/etfs-update/urnm-sprott-uranium-miners-etf/) is lower, but HURA's [1.06%](https://www.tradingview.com/symbols/TSX-HURA/) is worth paying for the tax headache you avoid. Over time, that adds up.\n\nThe portfolio is also smart: [Cameco (20.76%), Sprott Physical Uranium Trust (15.36%), Kazatomprom (14.64%), Oklo (10.61%), NexGen (5.30%)](https://stockanalysis.com/quote/tsx/HURA/). You're getting exposure to the sector's heavyweights *and* leverage to uranium prices through the physical trust inside the fund. It's the best of both worlds.\n\nYes, [C$189.40M AUM](https://www.tradingview.com/symbols/TSX-HURA/) is smaller than URNM's [US$1.72B](https://finance.yahoo.com/quote/URNM/), but liquidity is not an issue for retail investors. And it earned [Fundata's FundGrade A+® Award for 2024](https://www.globalx.ca/product/hura)—institutional validation that you're buying quality.\n\n---\n\n## The Runner-Up: URNM\n\nURNM is the safe, liquid fortress of uranium mining. [US$1.72B in AUM](https://finance.yahoo.com/quote/URNM/) and [729,829 daily volume](https://finance.yahoo.com/quote/URNM/) mean you can buy or sell large positions without moving the market. The [0.75% fee](https://www.sprottusa.com/etfs-update/urnm-sprott-uranium-miners-etf/) is the industry's best, and [April 2024 fee reduction](https://www.sprottusa.com/etfs-update/urnm-sprott-uranium-miners-etf/) shows Sprott is committed to cost control.\n\nBut URNM has a fatal flaw for Canadian investors: **it's U.S.-listed**, triggering a [15% dividend withholding tax](https://finance.yahoo.com/quote/URNM/) outside RRSPs on its [2.32% yield](https://finance.yahoo.com/quote/URNM/). HURA avoids this entirely. Over a 10+ year hold, that tax drag compounds.\n\nFor U.S. investors or those with large RRSP room, URNM is excellent. For typical Canadian retail investors, HURA is the move."
+  },
+  "heroImage": {
+    "url": "https://images.unsplash.com/photo-1665656653092-684fdd316aca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwzfHxzdG9jayUyMG1hcmtldCUyMGludmVzdG1lbnQlMjBjaGFydHxlbnwxfDB8fHwxNzc0MDM0MjkxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+    "photographer": "Shutter Speed",
+    "photographerUrl": "https://unsplash.com/@shutter_speed_",
+    "unsplashUrl": "https://unsplash.com/photos/a-gold-and-silver-trophy-abwO6GCiutE"
+  },
+  "createdAt": "2026-03-20T15:18:11.000-04:00"
+}
