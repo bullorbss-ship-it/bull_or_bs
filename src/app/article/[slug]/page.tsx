@@ -31,12 +31,16 @@ function getScoreFromVerdict(verdict: string): number | null {
 }
 
 function getGradeFromVerdict(verdict: string): string {
+  if (!verdict) return '';
   // New 1-10 system
   const score = getScoreFromVerdict(verdict);
   if (score !== null) return String(score);
-  // Legacy A-F for old articles
-  const match = verdict?.match(/\b([ABCDF][+-]?)\b/);
-  return match ? match[1][0] : 'C';
+  // Legacy A-F: require "GRADE: X" or "Score: X/10" pattern to avoid false positives
+  const gradeMatch = verdict.match(/\bGRADE:\s*([ABCDF][+-]?)\b/i);
+  if (gradeMatch) return gradeMatch[1][0];
+  // Fallback: standalone letter grade only if it looks intentional (single uppercase letter not inside a word)
+  const letterMatch = verdict.match(/(?:^|[.\s])([ABCDF][+-]?)(?:\s|[.,;!?]|$)/);
+  return letterMatch ? letterMatch[1][0] : '';
 }
 
 function getScoreColor(grade: string): string {
