@@ -1,5 +1,6 @@
 import { getAllArticles } from '@/lib/content';
 import SubscribeForm from '@/components/forms/SubscribeForm';
+import ArticleStream from '@/components/article/ArticleStream';
 import Link from 'next/link';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
@@ -59,49 +60,91 @@ export default function Home() {
           <div className="lg:col-span-5">
             {featured && (() => {
               const badge = getArticleBadge(featured.type, featured.category);
+              const hasPhoto = !!featured.heroImage?.url;
               return (
                 <Link
                   href={`/article/${featured.slug}`}
                   className="block rounded-2xl overflow-hidden hover:shadow-xl transition-all group lg:h-full"
                 >
-                  <div className="relative h-[220px] sm:h-[320px] lg:h-full lg:min-h-[420px] overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={getArticleImage(featured)}
-                      alt=""
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
-                      <div className="flex items-center gap-2 mb-2.5 flex-wrap">
-                        <span className="text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md bg-white/15 backdrop-blur-sm text-white border border-white/20">
-                          {badge.label}
-                        </span>
-                        {featured.category && featured.type === 'take' && (
-                          <span className="text-[10px] sm:text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-white/15 backdrop-blur-sm text-white border border-white/20">
-                            {featured.category.toUpperCase()}
+                  {hasPhoto ? (
+                    <div className="relative h-[220px] sm:h-[320px] lg:h-full lg:min-h-[420px] overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={featured.heroImage!.url}
+                        alt=""
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+                        <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+                          <span className="text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md bg-white/15 backdrop-blur-sm text-white border border-white/20">
+                            {badge.label}
                           </span>
-                        )}
-                        {featured.ticker && (
-                          <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded bg-white/15 backdrop-blur-sm text-white font-mono border border-white/20">
-                            {featured.ticker}
+                          {featured.category && featured.type === 'take' && (
+                            <span className="text-[10px] sm:text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-white/15 backdrop-blur-sm text-white border border-white/20">
+                              {featured.category.toUpperCase()}
+                            </span>
+                          )}
+                          {featured.ticker && (
+                            <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded bg-white/15 backdrop-blur-sm text-white font-mono border border-white/20">
+                              {featured.ticker}
+                            </span>
+                          )}
+                          <span className="text-[10px] sm:text-xs font-mono text-white/60 ml-auto">
+                            {formatDate(featured.date)}
                           </span>
-                        )}
-                        <span className="text-[10px] sm:text-xs font-mono text-white/60 ml-auto">
-                          {formatDate(featured.date)}
+                        </div>
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug">
+                          {featured.title}
+                        </h2>
+                        <p className="text-white/75 text-sm sm:text-base mt-2 line-clamp-2 max-w-2xl">
+                          {featured.description}
+                        </p>
+                        <span className="inline-block text-accent text-sm font-semibold mt-3 group-hover:translate-x-1 transition-transform">
+                          Read analysis &rarr;
                         </span>
                       </div>
-                      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug">
-                        {featured.title}
-                      </h2>
-                      <p className="text-white/75 text-sm sm:text-base mt-2 line-clamp-2 max-w-2xl">
-                        {featured.description}
-                      </p>
-                      <span className="inline-block text-accent text-sm font-semibold mt-3 group-hover:translate-x-1 transition-transform">
-                        Read analysis &rarr;
-                      </span>
                     </div>
-                  </div>
+                  ) : (
+                    <div className="relative h-[220px] sm:h-[320px] lg:h-full lg:min-h-[420px] overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/hero-default.svg"
+                        alt=""
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-8">
+                        <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+                          <span className="text-[10px] sm:text-xs font-bold font-mono px-2.5 py-1 rounded-md bg-white/15 backdrop-blur-sm text-white border border-white/20">
+                            {badge.label}
+                          </span>
+                          {featured.category && featured.type === 'take' && (
+                            <span className="text-[10px] sm:text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-white/15 backdrop-blur-sm text-white border border-white/20">
+                              {featured.category.toUpperCase()}
+                            </span>
+                          )}
+                          {featured.ticker && (
+                            <span className="text-[10px] sm:text-xs px-2 py-0.5 rounded bg-white/15 backdrop-blur-sm text-white font-mono border border-white/20">
+                              {featured.ticker}
+                            </span>
+                          )}
+                          <span className="text-[10px] sm:text-xs font-mono text-white/60 ml-auto">
+                            {formatDate(featured.date)}
+                          </span>
+                        </div>
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-snug">
+                          {featured.title}
+                        </h2>
+                        <p className="text-white/75 text-sm sm:text-base mt-2 line-clamp-2 max-w-2xl">
+                          {featured.description}
+                        </p>
+                        <span className="inline-block text-accent text-sm font-semibold mt-3 group-hover:translate-x-1 transition-transform">
+                          Read analysis &rarr;
+                        </span>
+                      </div>
+                    </div>
+                  )}
                 </Link>
               );
             })()}
@@ -192,58 +235,10 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="divide-y divide-card-border">
-          {articles.slice(1).map((article, i) => {
-            const badge = getArticleBadge(article.type, article.category);
-            const imageUrl = getArticleImage(article);
-            // First 13 articles are in the desktop grid — hide them from stream on lg
-            return (
-              <Link
-                key={article.slug}
-                href={`/article/${article.slug}`}
-                className={`flex gap-3 sm:gap-4 py-4 sm:py-5 group ${i < 13 ? 'lg:hidden' : ''}`}
-              >
-                {/* Thumbnail */}
-                <div className="shrink-0 w-[100px] h-[68px] sm:w-[160px] sm:h-[100px] rounded-lg overflow-hidden bg-card-border/30">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={imageUrl}
-                    alt=""
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </div>
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-1.5 sm:gap-2 mb-1 flex-wrap">
-                    <span className={`text-[9px] sm:text-[10px] font-bold font-mono px-1.5 sm:px-2 py-0.5 rounded ${badge.style}`}>
-                      {badge.label}
-                    </span>
-                    {article.category && article.type === 'take' && (
-                      <span className={`text-[9px] sm:text-[10px] font-bold font-mono px-1.5 py-0.5 rounded ${getCategoryChipStyle(article.category)}`}>
-                        {article.category.toUpperCase()}
-                      </span>
-                    )}
-                    {article.ticker && (
-                      <span className={`text-[9px] sm:text-[10px] px-1.5 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>
-                        {article.ticker}
-                      </span>
-                    )}
-                    <span className="text-[9px] sm:text-[10px] font-mono text-muted-light ml-auto whitespace-nowrap">
-                      {formatDate(article.date, true)}
-                    </span>
-                  </div>
-                  <h3 className="text-sm sm:text-base font-semibold text-foreground group-hover:text-accent transition-colors leading-snug line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-xs text-muted leading-relaxed line-clamp-1 sm:line-clamp-2 mt-0.5 sm:mt-1">
-                    {article.description}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+        <ArticleStream
+          articles={articles.slice(1)}
+          desktopGridCount={13}
+        />
       </section>
 
       {/* How It Works */}
