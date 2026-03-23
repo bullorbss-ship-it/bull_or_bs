@@ -51,7 +51,7 @@ src/
   app/                # Next.js App Router pages & API routes
     stock/            # /stock index + /stock/[ticker] programmatic pages
     article/[slug]/   # Article detail pages
-    api/              # generate, subscribe, health, admin/* endpoints
+    api/              # generate, subscribe, health, admin/*, cron/daily-topics
     orange/           # Admin dashboard (password-protected, noindex)
     learn/            # Financial education guides (TFSA, RRSP, FHSA, etc.)
     og/               # Dynamic OG image generation (nodejs runtime ONLY)

@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-23T15:07:40.192Z*
+*Auto-generated: 2026-03-23T16:13:09.342Z*
 
 ---
 
@@ -97,6 +97,7 @@
 | /api/admin/refresh-profile | API |
 | /api/admin/subscribers | API |
 | /api/bracket | API |
+| /api/cron/daily-topics | API |
 | /api/generate | API |
 | /api/health | API |
 | /api/subscribe | API |

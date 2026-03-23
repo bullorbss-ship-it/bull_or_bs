@@ -31,7 +31,7 @@
 
 ## Done (Recent Sessions)
 
-### Session: 2026-03-23 (SEO Fixes + Footnote References + Homepage UX)
+### Session: 2026-03-23 (SEO Fixes + Footnote References + Homepage UX + Daily Cron)
 - [x] Added canonical URLs to all 19 pages (fixes 8 GSC "duplicate without canonical" errors)
 - [x] Added 7 missing pages to sitemap.xml (roasts, picks, takes, methodology, privacy, terms, learn guides)
 - [x] Replaced inline external links with footnote reference system [1], [2] + Sources section at bottom
@@ -40,6 +40,7 @@
 - [x] Homepage: article stream now shows 5 cards + "Show more" button (loads 5 more each click)
 - [x] Created branded hero-default.svg for articles without Unsplash photos
 - [x] Fixed hero card: OG image no longer overlaps with HTML text overlay
+- [x] Daily topics cron: Vercel cron at 7am EDT emails 4 topic suggestions (2 picks, 1 roast, 1 take)
 
 ### Session: 2026-03-20 (Homepage Redesign + Content)
 - [x] Homepage redesign: Yahoo Finance-style 3-column grid on desktop, stream cards on mobile
