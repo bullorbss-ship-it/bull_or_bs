@@ -28,6 +28,12 @@ export interface Article {
   content: ArticleContent;
 }
 
+export interface ArticleReference {
+  id: number;
+  source: string;
+  url: string;
+}
+
 export interface ArticleContent {
   headline: string;
   summary: string;
@@ -48,6 +54,8 @@ export interface ArticleContent {
   dataPoints: DataPoint[];
   // The verdict
   finalVerdict: string;
+  // Source references (footnote style)
+  references?: ArticleReference[];
 }
 
 export interface CandidateStock {

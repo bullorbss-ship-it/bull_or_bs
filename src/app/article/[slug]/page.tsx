@@ -452,6 +452,28 @@ export default async function ArticlePage({ params }: PageProps) {
         </Collapsible>
       )}
 
+      {/* Sources — footnote references */}
+      {content.references && content.references.length > 0 && (
+        <section className="border-t border-card-border pt-6 mt-8 mb-6">
+          <h2 className="text-sm font-mono font-bold text-muted-light mb-3">SOURCES</h2>
+          <ol className="list-none space-y-1.5">
+            {content.references.map((ref) => (
+              <li key={ref.id} className="text-xs text-muted leading-relaxed flex gap-2">
+                <span className="text-accent font-mono font-bold shrink-0">[{ref.id}]</span>
+                <a
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent hover:underline break-all"
+                >
+                  {ref.source}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
       {/* Next Analysis */}
       {nextArticle && nextArticle.slug !== article.slug && (
         <section className="border-t border-card-border pt-6 sm:pt-8 mb-6 sm:mb-8">
