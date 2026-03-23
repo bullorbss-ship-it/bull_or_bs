@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-19T16:50:01.889Z*
+*Auto-generated: 2026-03-23T15:07:40.192Z*
 
 ---
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | Roasts | 13 |
 | Picks | 7 |
-| Takes | 26 |
-| **Total** | 46 |
+| Takes | 33 |
+| **Total** | 53 |
 
 ### Roasts
 
@@ -47,6 +47,13 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-03-23 | Trump's Iran Pause Sparked a 2% Rally—But Nobody Agrees If It's Real |
+| 2026-03-22 | The Pentagon Just Bet $13.4 Billion on AI Weapons—While the World Argu |
+| 2026-03-20 | Canada's Big Two Banks Just Crushed Earnings—But Wall Street Has Cold  |
+| 2026-03-20 | Microsoft Is Shuffling the Deck—Again—While Its Stock Tumbles 20% |
+| 2026-03-19 | Anthropic Just Became a $380 Billion Unicorn—And Nobody Can Agree If I |
+| 2026-03-19 | War in the Gulf Just Broke the Market—And the Fed Isn't Cutting Rates |
+| 2026-03-19 | War, Oil, and Fear: How Investors Are Hedging Against Chaos |
 | 2026-03-18 | Delta Just Blew Past Wall Street—And the Airline Sector Is Following |
 | 2026-03-18 | Microsoft Is Threatening to Sue OpenAI and Amazon Over a $50 Billion C |
 | 2026-03-18 | The Nitrogen King's Lucky Break: When Geopolitics Beats Bad Timing |

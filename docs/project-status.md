@@ -1,5 +1,5 @@
 # BullOrBS — Project Status & Roadmap
-**Last updated: 2026-03-15**
+**Last updated: 2026-03-23**
 
 ---
 
@@ -13,8 +13,8 @@
 - [x] Sitemap, robots.txt, RSS feed, news sitemap auto-generated
 
 ### Content & SEO
-- [x] 115 static tickers + 91 stock profiles (data/stocks/*.json)
-- [x] 34 articles published (10 roasts + 7 picks + 17 news takes)
+- [x] 115 static tickers + 91 stock profiles (data/stocks/*.json) + dynamic ticker registry
+- [x] 53 articles published (13 roasts + 7 picks + 33 news takes)
 - [x] Programmatic SEO: every /stock/[ticker] targets "should I buy [TICKER]"
 - [x] Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation, Review
 - [x] Learn section: 5 guides (TFSA, RRSP, FHSA, Dividend Investing, US Stocks from Canada)
@@ -57,7 +57,12 @@
 - [x] Pre-deploy pipeline: 8 gates (type-check, lint, SAST, SEO, legal, content-audit, docs, docs-check)
 - [x] Rate limiting on all API routes + security headers in next.config.ts
 - [x] Timing-safe HMAC auth, brute-force protection (5 attempts/15 min)
-- [x] Inline source hyperlinks: every number links to original source (Yahoo Finance, BlackRock, etc.)
+- [x] Footnote reference system: inline [1] markers + Sources section at bottom (replaces inline external links)
+- [x] Unsplash hero + inline images for articles (AI generates search terms, photographer attribution)
+- [x] Homepage: Yahoo Finance-style 3-column grid + show-more article stream (5 at a time)
+- [x] Branded hero-default.svg placeholder for articles without Unsplash photos
+- [x] Canonical URLs on all pages (fixes GSC duplicate issues)
+- [x] Full sitemap coverage (roasts, picks, takes, learn guides, legal pages)
 - [x] Anti-hallucination guardrails: 8 specific rules from observed Haiku errors
 - [x] Auto-linkify all registered tickers mentioned in article text
 - [x] Delete articles from dashboard (two-step confirmation)
@@ -73,7 +78,7 @@
 
 ### Priority 1: Content Volume (ONGOING)
 **Goal: 3-4 news takes/day + 1-2 roasts/picks per week. Content is the moat.**
-- [x] 34 articles published in first week (10 roasts, 7 picks, 17 takes)
+- [x] 53 articles published in first 2.5 weeks (13 roasts, 7 picks, 33 takes)
 - [ ] Continue 3-4 takes/day cadence (safest content type for volume)
 - [ ] Focus on high-search-volume tickers: AAPL, MSFT, NVDA, AMZN, GOOGL, TSLA
 - [ ] Canadian focus: RY, TD, ENB, CNR, BCE, SU, BNS
@@ -149,7 +154,7 @@
 ---
 
 ## Architecture Decisions
-See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-012.
+See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-016.
 
 Key decisions:
 1. Haiku over Sonnet (55x cheaper, good enough with structured input)
@@ -158,9 +163,10 @@ Key decisions:
 4. EST timezone for all dates (Canadian audience)
 5. Dynamic ticker registry (no manual tickers.ts editing)
 6. Qualitative analysis style (avoids hallucinated numbers)
-7. Inline source hyperlinks standard across all article types (ADR-010)
+7. Footnote references replace inline external links — keeps readers on-site (ADR-015)
 8. Anti-hallucination guardrails from observed Haiku errors (ADR-011)
 9. Auto-linkify all registered tickers in article text (ADR-012)
+10. Canonical URLs on all pages — fixes GSC duplicate issues (ADR-016)
 
 ## Cost Model
 | Item | Cost |
@@ -186,12 +192,14 @@ Claude/Gemini Deep Research (free)
                                     → Copy-paste to Reddit/X/Instagram
 ```
 
-## Source Citation Pipeline
+## Source Citation Pipeline (Footnote System — updated 2026-03-23)
 ```
 Research prompt outputs [Source](URL) in table
     → Pasted data carries URLs into dashboard
-        → SOURCE_CITATION_RULES enforces inline links in Haiku output
-            → inlineFormat() renders markdown links as <a> tags
-                → DataPoints component renders sourceUrl as clickable link
-                    → Reader clicks to verify any claim
+        → SOURCE_CITATION_RULES enforces footnote markers [1], [2] in Haiku output
+            → Haiku outputs "references" array with {id, source, url}
+                → inlineFormat() renders [N] as superscript markers
+                    → Article page renders "Sources" section at bottom with clickable links
+                    → DataPoints component still renders sourceUrl on data cards
+                    → Internal /stock/ links still inline (added by linkifyTickers at render time)
 ```

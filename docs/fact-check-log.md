@@ -11,6 +11,25 @@ Track which articles have been fact-checked before publishing.
 
 | Date | Type | Slug | Ticker | FC Status | Notes |
 |------|------|------|--------|-----------|-------|
+| 2026-03-23 | take | take-trump-s-iran-pause-sparked-a-2-rally-but-nobody-ag | — | SKIP | News summary, sources cited |
+| 2026-03-22 | take | take-the-pentagon-just-bet-13-4-billion-on-ai-weapons-w | — | SKIP | News summary, sources cited |
+| 2026-03-20 | take | take-canada-s-big-two-banks-just-crushed-earnings-but-w | — | SKIP | News summary, sources cited |
+| 2026-03-20 | take | take-microsoft-is-shuffling-the-deck-again-while-its-st | — | SKIP | News summary, sources cited |
+| 2026-03-19 | take | take-anthropic-just-became-a-380-billion-unicorn-and-no | — | SKIP | News summary, sources cited |
+| 2026-03-19 | take | take-war-in-the-gulf-just-broke-the-market-and-the-fed- | — | SKIP | News summary, sources cited |
+| 2026-03-19 | take | take-war-oil-and-fear-how-investors-are-hedging-against | — | SKIP | News summary, sources cited |
+| 2026-03-18 | take | take-delta-just-blew-past-wall-street-and-the-airline-s | — | SKIP | News summary, sources cited |
+| 2026-03-18 | take | take-microsoft-is-threatening-to-sue-openai-and-amazon- | — | SKIP | News summary, sources cited |
+| 2026-03-18 | take | take-the-nitrogen-king-s-lucky-break-when-geopolitics-b | — | SKIP | News summary, sources cited |
+| 2026-03-18 | roast | meta-roast-2026-03-18 | META | TODO | |
+| 2026-03-17 | roast | google-roast-2026-03-17 | GOOGLE | TODO | |
+| 2026-03-17 | roast | mu-roast-2026-03-17 | MU | TODO | |
+| 2026-03-16 | take | take-gold-silver-and-copper-hit-records-then-crashed-he | — | SKIP | News summary, sources cited |
+| 2026-03-16 | take | take-markets-rally-as-oil-prices-fall-iea-releases-emer | — | SKIP | News summary, sources cited |
+| 2026-03-16 | take | take-nvidia-unveils-next-gen-vera-rubin-ai-chip-at-gtc- | — | SKIP | News summary, sources cited |
+| 2026-03-16 | take | take-the-trump-crypto-empire-1-4b-in-16-months-but-at-w | — | SKIP | News summary, sources cited |
+| 2026-03-15 | take | take-india-s-auto-market-hits-record-sales-in-february- | — | SKIP | News summary, sources cited |
+| 2026-03-15 | take | take-middle-east-conflict-triggers-oil-spike-and-stock- | — | SKIP | News summary, sources cited |
 | 2026-03-14 | take | take-stock-market-hits-2026-lows-as-iran-conflict-disru | — | SKIP | News summary, sources cited |
 | 2026-03-14 | take | take-big-tech-companies-are-spending-650-billion-on-ai | — | SKIP | News summary, sources cited |
 | 2026-03-14 | take | take-ai-coding-tools-spark-massive-selloff-in-india-s-i | — | SKIP | News summary, sources cited |
@@ -47,10 +66,10 @@ Track which articles have been fact-checked before publishing.
 | 2026-03-06 | roast | shopify-roast-2026-03-06 | SHOP | TODO | |
 
 ## Summary
-- **Total articles**: 34
+- **Total articles**: 53
 - **Fact-checked (FC)**: 0
-- **Skipped (takes)**: 17
-- **Needs review (TODO)**: 17 (10 roasts + 7 picks)
+- **Skipped (takes)**: 33
+- **Needs review (TODO)**: 20 (13 roasts + 7 picks)
 
 ## Process
 1. Generate article via /orange dashboard

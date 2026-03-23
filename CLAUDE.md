@@ -56,7 +56,7 @@ src/
     learn/            # Financial education guides (TFSA, RRSP, FHSA, etc.)
     og/               # Dynamic OG image generation (nodejs runtime ONLY)
   components/
-    article/          # ArticleCard, Tournament, DataPoints, RisksAndCatalysts, Verdict, ScoreGauge
+    article/          # ArticleCard, ArticleStream, Tournament, DataPoints, RisksAndCatalysts, Verdict, ScoreGauge
     forms/            # SubscribeForm
     layout/           # Header, Footer, Breadcrumbs
     stock/            # StockGrid, TickerSearch

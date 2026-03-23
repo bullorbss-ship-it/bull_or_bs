@@ -229,6 +229,26 @@ Article Request (roast or pick)
 
 ---
 
+## ADR-015: Footnote References Replace Inline External Links
+**Date:** 2026-03-23
+**Status:** Implemented
+**Context:** GA4 showed Twitter sessions had 97% bounce rate, and article bounce rates were misleadingly low because external source links (Yahoo Finance, CNBC, etc.) mid-article counted as "engagement" in GA4 when users clicked out. Inline external links were actively pushing readers off-site during reading.
+**Decision:** Replace all inline markdown hyperlinks `[text](url)` with numbered footnote markers `[1]`, `[2]` in article text. Add a "Sources" section at bottom of each article with clickable reference links. Internal `/stock/` links remain inline (added by linkifyTickers at render time). DataPoints cards keep their own sourceUrl.
+**Files:** `src/lib/ai/prompts.ts` (all 6 prompts), `src/lib/types.ts`, `src/lib/inline-format.ts`, `src/app/article/[slug]/page.tsx`, `scripts/retrofit-references.js`
+**Consequence:** 11 articles retrofitted (137 references extracted). New articles generate footnote-style automatically. Expect improved time-on-site and more accurate bounce rate data.
+
+---
+
+## ADR-016: Canonical URLs on All Pages
+**Date:** 2026-03-23
+**Status:** Implemented
+**Context:** Google Search Console flagged 8 pages as "duplicate without user-selected canonical". No page had explicit `alternates.canonical` in metadata, so Google guessed (and sometimes guessed wrong with trailing-slash variants).
+**Decision:** Add `alternates.canonical` to every page's metadata export. Dynamic pages (stock, article) use their slug-based path. Also added 7 missing pages to sitemap.xml (roasts, picks, takes, methodology, privacy, terms, learn subpages).
+**Files:** 19 page.tsx files + `src/config/seo.ts` + `src/app/sitemap.ts`
+**Consequence:** GSC duplicate issues should resolve on next crawl cycle.
+
+---
+
 ## Open Questions / Future Decisions
 
 1. **Batch API:** Should we switch to async batch generation (50% cost reduction, 24hr turnaround)? Makes sense for scheduled daily generation but breaks real-time /api/generate.
