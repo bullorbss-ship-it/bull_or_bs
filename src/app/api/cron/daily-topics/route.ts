@@ -172,17 +172,7 @@ function formatTake(take: Take): string {
 export async function GET(request: Request) {
   // Auth check — Vercel cron sends Authorization: Bearer <CRON_SECRET>
   if (!isAuthorized(request)) {
-    const hasCronSecret = !!process.env.CRON_SECRET;
-    const authHeader = request.headers.get('authorization') || '';
-    return NextResponse.json({
-      error: 'Unauthorized',
-      debug: {
-        cronSecretSet: hasCronSecret,
-        cronSecretLength: process.env.CRON_SECRET?.length || 0,
-        authHeaderPresent: !!authHeader,
-        authHeaderPrefix: authHeader.substring(0, 10),
-      }
-    }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const emailTo = process.env.DAILY_EMAIL_TO;
