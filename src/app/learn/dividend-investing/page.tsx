@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Dividend Investing Guide — How Dividends Work in Canada',
   description:
     'Complete guide to dividend investing for Canadians. How dividends work, tax treatment, DRIP, where to hold them, and common mistakes.',
+  alternates: { canonical: '/learn/dividend-investing' },
 };
 
 export default function DividendInvestingGuidePage() {

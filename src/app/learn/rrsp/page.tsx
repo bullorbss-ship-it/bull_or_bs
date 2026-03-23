@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'RRSP Guide — Registered Retirement Savings Plan Explained',
   description:
     'Complete guide to the Canadian RRSP. Tax deductions, contribution limits, Home Buyers Plan, RRSP vs TFSA, and retirement withdrawal strategies.',
+  alternates: { canonical: '/learn/rrsp' },
 };
 
 export default function RRSPGuidePage() {

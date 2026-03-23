@@ -46,6 +46,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       `${info.sector} stocks`,
       'AI stock analysis',
     ],
+    alternates: {
+      canonical: `/stock/${tickerToSlug(info.ticker)}`,
+    },
     openGraph: {
       title,
       description,

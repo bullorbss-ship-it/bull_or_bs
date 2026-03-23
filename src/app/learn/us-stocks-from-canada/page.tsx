@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Buying US Stocks from Canada — Complete Guide',
   description:
     'How to buy US stocks from Canada. Currency conversion, withholding tax, RRSP trick, Norbert\'s Gambit, and which account to use.',
+  alternates: { canonical: '/learn/us-stocks-from-canada' },
 };
 
 export default function USStocksFromCanadaPage() {

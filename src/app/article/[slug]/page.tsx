@@ -123,6 +123,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'stock pick review',
       ...article.tags,
     ].filter(Boolean),
+    alternates: {
+      canonical: `/article/${article.slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.description,

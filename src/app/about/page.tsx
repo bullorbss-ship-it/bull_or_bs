@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'About Bull Or BS',
   description:
     'Bull Or BS is an AI-driven stock analysis newsletter that shows its full reasoning. We audit popular stock picks and publish transparent, data-driven analysis.',
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {

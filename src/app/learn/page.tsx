@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Learn — Canadian Investing Guides',
   description:
     'Free guides on TFSA, RRSP, FHSA, and smart investing strategies for Canadians. Learn how to maximize your registered accounts and build wealth.',
+  alternates: { canonical: '/learn' },
 };
 
 const guides = [

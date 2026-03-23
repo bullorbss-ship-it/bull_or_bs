@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'TFSA Guide — Tax-Free Savings Account Explained',
   description:
     'Complete guide to the Canadian TFSA. Contribution limits, withdrawal rules, investment strategies, and common mistakes to avoid.',
+  alternates: { canonical: '/learn/tfsa' },
 };
 
 export default function TFSAGuidePage() {

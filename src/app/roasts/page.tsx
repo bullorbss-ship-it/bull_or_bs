@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'All Roasts — Stock Recommendation Audits',
   description: 'Every stock recommendation we\'ve audited, scored 1 to 10. See which picks held up and which were BS.',
+  alternates: { canonical: '/roasts' },
 };
 
 export default function RoastsPage() {

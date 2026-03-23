@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Disclaimer & Terms',
   description:
     'Legal disclaimer for Bull Or BS. All content is AI-generated for educational purposes. Not financial advice.',
+  alternates: { canonical: '/disclaimer' },
 };
 
 export default function DisclaimerPage() {

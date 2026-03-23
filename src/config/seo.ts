@@ -51,6 +51,7 @@ export const defaultMetadata: Metadata = {
     apple: '/icon.svg',
   },
   alternates: {
+    canonical: '/',
     types: { 'application/rss+xml': '/feed.xml' },
   },
 };

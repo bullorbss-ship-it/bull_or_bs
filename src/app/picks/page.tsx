@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'All AI Picks — Weekly Stock Tournaments',
   description: 'Every AI-powered stock pick from our weekly elimination tournaments. See our full track record.',
+  alternates: { canonical: '/picks' },
 };
 
 export default function PicksPage() {

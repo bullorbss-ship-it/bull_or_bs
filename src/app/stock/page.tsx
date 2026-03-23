@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     'best Canadian stocks',
     'stock research Canada',
   ],
+  alternates: { canonical: '/stock' },
 };
 
 export default function StockIndexPage() {

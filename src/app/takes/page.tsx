@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'News Takes — Financial News Explained Simply',
   description: 'Financial news explained so anyone can understand. No jargon, no predictions — just the facts that matter for your money.',
+  alternates: { canonical: '/takes' },
 };
 
 export default function TakesPage() {

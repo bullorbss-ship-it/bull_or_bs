@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Editorial Standards',
   description:
     'How Bull Or BS produces AI-driven stock analysis. Our research methodology, fact-checking process, and correction policy.',
+  alternates: { canonical: '/editorial' },
 };
 
 export default function EditorialPage() {

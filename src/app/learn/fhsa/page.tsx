@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'FHSA Guide — First Home Savings Account Explained',
   description:
     'Complete guide to Canada\'s FHSA. Tax-deductible contributions, tax-free withdrawals for your first home, contribution limits, and strategies to maximize it.',
+  alternates: { canonical: '/learn/fhsa' },
 };
 
 export default function FHSAGuidePage() {

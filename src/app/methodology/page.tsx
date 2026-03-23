@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: `How ${siteConfig.displayName} Works — Our AI Analysis Methodology`,
   description:
     'Learn how Bull Or BS uses AI to analyze stocks, grade recommendations, and run elimination tournaments. Transparent methodology, every step shown.',
+  alternates: { canonical: '/methodology' },
 };
 
 export default function MethodologyPage() {
