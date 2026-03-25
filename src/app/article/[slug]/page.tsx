@@ -17,6 +17,7 @@ import ScoreGauge from '@/components/article/ScoreGauge';
 import Collapsible from '@/components/ui/Collapsible';
 import ConsentGate from '@/components/article/ConsentGate';
 import ScrollTracker from '@/components/article/ScrollTracker';
+import TradingViewChart from '@/components/ui/TradingViewChart';
 import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
 import type { Metadata } from 'next';
 
@@ -325,6 +326,13 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
           </div>
         </div>
+        {/* Mini Chart */}
+        {article.ticker && tickerInfo && (
+          <div className="mb-4">
+            <TradingViewChart ticker={article.ticker} exchange={tickerInfo.exchange} variant="mini" />
+          </div>
+        )}
+
         <p className="text-muted text-base sm:text-lg leading-relaxed"
           dangerouslySetInnerHTML={{ __html: linkifyTickers(inlineFormat(content.summary || ''), articleTickers) }}
         />

@@ -1,6 +1,7 @@
 import { getAllArticles } from '@/lib/content';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import ArticleStream from '@/components/article/ArticleStream';
+import MarketMovers from '@/components/ui/MarketMovers';
 import Link from 'next/link';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
@@ -222,6 +223,13 @@ export default function Home() {
             })}
           </div>
         </div>
+      </section>
+
+      {/* Market Movers — top gainers/losers with mini charts */}
+      <div className="border-t border-card-border" />
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <p className="text-xs font-mono tracking-[0.2em] text-muted-light mb-4">MARKET MOVERS</p>
+        <MarketMovers />
       </section>
 
       {/* Article stream — horizontal cards */}

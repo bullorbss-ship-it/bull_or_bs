@@ -9,6 +9,7 @@ import ArticleCard from '@/components/article/ArticleCard';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Collapsible from '@/components/ui/Collapsible';
+import TradingViewChart from '@/components/ui/TradingViewChart';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -201,6 +202,11 @@ export default async function StockPage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      {/* Price Chart */}
+      <section className="mb-6">
+        <TradingViewChart ticker={info.ticker} exchange={info.exchange} variant="full" />
+      </section>
 
       {/* Bull/Bear — collapsible (progressive disclosure) */}
       {stockData && (
