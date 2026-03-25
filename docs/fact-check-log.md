@@ -11,6 +11,9 @@ Track which articles have been fact-checked before publishing.
 
 | Date | Type | Slug | Ticker | FC Status | Notes |
 |------|------|------|--------|-----------|-------|
+| 2026-03-25 | roast | intu-roast-2026-03-25 | INTU | FC | Fact-checked: fixed "20% growth" to mid-teens, added Morgan Stanley/Rothschild upgrades, Q2 beat context, analyst range caveat |
+| 2026-03-24 | take | take-walmart-hits-1-trillion-valuation-but-the-waltons- | — | SKIP | News summary, sources cited |
+| 2026-03-24 | roast | amzn-roast-2026-03-24 | AMZN | FC | Fact-checked: Q4 quarter label fixed, FCF context added, dead source replaced with CNBC |
 | 2026-03-23 | take | take-trump-s-iran-pause-sparked-a-2-rally-but-nobody-ag | — | SKIP | News summary, sources cited |
 | 2026-03-22 | take | take-the-pentagon-just-bet-13-4-billion-on-ai-weapons-w | — | SKIP | News summary, sources cited |
 | 2026-03-20 | take | take-canada-s-big-two-banks-just-crushed-earnings-but-w | — | SKIP | News summary, sources cited |
@@ -66,9 +69,9 @@ Track which articles have been fact-checked before publishing.
 | 2026-03-06 | roast | shopify-roast-2026-03-06 | SHOP | TODO | |
 
 ## Summary
-- **Total articles**: 53
-- **Fact-checked (FC)**: 0
-- **Skipped (takes)**: 33
+- **Total articles**: 56
+- **Fact-checked (FC)**: 2 (AMZN roast, INTU roast)
+- **Skipped (takes)**: 34
 - **Needs review (TODO)**: 20 (13 roasts + 7 picks)
 
 ## Process
