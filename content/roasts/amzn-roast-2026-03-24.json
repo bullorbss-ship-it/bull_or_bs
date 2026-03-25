@@ -26,7 +26,7 @@
         "score": 5
       }
     ],
-    "analysis": "## What They Got Right\n\n- **Market dominance is real.** Amazon controls roughly 41% of US e-commerce, AWS is the #1 cloud platform globally, and advertising is a high-margin growth engine [1]. This isn't hype—it's structural.\n- **Valuation isn't egregious.** At 28.90x trailing P/E and 25.84x forward P/E, Amazon is cheaper than Microsoft (trading higher) and reasonable for a $2.2T mega-cap with these margins [1].\n- **Wall Street is genuinely bullish.** 63 analysts, zero sell ratings, $280 average target—that's real conviction, not cheerleading [1].\n- **Long-term track record is stellar.** 20-year CAGR of 26.72% since IPO in 1997, and even a 5-year CAGR of 5.90% [2]. This is a proven compounder.\n\n## What They Missed\n\n- **The $200B capex elephant.** Amazon just announced it will spend $200 billion on capital expenditures in 2026 to build AI infrastructure. This will crater free cash flow into negative territory—Morgan Stanley estimates −$17B, Bank of America −$28B [3]. That's a seismic shift. Free cash flow went from $7.7B trailing twelve months to potentially negative. This isn't a minor headwind; it's a fundamental change in how the business funds itself.\n- **AWS growth is slowing relative to peers.** AWS grew 24% in Q4 2024, but Microsoft and Google Cloud are accelerating faster [3]. If Amazon is spending $200B to catch up in AI, but losing market share in the process, that's a value trap disguised as a growth play.\n- **The timing contradiction.** The stock is down 11% YTD 2026, and the tariff environment is uncertain [3]. Recommending \"Strong Buy\" without acknowledging that the negative capex cycle is *just beginning* is reckless. Investors buying at $210 today could easily see sub-$180 in 6–12 months if quarterly cash flow turns deeply negative.\n- **No acknowledgment of execution risk.** A $200B bet on AI infrastructure is the largest capital allocation Amazon has ever made. If monetization takes 2–3 years (as it often does), shareholders eat the cost now and hope for payoff later. That's not \"long-term investing\"—that's speculating on an unproven bet.\n\n## The Bottom Line\n\nAmazon is a world-class business, but this recommendation conflates \"great company\" with \"great stock at this price.\" Wall Street's $280 target assumes the capex bet pays off spectacularly. But at $210, with free cash flow about to go negative and AWS losing competitive momentum, this looks more like a 5/10 opportunity: possible upside if AI monetization accelerates, but meaningful downside risk if capex destroys value for 2–3 years. For a first-time investor, this is too much uncertainty. For an experienced investor with a 5+ year horizon and conviction in Amazon's AI strategy, it's worth a small position—but not a \"Strong Buy.\"\n",
+    "analysis": "## What They Got Right\n\n- **Market dominance is real.** Amazon controls roughly 41% of US e-commerce, AWS is the #1 cloud platform globally, and advertising is a high-margin growth engine [1]. This isn't hype—it's structural.\n- **Valuation isn't egregious.** At 28.90x trailing P/E and 25.84x forward P/E, Amazon is cheaper than Microsoft (trading higher) and reasonable for a $2.2T mega-cap with these margins [1].\n- **Wall Street is genuinely bullish.** 63 analysts, zero sell ratings, $280 average target—that's real conviction, not cheerleading [1].\n- **Long-term track record is stellar.** 20-year CAGR of 26.72% since IPO in 1997, and even a 5-year CAGR of 5.90% [2]. This is a proven compounder.\n\n## What They Missed\n\n- **The $200B capex elephant.** Amazon just announced it will spend $200 billion on capital expenditures in 2026 to build AI infrastructure. This will crater free cash flow into negative territory—Morgan Stanley estimates −$17B, Bank of America −$28B [3]. That's a seismic shift. Free cash flow ranges from $7.7B (unleveraged) to $23.79B (levered) TTM depending on the measure, but either way it's heading deeply negative. This isn't a minor headwind; it's a fundamental change in how the business funds itself.\n- **AWS growth is slowing relative to peers.** AWS grew 24% in Q4 2025, but Microsoft and Google Cloud are accelerating faster [3]. If Amazon is spending $200B to catch up in AI, but losing market share in the process, that's a value trap disguised as a growth play.\n- **The timing contradiction.** The stock is down 11% YTD 2026, and the tariff environment is uncertain [3]. Recommending \"Strong Buy\" without acknowledging that the negative capex cycle is *just beginning* is reckless. Investors buying at $210 today could easily see sub-$180 in 6–12 months if quarterly cash flow turns deeply negative.\n- **No acknowledgment of execution risk.** A $200B bet on AI infrastructure is the largest capital allocation Amazon has ever made. If monetization takes 2–3 years (as it often does), shareholders eat the cost now and hope for payoff later. That's not \"long-term investing\"—that's speculating on an unproven bet.\n\n## The Bottom Line\n\nAmazon is a world-class business, but this recommendation conflates \"great company\" with \"great stock at this price.\" Wall Street's $280 target assumes the capex bet pays off spectacularly. But at $210, with free cash flow about to go negative and AWS losing competitive momentum, this looks more like a 5/10 opportunity: possible upside if AI monetization accelerates, but meaningful downside risk if capex destroys value for 2–3 years. For a first-time investor, this is too much uncertainty. For an experienced investor with a 5+ year horizon and conviction in Amazon's AI strategy, it's worth a small position—but not a \"Strong Buy.\"\n",
     "risks": [
       "Free cash flow will turn deeply negative (−$17B to −$28B) in 2026 due to $200B capex plan, eliminating a key metric investors use to justify mega-cap valuations [3].",
       "AWS growth (24% in Q4) is lagging Microsoft and Google Cloud, raising doubts about whether the massive capex spend will actually improve competitive position [3].",
@@ -81,7 +81,7 @@
       },
       {
         "label": "Free Cash Flow (TTM)",
-        "value": "$7.7B",
+        "value": "$7.7B (unleveraged); $23.79B levered FCF",
         "source": "Yahoo Finance",
         "sourceUrl": "https://finance.yahoo.com/quote/AMZN/cash-flow/"
       },
@@ -160,26 +160,26 @@
       {
         "label": "2026 Capex Plan",
         "value": "$200 billion",
-        "source": "Pasted data compilation",
-        "sourceUrl": "N/A"
+        "source": "CNBC",
+        "sourceUrl": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html"
       },
       {
         "label": "Estimated 2026 FCF Impact (Morgan Stanley)",
         "value": "−$17 billion",
-        "source": "Pasted data compilation",
-        "sourceUrl": "N/A"
+        "source": "CNBC",
+        "sourceUrl": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html"
       },
       {
         "label": "Estimated 2026 FCF Impact (Bank of America)",
         "value": "−$28 billion",
-        "source": "Pasted data compilation",
-        "sourceUrl": "N/A"
+        "source": "CNBC",
+        "sourceUrl": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html"
       },
       {
-        "label": "AWS Growth (Q4 2024)",
+        "label": "AWS Growth (Q4 2025)",
         "value": "24%",
-        "source": "Pasted data compilation",
-        "sourceUrl": "N/A"
+        "source": "CNBC",
+        "sourceUrl": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html"
       },
       {
         "label": "Dividend Yield",
@@ -208,8 +208,8 @@
       },
       {
         "id": 3,
-        "source": "Pasted Data Compilation — Capex Plan, FCF Estimates, AWS Growth, Morgan Stanley & Bank of America Analysis",
-        "url": "N/A"
+        "source": "CNBC — Google, Microsoft, Meta, Amazon AI Cash",
+        "url": "https://www.cnbc.com/2026/02/06/google-microsoft-meta-amazon-ai-cash.html"
       }
     ],
     "imageSearchTerms": [
