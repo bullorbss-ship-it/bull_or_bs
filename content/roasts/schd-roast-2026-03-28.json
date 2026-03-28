@@ -1,0 +1,300 @@
+{
+  "slug": "schd-roast-2026-03-28",
+  "type": "roast",
+  "title": "SCHD: The Dividend ETF That Just Shuffled Its Deck. Is It Still a Safe Income Play?",
+  "description": "SCHD (Schwab U.S. Dividend Equity ETF) just underwent a major portfolio overhaul in March 2026, swapping out 47 holdings to boost healthcare and tech exposure while cutting energy. With a 3.44% yield [1], razor-thin 0.06% fees [2], and a Morningstar Gold rating [3], it's a solid core holding for income investors—but the timing and composition changes raise real questions about whether it's living up to its dividend-growth mandate.",
+  "date": "2026-03-28",
+  "ticker": "SCHD",
+  "verdict": "Score: 7/10\n\n**What's Good:** SCHD has genuinely cheap fees (0.06%) [2], a 13.3% annualized track record since inception [4], and a Morningstar Gold rating [3]. It delivers a solid 3.44% yield [1] with a defensive 0.65 beta [6]. For Canadian RRSP holders, it's tax-efficient and avoids the 15% U.S. withholding [16]. If you want boring, reliable income from quality dividend stocks, SCHD is hard to beat.\n\n**What's Concerning:** The March 2026 reconstitution fundamentally changed the fund—removing energy and boosting healthcare/tech [14] contradicts its \"stable dividend growth\" identity. The 16.93 P/E ratio [7] is expensive for a dividend fund and suggests you're overpaying for growth prospects. SCHD captured only 87% of upside but 90% of downside vs. value peers [15], meaning you're not getting the protection you think. YTD performance of +15.74% [8] is strong, but it inflates the appeal in a market rally.\n\n**The Verdict:** SCHD is a solid core holding for conservative income investors—especially in an RRSP. But it's no longer the boring, predictable fund it was six months ago. Before buying, compare it to Vanguard High Dividend Yield (VYM) or a simple S&P 500 core. If you're new to investing, a broad-market ETF might be safer than a single-factor dividend play that just got a makeover.",
+  "tags": [
+    "SCHD",
+    "roast",
+    "screenshot analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "SCHD: The Dividend ETF That Just Shuffled Its Deck. Is It Still a Safe Income Play?",
+    "summary": "SCHD (Schwab U.S. Dividend Equity ETF) just underwent a major portfolio overhaul in March 2026, swapping out 47 holdings to boost healthcare and tech exposure while cutting energy. With a 3.44% yield [1], razor-thin 0.06% fees [2], and a Morningstar Gold rating [3], it's a solid core holding for income investors—but the timing and composition changes raise real questions about whether it's living up to its dividend-growth mandate.",
+    "foolClaim": "A popular financial source is presenting SCHD as a reliable, low-risk dividend growth fund worthy of a core portfolio position, backed by its long-term 13.3% annualized returns [4] and institutional credibility.",
+    "candidates": [
+      {
+        "ticker": "SCHD",
+        "company": "Schwab U.S. Dividend Equity ETF (Charles Schwab)",
+        "status": "selected",
+        "reasonConsidered": "The ETF has $85.9B in assets under management [5], a 0.06% expense ratio [2] that's genuinely cheap, a 3.44% trailing dividend yield [1], and a 13.3% annualized return since inception [4]. It also holds a Morningstar Gold rating [3] and has proven lower volatility (0.65 beta) [6] with defensive positioning.",
+        "reasonEliminated": "Not eliminated—but critically, the March 2026 reconstitution fundamentally changed the fund's character: it swapped out energy exposure (-8%) for healthcare and tech, straying from pure dividend-growth discipline. Its 16.93 P/E ratio [7] suggests it's pricing in growth despite a value/dividend label. YTD 2026 performance of +15.74% [8] is strong, but that's in a market rally that favors dividend stocks—the real test comes in downturns.",
+        "score": 7
+      }
+    ],
+    "analysis": "## What They Got Right\n\n**Ultra-low fees and genuine simplicity.** At 0.06% [2], SCHD costs almost nothing to own. Compare that to actively managed dividend funds charging 0.50–1.50%—over a 30-year career, that fee difference costs you tens of thousands in lost returns. The rules-based screening (10+ consecutive years of dividend payments, cash flow, ROE, yield, dividend growth) [9] is transparent and has worked.\n\n**Institutional credibility and scale.** Morningstar's Gold rating [3], $85.9B in AUM [5], and 27.24M shares traded daily [10] mean this isn't a niche product. It's liquid, well-monitored, and managed by a regulated firm (Charles Schwab).\n\n**Long-term proof of concept.** Since inception (Oct 2011) [11], SCHD has delivered ~13.3% annualized returns [4], which is solid. The 3-year CAGR is 12.64% [12], the 5-year is 11.03% [13]—showing consistency across different market regimes.\n\n## What They Missed\n\n**The March 2026 reconstitution is a red flag, not a feature.** The fund just removed 22 holdings and added 25—a 45% turnover in one shot [14]. Energy dropped 8 percentage points, tech and healthcare rose [14]. This isn't gradual rebalancing; it's a philosophical reset. The original SCHD was designed to be stable, boring, and predictable. Post-reconstitution, it's becoming more growth-oriented and sector-concentrated, which contradicts its \"defensive dividend stock\" positioning.\n\n**Valuation is stretched for a dividend fund.** A 16.93 P/E ratio [7] on a dividend-growth ETF is aggressive. You're paying growth-stock multiples for what's supposed to be a discount value strategy. This works in a rally (like YTD 2026's +15.74% [8]), but it's a trap if the market reprices lower. SCHD captured only 87% of upside but 90% of downside vs. the Russell 1000 Value Index since inception [15]—meaning it gave up gains without gaining much protection.\n\n**Hidden tax inefficiency for non-RRSP holders.** Yes, SCHD avoids the 15% U.S. withholding tax if held in an RRSP [16], but in a taxable or TFSA account, you're paying full freight on dividend income. For Canadians in high tax brackets, that's a meaningful drag vs. a capital-gains-focused ETF. The recommendation glosses over this.\n\n## The Bottom Line\n\nSCHD is a genuinely good fund—the fees are criminal-grade cheap, the track record is solid, and it fills a real need for boring, income-focused investors. But the March 2026 reconstitution has turned it into something different than the fund of three months ago. You're no longer buying pure dividend stability; you're buying a valuation bet on energy coming out of the portfolio. If you already own it, there's no emergency to sell. If you're new to dividend investing, compare it head-to-head with Vanguard High Dividend Yield (VYM), which uses a simpler screening but holds 500+ stocks—VYM's broader diversification might actually be safer for a beginner. SCHD works best as part of a diversified portfolio, not as a \"set and forget\" core holding anymore.",
+    "risks": [
+      "Reconstitution timing risk: SCHD just removed energy exposure right before a potential energy rally—classic bad timing that could underperform for 12+ months [14].",
+      "Growth-to-value rotation will hurt SCHD hard: if rates fall and mega-cap tech rebounds, dividend stocks will be crushed, and SCHD's 0.65 beta offers only partial cushion [6].",
+      "Concentration in energy and healthcare: top 5 holdings are CVX, COP, and MRK, making it vulnerable to sector-specific shocks [17].",
+      "Foreign withholding tax trap in non-RRSP accounts: 15% of your dividend gets clawed back if you hold SCHD in a TFSA or non-registered account [16].",
+      "The reconstitution signals philosophical drift: if Schwab keeps pushing SCHD toward growth/healthcare, it will eventually cannibalize its own market position vs. broad-market ETFs like VOO."
+    ],
+    "catalysts": [
+      "Earnings recession: if S&P 500 companies start cutting dividends in Q3–Q4 2026, SCHD's dividend sustainability will face a real test [9].",
+      "Interest rate cuts: if the Fed pivots to rate cuts, growth stocks will rally and SCHD will lag, creating a 6–12 month drag on returns.",
+      "Energy price shock: oil prices above $80–90/bbl would vindicate the March reconstitution decision and drive SCHD upside.",
+      "Healthcare mega-merger wave: the reconstitution's boost to pharma/biotech (UNH, ABT) will pay off if M&A heats up in the sector.",
+      "SCHD's dividend per share growth: if the new holdings deliver 8–10% annual dividend growth, the 3.44% yield will compound into real wealth over 10+ years [1]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Current Price",
+        "value": "$30.44 (close Mar 27, 2026)",
+        "source": "FinanceCharts",
+        "sourceUrl": "https://www.financecharts.com/etfs/SCHD"
+      },
+      {
+        "label": "52-Week Range",
+        "value": "$23.87 – $31.95",
+        "source": "TipRanks",
+        "sourceUrl": "https://www.tipranks.com/etf/schd"
+      },
+      {
+        "label": "Net Assets (AUM)",
+        "value": "$85.9B",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "label": "Expense Ratio (MER)",
+        "value": "0.06%",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "label": "Trailing Dividend Yield (12M)",
+        "value": "3.44%",
+        "source": "FinanceCharts",
+        "sourceUrl": "https://www.financecharts.com/etfs/SCHD"
+      },
+      {
+        "label": "Forward Dividend Yield",
+        "value": "3.43%",
+        "source": "TipRanks",
+        "sourceUrl": "https://www.tipranks.com/etf/schd"
+      },
+      {
+        "label": "Dividend Frequency",
+        "value": "Quarterly (last ex-date Mar 25, 2026)",
+        "source": "StockAnalysis",
+        "sourceUrl": "https://stockanalysis.com/etf/schd/dividend/"
+      },
+      {
+        "label": "YTD 2026 Total Return",
+        "value": "+15.74%",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "label": "2025 Calendar Year Return",
+        "value": "+4.33%",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "label": "2024 Calendar Year Return",
+        "value": "+11.67%",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "label": "3-Year CAGR",
+        "value": "+12.64%",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "label": "5-Year CAGR",
+        "value": "+11.03%",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "label": "Since Inception CAGR (annualized)",
+        "value": "~13.3% (cumulative 478%)",
+        "source": "24/7 Wall St",
+        "sourceUrl": "https://247wallst.com/investing/2026/03/25/schd-just-made-big-changes-is-this-dividend-growth-etf-still-a-buy/"
+      },
+      {
+        "label": "Beta (5Y Monthly)",
+        "value": "0.65",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "label": "P/E Ratio (TTM, portfolio-weighted)",
+        "value": "16.93",
+        "source": "FinanceCharts",
+        "sourceUrl": "https://www.financecharts.com/etfs/SCHD"
+      },
+      {
+        "label": "Morningstar Medalist Rating",
+        "value": "Gold (High Process, Above-Avg People & Parent)",
+        "source": "Morningstar",
+        "sourceUrl": "https://www.morningstar.com/funds/why-schwab-us-dividend-equity-etf-is-one-best-dividend-funds-available"
+      },
+      {
+        "label": "Risk Profile vs. Russell 1000 Value",
+        "value": "Captured 87% upside, 90% downside (since inception)",
+        "source": "Morningstar",
+        "sourceUrl": "https://www.morningstar.com/funds/why-schwab-us-dividend-equity-etf-is-one-best-dividend-funds-available"
+      },
+      {
+        "label": "Inception Date",
+        "value": "October 20, 2011",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "label": "Average Daily Volume",
+        "value": "27.24M shares",
+        "source": "Robinhood",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "label": "Total Holdings",
+        "value": "~104 (post-reconstitution ~108)",
+        "source": "Robinhood / Schwab",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "label": "Top Sector Exposure (post-reconstitution)",
+        "value": "Consumer Defensive 19.21%, Healthcare 18.87%, Energy 16.82%, Technology 14.61%, Financials 8.83%",
+        "source": "Robinhood",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "label": "Top 5 Holdings (post-reconstitution)",
+        "value": "CVX 4.52%, COP 4.17%, MRK 4.07%, VZ 4.03%, TXN 3.99%",
+        "source": "Robinhood",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "label": "March 2026 Reconstitution Impact",
+        "value": "25 additions, 22 deletions; Energy -8%, Healthcare +4%, Technology +3%",
+        "source": "Robinhood (effective March 23, 2026)",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "label": "U.S. Dividend Withholding Tax (non-RRSP)",
+        "value": "15% (waived in RRSP, not recoverable in TFSA, claimable as FTC in non-registered)",
+        "source": "Canada-US Tax Treaty",
+        "sourceUrl": "https://www.canada.ca/en/department-finance/services/tax-policy/tax-treaties/frequently-asked-questions-united-states.html"
+      }
+    ],
+    "finalVerdict": "Score: 7/10\n\n**What's Good:** SCHD has genuinely cheap fees (0.06%) [2], a 13.3% annualized track record since inception [4], and a Morningstar Gold rating [3]. It delivers a solid 3.44% yield [1] with a defensive 0.65 beta [6]. For Canadian RRSP holders, it's tax-efficient and avoids the 15% U.S. withholding [16]. If you want boring, reliable income from quality dividend stocks, SCHD is hard to beat.\n\n**What's Concerning:** The March 2026 reconstitution fundamentally changed the fund—removing energy and boosting healthcare/tech [14] contradicts its \"stable dividend growth\" identity. The 16.93 P/E ratio [7] is expensive for a dividend fund and suggests you're overpaying for growth prospects. SCHD captured only 87% of upside but 90% of downside vs. value peers [15], meaning you're not getting the protection you think. YTD performance of +15.74% [8] is strong, but it inflates the appeal in a market rally.\n\n**The Verdict:** SCHD is a solid core holding for conservative income investors—especially in an RRSP. But it's no longer the boring, predictable fund it was six months ago. Before buying, compare it to Vanguard High Dividend Yield (VYM) or a simple S&P 500 core. If you're new to investing, a broad-market ETF might be safer than a single-factor dividend play that just got a makeover.",
+    "references": [
+      {
+        "id": 1,
+        "source": "FinanceCharts — SCHD Dividend Yield (TTM)",
+        "url": "https://www.financecharts.com/etfs/SCHD"
+      },
+      {
+        "id": 2,
+        "source": "Yahoo Finance — SCHD Expense Ratio",
+        "url": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "id": 3,
+        "source": "Morningstar — SCHD Gold Medalist Rating",
+        "url": "https://www.morningstar.com/funds/why-schwab-us-dividend-equity-etf-is-one-best-dividend-funds-available"
+      },
+      {
+        "id": 4,
+        "source": "24/7 Wall St — SCHD Inception-to-Date Annualized Returns",
+        "url": "https://247wallst.com/investing/2026/03/25/schd-just-made-big-changes-is-this-dividend-growth-etf-still-a-buy/"
+      },
+      {
+        "id": 5,
+        "source": "Yahoo Finance / TradingView — SCHD Net Assets Under Management",
+        "url": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "id": 6,
+        "source": "Yahoo Finance — SCHD Beta (5-Year Monthly)",
+        "url": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "id": 7,
+        "source": "FinanceCharts — SCHD Portfolio P/E Ratio (TTM)",
+        "url": "https://www.financecharts.com/etfs/SCHD"
+      },
+      {
+        "id": 8,
+        "source": "Yahoo Finance — SCHD YTD 2026 Total Return",
+        "url": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "id": 9,
+        "source": "Schwab Asset Management — SCHD Index Methodology",
+        "url": "https://www.schwabassetmanagement.com/products/schd"
+      },
+      {
+        "id": 10,
+        "source": "Robinhood — SCHD Average Daily Volume",
+        "url": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "id": 11,
+        "source": "Yahoo Finance — SCHD Inception Date",
+        "url": "https://finance.yahoo.com/quote/SCHD/"
+      },
+      {
+        "id": 12,
+        "source": "Yahoo Finance — SCHD 3-Year CAGR",
+        "url": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "id": 13,
+        "source": "Yahoo Finance — SCHD 5-Year CAGR",
+        "url": "https://finance.yahoo.com/quote/SCHD/performance/"
+      },
+      {
+        "id": 14,
+        "source": "Robinhood — March 2026 SCHD Reconstitution Details",
+        "url": "https://robinhood.com/us/en/stocks/SCHD/"
+      },
+      {
+        "id": 15,
+        "source": "Morningstar — SCHD Risk Profile vs. Russell 1000 Value",
+        "url": "https://www.morningstar.com/funds/why-schwab-us-dividend-equity-etf-is-one-best-dividend-funds-available"
+      },
+      {
+        "id": 16,
+        "source": "Canada-US Tax Treaty — U.S. Dividend Withholding Tax",
+        "url": "https://www.canada.ca/en/department-finance/services/tax-policy/tax-treaties/frequently-asked-questions-united-states.html"
+      }
+    ],
+    "imageSearchTerms": [
+      "dividend growth stocks portfolio chart",
+      "ETF portfolio rebalancing reconstruction",
+      "low-cost index fund expense ratio comparison"
+    ]
+  },
+  "heroImage": {
+    "url": "https://images.unsplash.com/photo-1771012788703-d310cdf189bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwyfHxkaXZpZGVuZCUyMGdyb3d0aCUyMHN0b2NrcyUyMHBvcnRmb2xpbyUyMGNoYXJ0fGVufDF8MHx8fDE3NzQ3MjQyODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "photographer": "Logan Voss",
+    "photographerUrl": "https://unsplash.com/@loganvoss",
+    "unsplashUrl": "https://unsplash.com/photos/vibrant-abstract-pattern-with-jagged-lines-and-colors-QY2_olv7hdA"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1625121035765-f71013da3514?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHw2fHxFVEYlMjBwb3J0Zm9saW8lMjByZWJhbGFuY2luZyUyMHJlY29uc3RydWN0aW9ufGVufDF8MHx8fDE3NzQ3MjQyODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Brett Jordan",
+      "photographerUrl": "https://unsplash.com/@brett_jordan",
+      "unsplashUrl": "https://unsplash.com/photos/brown-wooden-blocks-on-white-surface-WODfVPxS-p0"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1732905081659-3a946135b7d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHw1fHxFVEYlMjBwb3J0Zm9saW8lMjByZWJhbGFuY2luZyUyMHJlY29uc3RydWN0aW9ufGVufDF8MHx8fDE3NzQ3MjQyODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Illia Horokhovsky",
+      "photographerUrl": "https://unsplash.com/@fili_ja",
+      "unsplashUrl": "https://unsplash.com/photos/a-black-and-white-photo-of-a-crane-in-front-of-a-building-d2TDyPN07S0"
+    }
+  ],
+  "createdAt": "2026-03-28T14:58:02.000-04:00"
+}
