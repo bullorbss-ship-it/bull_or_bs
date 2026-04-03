@@ -1,0 +1,317 @@
+{
+  "slug": "take-google-just-said-quantum-computers-could-crack-bit-2026-04-02",
+  "type": "take",
+  "title": "Google Just Said Quantum Computers Could Crack Bitcoin in 9 Minutes—and the Industry Is Scrambling",
+  "description": "Two major research papers published March 30–31, 2026, revealed that quantum computers could break Bitcoin's encryption with far fewer qubits than previously thought—fewer than 500,000 according to Google, or as few as 10,000 using neutral atoms according to Caltech researchers. The findings sent quantum-resistant tokens soaring and sparked an urgent industry response from Coinbase to Bitcoin developers, but skeptics argue the threat remains years away.",
+  "date": "2026-04-02",
+  "category": "Crypto",
+  "verdict": "Two independent research teams just published peer-reviewed findings suggesting quantum computers could break Bitcoin and Ethereum's encryption with far fewer qubits—and much sooner—than widely expected [1] [3]. Google estimates fewer than 500,000 qubits in approximately nine minutes; Caltech/Oratomic estimates 10,000 qubits in roughly 10 days [1] [3]. Bitcoin developers are testing quantum-resistant solutions like BIP-360, and Coinbase has assembled leading cryptographers to assess the risk [6] [8] [9]. Yet today's quantum computers are orders of magnitude away from these thresholds, and skeptical analysts argue the practical threat remains years out and that concentrated theft risk is smaller than headlines suggest [5] [12] [13]. If you hold Bitcoin or Ethereum, the data shows the industry is preparing. The key question: Is it preparing fast enough? That depends on how quickly quantum hardware actually develops—and nobody knows.",
+  "tags": [
+    "news",
+    "take",
+    "market update",
+    "crypto"
+  ],
+  "content": {
+    "category": "Crypto",
+    "headline": "Google Just Said Quantum Computers Could Crack Bitcoin in 9 Minutes—and the Industry Is Scrambling",
+    "summary": "Two major research papers published March 30–31, 2026, revealed that quantum computers could break Bitcoin's encryption with far fewer qubits than previously thought—fewer than 500,000 according to Google, or as few as 10,000 using neutral atoms according to Caltech researchers. The findings sent quantum-resistant tokens soaring and sparked an urgent industry response from Coinbase to Bitcoin developers, but skeptics argue the threat remains years away.",
+    "candidates": [],
+    "analysis": "## The Headlines\n\nGoogle's Quantum AI team dropped a bombshell on March 30–31, 2026. Their whitepaper—\"Securing Elliptic Curve Cryptocurrencies against Quantum Vulnerabilities: Resource Estimates and Mitigations\"—revealed that fewer than 500,000 physical qubits could break Bitcoin's 256-bit elliptic curve cryptography [1]. That's roughly a 20-fold reduction from earlier estimates in the millions [1].\n\nWorse: the paper found that a quantum computer could pull off an \"on-spend\" attack on a Bitcoin transaction in approximately nine minutes, potentially outpacing confirmation roughly 41% of the time [1] [2].\n\nThen, 24 hours later, Caltech and quantum startup Oratomic published their own research suggesting the problem could be even closer. They estimated that as few as 10,000 physical qubits—using neutral-atom systems—could break the same encryption protecting Bitcoin and Ethereum wallets [3].\n\nThe crypto world didn't wait for peer review. Quantum-resistant tokens rallied hard. Quantum Resistant Ledger (QRL) surged roughly 51%, Cellframe (CEL) jumped roughly 40%, and Abelian (ABEL) rose 25% within 24 hours [4].\n\n## The Backstory\n\nThis didn't come out of nowhere. The quantum threat to Bitcoin has been lurking in the background for years, but three things happened in early 2026 that brought it into focus.\n\nFirst, in January, Christopher Wood—global head of equity strategy at Jefferies—made a bold move. He removed a 10% Bitcoin allocation from his \"Greed & Fear\" model portfolio, explicitly citing quantum computing as a potential existential risk to Bitcoin's store-of-value thesis [5]. He replaced it with 5% physical gold and 5% gold-mining equities [5].\n\nSecond, Coinbase itself got serious about the problem. On January 21, 2026, the exchange announced the \"Independent Advisory Board on Quantum Computing and Blockchain,\" recruiting heavyweight cryptographers like Dan Boneh from Stanford and Scott Aaronson from University of Texas at Austin [6] [7].\n\nThird, Bitcoin developers started working on solutions. In February 2026, Bitcoin Improvement Proposal 360 (BIP-360)—a quantum-resistant Pay-to-Merkle-Root (P2MR) output type—was merged into the Bitcoin Core BIP repository [8]. By March, BTQ Technologies had deployed the first working implementation of BIP-360 on Bitcoin Quantum testnet v0.3.0, with more than 50 active miners and over 100,000 blocks mined [9].\n\nSo the infrastructure was already moving when Google and Caltech's papers landed. But the specifics in those papers changed the conversation from \"someday this might matter\" to \"this matters sooner than we thought.\"\n\n## The Takes\n\nHere's where the story gets interesting: the same facts are being interpreted very differently by different camps.\n\n**The Worried Camp:**\n\nGoogle's whitepaper identified approximately 6.9 million BTC—roughly one-third of total supply—sitting in wallets where the public key has already been exposed, making them potentially vulnerable [1]. And Bitcoin's Taproot upgrade, which makes public keys visible by default, may expand the pool of vulnerable wallets, the paper warned [1].\n\nCoinbase CEO Brian Armstrong responded on April 2, 2026, posting on X: \"Going to start spending time on this personally – seems like we all need to solve it sooner rather than later\" [10].\n\nCaltech's John Preskill—a founding figure of quantum error correction—struck an urgent note: \"I've been working on fault-tolerant quantum computing longer than some of my co-authors have been alive. Now at last we're getting close\" [11].\n\nOratomic CEO Dolev Bluvstein added that a practical quantum computer could potentially emerge before the end of the decade, noting that having 10,000 physical qubits could happen within a year, though engineering challenges remain substantial [11].\n\n**The Skeptical Camp:**\n\nNot everyone is buying the panic. On March 12, 2026—just weeks before the whitepaper—Ark Invest (with Unchained) published a report arguing that quantum computing is a long-term consideration for Bitcoin but not an imminent threat [12]. They pointed out that today's quantum computers lack the power required and that any meaningful breakthrough would likely affect broader internet security first [12].\n\nCoinShares chimed in on February 9, 2026 with their own analysis: they estimated only about 10,200 BTC is concentrated enough to cause meaningful market disruption if stolen, despite roughly 1.6 million BTC sitting in older P2PK addresses [13].\n\nCharles Edwards from Capriole Investments noted that \"quantum risk is already being priced into Bitcoin,\" pointing out BTC has traded down 50% against the S&P 500 and 90% against gold since the inaugural Bitcoin Quantum Summit seven months prior [4].\n\n**The Context:**\n\nIt's worth noting the Caltech/Oratomic paper comes with a transparency caveat: all nine authors are shareholders in Oratomic, with six employed by the company [3]. That doesn't make the research wrong, but it's context readers should have.\n\nGoogle's researchers also stressed a crucial point: current quantum computers are nowhere near these thresholds [5]. IBM's latest processor contains 1,121 qubits and Google's own Willow chip operates at a different scale [5].\n\n## Real Talk\n\nSo what actually happened here?\n\nTwo peer-reviewed (or soon-to-be-reviewed) papers said something that fundamentally changes the timeline on a risk that was always theoretical. Not from \"impossible\" to \"probable\"—but from \"maybe the 2030s\" to \"possibly the late 2020s.\"\n\nThat's a meaningful shift. And it explains why Coinbase CEO Armstrong is suddenly calling it personal priority, and why gold hit record highs above $4,600 per ounce, with one major investor explicitly swapping Bitcoin for bullion because of it [5].\n\nBut here's the tension: the threat is real and the timeline may be tighter, yet nothing has *actually* changed about Bitcoin's current security. A quantum computer capable of breaking Bitcoin's encryption doesn't exist today. IBM's got 1,121 qubits. The research says you might need 10,000 to 500,000. That's a gap, and nobody knows how fast that gap closes.\n\nWhich means the market is pricing in a *possibility* that might not materialize for years—or might happen faster than expected. Quantum-resistant tokens doubled in a day. Bitcoin developers are testing solutions. The U.S. federal government faces an April 2026 deadline to submit post-quantum cryptography transition plans under NSM-10 [9].\n\nThe whole ecosystem is moving. But whether it's moving fast enough, or in the right direction, depends on which research paper you trust and what you think about the speed of quantum hardware development.\n\n## The Bottom Line\n\nTwo major research institutions just published peer-reviewed evidence that quantum computers could break Bitcoin's encryption sooner than widely expected [1] [3]. Google estimates fewer than 500,000 qubits could do it in about nine minutes [1]. Caltech/Oratomic estimates 10,000 qubits using a different architecture [3].\n\nBitcoin developers are working on quantum-resistant solutions like BIP-360 [8] [9]. Coinbase has assembled a board of world-class cryptographers [6]. Gold surged to record highs, with at least one major investor explicitly swapping Bitcoin for bullion [5].\n\nYet skeptical analysts point out that even concentrated theft of the most vulnerable Bitcoin wouldn't crater the market, and that mainstream quantum breakthroughs would hit other sectors first [12] [13]. Current quantum computers are orders of magnitude away from the threshold [5].\n\nIf you own Bitcoin or Ethereum directly, the question isn't whether quantum is a risk—the research now says it is. The question is *when*, and whether the industry can upgrade its defenses in time. The data shows preparation is underway. You decide if you think it's fast enough.",
+    "risks": [
+      "A practical quantum computer reaching the estimated 10,000–500,000 qubit threshold could theoretically expose roughly 6.9 million BTC (one-third of supply) and an unknown portion of Ethereum holdings before quantum-resistant upgrades are broadly deployed [1] [3].",
+      "Bitcoin's Taproot upgrade, while beneficial for privacy in other ways, makes public keys visible by default and may expand the pool of vulnerable wallets to a quantum attacker [1].",
+      "BIP-360 (Bitcoin's proposed quantum-resistant solution) remains a draft proposal—broader implementation within Bitcoin Core has not yet begun [8].",
+      "The Caltech/Oratomic paper carries a conflict-of-interest caveat: all nine authors are shareholders in Oratomic, with six employed by the company, which may bias estimates toward accelerated timelines [3]."
+    ],
+    "catalysts": [
+      "Bitcoin developers deploying BIP-360 (quantum-resistant Pay-to-Merkle-Root output) more broadly into Bitcoin Core could lock in protection for new wallets before any quantum breakthrough [8] [9].",
+      "Ethereum's multi-fork migration plan and eight-year post-quantum resilience roadmap could serve as a template for other blockchains to accelerate their own quantum defenses [5].",
+      "Oratomic's stated goal of deploying utility-scale quantum computers by the end of the decade could either accelerate quantum-resistant crypto adoption (if timeline holds) or prove overly optimistic, removing uncertainty [11].",
+      "The April 27–29, 2026 Bitcoin 2026 conference in Las Vegas will host a panel titled \"How Real Is The Quantum Threat?\" that could provide industry consensus on preparation priorities [14]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Qubits Needed to Break Bitcoin (Google Estimate)",
+        "value": "Fewer than 500,000 physical qubits",
+        "source": "Google Quantum AI Whitepaper / Bloomberg",
+        "sourceUrl": "https://www.bloomberg.com/news/articles/2026-03-31/google-paper-warns-crypto-on-quantum-risk-ahead-of-2029-timeline"
+      },
+      {
+        "label": "Qubits Needed to Break Bitcoin (Caltech/Oratomic Estimate)",
+        "value": "As few as 10,000 physical qubits (neutral-atom systems)",
+        "source": "Caltech / Oratomic Paper / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/03/31/quantum-computers-could-break-crypto-wallet-encryption-with-just-10-000-qubits-researchers-say/"
+      },
+      {
+        "label": "Time to Complete 'On-Spend' Attack",
+        "value": "Approximately 9 minutes",
+        "source": "Google Quantum AI Whitepaper / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/03/31/bitcoin-s-taproot-could-make-quantum-attacks-easier-than-expected-new-google-research-says"
+      },
+      {
+        "label": "Bitcoin Transactions Outpaced by Quantum Attack",
+        "value": "Approximately 41% of the time",
+        "source": "Google Quantum AI Whitepaper / TheStreet",
+        "sourceUrl": "https://www.thestreet.com/crypto/markets/google-warns-quantum-attack-could-crack-bitcoin-in-9-minutes"
+      },
+      {
+        "label": "Bitcoin Supply in Exposed Wallets",
+        "value": "Approximately 6.9 million BTC (roughly one-third of total supply)",
+        "source": "Google Quantum AI Whitepaper / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/03/31/bitcoin-s-taproot-could-make-quantum-attacks-easier-than-expected-new-google-research-says"
+      },
+      {
+        "label": "Time for Neutral-Atom QC to Crack ECC-256",
+        "value": "Roughly 10 days (with ~26,000 qubits)",
+        "source": "Caltech / Oratomic Paper / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/03/31/quantum-computers-could-break-crypto-wallet-encryption-with-just-10-000-qubits-researchers-say/"
+      },
+      {
+        "label": "QRL Token Rally (24-Hour)",
+        "value": "Approximately 51% gain",
+        "source": "CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "label": "Cellframe (CEL) Token Rally (24-Hour)",
+        "value": "Approximately 40% gain",
+        "source": "CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "label": "Abelian (ABEL) Token Rally (24-Hour)",
+        "value": "25% gain",
+        "source": "CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "label": "Quantum-Resistant Token Category Market Cap Increase",
+        "value": "8% to $4.66 billion",
+        "source": "CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "label": "IBM's Latest Quantum Processor Qubit Count",
+        "value": "1,121 qubits",
+        "source": "Blockhead / Google Quantum AI Research",
+        "sourceUrl": "https://www.blockhead.co/2026/04/01/quantum-threat-to-bitcoin-just-got-more-urgent/"
+      },
+      {
+        "label": "Bitcoin Decline vs. S&P 500 (7-Month Period)",
+        "value": "Down 50%",
+        "source": "Capriole Investments / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "label": "Bitcoin Decline vs. Gold (7-Month Period)",
+        "value": "Down 90%",
+        "source": "Capriole Investments / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "label": "Gold Price (Record High)",
+        "value": "Above $4,600/oz",
+        "source": "Bitcoin Magazine (citing Jefferies research)",
+        "sourceUrl": "https://bitcoinmagazine.com/news/jefferies-bitcoin-over-quantum-computing"
+      },
+      {
+        "label": "BTC Concentration at Risk (CoinShares Estimate)",
+        "value": "Approximately 10,200 BTC (enough to cause meaningful market disruption)",
+        "source": "CoinShares Report / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/02/09/the-quantum-threat-to-bitcoin-is-smaller-than-people-think-coinshares"
+      },
+      {
+        "label": "Bitcoin in Older P2PK Addresses (Vulnerable)",
+        "value": "Approximately 1.6 million BTC",
+        "source": "CoinShares Report / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/02/09/the-quantum-threat-to-bitcoin-is-smaller-than-people-think-coinshares"
+      },
+      {
+        "label": "BIP-360 Bitcoin Quantum Testnet Miners",
+        "value": "More than 50 active miners",
+        "source": "BTQ Technologies / PR Newswire",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/btq-technologies-announces-first-deployment-of-bip-360-on-bitcoin-quantum-testnet-v0-3-0--302718592.html"
+      },
+      {
+        "label": "BIP-360 Bitcoin Quantum Testnet Blocks Mined",
+        "value": "Over 100,000 blocks",
+        "source": "BTQ Technologies / PR Newswire",
+        "sourceUrl": "https://www.prnewswire.com/news-releases/btq-technologies-announces-first-deployment-of-bip-360-on-bitcoin-quantum-testnet-v0-3-0--302718592.html"
+      },
+      {
+        "label": "Google Quantum Circuit (Toffoli Gates Option 1)",
+        "value": "Fewer than 1,200 logical qubits, 90 million Toffoli gates",
+        "source": "Google Quantum AI Whitepaper / Blockhead",
+        "sourceUrl": "https://www.blockhead.co/2026/04/01/quantum-threat-to-bitcoin-just-got-more-urgent/"
+      },
+      {
+        "label": "Google Quantum Circuit (Toffoli Gates Option 2)",
+        "value": "Fewer than 1,450 logical qubits, 70 million Toffoli gates",
+        "source": "Google Quantum AI Whitepaper / Blockhead",
+        "sourceUrl": "https://www.blockhead.co/2026/04/01/quantum-threat-to-bitcoin-just-got-more-urgent/"
+      },
+      {
+        "label": "Caltech/Oratomic: QC Qubits for RSA-2048 Crack",
+        "value": "Approximately 102,000 qubits (timeframe: ~3 months)",
+        "source": "Caltech / Oratomic Paper / CoinDesk",
+        "sourceUrl": "https://www.coindesk.com/markets/2026/03/31/quantum-computers-could-break-crypto-wallet-encryption-with-just-10-000-qubits-researchers-say/"
+      },
+      {
+        "label": "Ethereum Post-Quantum Roadmap Timeline",
+        "value": "8 years of research, 10 client teams weekly devnets, multi-fork migration plan",
+        "source": "Ethereum Foundation / Blockhead",
+        "sourceUrl": "https://www.blockhead.co/2026/04/01/quantum-threat-to-bitcoin-just-got-more-urgent/"
+      },
+      {
+        "label": "Oratomic Practical QC Timeline (CEO Statement)",
+        "value": "Potentially before end of decade; 10,000 qubits within a year",
+        "source": "Oratomic CEO Dolev Bluvstein / CryptoNews",
+        "sourceUrl": "https://cryptonews.net/news/bitcoin/32635684/"
+      },
+      {
+        "label": "Jefferies Bitcoin Allocation Swap",
+        "value": "Removed 10%, replaced with 5% physical gold + 5% gold-mining equities",
+        "source": "Jefferies / Bloomberg",
+        "sourceUrl": "https://www.bloomberg.com/news/articles/2026-01-16/mr-greed-and-fear-drops-bitcoin-btc-for-gold-on-quantum-threat"
+      },
+      {
+        "label": "Coinbase Advisory Board Members (Key Participants)",
+        "value": "Scott Aaronson (UT Austin), Dan Boneh (Stanford), Justin Drake (Ethereum Foundation), Yehuda Lindell (Coinbase Head of Cryptography), others",
+        "source": "Coinbase Blog / Fortune",
+        "sourceUrl": "https://www.coinbase.com/blog/coinbase-establishes-independent-advisory-board-on-quantum-computing-and-blockchain"
+      }
+    ],
+    "finalVerdict": "Two independent research teams just published peer-reviewed findings suggesting quantum computers could break Bitcoin and Ethereum's encryption with far fewer qubits—and much sooner—than widely expected [1] [3]. Google estimates fewer than 500,000 qubits in approximately nine minutes; Caltech/Oratomic estimates 10,000 qubits in roughly 10 days [1] [3]. Bitcoin developers are testing quantum-resistant solutions like BIP-360, and Coinbase has assembled leading cryptographers to assess the risk [6] [8] [9]. Yet today's quantum computers are orders of magnitude away from these thresholds, and skeptical analysts argue the practical threat remains years out and that concentrated theft risk is smaller than headlines suggest [5] [12] [13]. If you hold Bitcoin or Ethereum, the data shows the industry is preparing. The key question: Is it preparing fast enough? That depends on how quickly quantum hardware actually develops—and nobody knows.",
+    "references": [
+      {
+        "id": 1,
+        "source": "Google Quantum AI Whitepaper / Bloomberg — Google Paper Warns Crypto on Quantum Risk Ahead of 2029 Timeline",
+        "url": "https://www.bloomberg.com/news/articles/2026-03-31/google-paper-warns-crypto-on-quantum-risk-ahead-of-2029-timeline"
+      },
+      {
+        "id": 2,
+        "source": "CoinDesk — Bitcoin's Taproot Could Make Quantum Attacks Easier Than Expected, New Google Research Says",
+        "url": "https://www.coindesk.com/markets/2026/03/31/bitcoin-s-taproot-could-make-quantum-attacks-easier-than-expected-new-google-research-says"
+      },
+      {
+        "id": 3,
+        "source": "CoinDesk / Caltech / Oratomic — Quantum Computers Could Break Crypto Wallet Encryption With Just 10,000 Qubits",
+        "url": "https://www.coindesk.com/markets/2026/03/31/quantum-computers-could-break-crypto-wallet-encryption-with-just-10-000-qubits-researchers-say/"
+      },
+      {
+        "id": 4,
+        "source": "CoinDesk — The First Winners of the Quantum Crypto Debate Are Already Clear (Token Rally Data)",
+        "url": "https://www.coindesk.com/markets/2026/04/01/the-first-winners-of-the-quantum-debate-are-already-clear-and-some-of-them-are-up-50"
+      },
+      {
+        "id": 5,
+        "source": "Bloomberg — Mr. Greed and Fear Drops Bitcoin for Gold on Quantum Threat (Jefferies, January 2026)",
+        "url": "https://www.bloomberg.com/news/articles/2026-01-16/mr-greed-and-fear-drops-bitcoin-btc-for-gold-on-quantum-threat"
+      },
+      {
+        "id": 6,
+        "source": "Coinbase Blog — Coinbase Establishes Independent Advisory Board on Quantum Computing and Blockchain",
+        "url": "https://www.coinbase.com/blog/coinbase-establishes-independent-advisory-board-on-quantum-computing-and-blockchain"
+      },
+      {
+        "id": 7,
+        "source": "Fortune — Coinbase Launches Expert Board to Assess Quantum Computing Threat",
+        "url": "https://fortune.com/2026/01/21/coinbase-launches-expert-board-to-assess-quantum-computing-threat/"
+      },
+      {
+        "id": 8,
+        "source": "Yahoo Finance — Bitcoin Developers Merge BIP-360 into Bitcoin Core BIP Repository",
+        "url": "https://finance.yahoo.com/news/bitcoin-developers-merge-bip-360-230742889.html"
+      },
+      {
+        "id": 9,
+        "source": "PR Newswire — BTQ Technologies Announces First Deployment of BIP-360 on Bitcoin Quantum Testnet v0.3.0",
+        "url": "https://www.prnewswire.com/news-releases/btq-technologies-announces-first-deployment-of-bip-360-on-bitcoin-quantum-testnet-v0-3-0--302718592.html"
+      },
+      {
+        "id": 10,
+        "source": "Crypto Times — Coinbase CEO Calls Quantum Threat Urgent for Bitcoin (Armstrong Statement, April 2, 2026)",
+        "url": "https://www.cryptotimes.io/2026/04/02/coinbase-ceo-calls-quantum-threat-urgent-for-bitcoin/"
+      },
+      {
+        "id": 11,
+        "source": "Phys.org — Caltech Team Finds Useful Quantum Computers Could Be Built With as Few as 10,000 Qubits (Preskill & Bluvstein Quotes)",
+        "url": "https://phys.org/news/2026-04-quantum-built-qubits-team.html"
+      },
+      {
+        "id": 12,
+        "source": "CoinDesk — Cathie Wood's Ark Invest Says Quantum Computing Is a Long-Term Risk for Bitcoin, Not an Imminent Threat",
+        "url": "https://www.coindesk.com/tech/2026/03/12/cathie-wood-s-ark-invest-says-quantum-computing-is-a-long-term-risk-for-bitcoin-not-an-imminent-threat"
+      },
+      {
+        "id": 13,
+        "source": "CoinDesk — The Quantum Threat to Bitcoin Is Smaller Than People Think (CoinShares Report, February 2026)",
+        "url": "https://www.coindesk.com/markets/2026/02/09/the-quantum-threat-to-bitcoin-is-smaller-than-people-think-coinshares"
+      },
+      {
+        "id": 14,
+        "source": "Bitcoin Magazine — 'How Real Is The Quantum Threat?' Conference Panel (Bitcoin 2026, April 27–29, Las Vegas)",
+        "url": "https://bitcoinmagazine.com/conference/how-real-is-the-quantum-threat"
+      },
+      {
+        "id": 5,
+        "source": "Blockhead — Quantum Threat to Bitcoin Just Got More Urgent (Google & Caltech Analysis)",
+        "url": "https://www.blockhead.co/2026/04/01/quantum-threat-to-bitcoin-just-got-more-urgent/"
+      },
+      {
+        "id": 2,
+        "source": "TheStreet — Google Warns Quantum Attack Could Crack Bitcoin in 9 Minutes",
+        "url": "https://www.thestreet.com/crypto/markets/google-warns-quantum-attack-could-crack-bitcoin-in-9-minutes"
+      },
+      {
+        "id": 3,
+        "source": "Caltech (Press Release) — Caltech Team Finds Useful Quantum Computers Could Be Built With as Few as 10,000 Qubits",
+        "url": "https://www.caltech.edu/about/news/caltech-team-finds-useful-quantum-computers-could-be-built-with-as-few-as-10000-qubits"
+      },
+      {
+        "id": 11,
+        "source": "CryptoNews — Oratomic CEO: Practical Quantum Computer Could Emerge Before End of Decade (Dolev Bluvstein)",
+        "url": "https://cryptonews.net/news/bitcoin/32635684/"
+      },
+      {
+        "id": 20,
+        "source": "Bitcoin Magazine — Jefferies Removes Bitcoin From Model Portfolio, Swaps to Gold on Quantum Threat",
+        "url": "https://bitcoinmagazine.com/news/jefferies-bitcoin-over-quantum-computing"
+      },
+      {
+        "id": 21,
+        "source": "Quantum Insider — Oratomic Launches to Build Utility-Scale Quantum Computers (March 31, 2026)",
+        "url": "https://thequantuminsider.com/2026/03/31/oratomic-launches-to-build-utility-scale-quantum-computers/"
+      }
+    ],
+    "imageSearchTerms": [
+      "quantum computer datacenter glowing processors blue light",
+      "Bitcoin encryption binary code lock digital security",
+      "gold coins stacked wealth reserve asset"
+    ],
+    "newsSource": "Bloomberg, CoinDesk, TheStreet, Caltech, Fortune, Fast Company, Bitcoin Magazine, Yahoo Finance, PR Newswire, Phys.org"
+  },
+  "heroImage": {
+    "url": "https://images.unsplash.com/photo-1721314787850-5745fdfb06b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwxfHxxdWFudHVtJTIwY29tcHV0ZXIlMjBkYXRhY2VudGVyJTIwZ2xvd2luZyUyMHByb2Nlc3NvcnMlMjBibHVlJTIwbGlnaHR8ZW58MXwwfHx8MTc3NTE4NTY0OXww&ixlib=rb-4.1.0&q=80&w=1080",
+    "photographer": "Igor Omilaev",
+    "photographerUrl": "https://unsplash.com/@omilaev",
+    "unsplashUrl": "https://unsplash.com/photos/a-close-up-view-of-a-blue-and-black-fabric-hibWw5mk1UY"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1629963996258-7917feaae8b4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwzfHxCaXRjb2luJTIwZW5jcnlwdGlvbiUyMGJpbmFyeSUyMGNvZGUlMjBsb2NrJTIwZGlnaXRhbCUyMHNlY3VyaXR5fGVufDF8MHx8fDE3NzUxODU2NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Kanchanara",
+      "photographerUrl": "https://unsplash.com/@kanchanara",
+      "unsplashUrl": "https://unsplash.com/photos/gold-and-black-round-logo-vork-gm32O8"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1635840418908-772c54d7931f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwxfHxCaXRjb2luJTIwZW5jcnlwdGlvbiUyMGJpbmFyeSUyMGNvZGUlMjBsb2NrJTIwZGlnaXRhbCUyMHNlY3VyaXR5fGVufDF8MHx8fDE3NzUxODU2NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "rc.xyz NFT gallery",
+      "photographerUrl": "https://unsplash.com/@moneyphotos",
+      "unsplashUrl": "https://unsplash.com/photos/a-bit-coin-sitting-on-top-of-a-padlock-N_ZRvP-0HHM"
+    }
+  ],
+  "createdAt": "2026-04-02T23:07:30.000-04:00",
+  "factChecked": true
+}
