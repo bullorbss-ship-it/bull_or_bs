@@ -1,0 +1,305 @@
+{
+  "slug": "cohr-roast-2026-04-02",
+  "type": "roast",
+  "title": "Coherent Corp. (COHR): AI Optical Networking Pick Roasts Its Own Valuation",
+  "description": "Coherent Corp. makes the lasers and optical components that move data inside AI datacenters — a genuine picks-and-shovels play with record earnings and 300%+ returns in a year. But at a GAAP P/E of 243 and already up massively, the recommendation is asking you to catch a falling knife after the run has already happened.",
+  "date": "2026-04-02",
+  "ticker": "COHR",
+  "verdict": "**Score: 5/10**\n\nCoherent is a legitimate AI infrastructure play — the company manufactures real photonics components with genuine datacenter demand and record earnings [1]. The book-to-bill >4x and analyst consensus of $272 suggest upside exists [1].\n\n**What's working:**\n- Q2 FY2026 delivered $1.69B revenue (+17% YoY) with non-GAAP EPS beat; vertical integration in lasers and optical modules is defensible [1].\n- S&P 500 inclusion (March 23, 2026) validates institutional acceptance; supercycle tailwinds in AI datacenters are real [1].\n- Forward P/E of ~33 on non-GAAP earnings is reasonable for a high-growth optical-interconnect supplier [1].\n\n**What's concerning:**\n- Trailing GAAP P/E of 242.94 is divorced from reality; the stock assumes flawless execution for years [1].\n- 1-year return of +272%–+313% means the move has already happened; you're buying momentum after the party, not before [1].\n- Beta of 1.91–2.03 with 53 >5% moves/year signals extreme volatility; any earnings miss or AI capex slowdown triggers 30–50% crashes [1].\n\n**Bottom line:** This is a *trading* position disguised as a *long-term investment*. The recommendation is technically sound on fundamentals but catastrophically mistimed for a retail investor. If you have the risk tolerance and experience, wait for a 20–30% pullback or dollar-cost average over 12 months. For first-time investors: pass and find positions where the upside hasn't already been captured.",
+  "tags": [
+    "COHR",
+    "roast",
+    "screenshot analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "Coherent Corp. (COHR): AI Optical Networking Pick Roasts Its Own Valuation",
+    "summary": "Coherent Corp. makes the lasers and optical components that move data inside AI datacenters — a genuine picks-and-shovels play with record earnings and 300%+ returns in a year. But at a GAAP P/E of 243 and already up massively, the recommendation is asking you to catch a falling knife after the run has already happened.",
+    "foolClaim": "Coherent is a compelling AI infrastructure play with strong datacenter demand and record earnings, supported by S&P 500 inclusion and analyst targets above current price.",
+    "candidates": [
+      {
+        "ticker": "COHR",
+        "company": "Coherent Corp. (formerly II-VI Inc.)",
+        "status": "selected",
+        "reasonConsidered": "The company manufactures photonics and optical components essential for AI datacenter networking — a genuine infrastructure play with verifiable tailwinds. Q2 FY2026 showed record revenue of $1.69B (+17% YoY) with a book-to-bill ratio exceeding 4x in datacenter, indicating strong future visibility [1]. The stock's 1-year return of approximately +272% to +313% reflects real operational momentum [2].",
+        "reasonEliminated": "Not eliminated — but the valuation and timing are the core problem. At a trailing GAAP P/E of 242.94 and price/sales of 6.47, the stock has already priced in years of growth [1]. The 52-week range of $45.58–$300.20 shows extreme volatility; the stock is now near the mid-range after hitting an all-time high in March 2026 [1]. Any recommendation that doesn't lead with 'this is expensive and volatile' is underselling the real risk to new investors.",
+        "score": 5
+      }
+    ],
+    "analysis": "## What They Got Right\n\n- **Real business, real tailwinds.** Coherent doesn't sell hype — it sells silicon carbide substrates, indium phosphide lasers, and 800G/1.6T optical transceivers that physically move AI training data. The company is vertically integrated, controlling raw materials through finished modules. Q2 FY2026 revenue of $1.69B with 17% YoY growth is not imaginary [1]. Book-to-bill >4x in datacenter means customers have already committed to buying months into the future [1].\n- **Timing into a supercycle.** The recommendation taps into a genuine structural shift: hyperscalers (Meta, Google, OpenAI's backers, etc.) are spending tens of billions per quarter on AI infrastructure. Optical interconnects are becoming *required* — not optional. The S&P 500 inclusion on March 23, 2026, triggered institutional flows and validates credibility [1].\n- **Analyst consensus supports upside.** The average price target across 19 analysts is $272.08, with a range of $168.45–$375, and the consensus is \"Buy\" [1]. Even the conservative Morningstar fair value estimate ($251.47, though marked \"High Uncertainty\") is in the ballpark of current price [1].\n\n## What They Missed\n\n- **Valuation is already baked in — badly.** A trailing GAAP P/E of 242.94 is not \"reasonable\" by any rational standard [1]. This means the market is pricing in *sustained, exceptional earnings growth* for years. Forward P/E of ~33 on non-GAAP earnings looks better, but non-GAAP earnings exclude stock-based comp and other real costs — the GAAP number is what actually flows to shareholders [1]. For a new investor, this is saying \"I'm betting the next 5 years go exactly as planned, or I lose 50%+.\"\n- **The stock has already run 300%+ in one year.** A 1-year return of +272% to +313% means most of the gains have already been captured [2]. The 52-week low was $45.58; the current price is $255.05 [1]. An investor buying today is not getting in on the ground floor — they're chasing momentum after the building is already full. The March 2026 high of $300.20 shows the stock has already retreated ~17% from its peak [1].\n- **Volatility and momentum risk are extreme.** Beta of 1.91–2.03 means this stock swings roughly twice as hard as the overall market [1]. The red flags section notes 53 moves >5% in the past year — that's literally every trading week on average [1]. For a first-time investor, this is a stomach-churning ride, and any earnings miss or AI capex slowdown could trigger a 30–50% drawdown. The pending May 6, 2026 earnings call is a catalyst both ways [1].\n- **Valuation disconnect from peers.** The data doesn't provide direct competitor multiples, but the recommendation doesn't address why you'd buy COHR at 6.5x price/sales instead of diversifying across the entire AI infrastructure stack (semiconductors, data center REITs, networking, power). COHR is concentrated; a broad ETF like VGT (Vanguard tech) offers lower volatility with similar exposure [1].\n\n## The Bottom Line\n\nCoherent is a *real* company in a *real* supercycle, but the recommendation is timed poorly. It's like recommending a house in a growing neighborhood — after it's already doubled in price and everyone has noticed. The business fundamentals are solid; the stock price has already moved. For a new investor with limited experience, the smarter play is either (1) dollar-cost average in over 6–12 months rather than buying a lump sum now, or (2) take a smaller position (2–3% of portfolio max) and accept the volatility as the cost of this bet. Do *not* put 10% into COHR expecting smooth sailing — you're buying at peak sentiment, and momentum stocks reverse fast when the narrative cracks.",
+    "risks": [
+      "Valuation cliff risk: A GAAP P/E of 242.94 means any earnings miss or guidance cut could trigger a 30–50% drawdown given the stock's momentum-dependent positioning [1].",
+      "AI capex cycle slowdown: If hyperscalers pull back datacenter spending in 2027–2028, COHR's forward guidance collapse and the multiple compression would compound [1].",
+      "Extreme volatility (beta 1.91–2.03): The stock averaged 53 >5% moves in the past year; most retail investors will panic-sell into downturns, crystallizing losses [1].",
+      "Securities fraud investigation overhang: The Pomerantz investigation filed Sept–Oct 2025 (related to an Aug 2025 drop) is likely ambulance-chasing, but any negative headlines could trigger selling [1].",
+      "Concentration and execution risk: Coherent is dependent on a few hyperscaler customers; a production delay, yield issue, or customer shift to alternative suppliers (e.g., Lumentum LITE) could derail growth [1].",
+      "IPO/saturation risk: Once datacenter optical networking becomes commoditized (likely 2028+), margins compress and growth decelerates — classic supercycle trap [1]."
+    ],
+    "catalysts": [
+      "Q3 FY2026 earnings (May 6, 2026): Guidance miss or beat will reset the stock's momentum; consensus expects $1.7B–$1.84B revenue, a high bar [1].",
+      "Next-gen 800G → 1.6T transceivers ramp: The March 2026 demo with Tower Semiconductor (400 Gbps/lane silicon photonics) moves closer to production; early wins = multiple expansion [1].",
+      "AI capex acceleration announcements: If hyperscalers announce larger-than-expected 2026–2027 datacenter buildouts, COHR guidance could rise and reduce downside risk [1].",
+      "Index fund flows: S&P 500 inclusion on March 23, 2026, brought passive buying; any reversal (e.g., due to index reconstitution or corporate action) removes a bid [1].",
+      "Peer M&A or competitive wins: Lumentum or other optical players could acquire tech or announce partnerships that threaten COHR's market share [1].",
+      "Margin expansion from Munich division sale: The closure of the low-margin Munich plant (completed Jan 2026) improves consolidated gross margin — if COHR guides higher, multiple could re-rate up [1]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Current Stock Price",
+        "value": "$255.05 (prev close $247.80, Apr 1, 2026)",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "52-Week Range",
+        "value": "$45.58 — $300.20",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Market Capitalization",
+        "value": "$46.46B — $48.40B",
+        "source": "Morningstar / Robinhood",
+        "sourceUrl": "https://www.morningstar.com/stocks/xnys/cohr/quote"
+      },
+      {
+        "label": "Trailing GAAP P/E Ratio",
+        "value": "242.94",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Forward P/E Ratio",
+        "value": "~33.38",
+        "source": "Historical Option Data",
+        "sourceUrl": "https://historicaloptiondata.com/cohr-trading-analysis-04-01-2026-0513-pm/"
+      },
+      {
+        "label": "Trailing EPS (GAAP)",
+        "value": "$1.02",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Non-GAAP EPS (Q2 FY26)",
+        "value": "$1.29 (beat estimate of $1.14)",
+        "source": "Public.com",
+        "sourceUrl": "https://public.com/stocks/cohr"
+      },
+      {
+        "label": "Revenue (TTM)",
+        "value": "$6.29B",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Q2 FY2026 Revenue",
+        "value": "$1.69B (+17% YoY)",
+        "source": "Motley Fool Earnings Transcript",
+        "sourceUrl": "https://www.fool.com/earnings/call-transcripts/2026/02/04/coherent-cohr-q2-2026-earnings-call-transcript/"
+      },
+      {
+        "label": "Price/Sales Ratio (TTM)",
+        "value": "6.47",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Price/Book Ratio (MRQ)",
+        "value": "5.23",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Debt-to-Equity",
+        "value": "0.40 (39.90%)",
+        "source": "Yahoo Finance / Stock Analysis",
+        "sourceUrl": "https://stockanalysis.com/stocks/cohr/statistics/"
+      },
+      {
+        "label": "Levered Free Cash Flow (TTM)",
+        "value": "$130.36M",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Beta (5Y Monthly)",
+        "value": "1.91",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Beta (TradingView)",
+        "value": "2.03",
+        "source": "TradingView",
+        "sourceUrl": "https://www.tradingview.com/symbols/NYSE-COHR/"
+      },
+      {
+        "label": "YTD 2026 Return (as of Apr 1)",
+        "value": "~+30.5%",
+        "source": "StockStory / Financial Content",
+        "sourceUrl": "https://markets.financialcontent.com/stocks/article/stockstory-2026-4-1-why-is-coherent-cohr-stock-soaring-today"
+      },
+      {
+        "label": "1-Year Return",
+        "value": "~+272% to +313%",
+        "source": "Stock Analysis / TradingView",
+        "sourceUrl": "https://stockanalysis.com/stocks/cohr/statistics/"
+      },
+      {
+        "label": "5-Year Return",
+        "value": "+247%",
+        "source": "Motley Fool",
+        "sourceUrl": "https://www.fool.com/quote/nyse/cohr/"
+      },
+      {
+        "label": "Analyst Consensus Target (19 analysts)",
+        "value": "$272.08 (range: $168.45–$375)",
+        "source": "GuruFocus",
+        "sourceUrl": "https://www.gurufocus.com/news/8723527/coherent-cohr-stifel-raises-price-target-to-275-maintains-buy-rating-cohr-stock-news"
+      },
+      {
+        "label": "Morningstar Fair Value Estimate",
+        "value": "$251.47 (Quantitative, High Uncertainty)",
+        "source": "Morningstar",
+        "sourceUrl": "https://www.morningstar.com/stocks/xnys/cohr/quote"
+      },
+      {
+        "label": "Dividend Yield",
+        "value": "0.00% (no dividend)",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Average Daily Volume",
+        "value": "7.21M shares",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Shares Outstanding",
+        "value": "187.48M",
+        "source": "Morningstar",
+        "sourceUrl": "https://www.morningstar.com/stocks/xnys/cohr/quote"
+      },
+      {
+        "label": "Enterprise Value",
+        "value": "$47.34B",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "Next Earnings Date",
+        "value": "May 6, 2026 (estimated)",
+        "source": "Yahoo Finance",
+        "sourceUrl": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "label": "S&P 500 Inclusion Date",
+        "value": "March 23, 2026 (triggered ~7.2% intraday gain)",
+        "source": "TradingView",
+        "sourceUrl": "https://www.tradingview.com/symbols/NYSE-COHR/"
+      },
+      {
+        "label": "Book-to-Bill Ratio (Datacenter Segment)",
+        "value": ">4x (Q2 FY2026)",
+        "source": "Motley Fool Earnings Call Transcript",
+        "sourceUrl": "https://www.fool.com/earnings/call-transcripts/2026/02/04/coherent-cohr-q2-2026-earnings-call-transcript/"
+      },
+      {
+        "label": "Extreme Volatility (52-week count)",
+        "value": "53 moves >5% in past year",
+        "source": "StockStory",
+        "sourceUrl": "https://markets.financialcontent.com/stocks/article/stockstory-2026-4-1-why-is-coherent-cohr-stock-soaring-today"
+      }
+    ],
+    "finalVerdict": "**Score: 5/10**\n\nCoherent is a legitimate AI infrastructure play — the company manufactures real photonics components with genuine datacenter demand and record earnings [1]. The book-to-bill >4x and analyst consensus of $272 suggest upside exists [1].\n\n**What's working:**\n- Q2 FY2026 delivered $1.69B revenue (+17% YoY) with non-GAAP EPS beat; vertical integration in lasers and optical modules is defensible [1].\n- S&P 500 inclusion (March 23, 2026) validates institutional acceptance; supercycle tailwinds in AI datacenters are real [1].\n- Forward P/E of ~33 on non-GAAP earnings is reasonable for a high-growth optical-interconnect supplier [1].\n\n**What's concerning:**\n- Trailing GAAP P/E of 242.94 is divorced from reality; the stock assumes flawless execution for years [1].\n- 1-year return of +272%–+313% means the move has already happened; you're buying momentum after the party, not before [1].\n- Beta of 1.91–2.03 with 53 >5% moves/year signals extreme volatility; any earnings miss or AI capex slowdown triggers 30–50% crashes [1].\n\n**Bottom line:** This is a *trading* position disguised as a *long-term investment*. The recommendation is technically sound on fundamentals but catastrophically mistimed for a retail investor. If you have the risk tolerance and experience, wait for a 20–30% pullback or dollar-cost average over 12 months. For first-time investors: pass and find positions where the upside hasn't already been captured.",
+    "references": [
+      {
+        "id": 1,
+        "source": "Yahoo Finance — COHR Stock Quote & Metrics",
+        "url": "https://finance.yahoo.com/quote/COHR/"
+      },
+      {
+        "id": 2,
+        "source": "Stock Analysis — COHR 1-Year Return & Statistics",
+        "url": "https://stockanalysis.com/stocks/cohr/statistics/"
+      },
+      {
+        "id": 3,
+        "source": "TradingView — COHR Chart & Beta Data",
+        "url": "https://www.tradingview.com/symbols/NYSE-COHR/"
+      },
+      {
+        "id": 4,
+        "source": "Morningstar — COHR Fair Value Estimate",
+        "url": "https://www.morningstar.com/stocks/xnys/cohr/quote"
+      },
+      {
+        "id": 5,
+        "source": "Motley Fool — COHR Q2 FY2026 Earnings Call Transcript",
+        "url": "https://www.fool.com/earnings/call-transcripts/2026/02/04/coherent-cohr-q2-2026-earnings-call-transcript/"
+      },
+      {
+        "id": 6,
+        "source": "GuruFocus — COHR Analyst Target Update (19 analysts)",
+        "url": "https://www.gurufocus.com/news/8723527/coherent-cohr-stifel-raises-price-target-to-275-maintains-buy-rating-cohr-stock-news"
+      },
+      {
+        "id": 7,
+        "source": "StockStory — COHR Volatility & S&P 500 Rally Details",
+        "url": "https://markets.financialcontent.com/stocks/article/stockstory-2026-4-1-why-is-coherent-cohr-stock-soaring-today"
+      },
+      {
+        "id": 8,
+        "source": "Robinhood — COHR Market Cap Data",
+        "url": "https://robinhood.com/us/en/stocks/COHR/"
+      },
+      {
+        "id": 9,
+        "source": "Public.com — COHR Q2 FY26 Non-GAAP EPS",
+        "url": "https://public.com/stocks/cohr"
+      },
+      {
+        "id": 10,
+        "source": "Historical Option Data — COHR Forward P/E Analysis",
+        "url": "https://historicaloptiondata.com/cohr-trading-analysis-04-01-2026-0513-pm/"
+      },
+      {
+        "id": 11,
+        "source": "Motley Fool — COHR Quote & Since-IPO Returns",
+        "url": "https://www.fool.com/quote/nyse/cohr/"
+      },
+      {
+        "id": 12,
+        "source": "PR Newswire — Pomerantz Securities Fraud Investigation Notice",
+        "url": "https://www.prnewswire.com/news-releases/investor-alert-pomerantz-law-firm-investigates-claims-on-behalf-of-investors-of-coherent-corp---cohr-302567909.html"
+      },
+      {
+        "id": 13,
+        "source": "Seeking Alpha — COHR Company Profile & Name Change History",
+        "url": "https://seekingalpha.com/symbol/COHR"
+      }
+    ],
+    "imageSearchTerms": [
+      "fiber optic cables datacenter networking infrastructure",
+      "semiconductor laser photonics manufacturing equipment",
+      "AI server farm cooling and power distribution racks"
+    ]
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1619508161027-a7a0eb89811a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwyfHxzZW1pY29uZHVjdG9yJTIwbGFzZXIlMjBwaG90b25pY3MlMjBtYW51ZmFjdHVyaW5nJTIwZXF1aXBtZW50fGVufDF8MHx8fDE3NzUxODY2Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Opt Lasers",
+      "photographerUrl": "https://unsplash.com/@optlasers",
+      "unsplashUrl": "https://unsplash.com/photos/black-and-silver-bracelet-on-white-table-mu5BZLcf_Bk"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1615286926197-45c2cf28eafa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwxfHxzZW1pY29uZHVjdG9yJTIwbGFzZXIlMjBwaG90b25pY3MlMjBtYW51ZmFjdHVyaW5nJTIwZXF1aXBtZW50fGVufDF8MHx8fDE3NzUxODY2Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Opt Lasers",
+      "photographerUrl": "https://unsplash.com/@optlasers",
+      "unsplashUrl": "https://unsplash.com/photos/black-and-gray-computer-tower-2dFkRHRPfF4"
+    }
+  ],
+  "createdAt": "2026-04-02T23:24:28.000-04:00"
+}
