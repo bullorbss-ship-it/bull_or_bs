@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import TickerTape from '@/components/ui/TickerTape';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AdPixels from '@/components/AdPixels';
+import NewsletterPopup from '@/components/forms/NewsletterPopup';
 import { defaultMetadata, organizationSchema } from '@/config/seo';
 import './globals.css';
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <NewsletterPopup />
       </body>
     </html>
   );
