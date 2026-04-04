@@ -1,5 +1,5 @@
 # BullOrBS — Project Status & Roadmap
-**Last updated: 2026-03-23**
+**Last updated: 2026-03-25**
 
 ---
 
@@ -14,7 +14,7 @@
 
 ### Content & SEO
 - [x] 115 static tickers + 91 stock profiles (data/stocks/*.json) + dynamic ticker registry
-- [x] 53 articles published (13 roasts + 7 picks + 33 news takes)
+- [x] 55 articles published (14 roasts + 7 picks + 34 news takes)
 - [x] Programmatic SEO: every /stock/[ticker] targets "should I buy [TICKER]"
 - [x] Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation, Review
 - [x] Learn section: 5 guides (TFSA, RRSP, FHSA, Dividend Investing, US Stocks from Canada)
@@ -63,6 +63,7 @@
 - [x] Branded hero-default.svg placeholder for articles without Unsplash photos
 - [x] Canonical URLs on all pages (fixes GSC duplicate issues)
 - [x] Full sitemap coverage (roasts, picks, takes, learn guides, legal pages)
+- [x] TradingView widgets: ticker tape (site-wide), stock charts (/stock/[ticker]), mini charts (articles), market movers (homepage)
 - [x] Anti-hallucination guardrails: 8 specific rules from observed Haiku errors
 - [x] Auto-linkify all registered tickers mentioned in article text
 - [x] Delete articles from dashboard (two-step confirmation)
@@ -78,7 +79,7 @@
 
 ### Priority 1: Content Volume (ONGOING)
 **Goal: 3-4 news takes/day + 1-2 roasts/picks per week. Content is the moat.**
-- [x] 53 articles published in first 2.5 weeks (13 roasts, 7 picks, 33 takes)
+- [x] 55 articles published in first 2.5 weeks (14 roasts, 7 picks, 34 takes)
 - [ ] Continue 3-4 takes/day cadence (safest content type for volume)
 - [ ] Focus on high-search-volume tickers: AAPL, MSFT, NVDA, AMZN, GOOGL, TSLA
 - [ ] Canadian focus: RY, TD, ENB, CNR, BCE, SU, BNS
@@ -154,7 +155,7 @@
 ---
 
 ## Architecture Decisions
-See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-016.
+See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-017.
 
 Key decisions:
 1. Haiku over Sonnet (55x cheaper, good enough with structured input)
@@ -167,6 +168,7 @@ Key decisions:
 8. Anti-hallucination guardrails from observed Haiku errors (ADR-011)
 9. Auto-linkify all registered tickers in article text (ADR-012)
 10. Canonical URLs on all pages — fixes GSC duplicate issues (ADR-016)
+11. TradingView embedded widgets for live market data at zero cost (ADR-017)
 
 ## Cost Model
 | Item | Cost |

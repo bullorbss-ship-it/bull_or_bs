@@ -1,5 +1,5 @@
 # BullOrBS — Design Queue & Project Tracker
-**Last updated: 2026-03-23**
+**Last updated: 2026-03-25**
 
 ---
 
@@ -30,6 +30,15 @@
 ---
 
 ## Done (Recent Sessions)
+
+### Session: 2026-03-25 (TradingView Widgets + AMZN Fact-Check Fix)
+- [x] Added TradingView ticker tape (scrolling bar above header, site-wide)
+- [x] Added TradingView full chart on /stock/[ticker] pages
+- [x] Added TradingView mini chart on article pages (non-clickable overlay)
+- [x] Added Market Movers widget (top gainers/losers/most active) on homepage
+- [x] New components: TickerTape, TradingViewChart, MarketMovers in src/components/ui/
+- [x] Fixed AMZN roast fact-check: Q4 2024→Q4 2025, FCF context (both unleveraged + levered), dead source [3] replaced with CNBC URL
+- [x] Published: AMZN roast + Walmart take (55 total articles)
 
 ### Session: 2026-03-23 (SEO Fixes + Footnote References + Homepage UX + Daily Cron)
 - [x] Added canonical URLs to all 19 pages (fixes 8 GSC "duplicate without canonical" errors)
@@ -67,10 +76,10 @@
 ## Content Scoreboard
 | Type | Count | Target | Pace |
 |------|-------|--------|------|
-| Roasts | 13 | 50 by Month 2 | 1-2/week |
+| Roasts | 14 | 50 by Month 2 | 1-2/week |
 | Picks | 7 | 20 by Month 2 | 1/week |
-| Takes | 33 | 100 by Month 2 | 3-4/day |
-| **Total** | **53** | **170** | |
+| Takes | 34 | 100 by Month 2 | 3-4/day |
+| **Total** | **55** | **170** | |
 | Stock pages | 115 + dynamic | 200+ | Add with articles |
 | Stock profiles | 91 | 200+ | Add with articles |
 | Learn guides | 5 | 10 | 1/week |

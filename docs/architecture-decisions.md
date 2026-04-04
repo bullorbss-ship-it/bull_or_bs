@@ -249,6 +249,20 @@ Article Request (roast or pick)
 
 ---
 
+## ADR-017: TradingView Embedded Widgets
+**Date:** 2026-03-25
+**Status:** Implemented
+**Context:** Stock pages and articles had no live price data or charts. Users need visual context (price trends, market activity) to evaluate analysis. Adding a real-time data provider API would cost money and require backend infrastructure.
+**Decision:** Embed free TradingView widgets (no API key, no cost):
+1. **Ticker Tape** — scrolling bar above header (site-wide) with major US/CA stocks. Non-clickable overlay prevents bounce.
+2. **Advanced Chart** — full interactive chart on `/stock/[ticker]` pages. Users can zoom, change intervals.
+3. **Mini Chart** — compact chart on article pages for the article's ticker. Non-clickable overlay (display only).
+4. **Market Movers (Hotlists)** — top gainers/losers/most active on homepage with tabs.
+**Files:** `src/components/ui/TickerTape.tsx`, `src/components/ui/TradingViewChart.tsx`, `src/components/ui/MarketMovers.tsx`, `src/app/layout.tsx`, `src/app/page.tsx`, `src/app/stock/[ticker]/page.tsx`, `src/app/article/[slug]/page.tsx`
+**Consequence:** Real-time market data at zero cost. Non-clickable overlays on mini chart and ticker tape prevent users bouncing to TradingView. Full chart on stock pages remains interactive. Widgets load client-side (no SSR impact).
+
+---
+
 ## Open Questions / Future Decisions
 
 1. **Batch API:** Should we switch to async batch generation (50% cost reduction, 24hr turnaround)? Makes sense for scheduled daily generation but breaks real-time /api/generate.

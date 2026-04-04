@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-23T16:13:09.342Z*
+*Auto-generated: 2026-03-25T19:58:39.635Z*
 
 ---
 
@@ -8,15 +8,16 @@
 
 | Type | Count |
 | --- | --- |
-| Roasts | 13 |
+| Roasts | 14 |
 | Picks | 7 |
-| Takes | 33 |
-| **Total** | 53 |
+| Takes | 34 |
+| **Total** | 55 |
 
 ### Roasts
 
 | Date | Ticker | Title |
 | --- | --- | --- |
+| 2026-03-24 | AMZN | Amazon at $210: Wall Street Says Buy, but the $200B Capex Be |
 | 2026-03-18 | META | Meta Stock at $625.50: Growth Bet on AI Infrastructure—But a |
 | 2026-03-17 | GOOGLE | Google (GOOGL) at $305.56: The AI Bet Is Priced In—and Comin |
 | 2026-03-17 | MU | Micron Stock at $445: AI Hype Train or Earnings Roulette? |
@@ -47,6 +48,7 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-03-24 | Walmart Hits $1 Trillion Valuation, But the Waltons Are Quietly Sellin |
 | 2026-03-23 | Trump's Iran Pause Sparked a 2% Rally—But Nobody Agrees If It's Real |
 | 2026-03-22 | The Pentagon Just Bet $13.4 Billion on AI Weapons—While the World Argu |
 | 2026-03-20 | Canada's Big Two Banks Just Crushed Earnings—But Wall Street Has Cold  |

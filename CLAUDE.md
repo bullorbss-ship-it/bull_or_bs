@@ -61,7 +61,7 @@ src/
     layout/           # Header, Footer, Breadcrumbs
     stock/            # StockGrid, TickerSearch
     bracket/          # BracketBuilder
-    ui/               # Collapsible
+    ui/               # Collapsible, TickerTape, TradingViewChart, MarketMovers
   config/
     site.ts           # Single source of truth — name, URL, social links
     seo.ts            # Default metadata, Schema.org helpers
