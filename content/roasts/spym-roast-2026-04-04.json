@@ -1,0 +1,334 @@
+{
+  "slug": "spym-roast-2026-04-04",
+  "type": "roast",
+  "title": "SPYM: The Cheapest S&P 500 ETF — But Is Dirt-Cheap Really Worth It Right Now?",
+  "description": "SPYM is State Street's ultra-low-cost S&P 500 index ETF (0.02% MER) tracking 500+ large-cap US companies. It's the cheapest option available, but recent losses and heavy concentration in mega-cap tech raise questions about timing and diversification.",
+  "date": "2026-04-04",
+  "ticker": "SPYM",
+  "verdict": "**Score: 6/10.** SPYM is a technically excellent S&P 500 ETF with the absolute lowest fees available (0.02% MER) [1] and a clean 504-holding index approach that tracks large-cap US stocks accurately. It's ideal for long-term buy-and-hold investors who prioritize cost and simplicity, and the 21.77% three-year annualized return [3] speaks to solid execution during the 2024–2025 bull market.\n\n**What's good:** The 1-basis-point fee advantage over VOO/IVV compounds into real savings over decades [1]. The fund is transparent, has $114.91B in assets [2], and the October 2025 rebranding from SPLG changed nothing except the ticker [5].\n\n**What's concerning:** The current price ($77.18) reflects ~6% weakness from the January high [6], driven by Iran conflict and mega-cap tech sector rotation [7]. The portfolio is dangerously concentrated—top 5 holdings = 25.65% of assets, with Tech at 32.97% [14, 15]. Canadian investors outside RRSPs face 15% withholding tax, silently reducing after-tax yield [17]. Valuation at 20.68x P/E is near historical highs [18]; the fund is essentially a bet on whether 13.99% EPS growth materializes [19].\n\n**Bottom line:** If you have a 10+ year horizon, dollar-cost averaging into SPYM via monthly contributions is defensible. But buying a lump sum right now—during a correction, geopolitical uncertainty, and extended valuation—feels like optimizing for fees while ignoring timing and concentration risk. Hold off unless you're already committed to the S&P 500 as your core. For Canadians: buy it in an RRSP to save the tax drag, or consider a diversified all-equity ETF like VEQT for simplicity.",
+  "tags": [
+    "SPYM",
+    "roast",
+    "screenshot analysis",
+    "AI analysis"
+  ],
+  "content": {
+    "headline": "SPYM: The Cheapest S&P 500 ETF — But Is Dirt-Cheap Really Worth It Right Now?",
+    "summary": "SPYM is State Street's ultra-low-cost S&P 500 index ETF (0.02% MER) tracking 500+ large-cap US companies. It's the cheapest option available, but recent losses and heavy concentration in mega-cap tech raise questions about timing and diversification.",
+    "foolClaim": "SPYM is presented as the ultimate low-cost S&P 500 option for buy-and-hold investors, with the lowest fees available (0.02% MER) and strong 3-year returns (21.77% annualized). The implication is that the lowest cost automatically makes it the best choice.",
+    "candidates": [
+      {
+        "ticker": "SPYM",
+        "company": "State Street SPDR Portfolio S&P 500 ETF",
+        "status": "considered",
+        "reasonConsidered": "Genuinely the cheapest S&P 500 ETF available at 0.02% MER [1], with $114.91B in assets [2], strong 3-year returns of 21.77% annualized [3], and 504 holdings providing broad US large-cap exposure [4]. The rebranding from SPLG in October 2025 caused no structural changes or fee increases [5].",
+        "reasonEliminated": "Current price of $77.18 reflects recent weakness [6], with the fund down roughly 6% from its January 2026 peak due to geopolitical tensions and tech sector pressure [7]. The portfolio is heavily weighted to mega-cap tech (top 5 holdings = 25.65% of assets; top 10 = ~36%) [8], creating concentration risk that proved problematic in early 2026. For Canadian investors, the 15% US dividend withholding tax reduces after-tax returns unless held in an RRSP [9].",
+        "score": 6
+      }
+    ],
+    "analysis": "## What They Got Right\n\n- **The fee advantage is real.** At 0.02% MER, SPYM is tied for the absolute cheapest S&P 500 ETF available [1]. That's 1 basis point (0.01%) cheaper than VOO and IVV [10], which adds up to real money over decades. For someone investing $10,000, you save roughly $1/year in fees compared to VOO — tiny in isolation, but part of a winning strategy.\n- **The 3-year performance speaks for itself.** SPYM returned 21.77% annualized over the past 3 years [3], and the fund delivered +17.85% in 2025 alone [11]. That's inline with what you'd expect from the S&P 500 during a strong bull market dominated by AI and mega-cap tech.\n- **It's a legitimate S&P 500 index fund.** With 504 holdings [4] and beta of 1.01 versus the S&P 500 [12], SPYM does exactly what it promises — it mirrors the index. There's no hidden strategy or complexity. This simplicity is powerful for beginners.\n- **The rebranding was cosmetic.** When State Street changed the ticker from SPLG to SPYM in October 2025, it was purely a name change [5]. No fees went up, no holdings changed, no manager was swapped. Investors who owned SPLG simply woke up owning SPYM with identical economics.\n\n## What They Missed\n\n- **\"Cheapest\" doesn't mean \"best\" — especially right now.** Yes, SPYM saves 1 basis point on fees versus VOO, but that $1/year advantage is dwarfed by sector and timing risks. The fund is down ~6% from its January peak [7] due to US-Iran tensions and Strait of Hormuz closure [13]. In a market correction, saving 1 basis point on fees is like arguing about rounding errors while your portfolio is bleeding 5-10%. The recommendation buried the timing question — is now a good time to be 100% long S&P 500 mega-caps?\n- **The mega-cap concentration is glossed over.** SPYM's top 5 holdings (NVDA, AAPL, MSFT, AMZN, GOOGL) represent 25.65% of the portfolio [14], and the top 10 holdings make up roughly 36% of assets [13]. Information Technology alone is 32.97% of the fund [15]. This isn't diversification — it's a leveraged bet on US large-cap tech. The data acknowledges this but doesn't stress-test what happens if Nvidia or Apple stumbles 20%.\n- **Canadian investors face a serious tax drag that's barely explained.** The fund distributes dividends quarterly [16], and Canadians holding SPYM outside an RRSP face 15% US withholding tax on dividends [17], reducing yield from 1.16% to ~0.99% after-tax. For a $50,000 investment, that's an extra $85/year in invisible drag. The bottom line mentions this, but it's not prominently flagged as a deal-killer for TFSAs and non-registered accounts.\n- **The valuation context is missing.** SPYM's weighted-average P/E ratio is 20.68 [18] — near the top of historical ranges. The fund estimates 13.99% EPS growth over 3–5 years [19], which means you're paying a premium for growth that's not guaranteed. No comparison to historical averages or discussion of whether 20.68x earnings is attractive or expensive given the Iran conflict and oil price spikes in March/April 2026.\n\n## The Bottom Line\n\nSPYM is a **technically excellent product** — the cheapest way to own the S&P 500, with transparent fees and solid long-term track record. But the recommendation feels tone-deaf to current market conditions. In early 2026, with geopolitical risk elevated, mega-cap tech showing cracks, and valuations near historical highs, buying the \"lowest-cost S&P 500 ETF\" is like buying the cheapest flight on an airplane that's currently losing altitude. The recommendation should have acknowledged: Is now the right time to go all-in on US large-caps? Should Canadians wait for an RRSP contribution room, or bite the withholding-tax bullet? Are there better entry points coming? These questions aren't answered.",
+    "risks": [
+      "Concentration in mega-cap tech (top 5 = 25.65% [14]); further weakness in NVDA or AAPL could drag the entire fund down disproportionately.",
+      "Geopolitical and oil price risk remain elevated in early 2026 [13]; S&P 500 volatility could continue, especially in energy-sensitive sectors.",
+      "Canadian investors outside RRSP accounts pay 15% withholding tax on distributions [17], reducing after-tax returns by ~0.17% annually.",
+      "Valuation at 20.68x P/E is near historical highs [18]; limited margin of safety if 13.99% EPS growth [19] doesn't materialize.",
+      "Recent price weakness ($77.18, down ~6% from January high [7]) may signal early correction; dollar-cost averaging could be safer than a lump-sum buy today.",
+      "Share price of $77 is not materially 'friendlier' than VOO's $608 for most modern brokers offering fractional shares."
+    ],
+    "catalysts": [
+      "US-Iran conflict resolution or de-escalation would remove geopolitical overhang and likely drive rotation back into mega-cap tech [13].",
+      "AI earnings growth acceleration (Q2 2026 earnings season) could reignite momentum in NVDA, MSFT, and core holdings if the hype is justified [14].",
+      "If the S&P 500 enters a true correction (>10%), SPYM could become a forced-buy opportunity for systematic dollar-cost-averaging investors.",
+      "Further institutional inflows (the fund saw ~$50B net inflows in 2025 [13]) could stabilize the price and signal renewed confidence in US large-caps.",
+      "Oil price normalization would ease the energy headwind and allow broader S&P 500 sectors (Financials, Healthcare, Utilities) to outperform [15]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Current Price",
+        "value": "$77.18",
+        "source": "Robinhood (Apr 4, 2026)",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SPYM/"
+      },
+      {
+        "label": "52-Week Range",
+        "value": "$56.67 — $82.11",
+        "source": "Investing.com",
+        "sourceUrl": "https://www.investing.com/etfs/spdr-russell-1000"
+      },
+      {
+        "label": "Net Assets (AUM)",
+        "value": "$114.91B",
+        "source": "State Street Global Advisors (Mar 26, 2026)",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Average Daily Volume",
+        "value": "~25.93M shares",
+        "source": "Robinhood",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SPYM/"
+      },
+      {
+        "label": "Expense Ratio (MER)",
+        "value": "0.02%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Distribution Yield (12M trailing)",
+        "value": "1.16%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "30-Day SEC Yield",
+        "value": "1.19%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "TTM Dividend per Share",
+        "value": "$0.91",
+        "source": "Stock Analysis",
+        "sourceUrl": "https://stockanalysis.com/etf/spym/"
+      },
+      {
+        "label": "YTD 2026 Return (NAV, as of Feb 28)",
+        "value": "+0.67%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "2025 Calendar Year Return",
+        "value": "+17.85%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "3-Year CAGR (as of Feb 28, 2026)",
+        "value": "21.77%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "5-Year CAGR (as of Feb 28, 2026)",
+        "value": "14.15%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Since Inception Annual Return",
+        "value": "11.01%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "P/E Ratio (Fund-Level FY1)",
+        "value": "20.68",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "P/B Ratio",
+        "value": "4.78",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Weighted Average Market Cap",
+        "value": "$1,207.12B",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Estimated 3–5Y EPS Growth",
+        "value": "13.99%",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Beta (vs S&P 500)",
+        "value": "1.01",
+        "source": "Stock Analysis",
+        "sourceUrl": "https://stockanalysis.com/etf/spym/"
+      },
+      {
+        "label": "Morningstar Rating",
+        "value": "★★★★ (4 stars)",
+        "source": "State Street Global Advisors / Morningstar",
+        "sourceUrl": "https://www.morningstar.com/etfs/xmex/spym/quote"
+      },
+      {
+        "label": "Portfolio Turnover",
+        "value": "3%",
+        "source": "AAII",
+        "sourceUrl": "https://www.aaii.com/etf/ticker/SPYM"
+      },
+      {
+        "label": "Number of Holdings",
+        "value": "504",
+        "source": "State Street Global Advisors (Mar 26, 2026)",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Top 5 Holdings (combined %)",
+        "value": "NVDA 7.49% | AAPL 6.69% | MSFT 4.89% | AMZN 3.65% | GOOGL 2.95% = 25.65%",
+        "source": "State Street Global Advisors (Mar 26, 2026)",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Information Technology Sector Weight",
+        "value": "32.97%",
+        "source": "State Street Global Advisors (Mar 26, 2026)",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Inception Date",
+        "value": "Nov 8, 2005",
+        "source": "State Street Global Advisors",
+        "sourceUrl": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "label": "Ticker Change",
+        "value": "SPLG → SPYM (Oct 31, 2025); no structural changes",
+        "source": "MIAX",
+        "sourceUrl": "https://www.miaxglobal.com/alert/2025/10/30/miax-exchange-group-options-markets-corporate-action-alert-spdr-portfolio-0"
+      },
+      {
+        "label": "2025 Net Inflows",
+        "value": "~$50B",
+        "source": "Provided research data",
+        "sourceUrl": ""
+      },
+      {
+        "label": "Recent Drawdown (Jan 2026 high to Apr 2026 price)",
+        "value": "~6% (from $82.11 to $77.18)",
+        "source": "Robinhood / Investing.com",
+        "sourceUrl": "https://robinhood.com/us/en/stocks/SPYM/"
+      }
+    ],
+    "finalVerdict": "**Score: 6/10.** SPYM is a technically excellent S&P 500 ETF with the absolute lowest fees available (0.02% MER) [1] and a clean 504-holding index approach that tracks large-cap US stocks accurately. It's ideal for long-term buy-and-hold investors who prioritize cost and simplicity, and the 21.77% three-year annualized return [3] speaks to solid execution during the 2024–2025 bull market.\n\n**What's good:** The 1-basis-point fee advantage over VOO/IVV compounds into real savings over decades [1]. The fund is transparent, has $114.91B in assets [2], and the October 2025 rebranding from SPLG changed nothing except the ticker [5].\n\n**What's concerning:** The current price ($77.18) reflects ~6% weakness from the January high [6], driven by Iran conflict and mega-cap tech sector rotation [7]. The portfolio is dangerously concentrated—top 5 holdings = 25.65% of assets, with Tech at 32.97% [14, 15]. Canadian investors outside RRSPs face 15% withholding tax, silently reducing after-tax yield [17]. Valuation at 20.68x P/E is near historical highs [18]; the fund is essentially a bet on whether 13.99% EPS growth materializes [19].\n\n**Bottom line:** If you have a 10+ year horizon, dollar-cost averaging into SPYM via monthly contributions is defensible. But buying a lump sum right now—during a correction, geopolitical uncertainty, and extended valuation—feels like optimizing for fees while ignoring timing and concentration risk. Hold off unless you're already committed to the S&P 500 as your core. For Canadians: buy it in an RRSP to save the tax drag, or consider a diversified all-equity ETF like VEQT for simplicity.",
+    "references": [
+      {
+        "id": 1,
+        "source": "State Street Global Advisors — SPYM Expense Ratio",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 2,
+        "source": "State Street Global Advisors — SPYM AUM (Net Assets)",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 3,
+        "source": "State Street Global Advisors — SPYM 3-Year CAGR",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 4,
+        "source": "State Street Global Advisors — SPYM Holdings Count",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 5,
+        "source": "MIAX — SPDR Portfolio ETF Ticker Change Alert",
+        "url": "https://www.miaxglobal.com/alert/2025/10/30/miax-exchange-group-options-markets-corporate-action-alert-spdr-portfolio-0"
+      },
+      {
+        "id": 6,
+        "source": "Robinhood — SPYM Current Price",
+        "url": "https://robinhood.com/us/en/stocks/SPYM/"
+      },
+      {
+        "id": 7,
+        "source": "Provided Research Data — Geopolitical Headwinds & Price Decline",
+        "url": ""
+      },
+      {
+        "id": 8,
+        "source": "State Street Global Advisors — SPYM Top 5 Holdings",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 9,
+        "source": "Canada-US Tax Treaty — Dividend Withholding Tax",
+        "url": ""
+      },
+      {
+        "id": 10,
+        "source": "Provided Research Data — Competitor MER Comparison (VOO, IVV)",
+        "url": ""
+      },
+      {
+        "id": 11,
+        "source": "State Street Global Advisors — SPYM 2025 Calendar Year Return",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 12,
+        "source": "Stock Analysis — SPYM Beta",
+        "url": "https://stockanalysis.com/etf/spym/"
+      },
+      {
+        "id": 13,
+        "source": "Provided Research Data — Iran Conflict & Oil Price Impacts",
+        "url": ""
+      },
+      {
+        "id": 14,
+        "source": "State Street Global Advisors — SPYM Top 5 Holdings (Mar 26, 2026)",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 15,
+        "source": "State Street Global Advisors — SPYM Sector Allocation (Mar 26, 2026)",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 16,
+        "source": "Stock Analysis — SPYM Dividend Frequency",
+        "url": "https://stockanalysis.com/etf/spym/"
+      },
+      {
+        "id": 17,
+        "source": "Provided Research Data — Canada-US Tax Treaty Dividend Withholding",
+        "url": ""
+      },
+      {
+        "id": 18,
+        "source": "State Street Global Advisors — SPYM P/E Ratio (Fund-Level FY1)",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      },
+      {
+        "id": 19,
+        "source": "State Street Global Advisors — SPYM Estimated 3–5Y EPS Growth",
+        "url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-portfolio-sp-500-etf-spym"
+      }
+    ],
+    "imageSearchTerms": [
+      "low-cost index ETF trading chart with declining price",
+      "S&P 500 large-cap tech stocks concentration visual",
+      "RRSP versus TFSA tax withholding comparison diagram"
+    ]
+  },
+  "heroImage": {
+    "url": "https://images.unsplash.com/photo-1745509267945-b25cbb4d50ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwxfHxsb3ctY29zdCUyMGluZGV4JTIwRVRGJTIwdHJhZGluZyUyMGNoYXJ0JTIwd2l0aCUyMGRlY2xpbmluZyUyMHByaWNlfGVufDF8MHx8fDE3NzUzNDE2ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "photographer": "Arturo Añez",
+    "photographerUrl": "https://unsplash.com/@americanaez225",
+    "unsplashUrl": "https://unsplash.com/photos/stock-market-chart-shows-a-downward-trend-MA1Xobltz5o"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1649003515353-c58a239cf662?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHw2fHxTJTI2UCUyMDUwMCUyMGxhcmdlLWNhcCUyMHRlY2glMjBzdG9ja3MlMjBjb25jZW50cmF0aW9uJTIwdmlzdWFsfGVufDF8MHx8fDE3NzUzNDE2ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Tötös Ádám",
+      "photographerUrl": "https://unsplash.com/@toti1996",
+      "unsplashUrl": "https://unsplash.com/photos/a-screenshot-of-a-video-game-3r8rcSy0Ffg"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1643917853964-434e78b21cf7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHw0fHxTJTI2UCUyMDUwMCUyMGxhcmdlLWNhcCUyMHRlY2glMjBzdG9ja3MlMjBjb25jZW50cmF0aW9uJTIwdmlzdWFsfGVufDF8MHx8fDE3NzUzNDE2ODN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "lonely blue",
+      "photographerUrl": "https://unsplash.com/@lonelyblue",
+      "unsplashUrl": "https://unsplash.com/photos/a-computer-screen-with-a-line-graph-on-it-1JY77VY2VuM"
+    }
+  ],
+  "createdAt": "2026-04-04T18:28:04.000-04:00"
+}
