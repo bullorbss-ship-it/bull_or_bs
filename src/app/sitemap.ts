@@ -14,6 +14,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Daily briefing per-date entries (last 30 days with briefing content)
+  const briefingDates = Array.from(
+    new Set(
+      articles
+        .filter(a => a.tags?.includes('daily-briefing'))
+        .map(a => a.date),
+    ),
+  )
+    .sort()
+    .reverse()
+    .slice(0, 30);
+
+  const dailyEntries = briefingDates.map(d => ({
+    url: `${siteConfig.url}/daily/${d}`,
+    lastModified: new Date(d),
+    changeFrequency: 'daily' as const,
+    priority: 0.7,
+  }));
+
   const stockEntries = getAllTickersExpanded().map(t => ({
     url: `${siteConfig.url}/stock/${tickerToSlug(t.ticker)}`,
     lastModified: new Date(),
@@ -63,6 +82,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'daily',
       priority: 0.8,
+    },
+    {
+      url: `${siteConfig.url}/daily`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
     },
     {
       url: `${siteConfig.url}/editorial`,
@@ -125,6 +150,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     ...articleEntries,
+    ...dailyEntries,
     ...stockEntries,
   ];
 }

@@ -1,5 +1,5 @@
 # BullOrBS — Design Queue & Project Tracker
-**Last updated: 2026-03-25**
+**Last updated: 2026-04-14**
 
 ---
 
@@ -30,6 +30,18 @@
 ---
 
 ## Done (Recent Sessions)
+
+### Session: 2026-04-14 (Daily Briefing Feature + Cron Pause)
+- [x] Paused Vercel cron `/api/cron/daily-topics` (7 AM EDT topic suggestions email) — emptied `crons` array in vercel.json. Route file left in place; restore entry to re-enable.
+- [x] Built **Daily Briefing** — fully automated 4-Take morning digest (plan: `~/.claude/plans/kind-questing-piglet.md`).
+  - New files: `src/lib/rss-feeds.ts`, `src/lib/news-fetcher.ts`, `src/lib/github-commit.ts`, `src/app/api/cron/daily-briefing/route.ts`, `src/app/daily/page.tsx`, `src/app/daily/[date]/page.tsx`
+  - Modified: `src/components/layout/Header.tsx` (+ Daily nav), `src/app/sitemap.ts` (+ /daily entries), `src/app/api/admin/commit/route.ts` (use shared commit helper)
+  - Categories: AI/Tech, Markets/Macro, Canada/TSX, Global. Allowlisted RSS sources only.
+  - Dedupe: Jaccard similarity ≥0.6 vs last 7 days of takes.
+  - Failure mode: silent skip if <4 qualifying stories. Publishes fewer, never forces filler.
+  - Cost: ~$0.08/day ($2.40/mo).
+  - **NOT YET ENABLED**: Vercel `crons` array still `[]`. Phase 1 = deploy, run `?dryRun=1` in prod with real API keys. Phase 2 = manual live run. Phase 3 = add cron entry to `vercel.json`.
+  - Local smoke test: auth ✓, parallel orchestration ✓, RSS parse + rank ✓, per-slot failure isolation ✓. Haiku call deferred to Vercel (no local API key).
 
 ### Session: 2026-03-25 (TradingView Widgets + AMZN Fact-Check Fix)
 - [x] Added TradingView ticker tape (scrolling bar above header, site-wide)
@@ -100,6 +112,8 @@
 | Email distribution | GMAIL_APP_PASSWORD not set in Vercel | Add env var |
 | Bracket builder | Feature-flagged (ENABLE_BRACKET) | Enable when ready |
 | Twitter bounce rate | OG/landing page mismatch | Test different tweet formats |
+| Daily topics cron | Paused 2026-04-14 | Restore `crons` entry in vercel.json when ready |
+| Daily briefing cron | Code deployed, `crons: []` | Phase 1 dry-run in prod, then Phase 2 live run, then enable schedule |
 
 ## Ideas Backlog (Not Prioritized)
 - BullOrBS Chat (AI chatbot, freemium, Month 3+)

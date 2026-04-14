@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const NAV_LINKS = [
+  { href: '/daily', label: 'Daily' },
   { href: '/stock', label: 'Stocks' },
   { href: '/roasts', label: 'Roasts' },
   { href: '/picks', label: 'Picks' },
