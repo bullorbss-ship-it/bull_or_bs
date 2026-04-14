@@ -1,0 +1,78 @@
+{
+  "slug": "take-when-ai-chips-run-out-why-control-of-demand-is-the-2026-04-13",
+  "type": "take",
+  "title": "When AI Chips Run Out: Why Control of Demand Is the New Control of Everything",
+  "description": "As AI compute becomes the bottleneck in tech, a decades-old theory about platform power is facing its biggest test yet. The company that controls who gets access to chips—not just who makes them—might win the next era of the internet.",
+  "date": "2026-04-13",
+  "category": "Tech",
+  "verdict": "Aggregation Theory—the idea that winning the most users wins the market—isn't broken by compute scarcity. It's supercharged by it [1]. In a world where processing power is the bottleneck, whoever has already aggregated massive user demand has leverage over those who control supply [1]. The giants don't lose power when chips become scarce—they gain it. The real question is whether that dynamic rewards the companies with the most users today, or whether new entrants can still compete when they can't get access to the tools they need. The source material suggests the odds have shifted [1].",
+  "tags": [
+    "news",
+    "take",
+    "daily-briefing",
+    "ai-tech",
+    "tech"
+  ],
+  "content": {
+    "category": "Tech",
+    "headline": "When AI Chips Run Out: Why Control of Demand Is the New Control of Everything",
+    "summary": "As AI compute becomes the bottleneck in tech, a decades-old theory about platform power is facing its biggest test yet. The company that controls who gets access to chips—not just who makes them—might win the next era of the internet.",
+    "candidates": [],
+    "analysis": "## The Headlines\n\nWe've spent the last few years watching companies race to build bigger, faster AI models. But there's a problem hiding in plain sight: there's not enough compute to go around [1]. And that constraint is about to reshape how power flows through the entire tech industry.\n\nThe question sounds abstract, but it's incredibly concrete: if processing power becomes scarce, does the old playbook still work? Or does the game change completely?\n\n## The Backstory\n\nFor the past 15 years, tech has been dominated by what experts call Aggregation Theory—the idea that whoever controls the most users wins [1]. Amazon controls e-commerce. Facebook controls social. Google controls search. They won by aggregating demand and then leveraging that to control supply.\n\nIt's worked because, until recently, supply was relatively unlimited. Servers are expensive, but you can always build more of them. Data is valuable, but you can always collect more. The bottleneck was never the infrastructure—it was getting people to show up and use your product.\n\nBut compute—the raw processing power needed to train and run AI models—is different. You can't just \"build more\" when the underlying chips are manufactured in a handful of places and take months to produce [1].\n\n## The Takes\n\nSo here's where the debate lives: Does Aggregation Theory still hold when supply is genuinely constrained?\n\nThe optimists say yes—but with a twist [1]. If you control massive user demand, you have leverage over the companies that make and distribute compute. Whoever has the most users, the most data, and the most credibility gets first dibs on the scarce chips. In other words, controlling demand becomes a way to control supply. The network effect didn't die—it just adapted to a world where chips, not server capacity, are the currency.\n\nThe skeptics aren't quoted directly here, but the logic cuts both ways: if compute is truly constrained, then the companies that own the foundries and the supply chains might have more power than the platforms that want to buy from them. The tail wags the dog.\n\nWhat's interesting is that both sides agree on the same underlying fact: we're not in a world of unlimited resources anymore [1]. The argument is just about who that benefits.\n\n## Real Talk\n\nPut yourself in the shoes of a company trying to build an AI product in 2026. You need chips. So do 10,000 other companies. The folks making the chips can only produce so many. Who gets them?\n\nThe answer, according to the source: whoever can prove they have massive demand [1]. That's where Aggregation Theory comes back. If you've already got a billion users, you can credibly say \"we'll use all the compute you send us.\" Your demand becomes valuable leverage. A startup with a good idea but no users? They're waiting in line.\n\nThis is the opposite of what conventional wisdom says about innovation. Usually, the smartest engineers in the garage can disrupt the giants. But in a compute-constrained world, the giants have an asset the garage doesn't: proof of demand. They've already aggregated millions or billions of people. That proof of concept is now worth more than the raw engineering talent.\n\nIt's not that Aggregation Theory never dies. It's that it evolves. In a world of constrained supply, the power doesn't shift from platforms to chipmakers—it shifts to whoever can demonstrate the biggest, most credible demand [1]. And that's usually the company that already won the last round of aggregation.\n\n## The Bottom Line\n\nIf you're invested in tech—whether through a broad index fund or individual stocks—here's what the data suggests you're looking at [1]: a world where network effects and user bases matter more than ever, not less. The scarcity of compute doesn't break Aggregation Theory. It amplifies it.\n\nThe question isn't whether the giants lose their power. It's whether they can convert that power fast enough, and whether the companies trying to compete with them will even get access to the tools they need. Control over demand might be the most valuable asset in AI, not control over supply [1]. You decide what that means for where tech power concentrates over the next few years.",
+    "risks": [
+      "If new chip fabrication capacity comes online faster than expected, the compute constraint could disappear, eliminating the leverage that comes from controlling demand [1].",
+      "Smaller, more efficient AI models might reduce the need for massive compute resources, changing the dynamics of who wins with scarce chips [1].",
+      "Geopolitical restrictions or supply chain disruptions could shift leverage away from demand-side players to those who control physical supply [1]."
+    ],
+    "catalysts": [
+      "Continued compute scarcity could amplify the power of platforms with the largest user bases, reinforcing Aggregation Theory in the AI era [1].",
+      "New AI applications that require even more compute could intensify competition for chips and increase the value of controlling demand [1].",
+      "Partnerships between large platforms and chipmakers could lock in supply chains, giving demand-side players structural advantage [1]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Core Question",
+        "value": "Does Aggregation Theory survive in a world of constrained compute?",
+        "source": "Stratechery — Mythos, Muse, and the Opportunity Cost of Compute",
+        "sourceUrl": "https://stratechery.com/2026/mythos-muse-and-the-opportunity-cost-of-compute/"
+      },
+      {
+        "label": "Key Insight",
+        "value": "Controlling demand gives power over supply",
+        "source": "Stratechery — Mythos, Muse, and the Opportunity Cost of Compute",
+        "sourceUrl": "https://stratechery.com/2026/mythos-muse-and-the-opportunity-cost-of-compute/"
+      }
+    ],
+    "finalVerdict": "Aggregation Theory—the idea that winning the most users wins the market—isn't broken by compute scarcity. It's supercharged by it [1]. In a world where processing power is the bottleneck, whoever has already aggregated massive user demand has leverage over those who control supply [1]. The giants don't lose power when chips become scarce—they gain it. The real question is whether that dynamic rewards the companies with the most users today, or whether new entrants can still compete when they can't get access to the tools they need. The source material suggests the odds have shifted [1].",
+    "references": [
+      {
+        "id": 1,
+        "source": "Stratechery — Mythos, Muse, and the Opportunity Cost of Compute",
+        "url": "https://stratechery.com/2026/mythos-muse-and-the-opportunity-cost-of-compute/"
+      }
+    ],
+    "imageSearchTerms": [
+      "AI chip manufacturing facility interior",
+      "server farm with compute processing units glowing",
+      "hands holding microchip against data center background"
+    ],
+    "newsSource": "Stratechery",
+    "newsUrl": "https://stratechery.com/2026/mythos-muse-and-the-opportunity-cost-of-compute/"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1680992046626-418f7e910589?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwyfHxzZXJ2ZXIlMjBmYXJtJTIwd2l0aCUyMGNvbXB1dGUlMjBwcm9jZXNzaW5nJTIwdW5pdHMlMjBnbG93aW5nfGVufDF8MHx8fDE3NzYxMjkxNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Tyler",
+      "photographerUrl": "https://unsplash.com/@tylergm",
+      "unsplashUrl": "https://unsplash.com/photos/a-rack-of-electronic-equipment-in-a-dark-room-OnI_TNcIv9U"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1512015454017-42c947c53ada?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwzfHxzZXJ2ZXIlMjBmYXJtJTIwd2l0aCUyMGNvbXB1dGUlMjBwcm9jZXNzaW5nJTIwdW5pdHMlMjBnbG93aW5nfGVufDF8MHx8fDE3NzYxMjkxNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Aleksandar Savic",
+      "photographerUrl": "https://unsplash.com/@aleksandarsavic",
+      "unsplashUrl": "https://unsplash.com/photos/pathway-at-night-Z7yEF6sXByg"
+    }
+  ],
+  "createdAt": "2026-04-13T21:12:46.000-04:00",
+  "factChecked": true
+}
