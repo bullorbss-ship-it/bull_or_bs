@@ -157,11 +157,12 @@ export function scoreStory(s: NewsStory): number {
   return recencyScore(s.pubDate) * 0.7 + tierScore(s.tier) * 0.3;
 }
 
-export function pickBestStory(
+export function pickTopStories(
   stories: NewsStory[],
   existingTitles: string[],
-  maxAgeHours = 24,
-): NewsStory | null {
+  n = 5,
+  maxAgeHours = 36,
+): NewsStory[] {
   const now = Date.now();
   const eligible = stories.filter(s => {
     const ageMs = now - new Date(s.pubDate).getTime();
@@ -170,7 +171,14 @@ export function pickBestStory(
     if (isDuplicate(s.title, existingTitles)) return false;
     return true;
   });
-  if (eligible.length === 0) return null;
   eligible.sort((a, b) => scoreStory(b) - scoreStory(a));
-  return eligible[0];
+  return eligible.slice(0, n);
+}
+
+export function pickBestStory(
+  stories: NewsStory[],
+  existingTitles: string[],
+  maxAgeHours = 36,
+): NewsStory | null {
+  return pickTopStories(stories, existingTitles, 1, maxAgeHours)[0] || null;
 }

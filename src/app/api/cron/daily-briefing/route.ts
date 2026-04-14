@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { BRIEFING_SLOTS, type BriefingSlot } from '@/lib/rss-feeds';
-import { fetchBriefingStories, pickBestStory, type NewsStory } from '@/lib/news-fetcher';
+import { fetchBriefingStories, pickTopStories, type NewsStory } from '@/lib/news-fetcher';
+import { classifyRelevance } from '@/lib/news-relevance';
 import { generateTake } from '@/lib/ai/generate';
 import { saveArticle, getArticlesByType } from '@/lib/content';
 import { commitArticleToGitHub } from '@/lib/github-commit';
@@ -56,9 +57,28 @@ async function runSlot(
 ): Promise<SlotOutcome> {
   try {
     const stories = await fetchBriefingStories(slot.id);
-    const best = pickBestStory(stories, recentTitles);
-    if (!best) {
+    const candidates = pickTopStories(stories, recentTitles, 5);
+    if (candidates.length === 0) {
       return { slotId: slot.id, status: 'skipped', reason: 'no fresh eligible story' };
+    }
+
+    // Walk candidates in rank order; first that passes the relevance gate wins.
+    let best: NewsStory | null = null;
+    let rejected = 0;
+    for (const c of candidates) {
+      const relevant = await classifyRelevance(c.title, c.description);
+      if (relevant) {
+        best = c;
+        break;
+      }
+      rejected++;
+    }
+    if (!best) {
+      return {
+        slotId: slot.id,
+        status: 'skipped',
+        reason: `all ${rejected} candidates rejected by relevance gate`,
+      };
     }
 
     const newsText = buildNewsText(best);
