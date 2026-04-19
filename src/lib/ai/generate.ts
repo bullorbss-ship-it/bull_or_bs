@@ -1,5 +1,5 @@
 import { ArticleContent } from '@/lib/types';
-import { ROAST_PROMPT, PICK_PROMPT, SCREENSHOT_ROAST_PROMPT, SCREENSHOT_PICK_PROMPT, TAKE_PROMPT } from './prompts';
+import { ROAST_PROMPT, PICK_PROMPT, SCREENSHOT_ROAST_PROMPT, SCREENSHOT_PICK_PROMPT, TAKE_PROMPT, BRIEFING_PROMPT } from './prompts';
 import { parseArticleContent } from './parse';
 import { auditAndScrub } from './legal';
 import { resolveStockData, resolveMarketMovers } from '@/lib/fmp';
@@ -422,6 +422,89 @@ Return ONLY valid JSON.`;
     apiCalls: 0,
     durationMs,
     dataConfidence: 'text',
+    model: response.model,
+    provider: response.provider,
+    profileWarnings: [],
+  };
+}
+
+// ─── Daily Briefing generation (multi-source digest) ─────────────────────
+
+export interface BriefingStory {
+  title: string;
+  url: string;
+  description: string;
+  source: string;
+}
+
+export async function generateBriefing(
+  stories: BriefingStory[],
+  slotLabel: string,
+  date: string,
+): Promise<GenerateResult> {
+  const start = Date.now();
+
+  const storiesText = stories
+    .map(
+      (s, i) =>
+        `[${i + 1}] ${s.source}\nHEADLINE: ${s.title}\nURL: ${s.url}\nDESCRIPTION: ${s.description || '(no description)'}\n`,
+    )
+    .join('\n---\n');
+
+  const userMessage = `Write a daily briefing for the "${slotLabel}" category.
+
+DATE: ${date}
+
+=== TODAY'S STORIES (use ONLY facts from these — each numbered for your reference array) ===
+${storiesText}
+
+Condense into one tight briefing. Use the [N] numbers above as your reference IDs. Skip stories with no useful detail. Merge related stories.
+
+Return ONLY valid JSON.`;
+
+  const response = await callAI(BRIEFING_PROMPT, userMessage, 6000);
+  const durationMs = Date.now() - start;
+
+  logCost({
+    date,
+    type: 'take',
+    model: response.model,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    costUsd: response.costUsd,
+    fmpCalls: 0,
+    durationMs,
+  });
+
+  const rawContent = parseArticleContent(response.text);
+  const imageSearchTerms = extractImageTerms(response.text);
+
+  let category: string | undefined;
+  try {
+    const jsonMatch = response.text.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      const raw = JSON.parse(jsonMatch[0]);
+      if (raw.category && typeof raw.category === 'string') {
+        category = raw.category;
+      }
+    }
+  } catch { /* ignore */ }
+
+  const { content, audit } = auditAndScrub(rawContent);
+  if (audit.violations.length > 0) {
+    console.log(`[LEGAL AUDIT] Briefing: scrubbed ${audit.violations.length} violations:`, audit.violations);
+  }
+
+  return {
+    content,
+    category,
+    imageSearchTerms,
+    costUsd: response.costUsd,
+    inputTokens: response.inputTokens,
+    outputTokens: response.outputTokens,
+    apiCalls: 0,
+    durationMs,
+    dataConfidence: 'rss',
     model: response.model,
     provider: response.provider,
     profileWarnings: [],

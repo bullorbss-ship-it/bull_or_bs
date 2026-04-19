@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import { BRIEFING_SLOTS, type BriefingSlot } from '@/lib/rss-feeds';
 import { fetchBriefingStories, pickTopStories, type NewsStory } from '@/lib/news-fetcher';
 import { classifyRelevance } from '@/lib/news-relevance';
-import { generateTake } from '@/lib/ai/generate';
+import { generateBriefing, type BriefingStory } from '@/lib/ai/generate';
 import { saveArticle, getArticlesByType } from '@/lib/content';
 import { commitArticleToGitHub } from '@/lib/github-commit';
 import { todayEST } from '@/lib/date';
@@ -57,40 +57,43 @@ async function runSlot(
 ): Promise<SlotOutcome> {
   try {
     const stories = await fetchBriefingStories(slot.id);
-    const candidates = pickTopStories(stories, recentTitles, 5);
+    const candidates = pickTopStories(stories, recentTitles, 10);
     if (candidates.length === 0) {
       return { slotId: slot.id, status: 'skipped', reason: 'no fresh eligible story' };
     }
 
-    // Walk candidates in rank order; first that passes the relevance gate wins.
-    let best: NewsStory | null = null;
-    let rejected = 0;
+    // Filter through relevance gate — keep all that pass (up to 8 for the digest)
+    const relevant: NewsStory[] = [];
     for (const c of candidates) {
-      const relevant = await classifyRelevance(c.title, c.description);
-      if (relevant) {
-        best = c;
-        break;
-      }
-      rejected++;
+      const passes = await classifyRelevance(c.title, c.description);
+      if (passes) relevant.push(c);
+      if (relevant.length >= 8) break;
     }
-    if (!best) {
+    if (relevant.length === 0) {
       return {
         slotId: slot.id,
         status: 'skipped',
-        reason: `all ${rejected} candidates rejected by relevance gate`,
+        reason: `all ${candidates.length} candidates rejected by relevance gate`,
       };
     }
 
-    const newsText = buildNewsText(best);
-    const result = await generateTake(newsText, best.url);
-
     const today = todayEST();
-    const topicSlug = result.content.headline ? slugify(result.content.headline) : 'news';
-    const slug = `take-${topicSlug}-${today}`;
+
+    // Build BriefingStory array for the digest generator
+    const briefingStories: BriefingStory[] = relevant.map(s => ({
+      title: s.title,
+      url: s.url,
+      description: s.description,
+      source: s.source,
+    }));
+
+    const result = await generateBriefing(briefingStories, slot.label, today);
+
+    const topicSlug = slugify(slot.label);
+    const slug = `take-${topicSlug}-brief-${today}`;
 
     const category = result.category || undefined;
 
-    // Only fetch images when we're going to publish — saves Unsplash calls during dry runs.
     const images = dryRun
       ? { hero: null as UnsplashPhoto | null, inline: [] as UnsplashPhoto[] }
       : await getArticleImages({
@@ -118,8 +121,8 @@ async function runSlot(
       ],
       content: {
         ...result.content,
-        newsSource: best.source,
-        newsUrl: best.url,
+        newsSource: `${relevant.length} sources`,
+        newsUrl: relevant[0].url,
       },
       ...(images.hero ? { heroImage: photoToField(images.hero) } : {}),
       ...(images.inline.length > 0 ? { inlineImages: images.inline.map(photoToField) } : {}),
@@ -131,7 +134,7 @@ async function runSlot(
         status: 'published',
         slug,
         title: article.title,
-        sourceUrl: best.url,
+        sourceUrl: relevant[0].url,
         costUsd: result.costUsd,
         reason: 'dry-run (not committed)',
       };
@@ -158,7 +161,7 @@ async function runSlot(
       status: 'published',
       slug,
       title: article.title,
-      sourceUrl: best.url,
+      sourceUrl: relevant[0].url,
       costUsd: result.costUsd,
     };
   } catch (err) {
@@ -170,17 +173,7 @@ async function runSlot(
   }
 }
 
-function buildNewsText(story: NewsStory): string {
-  const parts = [
-    `HEADLINE: ${story.title}`,
-    `PUBLISHED: ${story.pubDate}`,
-    `SOURCE: ${story.source}`,
-    `URL: ${story.url}`,
-    '',
-    story.description || '(no description in feed)',
-  ];
-  return parts.join('\n');
-}
+
 
 // ─── Email digest ────────────────────────────────────────────────────────────
 
