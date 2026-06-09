@@ -4,12 +4,13 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
 import { siteConfig } from '@/config/site';
+import { sizedImageUrl } from '@/lib/images';
 import type { Article } from '@/lib/types';
 
 const BATCH_SIZE = 5;
 
 function getArticleImage(article: Article): string {
-  if (article.heroImage?.url) return article.heroImage.url;
+  if (article.heroImage?.url) return sizedImageUrl(article.heroImage.url, 400);
   const grade = article.type === 'take' ? '' : (article.verdict?.match(/\b(\d{1,2})\/10\b/)?.[1] || '');
   return `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}`;
 }
@@ -50,6 +51,8 @@ export default function ArticleStream({ articles, desktopGridCount }: ArticleStr
                 <img
                   src={imageUrl}
                   alt=""
+                  width={160}
+                  height={100}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />

@@ -7,10 +7,14 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import StockGrid from '@/components/stock/StockGrid';
 import TickerSearch from '@/components/stock/TickerSearch';
 
+import { listingPageMeta } from '@/config/seo';
+
+const pageTitle = 'Stock Analysis — TSX & US Stocks';
+const pageDescription = 'AI-powered analysis for Canadian TSX and US stocks. Browse stock analysis, compare tickers, and get transparent AI-driven research on any stock.';
+
 export const metadata: Metadata = {
-  title: 'Stock Analysis — TSX & US Stocks',
-  description:
-    'AI-powered analysis for Canadian TSX and US stocks. Browse stock analysis, compare tickers, and get transparent AI-driven research on any stock.',
+  title: pageTitle,
+  description: pageDescription,
   keywords: [
     'TSX stock analysis',
     'Canadian stock analysis',
@@ -19,7 +23,7 @@ export const metadata: Metadata = {
     'best Canadian stocks',
     'stock research Canada',
   ],
-  alternates: { canonical: '/stock' },
+  ...listingPageMeta(pageTitle, pageDescription, '/stock'),
 };
 
 export default function StockIndexPage() {

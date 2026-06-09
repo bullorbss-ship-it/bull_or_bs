@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { rateLimit } from '@/lib/rate-limit';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 import { callAI } from '@/lib/ai/providers';
 import { BRACKET_PROMPT } from '@/lib/ai/prompts';
 import { parseArticleContent } from '@/lib/ai/parse';
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
   }
 
   // Rate limit: 2 per minute per IP
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = getClientIp(req);
   if (!rateLimit(`bracket:${ip}`, 2, 60 * 1000)) {
     return NextResponse.json({ error: 'Too many requests. Try again in a minute.' }, { status: 429 });
   }

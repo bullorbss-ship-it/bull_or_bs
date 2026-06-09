@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <div className="flex items-center gap-2">
-              <Image src="/icon.svg" alt="BullOrBS" width={24} height={24} />
+              <Image src="/icon.svg" alt="" width={24} height={24} />
               <p className="font-bold text-lg font-mono">
               <span className="text-foreground">Bull</span>
               <span className="text-muted-light">Or</span>

@@ -371,10 +371,23 @@ function DefaultOG() {
   );
 }
 
+// Satori fetches the bg URL server-side — restrict to expected image hosts (SSRF guard)
+function safeBgUrl(raw: string | null): string | undefined {
+  if (!raw) return undefined;
+  try {
+    const url = new URL(raw);
+    if (url.protocol !== 'https:') return undefined;
+    if (url.hostname !== 'images.unsplash.com') return undefined;
+    return url.toString();
+  } catch {
+    return undefined;
+  }
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const type = searchParams.get('type') || 'default';
-  const bgUrl = searchParams.get('bg') || undefined;
+  const bgUrl = safeBgUrl(searchParams.get('bg'));
 
   let element: React.JSX.Element;
 

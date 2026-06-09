@@ -17,6 +17,10 @@ export async function POST(req: NextRequest) {
   if (!slug || !type) {
     return NextResponse.json({ error: 'Missing slug or type' }, { status: 400 });
   }
+  // Slug becomes a filesystem/GitHub path — reject traversal/odd characters
+  if (typeof slug !== 'string' || !/^[a-z0-9-]+$/i.test(slug)) {
+    return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
+  }
 
   let articleObj = article;
 

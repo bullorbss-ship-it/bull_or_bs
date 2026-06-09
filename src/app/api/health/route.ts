@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { rateLimit } from '@/lib/rate-limit';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAllArticles } from '@/lib/content';
 
 const startTime = Date.now();
 
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = getClientIp(req);
   if (!rateLimit(`health:${ip}`, 100, 60 * 1000)) {
     return NextResponse.json({ error: 'Too many requests.' }, { status: 429 });
   }

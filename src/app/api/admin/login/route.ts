@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { timingSafeCompare, createSession } from '@/lib/auth';
-import { rateLimit } from '@/lib/rate-limit';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = getClientIp(req);
   if (!rateLimit(`login:${ip}`, 5, 15 * 60 * 1000)) {
     return NextResponse.json({ error: 'Too many login attempts. Try again in 15 minutes.' }, { status: 429 });
   }

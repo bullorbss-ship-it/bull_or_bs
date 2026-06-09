@@ -5,12 +5,15 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ArticleCard from '@/components/article/ArticleCard';
 import { BRIEFING_SLOTS } from '@/lib/rss-feeds';
 import type { Article } from '@/lib/types';
+import { listingPageMeta } from '@/config/seo';
+
+const pageTitle = 'Daily Briefing — 4 Verified Finance & AI Stories Every Morning';
+const pageDescription = 'Four trending stories a day across AI, Markets, Canada, and Global — summarized in plain English with verified sources. No LinkedIn noise, no speculation.';
 
 export const metadata: Metadata = {
-  title: 'Daily Briefing — 4 Verified Finance & AI Stories Every Morning',
-  description:
-    'Four trending stories a day across AI, Markets, Canada, and Global — summarized in plain English with verified sources. No LinkedIn noise, no speculation.',
-  alternates: { canonical: '/daily' },
+  title: pageTitle,
+  description: pageDescription,
+  ...listingPageMeta(pageTitle, pageDescription, '/daily'),
 };
 
 function groupByDate(articles: Article[]): Map<string, Article[]> {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { rateLimit } from '@/lib/rate-limit';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 import { generateRoast, generatePick, generateScreenshotRoast, generateScreenshotPick, generateTake } from '@/lib/ai/generate';
 import { saveArticle, getUncheckedCount } from '@/lib/content';
 import { Article } from '@/lib/types';
@@ -16,7 +16,7 @@ function photoToField(p: UnsplashPhoto) {
 
 export async function POST(req: NextRequest) {
   // Rate limit: 5 requests per minute (costs money)
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = getClientIp(req);
   if (!rateLimit(`generate:${ip}`, 5, 60 * 1000)) {
     return NextResponse.json({ error: 'Too many requests. Try again later.' }, { status: 429 });
   }

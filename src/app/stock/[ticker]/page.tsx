@@ -4,7 +4,7 @@ import { getAllTickersExpanded, getTickerInfoExpanded } from '@/lib/ticker-regis
 import { getArticlesByTicker } from '@/lib/content';
 import { getStockData } from '@/lib/stock-data';
 import { siteConfig } from '@/config/site';
-import { faqSchema, breadcrumbSchema, corporationSchema } from '@/config/seo';
+import { faqSchema, breadcrumbSchema, corporationSchema, safeJsonLd, feedAlternates } from '@/config/seo';
 import ArticleCard from '@/components/article/ArticleCard';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!info) return {};
 
   const stockData = getStockData(info.ticker);
-  const title = `${info.ticker} Stock Analysis — ${info.company} | ${siteConfig.name}`;
+  const title = `${info.ticker} Stock Analysis — ${info.company}`;
   const description = stockData?.seoDescription || `AI-powered analysis of ${info.company} (${info.exchange}:${info.ticker}). Full reasoning, data points, and transparent AI research. Should you buy ${info.ticker}?`;
 
   return {
@@ -49,11 +49,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ],
     alternates: {
       canonical: `/stock/${tickerToSlug(info.ticker)}`,
+      types: feedAlternates,
     },
     openGraph: {
       title,
       description,
       type: 'article',
+      url: `/stock/${tickerToSlug(info.ticker)}`,
+      siteName: siteConfig.displayName,
       images: [
         {
           url: `${siteConfig.url}/og?type=stock&ticker=${encodeURIComponent(info.ticker)}&company=${encodeURIComponent(info.company)}&exchange=${encodeURIComponent(info.exchange)}`,
@@ -94,8 +97,8 @@ export default async function StockPage({ params }: PageProps) {
       answer: `${siteConfig.name} does not provide real-time stock prices. For the latest ${info.ticker} price, check your brokerage or a financial data provider. Our focus is AI-driven fundamental analysis, not price tracking.`,
     },
     {
-      question: `Is ${info.ticker} a good investment?`,
-      answer: `Whether ${info.ticker} is a good investment depends on your goals, risk tolerance, and time horizon. Our AI evaluates ${info.company} on valuation, catalysts, risks, and momentum relative to ${info.sector} sector peers.`,
+      question: `What are the risks of buying ${info.ticker} stock?`,
+      answer: `${stockData?.bearCase?.length ? `Key risks for ${info.company} include: ${stockData.bearCase.slice(0, 2).join(' ')}` : `Every stock carries risk — ${info.ticker}'s depend on valuation, sector headwinds, and company execution.`} Our AI weighs these against catalysts and momentum relative to ${info.sector} sector peers.`,
     },
     {
       question: `What sector is ${info.ticker} in?`,
@@ -128,13 +131,13 @@ export default async function StockPage({ params }: PageProps) {
       {/* Schema.org — FAQ */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqItems)) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema(faqItems)) }}
       />
       {/* Schema.org — Breadcrumb */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema([
+          __html: safeJsonLd(breadcrumbSchema([
             { name: 'Home', url: siteConfig.url },
             { name: 'Stocks', url: `${siteConfig.url}/stock` },
             { name: `${info.ticker} — ${info.company}`, url: `${siteConfig.url}/stock/${tickerToSlug(info.ticker)}` },
@@ -145,7 +148,7 @@ export default async function StockPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(corporationSchema(info.ticker, info.company, info.exchange)),
+          __html: safeJsonLd(corporationSchema(info.ticker, info.company, info.exchange)),
         }}
       />
 
@@ -274,7 +277,7 @@ export default async function StockPage({ params }: PageProps) {
       {/* FAQ — accordion style */}
       <section className="mb-6">
         <h2 className="text-lg font-bold mb-3">Frequently Asked Questions</h2>
-        {faqItems.slice(0, 7).map((faq, i) => (
+        {faqItems.map((faq, i) => (
           <Collapsible
             key={i}
             title={faq.question}
@@ -308,7 +311,7 @@ export default async function StockPage({ params }: PageProps) {
       )}
 
       {/* CTA */}
-      <section className="bg-card-bg border border-card-border rounded-2xl p-6 sm:p-8 text-center">
+      <section id="subscribe" className="bg-card-bg border border-card-border rounded-2xl p-6 sm:p-8 text-center scroll-mt-24">
         <h3 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">
           Get AI analysis of {info.ticker} in your inbox
         </h3>

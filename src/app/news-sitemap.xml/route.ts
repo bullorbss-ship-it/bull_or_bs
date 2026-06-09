@@ -24,7 +24,7 @@ ${recentArticles
     <loc>${siteConfig.url}/article/${a.slug}</loc>
     <news:news>
       <news:publication>
-        <news:name>${siteConfig.name}</news:name>
+        <news:name>${siteConfig.displayName}</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${new Date(a.date).toISOString()}</news:publication_date>

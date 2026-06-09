@@ -4,7 +4,8 @@ import { getAllArticles, getArticleBySlug } from '@/lib/content';
 import { getTickerInfo } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { siteConfig } from '@/config/site';
-import { articleSchema, faqSchema, reviewSchema } from '@/config/seo';
+import { articleSchema, newsArticleSchema, faqSchema, reviewSchema, breadcrumbSchema, safeJsonLd, feedAlternates } from '@/config/seo';
+import { sizedImageUrl } from '@/lib/images';
 import { formatMarkdown, linkifyTickers } from '@/lib/ai/parse';
 import { inlineFormat } from '@/lib/inline-format';
 import Tournament from '@/components/article/Tournament';
@@ -126,11 +127,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ].filter(Boolean),
     alternates: {
       canonical: `/article/${article.slug}`,
+      types: feedAlternates,
     },
     openGraph: {
       title: article.title,
       description: article.description,
       type: 'article',
+      url: `/article/${article.slug}`,
+      siteName: siteConfig.displayName,
       publishedTime: article.date,
       authors: [siteConfig.displayName],
       tags: article.tags,
@@ -216,19 +220,28 @@ export default async function ArticlePage({ params }: PageProps) {
       <ScrollTracker slug={article.slug} />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema({
+        dangerouslySetInnerHTML={{ __html: safeJsonLd((isTake ? newsArticleSchema : articleSchema)({
           ...article,
           ...(tickerInfo ? { company: tickerInfo.company, exchange: tickerInfo.exchange } : {}),
+          image: article.heroImage?.url,
         })) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqQuestions)) }}
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(faqSchema(faqQuestions)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: safeJsonLd(breadcrumbSchema([
+          { name: 'Home', url: siteConfig.url },
+          { name: isRoast ? 'Roasts' : isTake ? 'News' : 'Picks', url: `${siteConfig.url}${isRoast ? '/roasts' : isTake ? '/takes' : '/picks'}` },
+          { name: article.title, url: `${siteConfig.url}/article/${article.slug}` },
+        ])) }}
       />
       {review && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(review) }}
+          dangerouslySetInnerHTML={{ __html: safeJsonLd(review) }}
         />
       )}
 
@@ -245,10 +258,11 @@ export default async function ArticlePage({ params }: PageProps) {
           <div className="aspect-[1200/630] relative">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={article.heroImage.url}
+              src={sizedImageUrl(article.heroImage.url, 1200)}
               alt={content.headline}
               className="w-full h-full object-cover"
               loading="eager"
+              fetchPriority="high"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           </div>
@@ -350,7 +364,7 @@ export default async function ArticlePage({ params }: PageProps) {
         <section className="border-l-4 border-red bg-red/5 rounded-r-lg p-4 sm:p-6 mb-6">
           <p className="text-xs font-mono text-red font-bold mb-2">WHAT THEY SAID</p>
           <blockquote className="text-foreground italic leading-relaxed text-sm sm:text-base"
-            dangerouslySetInnerHTML={{ __html: `&quot;${linkifyTickers(content.foolClaim || '', articleTickers)}&quot;` }}
+            dangerouslySetInnerHTML={{ __html: `&quot;${linkifyTickers(inlineFormat(content.foolClaim || ''), articleTickers)}&quot;` }}
           />
           {content.foolSource && (
             <p className="text-muted text-xs mt-2">
@@ -382,7 +396,7 @@ export default async function ArticlePage({ params }: PageProps) {
         <div className="my-6 rounded-xl overflow-hidden -mx-1 sm:mx-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={article.inlineImages[0].url}
+            src={sizedImageUrl(article.inlineImages[0].url, 800)}
             alt=""
             className="w-full h-48 sm:h-56 object-cover"
             loading="lazy"
@@ -418,7 +432,7 @@ export default async function ArticlePage({ params }: PageProps) {
         <div className="my-6 rounded-xl overflow-hidden -mx-1 sm:mx-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={article.inlineImages[1].url}
+            src={sizedImageUrl(article.inlineImages[1].url, 800)}
             alt=""
             className="w-full h-48 sm:h-56 object-cover"
             loading="lazy"
@@ -482,6 +496,24 @@ export default async function ArticlePage({ params }: PageProps) {
         </section>
       )}
 
+      {/* FAQ — visible Q&A matching the FAQPage schema (AI engines extract from these) */}
+      {faqQuestions.some(q => q.answer) && (
+        <section className="border-t border-card-border pt-6 mt-8 mb-6">
+          <h2 className="text-sm font-mono font-bold text-muted-light mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+          <dl className="space-y-5">
+            {faqQuestions.filter(q => q.answer).map((q) => (
+              <div key={q.question}>
+                <dt className="font-semibold text-foreground mb-1.5">{q.question}</dt>
+                <dd
+                  className="text-muted text-sm leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: linkifyTickers(inlineFormat(q.answer || ''), articleTickers) }}
+                />
+              </div>
+            ))}
+          </dl>
+        </section>
+      )}
+
       {/* Next Analysis */}
       {nextArticle && nextArticle.slug !== article.slug && (
         <section className="border-t border-card-border pt-6 sm:pt-8 mb-6 sm:mb-8">
@@ -501,7 +533,7 @@ export default async function ArticlePage({ params }: PageProps) {
       )}
 
       {/* Subscribe CTA */}
-      <section className="text-center py-6 sm:py-8">
+      <section id="subscribe" className="text-center py-6 sm:py-8 scroll-mt-24">
         <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
           Want more analysis like this?
         </h3>

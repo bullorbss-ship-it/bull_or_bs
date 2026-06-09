@@ -1,0 +1,46 @@
+# Bull Or BS
+
+> AI-driven stock analysis that shows its work. We audit popular stock
+> recommendations, run AI elimination tournaments across sector peers, and
+> summarize financial news in plain English — covering TSX, US, and emerging
+> markets. Free, transparent, no paywall. Educational content, not financial
+> advice.
+
+Bull Or BS (bullorbs.com) publishes three content types, all AI-generated with
+cited sources and a published methodology:
+
+- Roasts: audits of stock recommendations from popular financial newsletters,
+  scored 1-10 with full reasoning
+- AI Picks: elimination tournaments comparing 10-15 stocks head-to-head on
+  valuation, catalysts, risks, and momentum
+- News Takes: plain-English summaries of verified financial news with source
+  links — facts only, no speculation
+
+## Key pages
+
+- [Homepage](https://bullorbs.com/): latest analysis and market movers
+- [Stock pages](https://bullorbs.com/stock): per-ticker analysis pages at
+  /stock/[ticker] (e.g. /stock/shop, /stock/nvda) with FAQ, sector peers, and
+  every article covering that ticker
+- [Roasts](https://bullorbs.com/roasts): stock recommendation audits
+- [AI Picks](https://bullorbs.com/picks): tournament-style stock comparisons
+- [News](https://bullorbs.com/takes): plain-English financial news takes
+- [Daily Briefing](https://bullorbs.com/daily): morning digest across AI/tech,
+  markets, Canada/TSX, and global categories
+- [Learn](https://bullorbs.com/learn): Canadian investing guides (TFSA, RRSP,
+  FHSA, dividend investing, buying US stocks from Canada)
+- [Methodology](https://bullorbs.com/methodology): how the AI analysis works
+- [Editorial standards](https://bullorbs.com/editorial): fact-checking and
+  correction policy
+
+## Feeds
+
+- [RSS feed](https://bullorbs.com/feed.xml)
+- [Sitemap](https://bullorbs.com/sitemap.xml)
+- [News sitemap](https://bullorbs.com/news-sitemap.xml)
+
+## Notes
+
+- All articles cite sources via numbered footnotes with links
+- Content is educational analysis and opinion — never buy/sell directives
+- Not affiliated with any financial publication or institution

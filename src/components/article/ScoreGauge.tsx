@@ -66,7 +66,7 @@ export default function ScoreGauge({ score, size = 'lg' }: ScoreGaugeProps) {
 
   return (
     <div className="flex flex-col items-center" style={{ width: outer, height: outer }}>
-      <svg width={outer} height={outer} viewBox={`0 0 ${outer} ${outer}`}>
+      <svg width={outer} height={outer} viewBox={`0 0 ${outer} ${outer}`} role="img" aria-label={`Rated ${score} out of 10`}>
         {/* Background arc */}
         <path
           d={describeArc(radius, startAngle, endAngle)}

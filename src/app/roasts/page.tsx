@@ -3,11 +3,15 @@ import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { listingPageMeta } from '@/config/seo';
+
+const pageTitle = 'All Roasts — Stock Recommendation Audits';
+const pageDescription = 'Every stock recommendation we\'ve audited, scored 1 to 10. See which picks held up and which were BS.';
 
 export const metadata: Metadata = {
-  title: 'All Roasts — Stock Recommendation Audits',
-  description: 'Every stock recommendation we\'ve audited, scored 1 to 10. See which picks held up and which were BS.',
-  alternates: { canonical: '/roasts' },
+  title: pageTitle,
+  description: pageDescription,
+  ...listingPageMeta(pageTitle, pageDescription, '/roasts'),
 };
 
 export default function RoastsPage() {

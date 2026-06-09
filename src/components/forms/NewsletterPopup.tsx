@@ -79,6 +79,17 @@ export default function NewsletterPopup() {
     } catch { /* localStorage unavailable */ }
   }
 
+  // Close on Escape (keyboard/screen-reader users can't click the backdrop)
+  useEffect(() => {
+    if (!visible) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') dismiss();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible]);
+
   function onSubscribed() {
     setVisible(false);
     try {
@@ -128,6 +139,7 @@ export default function NewsletterPopup() {
           <input
             type="email"
             required
+            autoFocus
             placeholder="you@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

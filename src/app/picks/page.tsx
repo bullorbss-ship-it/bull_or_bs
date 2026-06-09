@@ -3,11 +3,15 @@ import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { listingPageMeta } from '@/config/seo';
+
+const pageTitle = 'All AI Picks — Weekly Stock Tournaments';
+const pageDescription = 'Every AI-powered stock pick from our weekly elimination tournaments. See our full track record.';
 
 export const metadata: Metadata = {
-  title: 'All AI Picks — Weekly Stock Tournaments',
-  description: 'Every AI-powered stock pick from our weekly elimination tournaments. See our full track record.',
-  alternates: { canonical: '/picks' },
+  title: pageTitle,
+  description: pageDescription,
+  ...listingPageMeta(pageTitle, pageDescription, '/picks'),
 };
 
 export default function PicksPage() {

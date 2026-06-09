@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { siteConfig } from '@/config/site';
+import { safeJsonLd } from '@/config/seo';
 
 export const metadata: Metadata = {
   title: 'Editorial Standards',
@@ -21,7 +22,7 @@ export default function EditorialPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          __html: safeJsonLd({
             '@context': 'https://schema.org',
             '@type': 'AboutPage',
             name: 'Editorial Standards',

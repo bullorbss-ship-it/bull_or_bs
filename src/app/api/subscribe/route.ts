@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { rateLimit } from '@/lib/rate-limit';
+import { rateLimit, getClientIp } from '@/lib/rate-limit';
 
 const GITHUB_REPO = 'bullorbss-ship-it/bull_or_bs';
 const GITHUB_API = 'https://api.github.com';
@@ -47,7 +47,7 @@ async function saveSubscribersToGitHub(token: string, emails: string[], sha: str
 // CASL compliance: consent is obtained via SubscribeForm UI (privacy policy link + opt-in text)
 // Users agree to privacy policy and consent to emails before submitting
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+  const ip = getClientIp(req);
   if (!rateLimit(`subscribe:${ip}`, 10, 60 * 1000)) {
     return NextResponse.json({ error: 'Too many requests. Try again later.' }, { status: 429 });
   }

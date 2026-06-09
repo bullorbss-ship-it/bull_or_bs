@@ -1,5 +1,5 @@
 # BullOrBS — Design Queue & Project Tracker
-**Last updated: 2026-04-14**
+**Last updated: 2026-06-09**
 
 ---
 
@@ -23,13 +23,40 @@
 | 6 | **Double down on Reddit** | Best traffic source (25 users). Post NBIS-style content | Ongoing |
 | 7 | **Compare pages** (/compare/xeqt-vs-veqt) | High SEO value, head-to-head format | 2 hrs |
 | 8 | **More learn guides** | /learn/etf-basics, /learn/index-investing | 1 hr each |
-| 9 | **Mobile hamburger menu** | Nav overlaps on small screens | 1 hr |
+| 9 | ~~Mobile hamburger menu~~ | DONE — menu existed; drawer clip bug fixed 2026-06-09 | — |
 | 10 | **Beehiiv migration** | Move subscribers off JSON file | 1 hr |
 | 11 | **Outbound click tracking** | GA4 custom event for external link clicks — real bounce data | 30 min |
 
 ---
 
 ## Done (Recent Sessions)
+
+### Session: 2026-06-09 (Security Hardening + SEO/AIO + UX Audit Fixes)
+**Security (from full-codebase audit):**
+- [x] Fixed stored XSS — `inlineFormat()` now HTML-escapes before markdown transforms (`escapeHtml()` in `src/lib/inline-format.ts`); covers analysis, summary, risks/catalysts, tournament, foolClaim render paths
+- [x] Fixed JSON-LD injection — new `safeJsonLd()` in `src/config/seo.ts` escapes `</script>` breakout; applied to ALL `application/ld+json` sites (layout, article, stock, editorial)
+- [x] Upgraded Next.js 16.1.7 → 16.2.7 (high-severity advisories), nodemailer 8.0.1 → 8.0.10 (SMTP injection), picomatch (ReDoS). Remaining: 2 moderate postcss advisories nested in Next (needs canary — skip)
+- [x] SSRF fix — `/og?bg=` now allowlisted to `https://images.unsplash.com` only
+- [x] Rate-limit bypass fix — new `getClientIp()` trusts `x-real-ip`/rightmost XFF (was spoofable leftmost) across login/generate/subscribe/health/bracket
+- [x] Path traversal fix — slug validated `^[a-z0-9-]+$` in admin commit + delete routes
+- [x] Added `Strict-Transport-Security` header; genericized delete route error responses
+- [x] Fixed repo-local git identity (was personal name → BullOrBS). Git history scrub still pending (task #3)
+- Audit verified clean: auth/HMAC, cookies, secrets, anonymity in tracked files, admin route coverage
+**SEO/AIO:**
+- [x] Stock page titles no longer double the brand (was `… | BullOrBS | Bull Or BS` on 115+ pages)
+- [x] Takes now emit `NewsArticle` schema (was generic Article); schema gets `image`, `publisher.logo`, `author.url`
+- [x] BreadcrumbList schema on article pages; WebSite schema in layout
+- [x] Visible FAQ section on article pages (schema previously described invisible content — spam-policy risk)
+- [x] Stock pages render all 10 FAQs (was 7 rendered / 10 in schema) + deduped near-identical Q2/Q4
+- [x] `public/llms.txt` for AI crawlers; news sitemap publication name unified to "Bull Or BS"
+- [x] `listingPageMeta()` helper — listing pages (/roasts /picks /takes /daily /learn /stock) get own OG/Twitter/canonical + RSS autodiscovery (Next's shallow metadata merge was dropping it site-wide)
+- [x] Unsplash images CDN-sized (`sizedImageUrl()` in `src/lib/images.ts`), `fetchPriority="high"` on heroes, preconnect to unsplash/tradingview
+**UX/Accessibility:**
+- [x] Mobile drawer clip fixed (grid-rows animation, no magic max-h); Escape closes; aria-controls
+- [x] Active nav state via `usePathname()` + `aria-current`
+- [x] Subscribe header link → `/#subscribe`; `id="subscribe"` anchors on article + stock pages
+- [x] Skip-to-content link; global `:focus-visible` outlines; ScoreGauge aria-label; logo alt="" (was double-announcing); NewsletterPopup Escape + autofocus
+**NOT done (needs owner sign-off — design system):** contrast token fixes (gold/accent/muted-light text fail WCAG on white), body copy `text-muted`→`text-foreground/90`, badge style consolidation, ConsentGate+NewsletterPopup double-interstitial (likely Twitter bounce cause), micro-text bump (9px→11px)
 
 ### Session: 2026-04-14 (Daily Briefing Feature + Cron Pause)
 - [x] Paused Vercel cron `/api/cron/daily-topics` (7 AM EDT topic suggestions email) — emptied `crons` array in vercel.json. Route file left in place; restore entry to re-enable.

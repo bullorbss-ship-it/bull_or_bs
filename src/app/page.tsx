@@ -7,10 +7,11 @@ import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { getArticleBadge, getTickerBadgeStyle, getCategoryChipStyle } from '@/lib/badges';
 import { Article } from '@/lib/types';
 import { siteConfig } from '@/config/site';
+import { sizedImageUrl } from '@/lib/images';
 
 /** Get display image: heroImage → OG image fallback */
 function getArticleImage(article: Article): string {
-  if (article.heroImage?.url) return article.heroImage.url;
+  if (article.heroImage?.url) return sizedImageUrl(article.heroImage.url, 800);
   const grade = article.type === 'take' ? '' : (article.verdict?.match(/\b(\d{1,2})\/10\b/)?.[1] || '');
   return `${siteConfig.url}/og?type=article&title=${encodeURIComponent(article.title)}&grade=${encodeURIComponent(grade)}&articleType=${article.type}&ticker=${encodeURIComponent(article.ticker || '')}&source=${encodeURIComponent(article.content?.newsSource || '')}&v=${encodeURIComponent(article.date || '1')}`;
 }
@@ -71,8 +72,9 @@ export default function Home() {
                     <div className="relative h-[220px] sm:h-[320px] lg:h-full lg:min-h-[420px] overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={featured.heroImage!.url}
+                        src={sizedImageUrl(featured.heroImage!.url, 1200)}
                         alt=""
+                        fetchPriority="high"
                         className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />

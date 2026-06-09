@@ -2,12 +2,15 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import SubscribeForm from '@/components/forms/SubscribeForm';
+import { listingPageMeta } from '@/config/seo';
+
+const pageTitle = 'Learn — Canadian Investing Guides';
+const pageDescription = 'Free guides on TFSA, RRSP, FHSA, and smart investing strategies for Canadians. Learn how to maximize your registered accounts and build wealth.';
 
 export const metadata: Metadata = {
-  title: 'Learn — Canadian Investing Guides',
-  description:
-    'Free guides on TFSA, RRSP, FHSA, and smart investing strategies for Canadians. Learn how to maximize your registered accounts and build wealth.',
-  alternates: { canonical: '/learn' },
+  title: pageTitle,
+  description: pageDescription,
+  ...listingPageMeta(pageTitle, pageDescription, '/learn'),
 };
 
 const guides = [

@@ -4,11 +4,15 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { getCategoryChipStyle } from '@/lib/badges';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { listingPageMeta } from '@/config/seo';
+
+const pageTitle = 'News Takes — Financial News Explained Simply';
+const pageDescription = 'Financial news explained so anyone can understand. No jargon, no predictions — just the facts that matter for your money.';
 
 export const metadata: Metadata = {
-  title: 'News Takes — Financial News Explained Simply',
-  description: 'Financial news explained so anyone can understand. No jargon, no predictions — just the facts that matter for your money.',
-  alternates: { canonical: '/takes' },
+  title: pageTitle,
+  description: pageDescription,
+  ...listingPageMeta(pageTitle, pageDescription, '/takes'),
 };
 
 export default function TakesPage() {

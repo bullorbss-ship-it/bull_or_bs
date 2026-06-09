@@ -25,6 +25,10 @@ export async function POST(req: NextRequest) {
   if (!slug || !type) {
     return NextResponse.json({ error: 'Missing slug or type' }, { status: 400 });
   }
+  // Slug becomes a GitHub Contents API path — reject traversal/odd characters
+  if (typeof slug !== 'string' || !/^[a-z0-9-]+$/i.test(slug)) {
+    return NextResponse.json({ error: 'Invalid slug' }, { status: 400 });
+  }
 
   const folder = type === 'roast' ? 'roasts' : type === 'take' ? 'takes' : 'picks';
   const filePath = `content/${folder}/${slug}.json`;
@@ -72,7 +76,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, deleted: filePath });
   } catch (err) {
-    const message = err instanceof Error ? err.message : 'Unknown error';
-    return NextResponse.json({ error: 'Delete failed', detail: message }, { status: 500 });
+    console.error('Article delete failed:', err);
+    return NextResponse.json({ error: 'Delete failed' }, { status: 500 });
   }
 }

@@ -56,6 +56,62 @@ export const defaultMetadata: Metadata = {
   },
 };
 
+/**
+ * Serialize JSON-LD for <script type="application/ld+json"> injection.
+ * Escapes <, >, & so untrusted strings (AI/RSS-derived titles) can't break
+ * out of the script tag (e.g. via "</script>").
+ */
+export function safeJsonLd(schema: unknown): string {
+  return JSON.stringify(schema)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026');
+}
+
+/** Next.js merges `alternates` shallowly — pages that set a canonical must
+ * re-declare the RSS type or autodiscovery is silently dropped. */
+export const feedAlternates = {
+  'application/rss+xml': '/feed.xml',
+} as const;
+
+/** Canonical + OG/Twitter block for listing/index pages. Without this, pages
+ * inherit the homepage og:title and og:url from the root layout. */
+export function listingPageMeta(title: string, description: string, path: string): Metadata {
+  return {
+    alternates: { canonical: path, types: feedAlternates },
+    openGraph: {
+      title: `${title} | ${siteConfig.displayName}`,
+      description,
+      url: path,
+      siteName: siteConfig.displayName,
+      type: 'website',
+      images: [
+        {
+          url: `${siteConfig.url}/og?type=default`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  };
+}
+
+const publisherSchema = {
+  '@type': 'Organization',
+  name: siteConfig.displayName,
+  url: siteConfig.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteConfig.url}/logo.svg`,
+  },
+} as const;
+
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -75,6 +131,7 @@ export function articleSchema(article: {
   ticker?: string;
   company?: string;
   exchange?: string;
+  image?: string;
 }) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -83,12 +140,9 @@ export function articleSchema(article: {
     description: article.description,
     datePublished: article.date,
     dateModified: article.date,
-    author: { '@type': 'Organization', name: siteConfig.displayName },
-    publisher: {
-      '@type': 'Organization',
-      name: siteConfig.displayName,
-      url: siteConfig.url,
-    },
+    image: article.image ? [article.image] : [`${siteConfig.url}/og?type=default`],
+    author: { '@type': 'Organization', name: siteConfig.displayName, url: siteConfig.url },
+    publisher: publisherSchema,
     mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,
   };
 
@@ -103,6 +157,30 @@ export function articleSchema(article: {
   }
 
   return schema;
+}
+
+export function websiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.displayName,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    publisher: publisherSchema,
+  };
+}
+
+export function itemListSchema(items: { name: string; url: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
+  };
 }
 
 export function faqSchema(questions: { question: string; answer: string }[]) {
@@ -215,6 +293,7 @@ export function newsArticleSchema(article: {
   ticker?: string;
   company?: string;
   exchange?: string;
+  image?: string;
 }) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
@@ -224,16 +303,13 @@ export function newsArticleSchema(article: {
     datePublished: article.date,
     dateModified: article.date,
     articleSection: article.type,
+    image: article.image ? [article.image] : [`${siteConfig.url}/og?type=default`],
     author: {
       '@type': 'Organization',
       name: siteConfig.displayName,
       url: siteConfig.url,
     },
-    publisher: {
-      '@type': 'Organization',
-      name: siteConfig.displayName,
-      url: siteConfig.url,
-    },
+    publisher: publisherSchema,
     mainEntityOfPage: `${siteConfig.url}/article/${article.slug}`,
   };
 
