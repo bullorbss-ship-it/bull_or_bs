@@ -458,11 +458,11 @@ DATE: ${date}
 === TODAY'S STORIES (use ONLY facts from these — each numbered for your reference array) ===
 ${storiesText}
 
-Condense into one tight briefing. Use the [N] numbers above as your reference IDs. Skip stories with no useful detail. Merge related stories.
+Write the full-length briefing (800-1100 words, 4-5 minute read) following the section structure. Use the [N] numbers above as your reference IDs. Skip stories with no useful detail. Merge related stories.
 
 Return ONLY valid JSON.`;
 
-  const response = await callAI(BRIEFING_PROMPT, userMessage, 6000);
+  const response = await callAI(BRIEFING_PROMPT, userMessage, 9000);
   const durationMs = Date.now() - start;
 
   logCost({
