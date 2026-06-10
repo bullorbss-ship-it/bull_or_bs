@@ -31,6 +31,15 @@
 
 ## Done (Recent Sessions)
 
+### Session: 2026-06-09 part 2 (Design Polish + Daily Briefing DEPLOYED)
+- [x] **Design-system pass (owner approved):** `-strong` WCAG text tokens (9 colors, light+dark) applied to badges/links/labels; body copy `text-muted`→`text-foreground/90`; markdown h2/h3 size bump; TickerSearch uses shared badges.ts; 9px metadata→11px
+- [x] **ConsentGate → inline dismissible banner** (was blur-gate); **NewsletterPopup skips first-ever visit** — the two stacked within 60s for new social visitors (97% Twitter bounce suspect)
+- [x] **npm override forces postcss ≥8.5.10 inside Next** — `npm audit` now 0 vulns; Next at 16.2.9; lockfile regenerated
+- [x] **DEPLOYED daily briefing**: rebased onto remote (5 article commits had landed since April — git auth works again), all 8 pre-deploy gates passed, pushed `46ab0b0`. Cron ENABLED in vercel.json: `0 10 * * *` (6 AM EDT daily)
+- [x] GitHub rejected gmail author (email privacy setting) — all unpushed commits rewritten to `BullOrBS <266401801+bullorbss-ship-it@users.noreply.github.com>`; repo git config now uses the noreply address (NOT bull.or.bss@gmail.com — CLAUDE.md says gmail but GitHub blocks it)
+- [ ] **Prod dry-run NOT done** (CRON_SECRET only in Vercel, no local .env): `curl -H 'Authorization: Bearer $CRON_SECRET' 'https://bullorbs.com/api/cron/daily-briefing?dryRun=1'` — verify before/after first 6 AM EDT run; confirm CRON_SECRET + UNSPLASH_ACCESS_KEY set in Vercel
+- [ ] Delete 4 old single-story daily articles on prod now that digest is live (from April session)
+
 ### Session: 2026-06-09 (Security Hardening + SEO/AIO + UX Audit Fixes)
 **Security (from full-codebase audit):**
 - [x] Fixed stored XSS — `inlineFormat()` now HTML-escapes before markdown transforms (`escapeHtml()` in `src/lib/inline-format.ts`); covers analysis, summary, risks/catalysts, tournament, foolClaim render paths
