@@ -37,8 +37,8 @@
 - [x] **npm override forces postcss ≥8.5.10 inside Next** — `npm audit` now 0 vulns; Next at 16.2.9; lockfile regenerated
 - [x] **DEPLOYED daily briefing**: rebased onto remote (5 article commits had landed since April — git auth works again), all 8 pre-deploy gates passed, pushed `46ab0b0`. Cron ENABLED in vercel.json: `0 10 * * *` (6 AM EDT daily)
 - [x] GitHub rejected gmail author (email privacy setting) — all unpushed commits rewritten to `BullOrBS <266401801+bullorbss-ship-it@users.noreply.github.com>`; repo git config now uses the noreply address (NOT bull.or.bss@gmail.com — CLAUDE.md says gmail but GitHub blocks it)
-- [ ] **Prod dry-run NOT done** (CRON_SECRET only in Vercel, no local .env): `curl -H 'Authorization: Bearer $CRON_SECRET' 'https://bullorbs.com/api/cron/daily-briefing?dryRun=1'` — verify before/after first 6 AM EDT run; confirm CRON_SECRET + UNSPLASH_ACCESS_KEY set in Vercel
-- [ ] Delete 4 old single-story daily articles on prod now that digest is live (from April session)
+- [ ] **Prod dry-run NOT done** (CRON_SECRET only in Vercel, no local .env) — owner is checking the first 6 AM EDT run himself
+- Old single-story daily articles stay (owner decision 2026-06-09 — no deletion needed)
 
 ### Session: 2026-06-09 (Security Hardening + SEO/AIO + UX Audit Fixes)
 **Security (from full-codebase audit):**
