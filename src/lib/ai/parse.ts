@@ -134,12 +134,12 @@ export function formatMarkdown(text: string, tickerHints?: string[]): string {
 
     // Headings
     if (line.startsWith('### ')) {
-      blocks.push(`<h3 class="text-base font-mono font-bold text-foreground mt-6 mb-2">${inlineFormat(line.slice(4))}</h3>`);
+      blocks.push(`<h3 class="text-lg font-mono font-bold text-foreground mt-6 mb-2">${inlineFormat(line.slice(4))}</h3>`);
       i++;
       continue;
     }
     if (line.startsWith('## ')) {
-      blocks.push(`<h2 class="text-lg font-mono font-bold text-foreground mt-8 mb-3">${inlineFormat(line.slice(3))}</h2>`);
+      blocks.push(`<h2 class="text-xl font-mono font-bold text-foreground mt-8 mb-3">${inlineFormat(line.slice(3))}</h2>`);
       i++;
       continue;
     }
@@ -158,7 +158,7 @@ export function formatMarkdown(text: string, tickerHints?: string[]): string {
         // Skip blank lines between items
         while (i < lines.length && lines[i].trim() === '') i++;
       }
-      blocks.push('<ol class="list-decimal list-outside ml-6 my-4 space-y-3 text-muted">' +
+      blocks.push('<ol class="list-decimal list-outside ml-6 my-4 space-y-3 text-foreground/90">' +
         items.map(item => `<li class="pl-1 leading-relaxed">${inlineFormat(item)}</li>`).join('') +
         '</ol>');
       continue;
@@ -171,7 +171,7 @@ export function formatMarkdown(text: string, tickerHints?: string[]): string {
         items.push(lines[i].trim().replace(/^[-*]\s/, ''));
         i++;
       }
-      blocks.push('<ul class="list-disc list-outside ml-6 my-4 space-y-2 text-muted">' +
+      blocks.push('<ul class="list-disc list-outside ml-6 my-4 space-y-2 text-foreground/90">' +
         items.map(item => `<li class="pl-1 leading-relaxed">${inlineFormat(item)}</li>`).join('') +
         '</ul>');
       continue;
@@ -190,7 +190,7 @@ export function formatMarkdown(text: string, tickerHints?: string[]): string {
       i++;
     }
     if (paraLines.length > 0) {
-      blocks.push(`<p class="text-muted leading-relaxed mb-4">${inlineFormat(paraLines.join(' '))}</p>`);
+      blocks.push(`<p class="text-foreground/90 leading-relaxed mb-4">${inlineFormat(paraLines.join(' '))}</p>`);
     }
   }
 

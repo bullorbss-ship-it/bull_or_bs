@@ -4,11 +4,19 @@ import { useState, useEffect, useCallback } from 'react';
 import { trackEvent } from '@/lib/tracking';
 
 const STORAGE_KEY = 'bullorbs_popup';
+const VISIT_KEY = 'bullorbs_visited';
 const DISMISS_DAYS = 7;
 const DELAY_MS = 30_000;
 
 function shouldShow(): boolean {
   if (typeof window === 'undefined') return false;
+  try {
+    // Never interrupt a first-time visitor — mark the visit and show from the next one
+    if (!localStorage.getItem(VISIT_KEY)) {
+      localStorage.setItem(VISIT_KEY, '1');
+      return false;
+    }
+  } catch { /* localStorage unavailable */ }
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return true;
@@ -154,7 +162,7 @@ export default function NewsletterPopup() {
           </button>
         </form>
         {formMsg && (
-          <p className={`text-xs mt-2 text-center ${formOk ? 'text-green' : 'text-red'}`}>{formMsg}</p>
+          <p className={`text-xs mt-2 text-center ${formOk ? 'text-accent-strong' : 'text-red-strong'}`}>{formMsg}</p>
         )}
 
         <p className="text-muted-light text-[10px] text-center mt-3">

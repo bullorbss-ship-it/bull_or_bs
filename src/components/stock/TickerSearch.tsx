@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { getArticleBadge } from '@/lib/badges';
 
 interface TickerEntry {
   ticker: string;
@@ -74,16 +75,6 @@ export default function TickerSearch({ tickers, articles, tickerToSlugs }: Ticke
     return () => document.removeEventListener('mousedown', handleClick);
   }, []);
 
-  const badgeStyle = (type: string) =>
-    type === 'roast'
-      ? 'bg-red-light text-red'
-      : type === 'take'
-      ? 'bg-card-bg text-muted border border-card-border'
-      : 'bg-accent-light text-accent';
-
-  const badgeLabel = (type: string) =>
-    type === 'roast' ? 'Roast' : type === 'take' ? 'News' : 'AI Pick';
-
   return (
     <div ref={containerRef} className="relative mb-6 sm:mb-8">
       <div className="relative">
@@ -152,8 +143,8 @@ export default function TickerSearch({ tickers, articles, tickerToSlugs }: Ticke
                 <Link key={a.slug} href={`/article/${a.slug}`} className="block group">
                   <div className="border border-card-border rounded-xl p-3 sm:p-4 hover:border-accent/30 hover:shadow-md transition-all">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${badgeStyle(a.type)}`}>
-                        {badgeLabel(a.type)}
+                      <span className={`text-[11px] font-bold font-mono px-2 py-0.5 rounded ${getArticleBadge(a.type).style}`}>
+                        {getArticleBadge(a.type).label}
                       </span>
                       <span className="text-[10px] text-muted-light ml-auto">
                         {new Date(a.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}

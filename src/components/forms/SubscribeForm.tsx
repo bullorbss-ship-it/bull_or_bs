@@ -54,7 +54,7 @@ export default function SubscribeForm() {
         {status === 'loading' ? 'Joining...' : 'Get Free Analysis'}
       </button>
       {status !== 'idle' && (
-        <p className={`text-sm mt-1 sm:mt-0 sm:self-center ${status === 'success' ? 'text-green' : 'text-red'}`}>
+        <p className={`text-sm mt-1 sm:mt-0 sm:self-center ${status === 'success' ? 'text-accent-strong' : 'text-red-strong'}`}>
           {message}
         </p>
       )}

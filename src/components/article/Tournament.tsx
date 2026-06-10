@@ -29,10 +29,10 @@ export default function Tournament({ candidates, isRoast, inline }: TournamentPr
             <div className="flex items-center gap-2 sm:gap-3 min-w-0">
               <span className={`text-xs font-semibold px-2 py-0.5 rounded-full shrink-0 ${
                 c.status === 'selected'
-                  ? 'bg-green-light text-green'
+                  ? 'bg-green-light text-accent-strong'
                   : c.status === 'eliminated'
-                  ? 'bg-red-light text-red'
-                  : 'bg-yellow-light text-yellow'
+                  ? 'bg-red-light text-red-strong'
+                  : 'bg-yellow-light text-gold-strong'
               }`}>
                 {c.status === 'selected' ? 'Winner' : c.status === 'eliminated' ? 'Cut' : 'Reviewed'}
               </span>

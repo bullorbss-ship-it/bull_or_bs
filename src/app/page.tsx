@@ -49,9 +49,9 @@ export default function Home() {
             Every claim checked. Every source cited. No paywall.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-5">
-            <Link href="/picks" className="text-sm font-semibold text-accent hover:text-accent-dim transition-colors">Picks &rarr;</Link>
-            <Link href="/roasts" className="text-sm font-semibold text-red hover:text-red/70 transition-colors">Roasts &rarr;</Link>
-            <Link href="/takes" className="text-sm font-semibold text-gold hover:text-gold/70 transition-colors">News &rarr;</Link>
+            <Link href="/picks" className="text-sm font-semibold text-accent-strong hover:text-accent-dim transition-colors">Picks &rarr;</Link>
+            <Link href="/roasts" className="text-sm font-semibold text-red-strong hover:text-red-strong/70 transition-colors">Roasts &rarr;</Link>
+            <Link href="/takes" className="text-sm font-semibold text-gold-strong hover:text-gold-strong/70 transition-colors">News &rarr;</Link>
             <Link href="/stock" className="text-sm font-semibold text-muted hover:text-foreground transition-colors">{totalStocks}+ Stocks &rarr;</Link>
           </div>
         </div>
@@ -173,10 +173,10 @@ export default function Home() {
                     {midFeature.title}
                   </h3>
                   <div className="flex items-center gap-1.5 mt-1.5">
-                    <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded ${badge.style}`}>{badge.label}</span>
-                    <span className="text-[9px] font-mono text-muted-light">&middot; {formatDate(midFeature.date, true)}</span>
+                    <span className={`text-[11px] font-bold font-mono px-1.5 py-0.5 rounded ${badge.style}`}>{badge.label}</span>
+                    <span className="text-[11px] font-mono text-muted-light">&middot; {formatDate(midFeature.date, true)}</span>
                     {midFeature.ticker && (
-                      <span className={`text-[9px] px-1 py-0.5 rounded ${getTickerBadgeStyle(midFeature.ticker)}`}>{midFeature.ticker}</span>
+                      <span className={`text-[11px] px-1 py-0.5 rounded ${getTickerBadgeStyle(midFeature.ticker)}`}>{midFeature.ticker}</span>
                     )}
                   </div>
                 </Link>
@@ -192,10 +192,10 @@ export default function Home() {
                     {article.title}
                   </h3>
                   <div className="flex items-center gap-1.5 mt-1">
-                    <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded ${badge.style}`}>{badge.label}</span>
-                    <span className="text-[9px] font-mono text-muted-light">&middot; {formatDate(article.date, true)}</span>
+                    <span className={`text-[11px] font-bold font-mono px-1.5 py-0.5 rounded ${badge.style}`}>{badge.label}</span>
+                    <span className="text-[11px] font-mono text-muted-light">&middot; {formatDate(article.date, true)}</span>
                     {article.ticker && (
-                      <span className={`text-[9px] px-1 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
+                      <span className={`text-[11px] px-1 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
                     )}
                   </div>
                 </Link>
@@ -214,10 +214,10 @@ export default function Home() {
                     {article.title}
                   </h3>
                   <div className="flex items-center gap-1.5 mt-1">
-                    <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded ${badge.style}`}>{badge.label}</span>
-                    <span className="text-[9px] font-mono text-muted-light">&middot; {formatDate(article.date, true)}</span>
+                    <span className={`text-[11px] font-bold font-mono px-1.5 py-0.5 rounded ${badge.style}`}>{badge.label}</span>
+                    <span className="text-[11px] font-mono text-muted-light">&middot; {formatDate(article.date, true)}</span>
                     {article.ticker && (
-                      <span className={`text-[9px] px-1 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
+                      <span className={`text-[11px] px-1 py-0.5 rounded ${getTickerBadgeStyle(article.ticker)}`}>{article.ticker}</span>
                     )}
                   </div>
                 </Link>

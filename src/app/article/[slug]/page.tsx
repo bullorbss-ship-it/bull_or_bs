@@ -312,7 +312,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   {article.ticker}
                 </Link>
               )}
-              <span className="text-xs text-muted-light ml-auto">
+              <span className="text-xs text-muted ml-auto">
                 {readingTime} min read
               </span>
             </div>
@@ -350,7 +350,7 @@ export default async function ArticlePage({ params }: PageProps) {
         <p className="text-muted text-base sm:text-lg leading-relaxed"
           dangerouslySetInnerHTML={{ __html: linkifyTickers(inlineFormat(content.summary || ''), articleTickers) }}
         />
-        <p className="text-xs text-muted-light mt-3 font-mono">
+        <p className="text-xs text-muted mt-3 font-mono">
           Data sourced {new Date(article.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}. Verify current figures before making investment decisions.
         </p>
       </div>
@@ -477,7 +477,7 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* Sources — footnote references */}
       {content.references && content.references.length > 0 && (
         <section className="border-t border-card-border pt-6 mt-8 mb-6">
-          <h2 className="text-sm font-mono font-bold text-muted-light mb-3">SOURCES</h2>
+          <h2 className="text-sm font-mono font-bold text-muted mb-3">SOURCES</h2>
           <ol className="list-none space-y-1.5">
             {content.references.map((ref) => (
               <li key={ref.id} className="text-xs text-muted leading-relaxed flex gap-2">
@@ -499,7 +499,7 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* FAQ — visible Q&A matching the FAQPage schema (AI engines extract from these) */}
       {faqQuestions.some(q => q.answer) && (
         <section className="border-t border-card-border pt-6 mt-8 mb-6">
-          <h2 className="text-sm font-mono font-bold text-muted-light mb-4">FREQUENTLY ASKED QUESTIONS</h2>
+          <h2 className="text-sm font-mono font-bold text-muted mb-4">FREQUENTLY ASKED QUESTIONS</h2>
           <dl className="space-y-5">
             {faqQuestions.filter(q => q.answer).map((q) => (
               <div key={q.question}>
@@ -522,7 +522,7 @@ export default async function ArticlePage({ params }: PageProps) {
             className="flex items-center justify-between p-4 border border-card-border rounded-xl hover:border-accent/40 transition-colors group"
           >
             <div className="min-w-0 flex-1">
-              <p className="text-xs text-muted-light font-mono mb-1">NEXT ANALYSIS</p>
+              <p className="text-xs text-muted font-mono mb-1">NEXT ANALYSIS</p>
               <p className="font-semibold group-hover:text-accent transition-colors truncate">
                 {nextArticle.content.headline}
               </p>

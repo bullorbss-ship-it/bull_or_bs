@@ -26,6 +26,17 @@
   --rose: #F43F5E;
   --muted: #64748b;
   --muted-light: #94a3b8;
+  /* Text-grade tones — darker than the fill hues so small text passes WCAG AA on white.
+     Use these whenever a brand color carries text; keep the base hues for fills/borders. */
+  --accent-strong: #047857;
+  --gold-strong: #B45309;
+  --red-strong: #DC2626;
+  --orange-strong: #C2410C;
+  --blue-strong: #2563EB;
+  --purple-strong: #7C3AED;
+  --teal-strong: #0D9488;
+  --sky-strong: #0284C7;
+  --rose-strong: #E11D48;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +66,16 @@
     --rose: #FB7185;
     --muted: #94a3b8;
     --muted-light: #64748b;
+    /* On dark backgrounds the bright hues already pass — use them (or brighter) for text */
+    --accent-strong: #34D399;
+    --gold-strong: #FBBF24;
+    --red-strong: #F87171;
+    --orange-strong: #FB923C;
+    --blue-strong: #60A5FA;
+    --purple-strong: #A78BFA;
+    --teal-strong: #2DD4BF;
+    --sky-strong: #38BDF8;
+    --rose-strong: #FB7185;
   }
 }
 
@@ -84,6 +105,15 @@
   --color-rose: var(--rose);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
+  --color-accent-strong: var(--accent-strong);
+  --color-gold-strong: var(--gold-strong);
+  --color-red-strong: var(--red-strong);
+  --color-orange-strong: var(--orange-strong);
+  --color-blue-strong: var(--blue-strong);
+  --color-purple-strong: var(--purple-strong);
+  --color-teal-strong: var(--teal-strong);
+  --color-sky-strong: var(--sky-strong);
+  --color-rose-strong: var(--rose-strong);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
