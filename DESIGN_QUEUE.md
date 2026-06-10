@@ -1,5 +1,5 @@
 # BullOrBS — Design Queue & Project Tracker
-**Last updated: 2026-06-09**
+**Last updated: 2026-06-10**
 
 ---
 
@@ -30,6 +30,14 @@
 ---
 
 ## Done (Recent Sessions)
+
+### Session: 2026-06-10 (Briefing First Run: Fixes + Full-Length Format)
+- First live cron run: 3/4 briefs published; geopolitics slot failed; then the Vercel deploy broke
+- [x] **Commit race fixed** (`c5b381b`) — 4 slots committed to GitHub in parallel and raced on branch head ("is at X but expected Y"). Commits now serialized via queue in cron route + 409 retry in `github-commit.ts`. Generation stays parallel.
+- [x] **Build-killer fixed** — Haiku emitted ticker-less `candidates` in 2 digests → `c.ticker.toLowerCase()` crashed prerender → whole deploy failed. Cron now forces `candidates: []`, Tournament filters malformed entries, 3 live articles scrubbed. Verified: all 3 briefs 200 on prod.
+- [x] **Briefs upgraded to 4-5 min reads** (`b26b076`, owner request — old ones too thin). BRIEFING_PROMPT now take-style: 800-1100 words, ## The Big Story / ## What Else Moved / ## Connecting the Dots / ## What to Watch, footnote [N] markers + references mandatory, risks/catalysts from sources only, anti-padding rule. max_tokens 9000. Cost ~$0.03-0.04/brief.
+
+**TOMORROW (2026-06-11): check the 6 AM EDT run** — expect 4/4 slots published (geopolitics back), full-length format, footnotes rendering, no deploy failure. Tune prompt voice/length if needed.
 
 ### Session: 2026-06-09 part 2 (Design Polish + Daily Briefing DEPLOYED)
 - [x] **Design-system pass (owner approved):** `-strong` WCAG text tokens (9 colors, light+dark) applied to badges/links/labels; body copy `text-muted`→`text-foreground/90`; markdown h2/h3 size bump; TickerSearch uses shared badges.ts; 9px metadata→11px
