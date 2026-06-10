@@ -17,20 +17,6 @@
     "category": "Markets & Macro",
     "headline": "Markets & Macro Brief — June 10, 2026",
     "summary": "Capital raised momentum continues across alternatives and fintech: Ares Management closed an $8.5B fund [1], while Ant International targets $1B from heavyweight VCs [2]. Chinese state-sponsored cyberattacks on U.S. tech firms surge, with AI assets as prime targets [3].",
-    "candidates": [
-      {
-        "name": "Ares Management Fund Close",
-        "reasonConsidered": "Largest single capital raise announced; signals LP confidence in alternatives market despite macro uncertainty [1]."
-      },
-      {
-        "name": "Ant International Capital Raise",
-        "reasonConsidered": "$1B raise from Silver Lake and General Atlantic suggests fintech valuation resilience in Asia-Pacific region [2]."
-      },
-      {
-        "name": "China AI Cyberattack Escalation",
-        "reasonConsidered": "State-sponsored threat environment shifts market risk perception for U.S. tech and defense contractors [3]."
-      }
-    ],
     "analysis": "**Capital Deployment Accelerates.** Ares Management raised $8.5B for its newest fund [1], signaling continued LP appetite for alternative asset classes. Simultaneously, Ant International is pursuing a $1B capital raise from Silver Lake and General Atlantic [2], underscoring investor interest in fintech despite regulatory headwinds in Asia. Both moves suggest confidence in select segments despite broader macro volatility.\n\n**Geopolitical Tech Risk Escalates.** CrowdStrike, the U.S. cybersecurity firm, reported that China-based entities conducted over half of state-sponsored cyberattacks on U.S. tech firms targeting AI assets [3]. This marks a strategic shift: espionage is narrowing focus on artificial intelligence intellectual property, elevating regulatory and compliance costs for tech companies and signaling potential sector rotation into defense contractors and cybersecurity providers.\n\n**Earnings Trickle.** Cheetah Mobile reported non-GAAP EPS of -$0.06 with revenue of $37.55M [4]—a marginal data point but indicative of continued margin pressure in mobile software.",
     "risks": [
       "Chinese cyberattacks on AI assets could trigger U.S. export restrictions or sector-specific sanctions, pressuring large-cap tech [3].",

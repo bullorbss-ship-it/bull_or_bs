@@ -9,8 +9,11 @@ interface TournamentProps {
   inline?: boolean;
 }
 
-export default function Tournament({ candidates, isRoast, inline }: TournamentProps) {
-  if (!candidates || candidates.length === 0) return null;
+export default function Tournament({ candidates: rawCandidates, isRoast, inline }: TournamentProps) {
+  // AI output occasionally includes malformed entries without a ticker — skip them
+  // rather than crashing the build (c.ticker.toLowerCase() below)
+  const candidates = (rawCandidates || []).filter(c => c && typeof c.ticker === 'string' && c.ticker);
+  if (candidates.length === 0) return null;
 
   const content = (
     <div className="space-y-3">

@@ -17,28 +17,6 @@
     "category": "Canada & TSX",
     "headline": "Canada & TSX Brief — June 10, 2026",
     "summary": "Canadian mining and clean-tech firms secured major funding and partnerships today: NESI landed $5.6M for domestic lithium refining [1], Rio Tinto boosted community investment by 30% to C$13M annually [7], and First Atlantic partnered with Vema to develop hydrogen for Newfoundland nickel-cobalt mining [8].",
-    "candidates": [
-      {
-        "name": "NESI (NORAM Electrolysis Systems)",
-        "reasonConsidered": "Received $5.6M in federal and provincial funding to build electrochemical infrastructure for domestic lithium refining, positioning Canada in critical minerals supply chain [1].",
-        "reasonEliminated": null
-      },
-      {
-        "name": "Homeland Critical Minerals / MAX Power Mining",
-        "reasonConsidered": "MAX Power offloaded its Arizona lithium subsidiary to Canadian explorer Homeland in an 11M-share deal, signaling consolidation in lithium assets [6].",
-        "reasonEliminated": null
-      },
-      {
-        "name": "Rio Tinto",
-        "reasonConsidered": "Boosted annual community funding in Canada to C$13M (a 30% increase), demonstrating major operator commitment to local priorities [7].",
-        "reasonEliminated": null
-      },
-      {
-        "name": "First Atlantic / Vema",
-        "reasonConsidered": "Partnership to develop hydrogen production at Pipestone project in Newfoundland to support large-scale nickel-cobalt mining district [8].",
-        "reasonEliminated": null
-      }
-    ],
     "analysis": "• **Lithium & Critical Minerals Push:** NESI secured $5.6M in joint federal and B.C. funding to establish electrochemical infrastructure for domestic lithium refining, aligning with Canada's push to capture critical minerals supply-chain value [1]. In parallel, MAX Power Mining divested its Arizona lithium subsidiary to Canadian explorer Homeland Critical Minerals via an 11M-share deal, suggesting consolidation and focus on core assets [6].\n\n• **Energy & ESG Commitments:** Rio Tinto expanded community investment to C$13M annually (a 30% increase), targeting education, food security, and environmental priorities across Canadian operations—a signal of major operator confidence in long-term Canadian presence [7]. First Atlantic and Vema partnered to develop hydrogen production at Newfoundland's Pipestone nickel-cobalt project, positioning locally produced hydrogen to power on-site energy needs for a large-scale mining district [8].\n\n• **Automation & Tech Integration:** Ericsson and Epiroc expanded their global alliance to accelerate mining automation, while Eclipse Data Innovation rolled out expanded SourceOne tools for industrial custom AI workflows—reflecting sector-wide shift toward digitalization and safety gains [4], [5]. Komatsu's new Mesa, Arizona parts distribution hub aims to improve delivery times and parts availability for mining operations [2].",
     "risks": [
       "Lithium market oversupply or price deflation could reduce ROI on NESI's refining infrastructure or pressure Homeland's acquisition [6].",

@@ -30,6 +30,16 @@ function photoToField(p: UnsplashPhoto) {
   };
 }
 
+// The four slots generate in parallel, but GitHub commits to the same branch
+// must be sequential — concurrent Contents API writes race on the branch head
+// ("is at X but expected Y") and all but one fail.
+let commitChain: Promise<unknown> = Promise.resolve();
+function enqueueCommit<T>(fn: () => Promise<T>): Promise<T> {
+  const next = commitChain.then(fn, fn);
+  commitChain = next.catch(() => {});
+  return next;
+}
+
 function slugify(s: string): string {
   return s
     .toLowerCase()
@@ -103,6 +113,10 @@ async function runSlot(
           imageSearchTerms: result.imageSearchTerms,
         });
 
+    // Digests are multi-source roundups — drop tournament/roast fields the
+    // model sometimes emits anyway (ticker-less candidates crash the build)
+    const { candidates: _candidates, foolClaim: _foolClaim, ...digestContent } = result.content;
+
     const article: Article = {
       slug,
       type: 'take',
@@ -120,7 +134,8 @@ async function runSlot(
         ...(category ? [category.toLowerCase()] : []),
       ],
       content: {
-        ...result.content,
+        ...digestContent,
+        candidates: [],
         newsSource: `${relevant.length} sources`,
         newsUrl: relevant[0].url,
       },
@@ -141,9 +156,9 @@ async function runSlot(
     }
 
     saveArticle(article);
-    const commit = await commitArticleToGitHub(article, {
+    const commit = await enqueueCommit(() => commitArticleToGitHub(article, {
       message: `Daily briefing [${slot.id}]: ${slug}`,
-    });
+    }));
 
     if (!commit.ok) {
       return {

@@ -17,7 +17,6 @@
     "category": "AI & Tech",
     "headline": "AI & Tech Brief — June 10, 2026",
     "summary": "Anthropic's Fable 5 public release raises alignment concerns despite capability gains [1], while Apple's Siri remains adequate for consumer markets even as AI assistants advance [2].",
-    "candidates": [],
     "analysis": "**Fable 5 debut sparks alignment debate.** Anthropic has released Fable 5, the public version of its Mythos model [1]. While the system is described as very capable, it reportedly sets \"troubling new precedents\" — though specific details on what those precedents entail were not disclosed in available reporting [1]. The move highlights ongoing tension between capability gains and safety guardrails in frontier AI development.\n\n**Siri holds ground despite competition.** Apple's Siri remains non-state-of-the-art but continues to function adequately for mainstream consumer use [2]. The assistant's sufficiency appears tied to consistency and integration rather than raw capability — a lesson for rivals racing to deploy increasingly powerful models into consumer products [2].",
     "risks": [
       "Fable 5's \"troubling precedents\" remain undefined in public reporting, creating uncertainty about what specific safety or alignment issues may emerge [1].",

@@ -11,6 +11,20 @@ export async function commitArticleToGitHub(
   article: Article,
   opts: { message?: string } = {},
 ): Promise<CommitResult> {
+  // Concurrent writers (cron slots, dashboard publishes) race on the branch
+  // head — GitHub returns 409 "is at X but expected Y". Retry with backoff.
+  let result = await commitOnce(article, opts);
+  for (let attempt = 1; attempt <= 2 && !result.ok && result.status === 409; attempt++) {
+    await new Promise(r => setTimeout(r, 1500 * attempt));
+    result = await commitOnce(article, opts);
+  }
+  return result;
+}
+
+async function commitOnce(
+  article: Article,
+  opts: { message?: string } = {},
+): Promise<CommitResult> {
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
     return { ok: false, status: 500, error: 'GITHUB_TOKEN not configured' };

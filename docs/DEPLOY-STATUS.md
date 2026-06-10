@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-06-10T02:28:38.296Z*
+*Auto-generated: 2026-06-10T16:25:40.886Z*
 
 ---
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | Roasts | 19 |
 | Picks | 7 |
-| Takes | 51 |
-| **Total** | 77 |
+| Takes | 54 |
+| **Total** | 80 |
 
 ### Roasts
 
@@ -53,6 +53,9 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-06-10 | AI & Tech Brief — June 10, 2026 |
+| 2026-06-10 | Canada & TSX Brief — June 10, 2026 |
+| 2026-06-10 | Markets & Macro Brief — June 10, 2026 |
 | 2026-06-07 | From $138 to $93: How a War in the Middle East Turned Oil Markets Upsi |
 | 2026-06-06 | The Day AI's Golden Run Crashed: $1.3 Trillion Vanishes as Chip Stocks |
 | 2026-05-30 | Anthropic Eyes $1 Trillion IPO Valuation — But There's a Catch |
