@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-03-25T19:58:39.635Z*
+*Auto-generated: 2026-06-10T02:28:38.296Z*
 
 ---
 
@@ -8,15 +8,20 @@
 
 | Type | Count |
 | --- | --- |
-| Roasts | 14 |
+| Roasts | 19 |
 | Picks | 7 |
-| Takes | 34 |
-| **Total** | 55 |
+| Takes | 51 |
+| **Total** | 77 |
 
 ### Roasts
 
 | Date | Ticker | Title |
 | --- | --- | --- |
+| 2026-04-04 | SPYM | SPYM: The Cheapest S&P 500 ETF — But Is Dirt-Cheap Really Wo |
+| 2026-04-02 | COHR | Coherent Corp. (COHR): AI Optical Networking Pick Roasts Its |
+| 2026-03-28 | SCHD | SCHD: The Dividend ETF That Just Shuffled Its Deck. Is It St |
+| 2026-03-27 | NVDA | NVIDIA at $167: AI Darling Stumbles Early in 2026, But Analy |
+| 2026-03-25 | INTU | Is Intuit a Buy at $427? The AI Selloff Has This Software Gi |
 | 2026-03-24 | AMZN | Amazon at $210: Wall Street Says Buy, but the $200B Capex Be |
 | 2026-03-18 | META | Meta Stock at $625.50: Growth Bet on AI Infrastructure—But a |
 | 2026-03-17 | GOOGLE | Google (GOOGL) at $305.56: The AI Bet Is Priced In—and Comin |
@@ -48,6 +53,23 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-06-07 | From $138 to $93: How a War in the Middle East Turned Oil Markets Upsi |
+| 2026-06-06 | The Day AI's Golden Run Crashed: $1.3 Trillion Vanishes as Chip Stocks |
+| 2026-05-30 | Anthropic Eyes $1 Trillion IPO Valuation — But There's a Catch |
+| 2026-05-30 | Google Just Bet $190 Billion on AI Infrastructure—And It's Dragging Co |
+| 2026-04-13 | Canada's Growth Fund Bets $113M on Quebec's Graphite Play |
+| 2026-04-13 | Goldman Sachs just posted record equities trading. Here's what that ac |
+| 2026-04-13 | The $1 Trillion Defense Budget Is Here to Stay—But Congress Isn't Sure |
+| 2026-04-13 | When AI Chips Run Out: Why Control of Demand Is the New Control of Eve |
+| 2026-04-12 | Peace Talks Collapse in Islamabad—Trump Announces Naval Blockade as Oi |
+| 2026-04-04 | Jobs Beat Hides a Labor Market in Freefall: 178K Payrolls Mask 396K Pe |
+| 2026-04-03 | Microsoft Breaks Up With OpenAI (Sort Of) — And Google & Amazon Notice |
+| 2026-04-02 | Google Just Said Quantum Computers Could Crack Bitcoin in 9 Minutes—an |
+| 2026-03-30 | Trump's 7 a.m. Truth Social Posts Are Moving Oil and Stocks Billions o |
+| 2026-03-29 | Iran War Just Closed 20% of Global Oil. Here's What That Actually Mean |
+| 2026-03-26 | Iran War, SpaceX IPO, and Arm's $15B Bet: How One Week Rewrote the Mar |
+| 2026-03-26 | The S&P 500 Just Flashed Its Most Bearish Signal in 214 Days — And Nob |
+| 2026-03-25 | Wall Street Just Admitted It: Recession Odds Hit Nearly 50%. Here's Wh |
 | 2026-03-24 | Walmart Hits $1 Trillion Valuation, But the Waltons Are Quietly Sellin |
 | 2026-03-23 | Trump's Iran Pause Sparked a 2% Rally—But Nobody Agrees If It's Real |
 | 2026-03-22 | The Pentagon Just Bet $13.4 Billion on AI Weapons—While the World Argu |
@@ -99,12 +121,15 @@
 | /api/admin/refresh-profile | API |
 | /api/admin/subscribers | API |
 | /api/bracket | API |
+| /api/cron/daily-briefing | API |
 | /api/cron/daily-topics | API |
 | /api/generate | API |
 | /api/health | API |
 | /api/subscribe | API |
 | /article/[slug] | Page |
 | /bracket | Page |
+| /daily | Page |
+| /daily/[date] | Page |
 | /disclaimer | Page |
 | /editorial | Page |
 | /feed.xml | API |
