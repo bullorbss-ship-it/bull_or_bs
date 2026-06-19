@@ -18,12 +18,21 @@ export interface BriefingSlot {
   id: BriefingSlotId;
   label: string;
   feeds: BriefingFeed[];
+  /**
+   * Broad theme query for the NewsAPI layer (src/lib/newsapi.ts). Catches
+   * cross-cutting stories the siloed RSS feeds miss — a G7 communiqué, a
+   * summit's trade fallout, a sporting event's economic ripple. Boolean OR
+   * syntax per NewsAPI /v2/everything.
+   */
+  query: string;
 }
 
 export const BRIEFING_SLOTS: BriefingSlot[] = [
   {
     id: 'ai-tech',
     label: 'AI & Tech',
+    query:
+      'artificial intelligence OR semiconductor OR "AI chips" OR OpenAI OR Nvidia OR "data center" OR "cloud computing" OR "tech earnings"',
     feeds: [
       { url: 'https://www.anthropic.com/news/rss.xml', source: 'Anthropic', tier: 1 },
       { url: 'https://openai.com/blog/rss.xml', source: 'OpenAI', tier: 1 },
@@ -35,6 +44,8 @@ export const BRIEFING_SLOTS: BriefingSlot[] = [
   {
     id: 'markets',
     label: 'Markets & Macro',
+    query:
+      '"stock market" OR "Federal Reserve" OR inflation OR "interest rates" OR "bond yields" OR "S&P 500" OR earnings OR recession OR "oil prices"',
     feeds: [
       // Markets-specific feed (not CNBC top news)
       { url: 'https://www.cnbc.com/id/10000664/device/rss/rss.html', source: 'CNBC Markets', tier: 1 },
@@ -50,6 +61,8 @@ export const BRIEFING_SLOTS: BriefingSlot[] = [
   {
     id: 'canada',
     label: 'Canada & TSX',
+    query:
+      '"Bank of Canada" OR TSX OR "Canadian dollar" OR "Toronto Stock Exchange" OR "Canadian economy" OR "Canada GDP" OR "Canada housing"',
     feeds: [
       {
         url: 'https://www.theglobeandmail.com/investing/markets/feed/',
@@ -72,6 +85,8 @@ export const BRIEFING_SLOTS: BriefingSlot[] = [
   {
     id: 'geopolitics',
     label: 'Geopolitics & War',
+    query:
+      'G7 OR G20 OR summit OR sanctions OR NATO OR "trade war" OR tariffs OR ceasefire OR "diplomatic talks" OR "military conflict"',
     feeds: [
       { url: 'https://feeds.reuters.com/Reuters/worldNews', source: 'Reuters World', tier: 1 },
       { url: 'https://www.defenseone.com/rss/all/', source: 'Defense One', tier: 1 },

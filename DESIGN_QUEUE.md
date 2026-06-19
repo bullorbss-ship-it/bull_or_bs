@@ -31,6 +31,15 @@
 
 ## Done (Recent Sessions)
 
+### Session: 2026-06-19 (Briefing: Real Headlines + NewsAPI Holistic Layer)
+Owner asks: brief titles should reflect the actual story (not "Markets & Macro Brief"), and briefs miss cross-cutting themes (G7, summit fallout, sporting-event market ripples) because RSS feeds are siloed.
+- [x] **Title format → `DB MM/DD - <real headline>`** — model now emits a real, specific news headline (under 70 chars, drawn from sources, no date/category label); cron prepends the reliable `DB MM/DD - ` prefix so the date can't be hallucinated. `BRIEFING_PROMPT` headline instruction rewritten (`src/lib/ai/prompts.ts`); title assembled in `runSlot` (`route.ts`). Slug unchanged (`take-<cat>-brief-<date>`) so URLs stay stable.
+- [x] **NewsAPI holistic layer** — new `src/lib/newsapi.ts` runs ONE broad theme query per slot against `/v2/everything` to catch stories the curated RSS feeds miss. Maps to the same `NewsStory` shape; wire sources (Reuters/AP/Bloomberg/etc.) get tier 1, others tier 2. **Opt-in via `NEWSAPI_KEY`** — no key = silent no-op, RSS-only fallback. Per-slot theme queries added to `BRIEFING_SLOTS` (`rss-feeds.ts`).
+- [x] **Cross-source merge + dedupe** — `runSlot` fetches RSS + NewsAPI in parallel, `mergeAndDedupe()` keeps the highest-scored story per near-duplicate cluster (jaccard ≥0.6), then the existing rank/relevance pipeline runs unchanged.
+- [x] **Prompt reframed for synthesis** — added "reader's goal: one brief instead of 15 articles" + cross-cutting-themes guidance to `BRIEFING_PROMPT`. Anti-hallucination rules kept: connect stories only when the sources support it.
+- Verified: `tsc --noEmit` clean; eslint 0 errors on changed files (2 pre-existing warnings only).
+- **ACTION NEEDED**: Add `NEWSAPI_KEY` to Vercel env (free/developer tier, 100 req/day — run uses 4/day). Until set, briefs run RSS-only exactly as before.
+
 ### Session: 2026-06-10 (Briefing First Run: Fixes + Full-Length Format)
 - First live cron run: 3/4 briefs published; geopolitics slot failed; then the Vercel deploy broke
 - [x] **Commit race fixed** (`c5b381b`) — 4 slots committed to GitHub in parallel and raced on branch head ("is at X but expected Y"). Commits now serialized via queue in cron route + 409 retry in `github-commit.ts`. Generation stays parallel.
@@ -158,6 +167,7 @@
 | Twitter bounce rate | OG/landing page mismatch | Test different tweet formats |
 | Daily topics cron | Paused 2026-04-14 | Restore `crons` entry in vercel.json when ready |
 | Daily briefing cron | Code deployed, `crons: []` | Phase 1 dry-run in prod, then Phase 2 live run, then enable schedule |
+| Briefing NewsAPI layer | `NEWSAPI_KEY` not set in Vercel | Add free-tier key to enable holistic cross-source coverage (RSS-only until then) |
 
 ## Ideas Backlog (Not Prioritized)
 - BullOrBS Chat (AI chatbot, freemium, Month 3+)

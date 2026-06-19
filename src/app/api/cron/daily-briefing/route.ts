@@ -1,7 +1,14 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { BRIEFING_SLOTS, type BriefingSlot } from '@/lib/rss-feeds';
-import { fetchBriefingStories, pickTopStories, type NewsStory } from '@/lib/news-fetcher';
+import {
+  fetchBriefingStories,
+  pickTopStories,
+  jaccard,
+  scoreStory,
+  type NewsStory,
+} from '@/lib/news-fetcher';
+import { fetchNewsApiStories } from '@/lib/newsapi';
 import { classifyRelevance } from '@/lib/news-relevance';
 import { generateBriefing, type BriefingStory } from '@/lib/ai/generate';
 import { saveArticle, getArticlesByType } from '@/lib/content';
@@ -48,6 +55,18 @@ function slugify(s: string): string {
     .slice(0, 50);
 }
 
+// Merge RSS + NewsAPI stories into one pool, keeping the highest-scored story
+// from each near-duplicate cluster (the same event often lands in both feeds).
+function mergeAndDedupe(stories: NewsStory[]): NewsStory[] {
+  const sorted = [...stories].sort((a, b) => scoreStory(b) - scoreStory(a));
+  const kept: NewsStory[] = [];
+  for (const s of sorted) {
+    if (kept.some(k => jaccard(k.title, s.title) >= 0.6)) continue;
+    kept.push(s);
+  }
+  return kept;
+}
+
 // ─── Per-slot orchestration ──────────────────────────────────────────────────
 
 interface SlotOutcome {
@@ -66,7 +85,13 @@ async function runSlot(
   dryRun: boolean,
 ): Promise<SlotOutcome> {
   try {
-    const stories = await fetchBriefingStories(slot.id);
+    // Curated RSS feeds + broad NewsAPI theme search, merged and de-duped so
+    // cross-cutting stories (G7, summits, market ripples) get represented.
+    const [rssStories, apiStories] = await Promise.all([
+      fetchBriefingStories(slot.id),
+      fetchNewsApiStories(slot.id),
+    ]);
+    const stories = mergeAndDedupe([...rssStories, ...apiStories]);
     const candidates = pickTopStories(stories, recentTitles, 10);
     if (candidates.length === 0) {
       return { slotId: slot.id, status: 'skipped', reason: 'no fresh eligible story' };
@@ -102,6 +127,12 @@ async function runSlot(
     const topicSlug = slugify(slot.label);
     const slug = `take-${topicSlug}-brief-${today}`;
 
+    // Title format: "DB MM/DD - <real headline of the day's biggest story>".
+    // The model returns just the headline; we prepend the reliable date so it
+    // never hallucinates the wrong day.
+    const [, mm, dd] = today.split('-');
+    const briefTitle = `DB ${mm}/${dd} - ${result.content.headline}`;
+
     const category = result.category || undefined;
 
     const images = dryRun
@@ -120,7 +151,7 @@ async function runSlot(
     const article: Article = {
       slug,
       type: 'take',
-      title: result.content.headline,
+      title: briefTitle,
       description: result.content.summary,
       date: today,
       category,
