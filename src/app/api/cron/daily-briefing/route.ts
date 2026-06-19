@@ -8,7 +8,7 @@ import {
   scoreStory,
   type NewsStory,
 } from '@/lib/news-fetcher';
-import { fetchNewsApiStories } from '@/lib/newsapi';
+import { fetchNewsApiStories, newsApiConfigured } from '@/lib/newsapi';
 import { classifyRelevance } from '@/lib/news-relevance';
 import { generateBriefing, type BriefingStory } from '@/lib/ai/generate';
 import { saveArticle, getArticlesByType } from '@/lib/content';
@@ -77,6 +77,8 @@ interface SlotOutcome {
   sourceUrl?: string;
   reason?: string;
   costUsd?: number;
+  rssCount?: number; // stories pulled from curated RSS feeds
+  apiCount?: number; // stories pulled from the NewsAPI layer (0 when NEWSAPI_KEY unset)
 }
 
 async function runSlot(
@@ -92,9 +94,17 @@ async function runSlot(
       fetchNewsApiStories(slot.id),
     ]);
     const stories = mergeAndDedupe([...rssStories, ...apiStories]);
+    const rssCount = rssStories.length;
+    const apiCount = apiStories.length;
     const candidates = pickTopStories(stories, recentTitles, 10);
     if (candidates.length === 0) {
-      return { slotId: slot.id, status: 'skipped', reason: 'no fresh eligible story' };
+      return {
+        slotId: slot.id,
+        status: 'skipped',
+        reason: 'no fresh eligible story',
+        rssCount,
+        apiCount,
+      };
     }
 
     // Filter through relevance gate — keep all that pass (up to 8 for the digest)
@@ -109,6 +119,8 @@ async function runSlot(
         slotId: slot.id,
         status: 'skipped',
         reason: `all ${candidates.length} candidates rejected by relevance gate`,
+        rssCount,
+        apiCount,
       };
     }
 
@@ -183,6 +195,8 @@ async function runSlot(
         sourceUrl: relevant[0].url,
         costUsd: result.costUsd,
         reason: 'dry-run (not committed)',
+        rssCount,
+        apiCount,
       };
     }
 
@@ -199,6 +213,8 @@ async function runSlot(
         title: article.title,
         reason: `commit failed: ${commit.error} ${commit.detail || ''}`.trim(),
         costUsd: result.costUsd,
+        rssCount,
+        apiCount,
       };
     }
 
@@ -209,6 +225,8 @@ async function runSlot(
       title: article.title,
       sourceUrl: relevant[0].url,
       costUsd: result.costUsd,
+      rssCount,
+      apiCount,
     };
   } catch (err) {
     return {
@@ -328,10 +346,16 @@ export async function GET(request: Request) {
     }
   }
 
+  const totalApiCount = settled.reduce((s, o) => s + (o.apiCount || 0), 0);
+
   return NextResponse.json({
     ok: true,
     dryRun,
     date: dateStr,
+    newsApi: {
+      configured: newsApiConfigured(),
+      storiesFetched: totalApiCount, // > 0 confirms the key works and is returning results
+    },
     published: settled.filter(o => o.status === 'published').map(o => o.slug),
     skipped: settled.filter(o => o.status === 'skipped').map(o => o.slotId),
     failed: settled.filter(o => o.status === 'failed').map(o => ({ slotId: o.slotId, reason: o.reason })),
