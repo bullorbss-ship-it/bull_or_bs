@@ -1,0 +1,133 @@
+{
+  "slug": "take-geopolitics-war-brief-2026-06-25",
+  "type": "take",
+  "title": "Geopolitics & War Brief — June 25, 2026",
+  "description": "The U.S. military faces a critical rare earth dependency that underpins its next-generation nuclear submarines, while Congress rebuffs the Trump administration's Iran war and the Pentagon scrambles to secure AI systems against quantum computing threats. Three vulnerabilities—supply chain, political, and technological—are colliding at once.",
+  "date": "2026-06-25",
+  "category": "Geopolitics & War",
+  "verdict": "Today's news reveals a military establishment caught between three converging crises: supply-chain dependency (rare earths from China), technological disruption (quantum and AI outpacing governance), and political constraint (Congressional reassertion of war powers). None is a doomsday scenario in isolation, but together they suggest American military dominance can no longer be assumed inevitable. The question for policymakers and investors isn't whether these vulnerabilities exist—they're documented and acknowledged—but whether the Pentagon and Congress can address them faster than adversaries can exploit them. Columbia-class submarines won't deploy for years; post-quantum systems are still being tested; AI doctrine is evolving. The window to act exists, but it's closing.",
+  "tags": [
+    "news",
+    "take",
+    "daily-briefing",
+    "geopolitics",
+    "geopolitics & war"
+  ],
+  "content": {
+    "category": "Geopolitics & War",
+    "headline": "Geopolitics & War Brief — June 25, 2026",
+    "summary": "The U.S. military faces a critical rare earth dependency that underpins its next-generation nuclear submarines, while Congress rebuffs the Trump administration's Iran war and the Pentagon scrambles to secure AI systems against quantum computing threats. Three vulnerabilities—supply chain, political, and technological—are colliding at once.",
+    "analysis": "## The Big Story\n\nAmerica's most advanced nuclear deterrent has a fatal supply-chain weakness: China controls the rare earth minerals that make it work. The Columbia-class ballistic missile submarine—twelve of which will replace the aging Ohio-class fleet starting in the 2030s—relies almost entirely on rare earths refined in China for its core capabilities [1]. Each boat carries 16 Trident II missiles and is powered by a permanent magnet motor so acoustically quiet it's virtually undetectable by adversaries. That stealth, that precision strike capability, that entire edge in underwater warfare depends on materials sourced from a strategic competitor [1].\n\nThis isn't a hypothetical risk. The dependency \"runs through every layer of the capability stack,\" meaning it touches propulsion, stealth, and targeting systems [1]. For a submarine class that will define American nuclear strategy for three decades, this is perhaps the Navy's most consequential and least discussed vulnerability. The Columbia-class won't reach full deployment until the 2040s—years from now—but the supply-chain problem exists right now, and there's no public indication of a domestic alternative being developed.\n\nFor an everyday investor or policy observer, this matters because it exposes a hard truth: military superiority can't be divorced from economic leverage. If China controls the rare earths, it controls leverage over America's deterrent, no matter how many submarines you build.\n\n## What Else Moved\n\n### Congress Halts Trump's Iran War\n\nThe Senate voted to end military operations in Iran, marking the first time both chambers of Congress have voted to terminate the conflict [7]. This is a rare rebuke: House and Senate agreement on ending a war is historically difficult to achieve. The timing matters—it suggests growing Congressional appetite to constrain executive power over military deployments, particularly in the Middle East. For investors tracking defense spending, Congressional war powers votes are leading indicators of budget direction and contractor demand.\n\n### Pentagon Races to Protect Secrets from Quantum Computing\n\nThe Department of Defense released a quantum strategy alongside two executive orders, setting deadlines for agencies to adopt post-quantum cryptography [2]. The rush reflects a real threat: quantum computers could theoretically break the encryption protecting military secrets, weapons designs, and communications. The strategy is described as \"a first step,\" suggesting the Pentagon knows this is urgent but incomplete [2]. The Five Eyes intelligence alliance—the U.S., UK, Canada, Australia, and New Zealand—is warning that frontier AI could also accelerate both cyberattacks and cyber defenses [8]. The NSA has already lost access to some intelligence capabilities after the White House imposed limits on its use of frontier AI systems [8]. This is the rare case where government is restricting its own access to a capability because the security risk is deemed too high.\n\n### AI Integration Into Nuclear Command Faces Scrutiny\n\nWar on the Rocks revisited a 2024 analysis on integrating artificial intelligence into the nuclear chain of command, which identified both opportunities and risks [4]. As AI becomes increasingly embedded in military systems, the core question persists: Can you automate decisions in nuclear weapons handling without creating new failure modes? The Department of Defense is grappling with whether nuclear AI is a priority or a back-seat issue [4]. This is perhaps the highest-stakes AI governance question in the world—a mistake in implementation could destabilize mutually assured destruction (the decades-old assumption that nuclear powers won't attack each other because retaliation would be equally catastrophic).\n\n### Drone Operators Get New Tools\n\nGeneral Atomics is upgrading ground control stations to enable current drone operators to fly the newer MQ-9B unmanned aircraft [3]. This allows existing personnel to operate advanced systems without retraining, reducing downtime and costs. While less dramatic than nuclear strategy, drone proliferation and modernization signal continued U.S. investment in persistent aerial surveillance and strike capability—especially relevant given ongoing operations across the Middle East and Africa.\n\n### Space Force Braces for All-Out Warfare\n\nA Mitchell Institute report warns the Space Force must prepare for full-scale warfare scenarios [6]. Satellites are critical to modern military operations—GPS, communications, intelligence gathering—and they're vulnerable to attack. The think tank's analysis suggests the Pentagon is reconsidering assumptions about space as a contested domain rather than a sanctuary.\n\n### Ethics Questions Loom Over Defense Contractor Nominees\n\nSenator Warren requested an ethics pledge from Raytheon executive Erich Hernandez-Baquero, nominated to a top space acquisition role, citing impartiality concerns [5]. This reflects ongoing tension between industry and government: defense contractors employ former Pentagon officials, and vice versa. The ethics challenge signals Congress may be tightening scrutiny over conflicts of interest in defense procurement.\n\n## Connecting the Dots\n\nThree vulnerability threads are visible in today's stories: supply-chain (rare earths), technological (quantum and AI), and political (Congressional pushback). They're independent problems, but they share a common pattern: American military dominance assumes stable, favorable conditions that no longer exist. China controls the materials for next-gen submarines. Quantum computing threatens encryption that protects military secrets. AI is advancing faster than governance frameworks can manage. Congress is reasserting power over war decisions. None of these individually dismantles U.S. military superiority, but together they suggest the Pentagon is operating in an era of constrained advantages—fewer supply-chain certainties, more adversarial AI, less unilateral decision-making authority. The Columbia-class submarines won't enter service for years, but the vulnerabilities they'll face are already here.\n\n## What to Watch\n\nWatch for: (1) Congressional action on rare earth supply chains and whether a domestic refining capacity initiative emerges [1]; (2) Pentagon timelines for post-quantum cryptography adoption—slipped deadlines signal technical difficulty [2]; (3) DoD decisions on nuclear AI integration and whether formal doctrine changes appear [4]; (4) Space Force budget allocations and whether congressional appropriations reflect the Mitchell Institute's war scenario warnings [6]. Each represents a decision point on whether America will address these vulnerabilities proactively or reactively.\n",
+    "risks": [
+      "China's control over rare earth refining could create leverage over Columbia-class submarine production schedules or capabilities if supply is restricted [1].",
+      "Quantum computing advancement could compromise encrypted military communications and weapons designs faster than post-quantum cryptography can be deployed [2].",
+      "AI integration into nuclear command could introduce failure modes or misfire risks that decades of nuclear stability doctrine have avoided [4].",
+      "Congressional reassertion of war powers could constrain executive military authority, creating delays or unpredictability in crisis response [7]."
+    ],
+    "catalysts": [
+      "Domestic rare earth refining capacity could reduce strategic dependency, improving Columbia-class schedule confidence and reducing China leverage [1].",
+      "Successful post-quantum cryptography deployment across DoD systems could protect military secrets against future quantum threats [2].",
+      "Space Force force modernization and doctrine updates could improve resilience against peer conflict in orbital domains [6].",
+      "NSA restrictions on frontier AI access, while limiting capability, signal serious governance of emerging risks before they become crises [8]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Columbia-class submarine deployment timeline",
+        "value": "2030s–2040s (twelve boats replacing Ohio-class fleet)",
+        "source": "War on the Rocks — The U.S. Navy's Subsea Rare Earth Vulnerability",
+        "sourceUrl": "https://warontherocks.com/cogs-of-war/the-u-s-navys-subsea-rare-earth-vulnerability/"
+      },
+      {
+        "label": "Trident II missiles per submarine",
+        "value": "16 per boat",
+        "source": "War on the Rocks — The U.S. Navy's Subsea Rare Earth Vulnerability",
+        "sourceUrl": "https://warontherocks.com/cogs-of-war/the-u-s-navys-subsea-rare-earth-vulnerability/"
+      },
+      {
+        "label": "Congressional vote outcome on Iran war",
+        "value": "Both House and Senate voted to end conflict (first time for both chambers)",
+        "source": "Defense One — Senate joins House in rebuke of Trump over his war in Iran",
+        "sourceUrl": "https://www.defenseone.com/policy/2026/06/senate-house-rebuke-trump-war-iran/414370/"
+      },
+      {
+        "label": "Pentagon quantum strategy status",
+        "value": "Released with executive orders and cryptography deadlines",
+        "source": "Defense One — Pentagon's quantum strategy 'a first step' in preparing for the future, CIO says",
+        "sourceUrl": "https://www.defenseone.com/policy/2026/06/quantum-strategy-cio/414409/"
+      }
+    ],
+    "finalVerdict": "Today's news reveals a military establishment caught between three converging crises: supply-chain dependency (rare earths from China), technological disruption (quantum and AI outpacing governance), and political constraint (Congressional reassertion of war powers). None is a doomsday scenario in isolation, but together they suggest American military dominance can no longer be assumed inevitable. The question for policymakers and investors isn't whether these vulnerabilities exist—they're documented and acknowledged—but whether the Pentagon and Congress can address them faster than adversaries can exploit them. Columbia-class submarines won't deploy for years; post-quantum systems are still being tested; AI doctrine is evolving. The window to act exists, but it's closing.",
+    "references": [
+      {
+        "id": 1,
+        "source": "War on the Rocks — The U.S. Navy's Subsea Rare Earth Vulnerability",
+        "url": "https://warontherocks.com/cogs-of-war/the-u-s-navys-subsea-rare-earth-vulnerability/"
+      },
+      {
+        "id": 2,
+        "source": "Defense One — Pentagon's quantum strategy 'a first step' in preparing for the future, CIO says",
+        "url": "https://www.defenseone.com/policy/2026/06/quantum-strategy-cio/414409/"
+      },
+      {
+        "id": 3,
+        "source": "Defense One — General Atomics plans upgrade so ground stations can fly newer MQ-9 drones",
+        "url": "https://www.defenseone.com/defense-systems/2026/06/general-atomics-will-upgrade-its-ground-control-stations-fly-newer-mq-9b-drones/414405/"
+      },
+      {
+        "id": 4,
+        "source": "War on the Rocks — Nuclear Stability in the Age of AI",
+        "url": "https://warontherocks.com/nuclear-stability-in-the-age-of-ai/"
+      },
+      {
+        "id": 5,
+        "source": "Defense One — Sen. Warren seeks ethics pledge from Raytheon exec nominated to top space acquisition job",
+        "url": "https://www.defenseone.com/business/2026/06/sen-warren-seeks-ethics-pledge-raytheon-exec-nominated-top-space-acquisition-job/414385/"
+      },
+      {
+        "id": 6,
+        "source": "Defense One — Space Force must prepare for all-out warfare, think tank says",
+        "url": "https://www.defenseone.com/threats/2026/06/space-force-must-prepare-all-out-warfare-think-tank-says/414374/"
+      },
+      {
+        "id": 7,
+        "source": "Defense One — Senate joins House in rebuke of Trump over his war in Iran",
+        "url": "https://www.defenseone.com/policy/2026/06/senate-house-rebuke-trump-war-iran/414370/"
+      },
+      {
+        "id": 8,
+        "source": "Defense One — Parts of NSA lose Mythos 5 access after White House imposes limits",
+        "url": "https://www.defenseone.com/policy/2026/06/nsa-mythos-anthropic-supply-chain/414371/"
+      }
+    ],
+    "imageSearchTerms": [
+      "Columbia-class submarine underwater stealth",
+      "rare earth minerals mining China",
+      "quantum computing threat cybersecurity"
+    ],
+    "candidates": [],
+    "newsSource": "8 sources",
+    "newsUrl": "https://warontherocks.com/cogs-of-war/the-u-s-navys-subsea-rare-earth-vulnerability/"
+  },
+  "heroImage": {
+    "url": "https://images.unsplash.com/photo-1690504503953-858b07ac6247?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwyfHxDb2x1bWJpYS1jbGFzcyUyMHN1Ym1hcmluZSUyMHVuZGVyd2F0ZXIlMjBzdGVhbHRofGVufDF8MHx8fDE3ODIzODE2NTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "photographer": "Florian Müller",
+    "photographerUrl": "https://unsplash.com/@floxox",
+    "unsplashUrl": "https://unsplash.com/photos/a-whale-is-swimming-in-the-ocean-with-mountains-in-the-background--Lyaspm2WiM"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1611907045915-8357087b1878?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwxfHxyYXJlJTIwZWFydGglMjBtaW5lcmFscyUyMG1pbmluZyUyMENoaW5hfGVufDF8MHx8fDE3ODIzODE2NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Siyuan",
+      "photographerUrl": "https://unsplash.com/@jsycra",
+      "unsplashUrl": "https://unsplash.com/photos/aerial-view-of-brown-mountains-9x4x4JVQR7g"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1625496146061-ab953566e1ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwyfHxyYXJlJTIwZWFydGglMjBtaW5lcmFscyUyMG1pbmluZyUyMENoaW5hfGVufDF8MHx8fDE3ODIzODE2NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "ダモ リ",
+      "photographerUrl": "https://unsplash.com/@darmau",
+      "unsplashUrl": "https://unsplash.com/photos/brown-and-gray-mountains-under-white-sky-during-daytime-V0C_nZrkPKk"
+    }
+  ],
+  "createdAt": "2026-06-25T06:00:58.000-04:00",
+  "factChecked": true
+}
