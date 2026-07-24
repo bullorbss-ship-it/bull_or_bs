@@ -1,0 +1,110 @@
+{
+  "slug": "take-markets-macro-brief-2026-07-24",
+  "type": "take",
+  "title": "Markets & Macro Brief — July 24, 2026",
+  "description": "Intel's earnings beat sparked a rally in semiconductor stocks and tech-focused ETFs on Friday, while regional banks reported mixed results—earnings beats offset by slower-than-expected revenue growth. Meanwhile, governments are backing open-source AI development with security standards, signaling a shift in how nations approach AI cooperation.",
+  "date": "2026-07-24",
+  "category": "Markets & Macro",
+  "verdict": "Today's market action reveals an investor base learning to distinguish between earnings surprises and real business growth. Intel's rally and regional banks' mixed results both show that beating lowered expectations is no longer enough—revenue and loan growth matter as much as cost control. Meanwhile, governments are signaling they'll provide clearer guardrails around AI development, which could unlock capital that's been sitting on the sidelines. The question for the next few weeks: is earnings season confirming a shift to fundamental quality over expectation-beating, or are we still in a phase where any positive surprise drives stocks higher regardless of underlying momentum?",
+  "tags": [
+    "news",
+    "take",
+    "daily-briefing",
+    "markets",
+    "markets & macro"
+  ],
+  "content": {
+    "category": "Markets & Macro",
+    "headline": "Markets & Macro Brief — July 24, 2026",
+    "summary": "Intel's earnings beat sparked a rally in semiconductor stocks and tech-focused ETFs on Friday, while regional banks reported mixed results—earnings beats offset by slower-than-expected revenue growth. Meanwhile, governments are backing open-source AI development with security standards, signaling a shift in how nations approach AI cooperation.",
+    "analysis": "## The Big Story\n\nIntel's second-quarter earnings beat sent the chipmaker and its sector higher on Friday [4]. The company's results—which topped analyst expectations—triggered a broader rally in semiconductor stocks and the ETFs that track them [2]. However, the enthusiasm came with an asterisk: analysts pointed out that expectations for Intel had been set unusually low heading into the report [4], meaning the bar to beat was already modest. The real scrutiny is falling on Intel's Foundry business, a division that's central to the company's long-term strategy [4]. For investors, this raises a familiar question: was Friday's rally a genuine turnaround story, or a relief rally based on relief rather than fundamental strength?\n\nThe semiconductor sector matters beyond Intel because it touches everything—from artificial intelligence chips to consumer electronics. When Intel moves, investors often reassess the whole chip ecosystem. That's why ETFs holding Intel and similar names saw buying pressure [2]. The key detail for regular investors: earnings beats feel good, but they only matter if the underlying business is actually improving, not just beating a lowered bar.\n\n## What Else Moved\n\n### Regional Banks: Earnings Beats, Revenue Misses\n\nSouthside Bancshares reported GAAP earnings per share (EPS—a measure of profit per share) of $0.90, beating analyst expectations by $0.04 [1]. Sounds good until you look at the other side: revenue came in at $71.33M, missing estimates by $3.67M [1]. Meanwhile, Associated Banc-Corp painted a rosier picture for growth, targeting loan expansion of 18%-20% for full-year 2026 [3], while also committing to share repurchases (buybacks) in the second half of the year [3]. The mixed signals from banks—earnings strength offset by revenue disappointment—echo a broader tension in the financial sector right now. Banks are managing costs well (which helps earnings), but lending growth is proving harder to come by (which weighs on revenue). For someone invested in bank ETFs or individual bank stocks, this split matters: short-term profitability doesn't guarantee long-term growth.\n\n### Open-Source AI Gets Government Backing\n\nAt an APEC meeting, the U.S. and other nations backed open-source artificial intelligence development, but with a focus on security standards [8]. According to China's industry minister Li Lecheng, this marks the first time a ministerial-level APEC statement has included open-source AI cooperation [8]. Why does this matter to markets? Because it signals governments are settling on a framework for how AI should be developed and shared globally. That reduces regulatory uncertainty—a factor that's been clouding AI stock valuations. When governments agree on standards, companies can invest more confidently. It also suggests the narrative around AI is shifting from pure private-sector dominance to a more collaborative model with government oversight.\n\n### Earnings Roundup\n\nChugai Pharmaceutical [5] and Securitas AB [7] both reported first-half results, though the sources provided don't include specific financial details to analyze. The broader point: earnings season is in full swing, and every report is either beating or missing expectations—setting up the next round of stock movements.\n\n## Connecting the Dots\n\nThree patterns stand out from today's market moves. First, beats matter less than the setup: Intel's rally happened because expectations were low, and Southside Bancshares' earnings beat couldn't overcome revenue weakness. This suggests markets are becoming more selective—rewarding not just earnings growth but also evidence of real business expansion. Second, regional banks are hitting a wall on revenue growth despite strong cost management. This could mean lending demand is softening, which matters because bank stocks often lead broader economic strength. Third, government coordination on AI standards is reducing what's called \"regulatory risk\"—the uncertainty that keeps investors cautious. These three pieces suggest we're entering a phase where fundamental business quality matters more than just beating lowered expectations, where lending growth is tightening, and where policy clarity on AI could unlock more investment in tech.\n\n## What to Watch\n\nKeep an eye on how many more companies report earnings that beat on the bottom line but miss on revenue—that pattern would confirm that cost-cutting, not growth, is driving profits. Watch regional bank guidance for loan growth rates over the next few earnings cycles; if 18%-20% growth targets like Associated Banc-Corp's are widespread, the sector may have room to run. Finally, track whether the APEC open-source AI agreement leads to actual regulatory clarity or remains aspirational. Real security standards could unlock institutional capital into AI stocks; vague commitments won't move the needle.",
+    "risks": [
+      "Intel's rally was built on low expectations rather than evidence of foundry business recovery, so a miss next quarter could trigger sharp selling [4]",
+      "Regional banks are beating earnings on cost control but missing on revenue growth, suggesting lending demand may be weakening [1]",
+      "Open-source AI cooperation agreements could face enforcement delays or geopolitical friction if China and the U.S. fail to follow through [8]"
+    ],
+    "catalysts": [
+      "If more companies report strong earnings beats combined with revenue growth (not just cost cuts), it could confirm the market is moving past a low-expectations environment [1]",
+      "Associated Banc-Corp's 18%-20% loan growth target suggests at least some regional banks see expanding credit demand in H2 2026 [3]",
+      "Concrete security standards emerging from APEC's open-source AI commitment could reduce regulatory uncertainty and unlock new institutional investment in AI and chip stocks [8]"
+    ],
+    "dataPoints": [
+      {
+        "label": "Southside Bancshares EPS",
+        "value": "$0.90 (beat by $0.04)",
+        "source": "Seeking Alpha",
+        "sourceUrl": "https://seekingalpha.com/news/4617961-southside-bancshares-gaap-eps-of-0_90-beats-by-0_04-revenue-of-71_33m-misses-by-3_67m"
+      },
+      {
+        "label": "Southside Bancshares Revenue",
+        "value": "$71.33M (miss by $3.67M)",
+        "source": "Seeking Alpha",
+        "sourceUrl": "https://seekingalpha.com/news/4617961-southside-bancshares-gaap-eps-of-0_90-beats-by-0_04-revenue-of-71_33m-misses-by-3_67m"
+      },
+      {
+        "label": "Associated Banc-Corp 2026 Loan Growth Target",
+        "value": "18%-20%",
+        "source": "Seeking Alpha",
+        "sourceUrl": "https://seekingalpha.com/news/4617960-associated-banc-corp-targets-18-percentminus-20-percent-2026-loan-growth-while-planning-share"
+      },
+      {
+        "label": "APEC Open-Source AI Milestone",
+        "value": "First ministerial-level statement including open-source cooperation",
+        "source": "CNBC",
+        "sourceUrl": "https://www.cnbc.com/2026/07/24/china-ai-open-source-apec.html"
+      }
+    ],
+    "finalVerdict": "Today's market action reveals an investor base learning to distinguish between earnings surprises and real business growth. Intel's rally and regional banks' mixed results both show that beating lowered expectations is no longer enough—revenue and loan growth matter as much as cost control. Meanwhile, governments are signaling they'll provide clearer guardrails around AI development, which could unlock capital that's been sitting on the sidelines. The question for the next few weeks: is earnings season confirming a shift to fundamental quality over expectation-beating, or are we still in a phase where any positive surprise drives stocks higher regardless of underlying momentum?",
+    "references": [
+      {
+        "id": 1,
+        "source": "Seeking Alpha — Southside Bancshares GAAP EPS of $0.90 beats by $0.04, revenue of $71.33M misses by $3.67M",
+        "url": "https://seekingalpha.com/news/4617961-southside-bancshares-gaap-eps-of-0_90-beats-by-0_04-revenue-of-71_33m-misses-by-3_67m?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news"
+      },
+      {
+        "id": 2,
+        "source": "Seeking Alpha — These ETFs stand to benefit from Intel's post-earnings rally",
+        "url": "https://seekingalpha.com/news/4617959-these-etfs-stand-to-benefit-from-intels-post-earnings-rally?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news"
+      },
+      {
+        "id": 3,
+        "source": "Seeking Alpha — Associated Banc-Corp targets 18%-20% 2026 loan growth while planning share repurchases in H2",
+        "url": "https://seekingalpha.com/news/4617960-associated-banc-corp-targets-18-percentminus-20-percent-2026-loan-growth-while-planning-share?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news"
+      },
+      {
+        "id": 4,
+        "source": "Seeking Alpha — Intel rises after Q2 beat, but SA analysts highlight low expectations, Foundry business",
+        "url": "https://seekingalpha.com/news/4617952-intel-rises-after-q2-beat-but-sa-analysts-highlight-low-expectations-foundry-business?utm_source=feed_news_all&utm_medium=referral&feed_item_type=news"
+      },
+      {
+        "id": 8,
+        "source": "CNBC — U.S., other nations back open-source AI with 'strong security' at China summit",
+        "url": "https://www.cnbc.com/2026/07/24/china-ai-open-source-apec.html"
+      }
+    ],
+    "imageSearchTerms": [
+      "stock market ticker board trading floor",
+      "semiconductor chip manufacturing Intel",
+      "regional bank office building"
+    ],
+    "candidates": [],
+    "newsSource": "8 sources",
+    "newsUrl": "https://seekingalpha.com/news/4617961-southside-bancshares-gaap-eps-of-0_90-beats-by-0_04-revenue-of-71_33m-misses-by-3_67m?utm_source=feed_news_all&amp;utm_medium=referral&amp;feed_item_type=news"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1641507924414-17558b8ef7c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHw4fHxzZW1pY29uZHVjdG9yJTIwY2hpcCUyMG1hbnVmYWN0dXJpbmclMjBJbnRlbHxlbnwxfDB8fHwxNzg0ODg3MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Daniel Pantu",
+      "photographerUrl": "https://unsplash.com/@danielpantu",
+      "unsplashUrl": "https://unsplash.com/photos/a-close-up-of-a-computer-chip-on-a-table-hoj771jnCB0"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1540829917886-91ab031b1764?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwxfHxzZW1pY29uZHVjdG9yJTIwY2hpcCUyMG1hbnVmYWN0dXJpbmclMjBJbnRlbHxlbnwxfDB8fHwxNzg0ODg3MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Slejven Djurakovic",
+      "photographerUrl": "https://unsplash.com/@slavudin",
+      "unsplashUrl": "https://unsplash.com/photos/intel-computer-processor-in-selective-color-photography-0uXzoEzYZ4I"
+    }
+  ],
+  "createdAt": "2026-07-24T06:00:33.000-04:00",
+  "factChecked": true
+}
