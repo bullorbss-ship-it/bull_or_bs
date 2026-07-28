@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   ...listingPageMeta(pageTitle, pageDescription, '/daily'),
+  robots: { index: false, follow: true },
 };
 
 function groupByDate(articles: Article[]): Map<string, Article[]> {

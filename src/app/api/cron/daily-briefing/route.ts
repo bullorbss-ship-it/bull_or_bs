@@ -263,6 +263,16 @@ export async function GET(request: Request) {
   if (!isAuthorized(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+  if (process.env.ENABLE_LEGACY_DAILY_BRIEFING !== 'true') {
+    return NextResponse.json(
+      {
+        ok: false,
+        disabled: true,
+        reason: 'Direct auto-publication is disabled. Use the approval-first editorial workflow.',
+      },
+      { status: 410 },
+    );
+  }
 
   const url = new URL(request.url);
   const dryRun = url.searchParams.get('dryRun') === '1';

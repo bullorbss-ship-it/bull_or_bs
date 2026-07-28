@@ -1,0 +1,6 @@
+interface:
+  display_name: "BullOrBS Editorial Pipeline"
+  short_description: "Plan, research, review, and publish BullOrBS"
+  default_prompt: "Use $bullorbs-editorial to follow the assistant-neutral contract and run today’s approval-first editorial pipeline."
+policy:
+  allow_implicit_invocation: true

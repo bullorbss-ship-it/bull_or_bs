@@ -263,7 +263,7 @@ function ArticleOG({ title, grade, articleType, ticker, bgUrl }: { title: string
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <div style={{ width: 4, height: 20, backgroundColor: gradeColor || '#10B981', borderRadius: 2 }} />
         <span style={{ fontSize: 17, color: '#CBD5E1', fontFamily: 'monospace' }}>
-          {isRoast ? 'AI fact-checked this stock recommendation →' :
+          {isRoast ? 'Evidence-check this stock recommendation →' :
            isTake ? 'What this means for your portfolio →' :
            'See which stock survived the AI tournament →'}
         </span>
@@ -337,7 +337,7 @@ function DefaultOG() {
           AI-Powered Stock Analysis
         </span>
         <span style={{ fontSize: 26, color: '#94A3B8', lineHeight: 1.4 }}>
-          We fact-check stock recommendations so you don&apos;t have to.
+          Source-backed comparisons. Independent checks. Human approval.
         </span>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
           <span style={{

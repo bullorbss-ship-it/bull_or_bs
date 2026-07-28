@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getAllArticles, getArticleBySlug } from '@/lib/content';
+import { getAllArticles, getArticleBySlug, isIndexableArticle } from '@/lib/content';
 import { getTickerInfo } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
 import { siteConfig } from '@/config/site';
@@ -153,6 +153,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: article.description,
       images: [ogUrl],
     },
+    robots: isIndexableArticle(article)
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   };
 }
 

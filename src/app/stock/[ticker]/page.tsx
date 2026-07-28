@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { tickerToSlug, slugToTicker, getTickersBySector } from '@/lib/tickers';
 import { getAllTickersExpanded, getTickerInfoExpanded } from '@/lib/ticker-registry';
-import { getArticlesByTicker } from '@/lib/content';
+import { getArticlesByTicker, isIndexableArticle } from '@/lib/content';
 import { getStockData } from '@/lib/stock-data';
 import { siteConfig } from '@/config/site';
 import { faqSchema, breadcrumbSchema, corporationSchema, safeJsonLd, feedAlternates } from '@/config/seo';
@@ -31,8 +31,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!info) return {};
 
   const stockData = getStockData(info.ticker);
+  const hasReviewedCoverage = getArticlesByTicker(info.ticker).some(article =>
+    article.ticker?.toUpperCase() === info.ticker.toUpperCase() && isIndexableArticle(article),
+  );
   const title = `${info.ticker} Stock Analysis — ${info.company}`;
-  const description = stockData?.seoDescription || `AI-powered analysis of ${info.company} (${info.exchange}:${info.ticker}). Full reasoning, data points, and transparent AI research. Should you buy ${info.ticker}?`;
+  const description = stockData?.seoDescription || `Source-linked analysis of ${info.company} (${info.exchange}:${info.ticker}) with data points, uncertainty, and transparent research.`;
 
   return {
     title,
@@ -66,6 +69,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
       ],
     },
+    robots: hasReviewedCoverage
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   };
 }
 
@@ -86,7 +92,7 @@ export default async function StockPage({ params }: PageProps) {
   const faqItems = [
     {
       question: `Should you buy ${info.ticker} stock?`,
-      answer: `${info.company} (${info.exchange}:${info.ticker}) is a ${info.sector} stock. Visit this page for the latest AI-generated analysis with full reasoning, data points, and transparent research from ${siteConfig.name}.`,
+      answer: `${info.company} (${info.exchange}:${info.ticker}) is a ${info.sector} stock. This page provides source-linked data points and transparent research from ${siteConfig.name}.`,
     },
     {
       question: `Is ${info.company} a good investment?`,

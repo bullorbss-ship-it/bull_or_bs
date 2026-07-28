@@ -39,6 +39,16 @@ export async function POST(req: NextRequest) {
     articleObj = JSON.parse(articleObj);
   }
 
+  if (articleObj?.editorialReview?.status !== 'approved') {
+    return NextResponse.json(
+      {
+        error: 'Direct publishing is disabled',
+        detail: 'Create and approve the article through the Editorial workflow.',
+      },
+      { status: 422 },
+    );
+  }
+
   const result = await commitArticleToGitHub(articleObj);
   if (!result.ok) {
     return NextResponse.json(

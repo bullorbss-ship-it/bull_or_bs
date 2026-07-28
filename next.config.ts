@@ -1,7 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  redirects: async () => [
+    {
+      source: '/:path*',
+      has: [{ type: 'host', value: 'www.bullorbs.com' }],
+      destination: 'https://bullorbs.com/:path*',
+      permanent: true,
+    },
+  ],
   headers: async () => [
+    {
+      source: '/og',
+      headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+    },
     {
       source: '/(.*)',
       headers: [

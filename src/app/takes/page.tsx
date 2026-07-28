@@ -1,4 +1,4 @@
-import { getArticlesByType } from '@/lib/content';
+import { getArticlesByType, isIndexableArticle } from '@/lib/content';
 import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { getCategoryChipStyle } from '@/lib/badges';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default function TakesPage() {
-  const takes = getArticlesByType('takes');
+  const takes = getArticlesByType('takes').filter(isIndexableArticle);
   const categories = Array.from(new Set(takes.map(a => a.category).filter(Boolean) as string[])).sort();
 
   return (

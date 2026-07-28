@@ -25,15 +25,16 @@ export default function MethodologyPage() {
         <h2 className="text-xl font-bold text-foreground pt-4">How Our AI Works</h2>
 
         <p>
-          {siteConfig.name} is powered by Claude, Anthropic&apos;s AI model. For every
-          analysis, Claude performs real-time web searches to pull the latest market
-          data, news, and analyst opinions. It then reasons through the data step by
-          step — and we publish that entire reasoning chain so you can follow along.
+          {siteConfig.name} uses a staged AI workflow rather than one model doing
+          everything. Planning, web research, article writing, and verification each
+          have separately configured models and API keys. The research stage gathers
+          a source packet; the writer is restricted to that packet.
         </p>
 
         <p>
-          This isn&apos;t a black box. Every conclusion is backed by cited data points,
-          and you can see exactly how the AI arrived at its verdict.
+          We publish the evidence, comparison tables, uncertainties, and conclusion.
+          We do not present private model reasoning as evidence. A draft remains
+          private until it passes the quality gate and receives human approval.
         </p>
 
         {/* Data Sources */}
@@ -134,10 +135,10 @@ export default function MethodologyPage() {
         <h2 className="text-xl font-bold text-foreground pt-4">Transparency Commitment</h2>
 
         <p>
-          Every data point in our analysis is sourced. Every piece of reasoning is
-          published. We don&apos;t hide behind vague statements like &quot;our
-          proprietary model suggests...&quot; — if we can&apos;t show you the data
-          and the logic, we don&apos;t publish the claim.
+          Every material data point in newly approved analysis must be sourced.
+          We publish the evidence and decision framework instead of asking readers
+          to trust a proprietary score. If the verifier cannot connect a claim to
+          the saved research packet, the draft is blocked.
         </p>
 
         <p>

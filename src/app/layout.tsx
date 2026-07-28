@@ -5,6 +5,7 @@ import TickerTape from '@/components/ui/TickerTape';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import AdPixels from '@/components/AdPixels';
 import NewsletterPopup from '@/components/forms/NewsletterPopup';
+import OutboundClickTracker from '@/components/OutboundClickTracker';
 import { defaultMetadata, organizationSchema, websiteSchema, safeJsonLd } from '@/config/seo';
 import './globals.css';
 
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <GoogleAnalytics />
+        <OutboundClickTracker />
         <AdPixels />
         <TickerTape />
         <Header />

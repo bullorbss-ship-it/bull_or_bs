@@ -36,6 +36,7 @@ export async function generateMetadata({
       url: `${siteConfig.url}/daily/${date}`,
       type: 'website',
     },
+    robots: { index: false, follow: true },
   };
 }
 

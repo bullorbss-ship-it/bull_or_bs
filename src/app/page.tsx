@@ -1,4 +1,4 @@
-import { getAllArticles } from '@/lib/content';
+import { getAllArticles, isIndexableArticle } from '@/lib/content';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import ArticleStream from '@/components/article/ArticleStream';
 import MarketMovers from '@/components/ui/MarketMovers';
@@ -25,7 +25,7 @@ function formatDate(date: string, short = false) {
 }
 
 export default function Home() {
-  const articles = getAllArticles();
+  const articles = getAllArticles().filter(isIndexableArticle);
   const featured = articles[0];
   const midFeature = articles[1];
   const midHeadlines = articles.slice(2, 7);
@@ -46,7 +46,7 @@ export default function Home() {
           </h1>
           <p className="text-muted text-sm sm:text-base mt-3 leading-relaxed max-w-xl mx-auto">
             AI audits popular stock picks and scores them 1&ndash;10.
-            Every claim checked. Every source cited. No paywall.
+            Source-backed comparisons. Independent verification. Human approval.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mt-5">
             <Link href="/picks" className="text-sm font-semibold text-accent-strong hover:text-accent-dim transition-colors">Picks &rarr;</Link>
@@ -258,8 +258,8 @@ export default function Home() {
           <div className="grid grid-cols-3 gap-3 sm:gap-4 text-center">
             {[
               { num: '01', title: 'We Read It', desc: 'Someone says "buy this stock." We pull the receipts.' },
-              { num: '02', title: 'We Test It', desc: 'AI runs the numbers. Every claim gets fact-checked.' },
-              { num: '03', title: 'You Decide', desc: 'Full reasoning published. No paywall. No "trust me bro."' },
+              { num: '02', title: 'We Test It', desc: 'A separate model checks the draft against its saved sources.' },
+              { num: '03', title: 'You Decide', desc: 'Evidence and uncertainty published. No paywall. No "trust me bro."' },
             ].map((step) => (
               <div key={step.num} className="p-3 sm:p-4">
                 <p className="text-2xl font-bold font-mono text-accent/30 mb-2">{step.num}</p>
@@ -274,7 +274,7 @@ export default function Home() {
       {/* Subscribe */}
       <section className="mx-auto max-w-5xl px-4 sm:px-6 py-14 sm:py-20 text-center" id="subscribe">
         <h2 className="text-xl sm:text-2xl font-bold mb-2">Smarter analysis, every week.</h2>
-        <p className="text-muted mb-6 max-w-md mx-auto text-sm">AI-driven research delivered free. Full reasoning, no paywall.</p>
+        <p className="text-muted mb-6 max-w-md mx-auto text-sm">Source-linked research delivered free. Human-approved, no paywall.</p>
         <div className="flex justify-center">
           <SubscribeForm />
         </div>

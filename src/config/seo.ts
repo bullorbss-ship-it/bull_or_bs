@@ -120,6 +120,15 @@ export function organizationSchema() {
     url: siteConfig.url,
     description: `${siteConfig.displayName} — ${siteConfig.tagline}`,
     sameAs: Object.values(siteConfig.social),
+    creator: {
+      '@type': 'Organization',
+      name: siteConfig.creator.name,
+      url: siteConfig.creator.url,
+      founder: {
+        '@type': 'Person',
+        name: siteConfig.creator.founder,
+      },
+    },
   };
 }
 
@@ -167,6 +176,11 @@ export function websiteSchema() {
     url: siteConfig.url,
     description: siteConfig.description,
     publisher: publisherSchema,
+    creator: {
+      '@type': 'Organization',
+      name: siteConfig.creator.name,
+      url: siteConfig.creator.url,
+    },
   };
 }
 

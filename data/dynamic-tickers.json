@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "ticker": "CASH",
+    "company": "Global X High Interest Savings ETF",
+    "exchange": "TSX",
+    "sector": "ETF",
+    "country": "CA"
+  },
+  {
+    "ticker": "CBIL",
+    "company": "Global X 0-3 Month T-Bill ETF",
+    "exchange": "TSX",
+    "sector": "ETF",
+    "country": "CA"
+  }
+]

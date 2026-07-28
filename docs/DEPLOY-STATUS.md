@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-06-10T19:58:39.630Z*
+*Auto-generated: 2026-07-28T21:03:45.372Z*
 
 ---
 
@@ -10,8 +10,8 @@
 | --- | --- |
 | Roasts | 19 |
 | Picks | 7 |
-| Takes | 54 |
-| **Total** | 80 |
+| Takes | 213 |
+| **Total** | 239 |
 
 ### Roasts
 
@@ -53,6 +53,165 @@
 
 | Date | Title |
 | --- | --- |
+| 2026-07-28 | AI & Tech Brief — July 28, 2026 |
+| 2026-07-28 | Canada & TSX Brief — July 28, 2026 |
+| 2026-07-28 | Geopolitics & War Brief — July 28, 2026 |
+| 2026-07-28 | Markets & Macro Brief — July 28, 2026 |
+| 2026-07-27 | Geopolitics & War Brief — July 27, 2026 |
+| 2026-07-27 | Markets & Macro Brief — July 27, 2026 |
+| 2026-07-26 | Canada & TSX Brief — July 26, 2026 |
+| 2026-07-26 | Geopolitics & War Brief — July 26, 2026 |
+| 2026-07-26 | Markets & Macro Brief — July 26, 2026 |
+| 2026-07-25 | AI & Tech Brief — July 25, 2026 |
+| 2026-07-25 | Canada & TSX Brief — July 25, 2026 |
+| 2026-07-25 | Geopolitics & War Brief — July 25, 2026 |
+| 2026-07-25 | Markets & Macro Brief — July 25, 2026 |
+| 2026-07-24 | AI & Tech Brief — July 24, 2026 |
+| 2026-07-24 | Canada & TSX Brief — July 24, 2026 |
+| 2026-07-24 | Geopolitics & War Brief — July 24, 2026 |
+| 2026-07-24 | Markets & Macro Brief — July 24, 2026 |
+| 2026-07-23 | AI & Tech Brief — July 23, 2026 |
+| 2026-07-23 | Canada & TSX Brief — July 23, 2026 |
+| 2026-07-23 | Geopolitics & War Brief — July 23, 2026 |
+| 2026-07-23 | Markets & Macro Brief — July 23, 2026 |
+| 2026-07-22 | AI & Tech Brief — July 22, 2026 |
+| 2026-07-22 | Canada & TSX Brief — July 22, 2026 |
+| 2026-07-22 | Geopolitics & War Brief — July 22, 2026 |
+| 2026-07-22 | Markets & Macro Brief — July 22, 2026 |
+| 2026-07-21 | AI & Tech Brief — July 21, 2026 |
+| 2026-07-21 | Canada & TSX Brief — July 21, 2026 |
+| 2026-07-21 | Geopolitics & War Brief — July 21, 2026 |
+| 2026-07-21 | Markets & Macro Brief — July 21, 2026 |
+| 2026-07-20 | Geopolitics & War Brief — July 20, 2026 |
+| 2026-07-20 | Markets & Macro Brief — July 20, 2026 |
+| 2026-07-19 | Markets & Macro Brief — July 19, 2026 |
+| 2026-07-18 | AI & Tech Brief — July 18, 2026 |
+| 2026-07-18 | Canada & TSX Brief — July 18, 2026 |
+| 2026-07-18 | Geopolitics & War Brief — July 18, 2026 |
+| 2026-07-18 | Markets & Macro Brief — July 18, 2026 |
+| 2026-07-17 | AI & Tech Brief — July 17, 2026 |
+| 2026-07-17 | Canada & TSX Brief — July 17, 2026 |
+| 2026-07-17 | Geopolitics & War Brief — July 17, 2026 |
+| 2026-07-17 | Markets & Macro Brief — July 17, 2026 |
+| 2026-07-16 | AI & Tech Brief — July 16, 2026 |
+| 2026-07-16 | Canada & TSX Brief — July 16, 2026 |
+| 2026-07-16 | Geopolitics & War Brief — July 16, 2026 |
+| 2026-07-16 | Markets & Macro Brief — July 16, 2026 |
+| 2026-07-15 | AI & Tech Brief — July 15, 2026 |
+| 2026-07-15 | Canada & TSX Brief — July 15, 2026 |
+| 2026-07-15 | Geopolitics & War Brief — July 15, 2026 |
+| 2026-07-15 | Markets & Macro Brief — July 15, 2026 |
+| 2026-07-14 | AI & Tech Brief — July 14, 2026 |
+| 2026-07-14 | Canada & TSX Brief — July 14, 2026 |
+| 2026-07-14 | Geopolitics & War Brief — July 14, 2026 |
+| 2026-07-13 | AI & Tech Brief — July 13, 2026 |
+| 2026-07-13 | Geopolitics & War Brief — July 13, 2026 |
+| 2026-07-13 | Markets & Macro Brief — July 13, 2026 |
+| 2026-07-12 | Markets & Macro Brief — July 12, 2026 |
+| 2026-07-11 | AI & Tech Brief — July 11, 2026 |
+| 2026-07-11 | Canada & TSX Brief — July 11, 2026 |
+| 2026-07-11 | Geopolitics & War Brief — July 11, 2026 |
+| 2026-07-11 | Markets & Macro Brief — July 11, 2026 |
+| 2026-07-10 | AI & Tech Brief — July 10, 2026 |
+| 2026-07-10 | Canada & TSX Brief — July 10, 2026 |
+| 2026-07-10 | Geopolitics & War Brief — July 10, 2026 |
+| 2026-07-10 | Markets & Macro Brief — July 10, 2026 |
+| 2026-07-09 | AI & Tech Brief — July 9, 2026 |
+| 2026-07-09 | Canada & TSX Brief — July 9, 2026 |
+| 2026-07-09 | Geopolitics & War Brief — July 9, 2026 |
+| 2026-07-09 | Markets & Macro Brief — July 9, 2026 |
+| 2026-07-08 | AI & Tech Brief — July 8, 2026 |
+| 2026-07-08 | Canada & TSX Brief — July 8, 2026 |
+| 2026-07-08 | Geopolitics & War Brief — July 8, 2026 |
+| 2026-07-08 | Markets & Macro Brief — July 8, 2026 |
+| 2026-07-07 | AI & Tech Brief — July 7, 2026 |
+| 2026-07-07 | Canada & TSX Brief — July 7, 2026 |
+| 2026-07-07 | Geopolitics & War Brief — July 7, 2026 |
+| 2026-07-07 | Markets & Macro Brief — July 7, 2026 |
+| 2026-07-06 | Geopolitics & War Brief — July 6, 2026 |
+| 2026-07-06 | Markets & Macro Brief — July 6, 2026 |
+| 2026-07-05 | Markets & Macro Brief — July 5, 2026 |
+| 2026-07-04 | AI & Tech Brief — July 4, 2026 |
+| 2026-07-04 | Canada & TSX Brief — July 4, 2026 |
+| 2026-07-04 | Geopolitics & War Brief — July 4, 2026 |
+| 2026-07-04 | Markets & Macro Brief — July 4, 2026 |
+| 2026-07-03 | AI & Tech Brief — July 3, 2026 |
+| 2026-07-03 | Canada & TSX Brief — July 3, 2026 |
+| 2026-07-03 | Geopolitics & War Brief — July 3, 2026 |
+| 2026-07-03 | Markets & Macro Brief — July 3, 2026 |
+| 2026-07-02 | Geopolitics & War Brief — July 2, 2026 |
+| 2026-07-02 | Markets & Macro Brief — July 2, 2026 |
+| 2026-07-01 | AI & Tech Brief — July 1, 2026 |
+| 2026-07-01 | Canada & TSX Brief — July 1, 2026 |
+| 2026-07-01 | Geopolitics & War Brief — July 1, 2026 |
+| 2026-07-01 | Markets & Macro Brief — July 1, 2026 |
+| 2026-06-30 | AI & Tech Brief — June 30, 2026 |
+| 2026-06-30 | Canada & TSX Brief — June 30, 2026 |
+| 2026-06-30 | Geopolitics & War Brief — June 30, 2026 |
+| 2026-06-30 | Markets & Macro Brief — June 30, 2026 |
+| 2026-06-29 | AI & Tech Brief — June 29, 2026 |
+| 2026-06-29 | Geopolitics & War Brief — June 29, 2026 |
+| 2026-06-29 | Markets & Macro Brief — June 29, 2026 |
+| 2026-06-28 | Markets & Macro Brief — June 28, 2026 |
+| 2026-06-27 | AI & Tech Brief — June 27, 2026 |
+| 2026-06-27 | Canada & TSX Brief — June 27, 2026 |
+| 2026-06-27 | Geopolitics & War Brief — June 27, 2026 |
+| 2026-06-27 | Markets & Macro Brief — June 27, 2026 |
+| 2026-06-26 | AI & Tech Brief — June 26, 2026 |
+| 2026-06-26 | Canada & TSX Brief — June 26, 2026 |
+| 2026-06-26 | Geopolitics & War Brief — June 26, 2026 |
+| 2026-06-26 | Markets & Macro Brief — June 26, 2026 |
+| 2026-06-25 | AI & Tech Brief — June 25, 2026 |
+| 2026-06-25 | Canada & TSX Brief — June 25, 2026 |
+| 2026-06-25 | Geopolitics & War Brief — June 25, 2026 |
+| 2026-06-25 | Markets & Macro Brief — June 25, 2026 |
+| 2026-06-24 | AI & Tech Brief — June 24, 2026 |
+| 2026-06-24 | Canada & TSX Brief — June 24, 2026 |
+| 2026-06-24 | Geopolitics & War Brief — June 24, 2026 |
+| 2026-06-24 | Markets & Macro Brief — June 24, 2026 |
+| 2026-06-23 | AI & Tech Brief — June 23, 2026 |
+| 2026-06-23 | Canada & TSX Brief — June 23, 2026 |
+| 2026-06-23 | Geopolitics & War Brief — June 23, 2026 |
+| 2026-06-23 | Markets & Macro Brief — June 23, 2026 |
+| 2026-06-22 | AI & Tech Brief — June 22, 2026 |
+| 2026-06-22 | Canada & TSX Brief — June 22, 2026 |
+| 2026-06-22 | Geopolitics & War Brief — June 22, 2026 |
+| 2026-06-22 | Markets & Macro Brief — June 22, 2026 |
+| 2026-06-21 | Markets & Macro Brief — June 21, 2026 |
+| 2026-06-20 | AI & Tech Brief — June 20, 2026 |
+| 2026-06-20 | Canada & TSX Brief — June 20, 2026 |
+| 2026-06-20 | Geopolitics & War Brief — June 20, 2026 |
+| 2026-06-20 | Markets & Macro Brief — June 20, 2026 |
+| 2026-06-19 | DB 06/19 - OpenAI Adds Enterprise Cost Controls as Health AI Gains Rea |
+| 2026-06-19 | DB 06/19 - Canadian Mining Explorers Push Projects Forward Amid Global |
+| 2026-06-19 | DB 06/19 - China's Hidden Hands: From Farm Drones to SpaceX Stakes |
+| 2026-06-19 | DB 06/19 - Fed Chair Warsh Reshapes Rate Statement Ahead of Policy Dec |
+| 2026-06-18 | AI & Tech Brief — June 18, 2026 |
+| 2026-06-18 | Canada & TSX Brief — June 18, 2026 |
+| 2026-06-18 | Geopolitics & War Brief — June 18, 2026 |
+| 2026-06-17 | AI & Tech Brief — June 17, 2026 |
+| 2026-06-17 | Canada & TSX Brief — June 17, 2026 |
+| 2026-06-17 | Geopolitics & War Brief — June 17, 2026 |
+| 2026-06-17 | Markets & Macro Brief — June 17, 2026 |
+| 2026-06-16 | AI & Tech Brief — June 16, 2026 |
+| 2026-06-16 | Canada & TSX Brief — June 16, 2026 |
+| 2026-06-16 | Geopolitics & War Brief — June 16, 2026 |
+| 2026-06-15 | AI & Tech Brief — June 15, 2026 |
+| 2026-06-15 | Geopolitics & War Brief — June 15, 2026 |
+| 2026-06-15 | Markets & Macro Brief — June 15, 2026 |
+| 2026-06-14 | Markets & Macro Brief — June 14, 2026 |
+| 2026-06-13 | AI & Tech Brief — June 13, 2026 |
+| 2026-06-13 | Canada & TSX Brief — June 13, 2026 |
+| 2026-06-13 | Geopolitics & War Brief — June 13, 2026 |
+| 2026-06-13 | Markets & Macro Brief — June 13, 2026 |
+| 2026-06-12 | AI & Tech Brief — June 12, 2026 |
+| 2026-06-12 | Canada & TSX Brief — June 12, 2026 |
+| 2026-06-12 | Geopolitics & War Brief — June 12, 2026 |
+| 2026-06-12 | Markets & Macro Brief — June 12, 2026 |
+| 2026-06-11 | AI & Tech Brief — June 11, 2026 |
+| 2026-06-11 | Canada & TSX Brief — June 11, 2026 |
+| 2026-06-11 | Geopolitics & War Brief — June 11, 2026 |
+| 2026-06-11 | Markets & Macro Brief — June 11, 2026 |
 | 2026-06-10 | AI & Tech Brief — June 10, 2026 |
 | 2026-06-10 | Canada & TSX Brief — June 10, 2026 |
 | 2026-06-10 | Markets & Macro Brief — June 10, 2026 |
@@ -119,13 +278,17 @@
 | /api/admin/costs | API |
 | /api/admin/delete | API |
 | /api/admin/distribute | API |
+| /api/admin/drafts | API |
+| /api/admin/editorial-plan | API |
 | /api/admin/login | API |
 | /api/admin/provider | API |
 | /api/admin/refresh-profile | API |
 | /api/admin/subscribers | API |
 | /api/bracket | API |
 | /api/cron/daily-briefing | API |
+| /api/cron/daily-draft | API |
 | /api/cron/daily-topics | API |
+| /api/cron/monthly-plan | API |
 | /api/generate | API |
 | /api/health | API |
 | /api/subscribe | API |
@@ -175,13 +338,16 @@ No cost data file found.
 | SAST | `npm run security` | Automated |
 | SEO | `npm run seo-check` | Automated |
 | Legal | `npm run legal-check` | Automated |
+| Content | `npm run content-audit` | Automated |
+| Editorial | `npm run editorial-check` | Automated |
 | Docs | `npm run docs` | Automated |
+| Docs consistency | `npm run docs-check` | Automated |
 
 ## Tech Stack
 
 | Package | Version |
 | --- | --- |
-| next | ^16.1.7 |
+| next | ^16.2.12 |
 | react | 19.2.3 |
 | @anthropic-ai/sdk | ^0.78.0 |
 | tailwindcss | ^4 |

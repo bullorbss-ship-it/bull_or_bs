@@ -1,6 +1,6 @@
 import { getAllSectors, getTickersByCountry, tickerToSlug } from '@/lib/tickers';
 import { getAllTickersExpanded } from '@/lib/ticker-registry';
-import { getAllArticles, getAllArticleTickers } from '@/lib/content';
+import { getAllArticles, getAllArticleTickers, isIndexableArticle } from '@/lib/content';
 import type { Metadata } from 'next';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
@@ -33,7 +33,7 @@ export default function StockIndexPage() {
 
   // Build ticker search data server-side
   const articleTickers = getAllArticleTickers();
-  const allArticles = getAllArticles();
+  const allArticles = getAllArticles().filter(isIndexableArticle);
 
   // Build ticker → article slugs map (includes candidate mentions)
   const tickerToSlugs: Record<string, string[]> = {};
@@ -67,8 +67,8 @@ export default function StockIndexPage() {
       ]} />
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">Stock Analysis</h1>
       <p className="text-muted text-sm sm:text-lg mb-6 sm:mb-8 max-w-2xl">
-        AI-generated analysis for {getAllTickersExpanded().length}+ stocks across TSX, NYSE, and NASDAQ.
-        Every analysis shows its full reasoning chain.
+        Evidence-backed coverage across TSX, NYSE, and NASDAQ. Pages without reviewed
+        analysis remain available for navigation but are excluded from search indexing.
       </p>
 
       <TickerSearch
@@ -86,7 +86,7 @@ export default function StockIndexPage() {
       {/* CTA */}
       <section className="bg-card-bg border border-card-border rounded-2xl p-6 sm:p-10 text-center">
         <h2 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">Get weekly stock analysis in your inbox</h2>
-        <p className="text-muted text-sm mb-4 sm:mb-6">AI-driven research. Full reasoning. Free.</p>
+        <p className="text-muted text-sm mb-4 sm:mb-6">Source-linked research. Human-approved. Free.</p>
         <div className="flex justify-center">
           <SubscribeForm />
         </div>

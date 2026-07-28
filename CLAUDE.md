@@ -24,12 +24,15 @@
 ## What This Is
 AI-driven stock analysis site competing on SEO/AIO with major financial publications. Covers TSX, US, and emerging markets. Anti-newsletter angle — we fact-check stock recommendations so readers don't have to.
 
-## Anonymity — CRITICAL
-- Owner identity must NEVER appear in code, commits, comments, config, or docs
-- Git user: `BullOrBS <bull.or.bss@gmail.com>` / `bullorbss-ship-it`
-- No personal names, emails, or identifiers anywhere in the codebase
-- Domain WHOIS is redacted via Cloudflare
-- Scan for leaks before every push: names, personal emails, API keys
+## Creator Attribution — APPROVED 2026-07-28
+- BullOrBS publicly attributes its technology and editorial system to Local Tech Edge
+  (`https://www.localtechedge.com/`), led by Rishi Vyas.
+- Describe that background as technology/AI-system credibility, never as a financial
+  advisor, portfolio manager, securities license, or investment credential.
+- Do not publish private contact details beyond information intentionally linked on
+  the Local Tech Edge website.
+- Git user remains `BullOrBS <266401801+bullorbss-ship-it@users.noreply.github.com>`.
+- Scan for unintended personal data and API keys before every push.
 
 ## Tech Stack
 - **Framework**: Next.js 16 App Router + React 19
@@ -114,19 +117,27 @@ src/
 ## Deployment
 - **Vercel free tier**, auto-deploy from `main` branch
 - GitHub repo: `github.com/bullorbss-ship-it/bull_or_bs`
-- Env vars in Vercel: `ANTHROPIC_API_KEY`, `SCAN_SECRET`, `ADMIN_PASSWORD`, `GITHUB_TOKEN`
+- Default editorial execution follows the assistant-neutral
+  `EDITORIAL_WORKFLOW.md`; it needs no model API keys. `AGENTS.md` is the
+  cross-assistant entry point and `.agents/skills/bullorbs-editorial` is an
+  optional discovery adapter.
+- Optional unattended API mode uses `EDITORIAL_EXECUTION_MODE=api` plus
+  stage-specific `AI_*_PROVIDER`, `AI_*_MODEL`, and `AI_*_API_KEY` values.
+- Application credentials include `ADMIN_PASSWORD`, `GITHUB_TOKEN`, and
+  `CRON_SECRET`; email variables are only needed for optional API-mode reports.
 - Domain: bullorbs.com (Cloudflare DNS → Vercel)
 
-## Pre-Deploy Pipeline (8 gates)
+## Pre-Deploy Pipeline (9 gates)
 All gates must pass before pushing to main: `npm run pre-deploy`
 1. **Type Check**: `npm run type-check`
 2. **Lint**: `npm run lint`
 3. **SAST**: `npm run security` (npm audit + eslint-plugin-security)
 4. **SEO Check**: `npm run seo-check` (sitemap, meta, schema, brand consistency)
-5. **Legal Check**: `npm run legal-check` (trademarks, disclaimers, anonymity, CASL, score floor)
+5. **Legal Check**: `npm run legal-check` (trademarks, disclaimers, creator attribution, CASL, score floor)
 6. **Content Audit**: `npm run content-audit` (learn page + profile freshness)
-7. **Docs**: `npm run docs` (auto-generate DEPLOY-STATUS.md)
-8. **Docs Check**: `npm run docs-check` (code/docs sync)
+7. **Editorial Check**: `npm run editorial-check` (approval-only publishing + isolated AI stages)
+8. **Docs**: `npm run docs` (auto-generate DEPLOY-STATUS.md)
+9. **Docs Check**: `npm run docs-check` (code/docs sync)
 
 ## Security
 
@@ -150,7 +161,7 @@ All gates must pass before pushing to main: `npm run pre-deploy`
 ### Pre-Push Security Checklist
 - [ ] All secrets in environment variables (none in code)
 - [ ] `.env` in `.gitignore`
-- [ ] No personal names, emails, or identifiers in code/docs
+- [ ] No unintended personal names, emails, or identifiers beyond approved creator attribution
 - [ ] No `ghp_*`, `sk-*`, or API key strings in source
 - [ ] `npm audit` passes (no critical vulns)
 - [ ] Admin routes behind auth
@@ -213,8 +224,8 @@ Custom workflows available via `/command`:
 | Skill | Purpose |
 |-------|---------|
 | `/deploy` | Run pre-deploy pipeline, commit, and push to Vercel |
-| `/pre-deploy` | Run all 8 quality gates and report results |
-| `/security-scan` | Scan for leaked secrets, API keys, anonymity violations |
+| `/pre-deploy` | Run all 9 quality gates and report results |
+| `/security-scan` | Scan for leaked secrets, API keys, and unintended personal data |
 | `/code-review` | Review code for quality, bugs, performance, SEO |
 | `/new-take` | Quick-add a news take article from a topic |
 | `/new-ticker` | Add new stock/ETF tickers to the platform |

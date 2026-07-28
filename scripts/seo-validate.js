@@ -184,15 +184,27 @@ console.log('\n📝 Content Check');
 const contentDir = path.join(__dirname, '..', 'content');
 if (fs.existsSync(contentDir)) {
   let articleCount = 0;
-  for (const type of ['roasts', 'picks']) {
+  let indexableCount = 0;
+  for (const type of ['roasts', 'picks', 'takes']) {
     const typeDir = path.join(contentDir, type);
     if (fs.existsSync(typeDir)) {
       const files = fs.readdirSync(typeDir).filter(f => f.endsWith('.json'));
       articleCount += files.length;
+      for (const file of files) {
+        const article = JSON.parse(fs.readFileSync(path.join(typeDir, file), 'utf8'));
+        const references = article.content?.references || [];
+        const words = (article.content?.analysis || '').split(/\s+/).filter(Boolean).length;
+        if (article.editorialReview?.status === 'approved' ||
+            (!article.tags?.includes('daily-briefing') && article.factChecked === true &&
+             words >= 500 && references.length >= 3 &&
+             references.every(r => /^https?:\/\//.test(r.url || '')))) {
+          indexableCount++;
+        }
+      }
     }
   }
   if (articleCount > 0) {
-    pass(`${articleCount} articles published`);
+    pass(`${articleCount} stored articles; ${indexableCount} meet the indexing threshold`);
   } else {
     warn('No articles published yet — generate content before launch');
   }

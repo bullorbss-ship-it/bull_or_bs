@@ -1,0 +1,406 @@
+{
+  "id": "draft-2026-08-03-cash-vs-cbil-vs-psa",
+  "planMonth": "2026-08",
+  "planItemId": "2026-08-03-cash-vs-cbil-vs-psa",
+  "status": "pending_approval",
+  "createdAt": "2026-07-28T16:53:02.000-04:00",
+  "writerModel": "codex/gpt-5:writer",
+  "research": {
+    "id": "research-2026-08-03-cash-vs-cbil-vs-psa",
+    "planItemId": "2026-08-03-cash-vs-cbil-vs-psa",
+    "researchedAt": "2026-07-28T16:53:02.000-04:00",
+    "model": "codex/gpt-5:research",
+    "summary": "CASH, CBIL, and PSA are liquid TSX-listed investment funds designed as cash alternatives, but they do not hold the same assets. CASH primarily holds negotiated bank deposit accounts, CBIL holds Government of Canada Treasury bills with remaining maturities generally below three months, and PSA combines Schedule I bank deposit accounts with short-term Government of Canada Treasury bills. As of July 27, 2026, the issuers reported a 1.74% annualized distribution yield for CASH, 1.93% for CBIL, and a 2.18% net yield for PSA. Those are not perfectly comparable measures, so the same-date one-year total returns through June 30, 2026—2.20%, 2.31%, and 2.32%, respectively—provide a useful backward-looking cross-check. None of the ETFs is covered by CDIC.",
+    "comparisonDimensions": [
+      {
+        "label": "Underlying exposure and credit structure",
+        "values": {
+          "CASH": "Primarily Canadian bank high-interest deposit accounts; 49.51% was in a National Bank cash account on July 27, 2026.",
+          "CBIL": "Government of Canada Treasury bills generally maturing in less than three months; A-1+ average credit quality and 0.12-year weighted duration on July 27, 2026.",
+          "PSA": "Schedule I Canadian bank high-interest deposits plus short-term Government of Canada Treasury bills."
+        },
+        "interpretation": "CBIL offers the most direct sovereign exposure. CASH and PSA depend more on negotiated bank deposit rates and introduce bank-counterparty concentration inside an investment fund.",
+        "sourceIds": [1, 2, 3, 4]
+      },
+      {
+        "label": "Current quoted yield measure",
+        "values": {
+          "CASH": "1.74% annualized distribution yield as of July 27, 2026; 2.16% gross yield effective July 8, 2026.",
+          "CBIL": "1.93% annualized distribution yield as of July 27, 2026; 2.25% weighted average yield to maturity.",
+          "PSA": "2.18% net yield and 2.35% gross yield as of July 27, 2026."
+        },
+        "interpretation": "PSA showed the highest current issuer-quoted net yield, but the definitions and measurement dates differ. The figures should not be treated as a guaranteed forward return.",
+        "sourceIds": [1, 2, 3]
+      },
+      {
+        "label": "Same-date one-year total return",
+        "values": {
+          "CASH": "2.20% for the year ended June 30, 2026.",
+          "CBIL": "2.31% for the year ended June 30, 2026.",
+          "PSA": "2.32% for the year ended June 30, 2026."
+        },
+        "interpretation": "The historical gap was only 0.12 percentage points from lowest to highest. Trading costs and tax treatment can matter more than that difference for a small or short holding.",
+        "sourceIds": [1, 2, 3]
+      },
+      {
+        "label": "Fund expenses",
+        "values": {
+          "CASH": "0.10% management fee and 0.11% MER as of December 31, 2025.",
+          "CBIL": "0.10% management fee and 0.11% MER as of December 31, 2025.",
+          "PSA": "0.15% management fee and 0.17% MER as of December 31, 2025."
+        },
+        "interpretation": "PSA costs six basis points more than CASH and CBIL on the latest reported MER, but its current quoted net yield and one-year return were still slightly higher.",
+        "sourceIds": [1, 2, 3]
+      },
+      {
+        "label": "Scale and verified liquidity indicators",
+        "values": {
+          "CASH": "$6.54 billion net assets and 1.52 million 12-month average daily units traded as of July 27, 2026.",
+          "CBIL": "$2.50 billion net assets and 633,829 12-month average daily units traded as of July 27, 2026.",
+          "PSA": "$4.2 billion AUM and T+1 settlement as of July 27, 2026; comparable average-volume data was not displayed on the reviewed issuer page."
+        },
+        "interpretation": "All three are large funds. CASH had the strongest issuer-reported volume evidence, but an investor still needs to check the live bid-ask spread and use a limit order.",
+        "sourceIds": [1, 2, 3]
+      },
+      {
+        "label": "Insurance and account tax context",
+        "values": {
+          "CASH": "The ETF is not CDIC-insured; distributions in a non-registered account depend on year-end tax characterization.",
+          "CBIL": "The ETF is not CDIC-insured even though the portfolio holds federal Treasury bills; distributions in a non-registered account depend on year-end tax characterization.",
+          "PSA": "The ETF is not CDIC-insured; distributions in a non-registered account depend on year-end tax characterization."
+        },
+        "interpretation": "ETF ownership is not the same as an insured bank deposit. Interest and other investment income is reportable in a taxable account, while TFSA income is generally tax-free and RRSP income is generally tax-deferred until withdrawal.",
+        "sourceIds": [1, 2, 3, 7, 8, 9, 10, 11]
+      }
+    ],
+    "keyFindings": [
+      "CBIL has the cleanest direct Government of Canada exposure and a very short 0.12-year weighted duration.",
+      "PSA had the highest current issuer-quoted net yield at 2.18% on July 27, 2026.",
+      "CASH had the largest asset base and highest verified 12-month average daily trading volume.",
+      "The same-date one-year total returns were tightly grouped: 2.20% for CASH, 2.31% for CBIL, and 2.32% for PSA.",
+      "None of the three ETFs is eligible for CDIC deposit insurance.",
+      "The Bank of Canada policy rate was 2.25%, and the July 28 three-month Treasury-bill auction averaged 2.29%."
+    ],
+    "uncertainties": [
+      "CASH and CBIL publish annualized distribution yields, while PSA publishes a net yield; the current quoted figures are not perfectly like-for-like.",
+      "The final 2026 tax character of each ETF's distributions will be known from issuer tax reporting and investor slips after year-end.",
+      "The after-tax examples assume ordinary-income treatment solely for illustration and are not personal tax calculations.",
+      "PSA's reviewed portfolio page displayed weights but did not expose holding names in the rendered source.",
+      "Live bid-ask spreads, brokerage commissions, and order execution were not captured because they change by broker and time of day.",
+      "All three yields can change quickly after policy-rate, Treasury-bill, or negotiated bank-deposit-rate changes."
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "title": "Global X High Interest Savings ETF — CASH",
+        "publisher": "Global X Investments Canada",
+        "url": "https://www.globalx.ca/product/cash",
+        "publishedAt": "2026-07-27",
+        "sourceType": "primary",
+        "claims": [
+          "CASH objective, bank-deposit structure, current distribution and gross yields",
+          "CASH fees, assets, trading volume, holdings, distributions, one-year return, and non-CDIC status"
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Global X 0-3 Month T-Bill ETF — CBIL",
+        "publisher": "Global X Investments Canada",
+        "url": "https://www.globalx.ca/product/cbil",
+        "publishedAt": "2026-07-27",
+        "sourceType": "primary",
+        "claims": [
+          "CBIL objective, current distribution yield, fees, assets, trading volume, and one-year return",
+          "CBIL duration, yield to maturity, credit quality, Treasury-bill holdings, and non-CDIC status"
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Purpose High Interest Savings Fund — PSA",
+        "publisher": "Purpose Investments",
+        "url": "https://www.purposeinvest.com/funds/purpose-high-interest-savings-fund",
+        "publishedAt": "2026-07-27",
+        "sourceType": "primary",
+        "claims": [
+          "PSA deposit and Treasury-bill structure, daily liquidity and T+1 settlement",
+          "PSA gross and net yields, fees, AUM, NAV, one-year return, and non-CDIC status"
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Purpose High Interest Savings Fund — Portfolio Breakdown",
+        "publisher": "Purpose Investments",
+        "url": "https://www.purposeinvest.com/funds/purpose-high-interest-savings-fund/portfolio",
+        "publishedAt": "2026-07-27",
+        "sourceType": "primary",
+        "claims": [
+          "PSA portfolio weights were current to July 27, 2026",
+          "Rendered portfolio data did not expose the holding names used for those weights"
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Selected treasury bill yields",
+        "publisher": "Bank of Canada",
+        "url": "https://www.bankofcanada.ca/rates/interest-rates/t-bill-yields/",
+        "publishedAt": "2026-07-28",
+        "sourceType": "primary",
+        "claims": [
+          "The July 28, 2026 three-month Treasury-bill auction average yield was 2.29%",
+          "The July 22 secondary-market three-month Treasury-bill yield was 2.26%"
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Policy interest rate",
+        "publisher": "Bank of Canada",
+        "url": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/",
+        "publishedAt": "2026-07-15",
+        "sourceType": "primary",
+        "claims": [
+          "The Bank of Canada target rate was 2.25% after the July 15, 2026 decision",
+          "The next scheduled rate announcement was September 2, 2026"
+        ]
+      },
+      {
+        "id": 7,
+        "title": "What's covered",
+        "publisher": "Canada Deposit Insurance Corporation",
+        "url": "https://www.cdic.ca/depositors/whats-covered/",
+        "publishedAt": "2026-07-28",
+        "sourceType": "primary",
+        "claims": [
+          "ETFs are not eligible for CDIC deposit insurance",
+          "Eligible deposits are insured up to applicable category limits at member institutions"
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Line 12100 — Interest and other investment income",
+        "publisher": "Canada Revenue Agency",
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12100-interest-other-investment-income.html",
+        "publishedAt": "2026-01-20",
+        "sourceType": "primary",
+        "claims": [
+          "Interest and other investment income forms part of total income and must be reported",
+          "Treasury-bill discount income at maturity is generally reported as interest"
+        ]
+      },
+      {
+        "id": 9,
+        "title": "What is a TFSA",
+        "publisher": "Canada Revenue Agency",
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account/what.html",
+        "publishedAt": "2026-02-20",
+        "sourceType": "primary",
+        "claims": [
+          "Interest, dividends, and capital gains earned inside a TFSA are generally tax-free",
+          "TFSA withdrawals are generally tax-free"
+        ]
+      },
+      {
+        "id": 10,
+        "title": "Registered Retirement Savings Plan",
+        "publisher": "Canada Revenue Agency",
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/registered-retirement-savings-plan-rrsp.html",
+        "publishedAt": "2026-05-07",
+        "sourceType": "primary",
+        "claims": [
+          "Income earned in an RRSP is usually exempt while it remains in the plan",
+          "RRSP payments are generally taxable when received"
+        ]
+      },
+      {
+        "id": 11,
+        "title": "First Home Savings Account",
+        "publisher": "Canada Revenue Agency",
+        "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account.html",
+        "publishedAt": "2026-02-02",
+        "sourceType": "primary",
+        "claims": [
+          "An FHSA permits an eligible first-time home buyer to save for a qualifying first home tax-free within applicable limits",
+          "FHSA withdrawals and their tax treatment depend on qualifying conditions"
+        ]
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "model": "codex/gpt-5:verifier",
+    "checkedAt": "2026-07-28T16:53:02.000-04:00",
+    "issues": [],
+    "unsupportedClaims": []
+  },
+  "quality": {
+    "score": 100,
+    "issues": [],
+    "passed": true,
+    "breakdown": {
+      "evidence": 25,
+      "originality": 25,
+      "intent": 15,
+      "transparency": 15,
+      "freshness": 10,
+      "usability": 10
+    }
+  },
+  "article": {
+    "slug": "cash-vs-cbil-vs-psa-where-should-canadians-park-cash-2026-08-03",
+    "type": "pick",
+    "title": "CASH vs CBIL vs PSA: Where Should Canadians Park Cash?",
+    "description": "Compare CASH, CBIL and PSA on current yield, fees, holdings, liquidity, tax treatment and CDIC coverage before choosing a Canadian cash ETF.",
+    "date": "2026-08-03",
+    "createdAt": "2026-07-28T16:53:02.000-04:00",
+    "factChecked": false,
+    "ticker": "CBIL",
+    "verdict": "CBIL is the cleanest default for direct federal T-bill exposure; PSA leads on quoted net yield, while CASH leads on verified trading depth.",
+    "tags": [
+      "editorial-research",
+      "comparison",
+      "cash",
+      "cbil",
+      "psa"
+    ],
+    "content": {
+      "headline": "CASH vs CBIL vs PSA: The Best Cash ETF Depends on What You Mean by Safe",
+      "summary": "CBIL is the cleanest structural default because it holds very short Government of Canada Treasury bills. PSA currently quotes the highest net yield, while CASH has the strongest verified trading-volume evidence; none is CDIC-insured.",
+      "candidates": [
+        {
+          "ticker": "CASH",
+          "company": "Global X High Interest Savings ETF",
+          "status": "considered",
+          "reasonConsidered": "Lowest reported MER alongside CBIL, the largest asset base, and the highest verified average trading volume.",
+          "reasonEliminated": "Its current annualized distribution yield and one-year return trailed the other two, while its deposits were concentrated among a small group of banks.",
+          "score": 7.7
+        },
+        {
+          "ticker": "CBIL",
+          "company": "Global X 0-3 Month T-Bill ETF",
+          "status": "selected",
+          "reasonConsidered": "Direct Government of Canada Treasury-bill exposure, 0.12-year duration, a 0.11% MER, and substantial assets and trading volume.",
+          "score": 8.5
+        },
+        {
+          "ticker": "PSA",
+          "company": "Purpose High Interest Savings Fund",
+          "status": "considered",
+          "reasonConsidered": "Highest current issuer-quoted net yield and highest one-year return of the three, plus a large asset base.",
+          "reasonEliminated": "Its MER was higher and the accessible holdings page did not expose enough detail to compare bank-counterparty concentration cleanly.",
+          "score": 8.3
+        }
+      ],
+      "winner": {
+        "ticker": "CBIL",
+        "company": "Global X 0-3 Month T-Bill ETF",
+        "status": "selected",
+        "reasonConsidered": "The most transparent direct sovereign structure with very short duration and competitive costs.",
+        "score": 8.5
+      },
+      "analysis": "## Quick answer\n\nFor a Canadian investor who wants a brokerage-account cash alternative and cares first about the underlying credit structure, CBIL is the cleanest default of these three. It holds Government of Canada Treasury bills generally maturing in less than three months; on July 27, 2026, Global X reported a 0.12-year weighted duration, A-1+ average credit quality, and a 2.25% weighted yield to maturity.[2] That is a more direct sovereign exposure than a fund built mainly from negotiated bank deposits.\n\nPSA has the strongest current yield headline. Purpose reported a 2.18% net yield on July 27, versus annualized distribution yields of 1.93% for CBIL and 1.74% for CASH.[1][2][3] But those labels are not identical calculations. PSA's net yield is a current portfolio measure, while Global X annualizes the most recent regular distribution against NAV. Treating that spread as a guaranteed advantage would be false precision.\n\nCASH remains relevant because it is large, inexpensive, and heavily traded. Global X reported $6.54 billion in net assets and 1.52 million units of 12-month average daily trading volume, both higher than the corresponding verified figures for CBIL.[1] Its trade-off is that the portfolio is a collection of bank cash accounts rather than direct federal Treasury bills.\n\n## Head-to-head\n\n| Dimension | CASH | CBIL | PSA |\n|---|---|---|---|\n| Main exposure | Canadian bank deposit accounts | Government of Canada T-bills under three months | Schedule I bank deposits plus short federal T-bills |\n| Current issuer yield measure | 1.74% annualized distribution yield | 1.93% annualized distribution yield | 2.18% net yield |\n| One-year total return to June 30, 2026 | 2.20% | 2.31% | 2.32% |\n| Latest reported MER | 0.11% | 0.11% | 0.17% |\n| Assets reported July 27 | $6.54B | $2.50B | $4.2B |\n| Verified liquidity detail | 1.52M average daily units | 633,829 average daily units | T+1 settlement; comparable volume not shown |\n| CDIC insured | No | No | No |\n\nThe same-date one-year returns are useful because they use a common June 30 endpoint: 2.20% for CASH, 2.31% for CBIL, and 2.32% for PSA.[1][2][3] The difference between first and last was only 0.12 percentage points. On $10,000, that historical gap was about $12 before tax and trading costs. A commission, a wide entry-and-exit spread, or one poorly timed market order can erase that much on a short holding.\n\n## What the structures change\n\nCASH held 49.51% in a National Bank cash account, 28.04% in a Scotiabank cash account, 14.78% in a CIBC cash account, and smaller balances in additional Scotia and CIBC Mellon accounts on July 27.[1] Diversifying across accounts helps, but the economic exposure is still negotiated deposits with a concentrated bank group. The fund's gross yield was 2.16% effective July 8, while its MER was 0.11% for 2025.[1]\n\nCBIL's holdings were federal Treasury bills spanning late July through November 2026.[2] The Bank of Canada's July 28 auction produced a 2.29% average yield on three-month bills, while the July 22 secondary-market three-month yield was 2.26%.[5] Those figures explain why CBIL's portfolio yield sits near the policy rate without requiring a bank-deposit spread. Its small duration does not eliminate price movement, but it sharply limits conventional interest-rate sensitivity compared with a longer bond fund.\n\nPurpose says PSA mixes Schedule I bank deposits with short Bank of Canada Treasury bills, calculates interest daily, pays monthly, and settles T+1.[3] It reported a 2.35% gross yield, 2.18% net yield, $4.2 billion of assets, and a 0.17% MER on the relevant dates.[3] The reviewed portfolio page showed four position weights plus a total but did not render the holding names, so this review cannot independently compare PSA's current bank concentration with CASH's.[4]\n\n## The after-tax scorecard\n\nThe table below is an illustration, not a tax forecast. It applies assumed marginal tax rates to the current quoted yield measures—1.74% for CASH, 1.93% for CBIL, and 2.18% for PSA—and assumes the return is ordinary income. Actual T3 characterization can differ and will only be final after the tax year. CRA says interest and other investment income must be reported in a non-registered account.[8]\n\n| Account or assumed tax rate | CASH on $10,000 | CBIL on $10,000 | PSA on $10,000 |\n|---|---:|---:|---:|\n| TFSA / FHSA with a qualifying withdrawal | $174 | $193 | $218 |\n| RRSP before deferred withdrawal tax | $174 | $193 | $218 |\n| Non-registered at 30% | $122 | $135 | $153 |\n| Non-registered at 40% | $104 | $116 | $131 |\n| Non-registered at 50% | $87 | $97 | $109 |\n\nCRA states that TFSA interest, dividends, and capital gains are generally tax-free.[9] An FHSA permits eligible first-time home buyers to save for a qualifying home tax-free, subject to its rules.[11] RRSP income is usually exempt while it stays in the plan, but withdrawals are generally taxable.[10] Account room has an opportunity cost, so the tax shelter alone does not decide whether a low-volatility holding belongs there.\n\n## What the numbers miss\n\nNone of these ETFs is a CDIC-insured deposit. CDIC explicitly excludes exchange-traded funds, and each issuer gives the same warning.[1][2][3][7] CBIL's underlying federal bills still have a different credit structure from bank deposits, but owning CBIL units is not the same legal product as holding an insured bank account or GIC.\n\nYield reset risk matters too. The Bank of Canada held its policy rate at 2.25% on July 15 and scheduled its next decision for September 2.[6] A future rate cut would normally flow through to new Treasury bills and negotiated deposit rates, although not at exactly the same speed. Today's ranking can therefore change without any fund changing its mandate.\n\nFinally, ETF liquidity is not a promise of an exact $50 exit. Prices can trade above or below NAV, and commissions or spreads matter. CASH and CBIL both closed at NAV on July 27, but that is a snapshot, not a guarantee.[1][2] A limit order during normal market hours is a more controlled implementation than a market order near the open or close.\n\n## Who each option fits\n\n**CBIL fits the structure-first investor.** It is the clearest match for someone who wants direct short federal-bill exposure, transparent maturities, low duration, and a 0.11% MER.[2] Its quoted distribution yield was not the highest, so it is not automatically the best income maximizer.\n\n**PSA fits the yield-first comparison shopper.** It had the highest current quoted net yield and narrowly led the one-year return comparison.[3] The higher 0.17% MER did not prevent that result, but the yield can reset and the rendered holdings disclosure was less useful for this review.\n\n**CASH fits the execution-first investor.** It combines a 0.11% MER with the largest assets and strongest verified average-volume figure.[1] That can be useful for larger or more frequent trades. The cost is bank-account concentration and the lowest current distribution-yield headline of the three.\n\n## Bottom line\n\nCBIL earns the highest structural score, not a universal recommendation. PSA leads on the current issuer-quoted net yield, and CASH leads on verified trading depth. For a very short holding, compare the live spread and commission before chasing a yield difference measured in tenths of a percentage point. For money that must be insured or available at par on demand, compare these ETFs with an eligible bank deposit or cashable GIC instead of assuming the word cash makes them equivalent.[7]",
+      "risks": [
+        "None of CASH, CBIL, or PSA is covered by CDIC, and ETF units can trade away from NAV.",
+        "A Bank of Canada rate cut or lower Treasury-bill and deposit rates would reduce future income.",
+        "Bid-ask spreads and commissions can overwhelm small yield differences for short holding periods.",
+        "CASH and PSA introduce bank-counterparty and negotiated-deposit-rate exposure.",
+        "Current yield measures use different definitions and should not be compared as guaranteed forward returns."
+      ],
+      "catalysts": [
+        "A stable 2.25% policy rate supports the current short-term rate backdrop until conditions change.",
+        "CBIL can continuously roll maturing bills into current Government of Canada auction yields.",
+        "PSA's current 2.18% quoted net yield provides a measurable advantage if it persists after costs.",
+        "CASH's large asset base and verified trading volume can support efficient execution when spreads are tight."
+      ],
+      "dataPoints": [
+        {
+          "label": "CASH annualized distribution yield",
+          "value": "1.74% as of July 27, 2026",
+          "source": "Global X Investments Canada",
+          "sourceUrl": "https://www.globalx.ca/product/cash"
+        },
+        {
+          "label": "CBIL weighted average yield to maturity",
+          "value": "2.25% with 0.12-year duration as of July 27, 2026",
+          "source": "Global X Investments Canada",
+          "sourceUrl": "https://www.globalx.ca/product/cbil"
+        },
+        {
+          "label": "PSA net yield",
+          "value": "2.18% as of July 27, 2026",
+          "source": "Purpose Investments",
+          "sourceUrl": "https://www.purposeinvest.com/funds/purpose-high-interest-savings-fund"
+        },
+        {
+          "label": "Three-month Treasury-bill auction yield",
+          "value": "2.29% on July 28, 2026",
+          "source": "Bank of Canada",
+          "sourceUrl": "https://www.bankofcanada.ca/rates/interest-rates/t-bill-yields/"
+        }
+      ],
+      "finalVerdict": "CBIL is the cleanest default when the decision starts with underlying credit structure: it holds direct, very short Government of Canada Treasury bills, reports a 0.12-year duration, and charges the same 0.11% MER as CASH. PSA deserves attention when current income is the priority because its issuer-quoted 2.18% net yield was highest, though its measure is not directly identical to the Global X distribution yields. CASH is strongest where scale and verified trading activity matter. None is CDIC-insured, and none guarantees a $50 exit. The practical choice therefore depends on live spreads, brokerage costs, account tax treatment, holding period, and whether the investor actually needs deposit insurance rather than ETF liquidity.",
+      "references": [
+        {
+          "id": 1,
+          "source": "Global X Investments Canada — CASH",
+          "url": "https://www.globalx.ca/product/cash"
+        },
+        {
+          "id": 2,
+          "source": "Global X Investments Canada — CBIL",
+          "url": "https://www.globalx.ca/product/cbil"
+        },
+        {
+          "id": 3,
+          "source": "Purpose Investments — PSA",
+          "url": "https://www.purposeinvest.com/funds/purpose-high-interest-savings-fund"
+        },
+        {
+          "id": 4,
+          "source": "Purpose Investments — PSA portfolio",
+          "url": "https://www.purposeinvest.com/funds/purpose-high-interest-savings-fund/portfolio"
+        },
+        {
+          "id": 5,
+          "source": "Bank of Canada — Treasury-bill yields",
+          "url": "https://www.bankofcanada.ca/rates/interest-rates/t-bill-yields/"
+        },
+        {
+          "id": 6,
+          "source": "Bank of Canada — Policy interest rate",
+          "url": "https://www.bankofcanada.ca/core-functions/monetary-policy/key-interest-rate/"
+        },
+        {
+          "id": 7,
+          "source": "CDIC — What's covered",
+          "url": "https://www.cdic.ca/depositors/whats-covered/"
+        },
+        {
+          "id": 8,
+          "source": "Canada Revenue Agency — Interest and investment income",
+          "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12100-interest-other-investment-income.html"
+        },
+        {
+          "id": 9,
+          "source": "Canada Revenue Agency — What is a TFSA",
+          "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account/what.html"
+        },
+        {
+          "id": 10,
+          "source": "Canada Revenue Agency — RRSP",
+          "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/registered-retirement-savings-plan-rrsp.html"
+        },
+        {
+          "id": 11,
+          "source": "Canada Revenue Agency — FHSA",
+          "url": "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account.html"
+        }
+      ]
+    },
+    "editorialReview": {
+      "status": "pending",
+      "researchId": "research-2026-08-03-cash-vs-cbil-vs-psa",
+      "writerModel": "codex/gpt-5:writer",
+      "verifierModel": "codex/gpt-5:verifier",
+      "qualityScore": 100
+    }
+  }
+}

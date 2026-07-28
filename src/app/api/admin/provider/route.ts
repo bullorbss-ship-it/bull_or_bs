@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifySession } from '@/lib/auth';
 import { getActiveProvider } from '@/lib/ai/providers';
+import { getEditorialExecutionMode, getStageReadiness } from '@/lib/ai/stage-provider';
 
 export async function GET(req: NextRequest) {
   if (!verifySession(req)) {
@@ -11,5 +12,7 @@ export async function GET(req: NextRequest) {
     provider: getActiveProvider(),
     hasOpenRouter: !!process.env.OPENROUTER_API_KEY,
     hasAnthropic: !!process.env.ANTHROPIC_API_KEY,
+    executionMode: getEditorialExecutionMode(),
+    stages: getStageReadiness(),
   });
 }

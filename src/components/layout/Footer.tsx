@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
             <p className="text-muted text-sm mt-2 leading-relaxed max-w-sm">
               AI-driven stock analysis for Canadian and US markets.
-              Every recommendation shows its full reasoning.
+              Every recommendation shows its sources and decision logic.
               Made in Canada, for everyone.
             </p>
           </div>
@@ -62,9 +62,21 @@ export default function Footer() {
               &copy; {new Date().getFullYear()} {siteConfig.name}
             </p>
             <p className="text-muted-light text-xs">
-              AI-generated content &middot; Not financial advice &middot; Built in Canada
+              AI-assisted content &middot; Human approval required &middot; Not financial advice
             </p>
           </div>
+          <p className="text-muted-light text-xs mt-3">
+            Technology and editorial system built by{' '}
+            <a
+              href={siteConfig.creator.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              {siteConfig.creator.name}
+            </a>
+            , led by {siteConfig.creator.founder}. Technology credentials do not constitute financial credentials.
+          </p>
         </div>
       </div>
     </footer>

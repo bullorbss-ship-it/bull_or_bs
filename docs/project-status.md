@@ -1,5 +1,5 @@
 # BullOrBS — Project Status & Roadmap
-**Last updated: 2026-03-25**
+**Last updated: 2026-07-28**
 
 ---
 
@@ -14,19 +14,21 @@
 
 ### Content & SEO
 - [x] 115 static tickers + 91 stock profiles (data/stocks/*.json) + dynamic ticker registry
-- [x] 55 articles published (14 roasts + 7 picks + 34 news takes)
-- [x] Programmatic SEO: every /stock/[ticker] targets "should I buy [TICKER]"
+- [x] 239 article files (19 roasts + 7 picks + 213 takes); 166 legacy daily briefs are excluded from indexing pending review
+- [x] Stock pages without reviewed editorial coverage emit noindex and are omitted from the sitemap
 - [x] Schema.org: Article, FAQPage, Organization, BreadcrumbList, Corporation, Review
 - [x] Learn section: 5 guides (TFSA, RRSP, FHSA, Dividend Investing, US Stocks from Canada)
 - [x] About, disclaimer, methodology, editorial standards, privacy, terms, 404 pages
 
 ### AI Generation Pipeline
-- [x] Haiku 4.5 primary (~$0.02/article), OpenRouter free fallback
-- [x] 5 generation types: roast, pick, data-roast, data-pick, take (news)
-- [x] Text-paste workflow: paste research data → Haiku generates article
-- [x] Identity-only reference sheet (prevents AI using stale profile metrics)
-- [x] Qualitative output style (no specific numbers unless from pasted data)
-- [x] Cost tracking: every run logged to data/costs.json
+- [x] Assistant-neutral repository workflow runs planning, deep research, writing, verification, and approval reports without model API keys
+- [x] Any repository-capable coding assistant can follow `EDITORIAL_WORKFLOW.md`; neutral discovery lives in `AGENTS.md`
+- [x] Optional unattended API mode retains isolated stage models and keys
+- [x] Monthly weekday plan requires operator approval before research begins
+- [x] Deep research uses web search and saves a source packet with primary-source requirements
+- [x] Writer receives only the saved packet; a separate verifier checks the resulting draft
+- [x] Quality gate requires evidence, originality, uncertainty, and source-linked data points
+- [x] Morning drafts require explicit approval in `/orange`; direct publishing is disabled
 
 ### Data & Profiles
 - [x] 91 stock/ETF JSON profiles (data/stocks/*.json)
@@ -45,16 +47,16 @@
 
 ### Admin Dashboard (/orange)
 - [x] Password-protected admin panel
-- [x] Generate tab: roast + pick forms with text-paste input
-- [x] Articles tab: list all with "Publish & Save to Repo" CTA
+- [x] Editorial tab: stage readiness, monthly plan approval, evidence review, draft approval/rejection
+- [x] Legacy generate tab retained for drafting, but direct publication is blocked
 - [x] Costs tab: per-run detail, monthly breakdown, yearly projection
-- [x] Auto-commit to GitHub via /api/admin/commit
+- [x] Git-backed plan/draft storage and approval-only article commits
 - [x] Social distribution: generate Reddit/X/Instagram posts after publish
 
 ### Infrastructure
 - [x] EST timezone for all dates (src/lib/date.ts)
 - [x] Article sorting by createdAt (newest first, git-history-accurate)
-- [x] Pre-deploy pipeline: 8 gates (type-check, lint, SAST, SEO, legal, content-audit, docs, docs-check)
+- [x] Pre-deploy pipeline: 9 gates, including approval-workflow enforcement
 - [x] Rate limiting on all API routes + security headers in next.config.ts
 - [x] Timing-safe HMAC auth, brute-force protection (5 attempts/15 min)
 - [x] Footnote reference system: inline [1] markers + Sources section at bottom (replaces inline external links)
@@ -72,18 +74,18 @@
 - [x] News sitemap for Google News (last 2 days)
 - [x] Bracket builder (/bracket) — user-submitted AI tournaments (feature-flagged)
 - [x] Ad pixels (Meta, X, Google Ads) infrastructure ready
+- [x] GA4 lead tracking uses the standard `generate_lead` event after a confirmed subscription
 
 ---
 
 ## What's Next (Priority Order)
 
-### Priority 1: Content Volume (ONGOING)
-**Goal: 3-4 news takes/day + 1-2 roasts/picks per week. Content is the moat.**
-- [x] 55 articles published in first 2.5 weeks (14 roasts, 7 picks, 34 takes)
-- [ ] Continue 3-4 takes/day cadence (safest content type for volume)
-- [ ] Focus on high-search-volume tickers: AAPL, MSFT, NVDA, AMZN, GOOGL, TSLA
-- [ ] Canadian focus: RY, TD, ENB, CNR, BCE, SU, BNS
-- [ ] Topic picks: "best dividend stock", "best tech stock", "best Canadian bank"
+### Priority 1: Configure and Validate Approval-First Production
+**Goal: one source-backed weekday draft, never an automatic publication.**
+- [ ] Approve the August 2026 assistant-generated plan
+- [ ] Run a morning draft and verify research citations, report quality, and Git persistence
+- [ ] Test an optional coding-assistant scheduled task after the manual workflow is accepted
+- [ ] Verify the public sitemap/indexing footprint after deployment
 
 ### Priority 2: Reddit Distribution (IN PROGRESS)
 **Goal: First organic traffic from Reddit.**
@@ -155,12 +157,12 @@
 ---
 
 ## Architecture Decisions
-See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-017.
+See [architecture-decisions.md](architecture-decisions.md) for ADR-001 through ADR-019.
 
 Key decisions:
-1. Haiku over Sonnet (55x cheaper, good enough with structured input)
-2. Local JSON over live APIs (FMP ToS prohibits commercial use)
-3. Text-paste over image upload (simpler, cheaper, fewer tokens)
+1. One assistant-neutral workflow contract; API mode optionally uses separate stage models and keys
+2. Web-search research packets over model memory for material claims
+3. Human approval after automated verification; never direct auto-publication
 4. EST timezone for all dates (Canadian audience)
 5. Dynamic ticker registry (no manual tickers.ts editing)
 6. Qualitative analysis style (avoids hallucinated numbers)
@@ -173,25 +175,24 @@ Key decisions:
 ## Cost Model
 | Item | Cost |
 |---|---|
-| Article generation (Haiku 4.5) | ~$0.02/article |
+| Assistant-operated planning/research/writing/verification | Included with the chosen coding assistant |
+| Optional unattended API execution | Depends on configured stage models and web-search calls |
 | Vercel hosting | $0 (free tier) |
 | Cloudflare DNS | $0 |
 | Domain (bullorbs.com) | ~$10/year |
-| **Monthly (~60 articles at current pace)** | **~$1.20 + $0.83 domain** |
-| **Yearly (1000+ articles)** | **~$20 + $10 domain** |
+| **Monthly AI total** | Measure after first approved plan and representative draft run |
 
 ## Content Workflow
 ```
-Claude/Gemini Deep Research (free)
-    → Verified data table WITH source hyperlinks
-        → Paste into /orange dashboard
-            → Haiku generates article ($0.02) with inline source links
-                → Opus fact-check (roasts + picks only)
-                    → Fix any errors (editor's cut)
-                        → Publish & Save to Repo
-                            → Vercel auto-deploys
-                                → Distribute (generates social posts ~$0.005)
-                                    → Copy-paste to Reddit/X/Instagram
+Any capable coding assistant creates weekday assignments from EDITORIAL_WORKFLOW.md
+    → Operator approves the plan in /orange
+        → A research pass searches the web and saves a source packet
+            → A separate writing pass drafts only from that packet
+                → A separate verification pass checks all material claims
+                    → Quality gate scores evidence, originality, transparency, and usability
+                        → Morning email links to private review
+                            → Operator approves or rejects
+                                → Approved article commits to GitHub and Vercel deploys
 ```
 
 ## Source Citation Pipeline (Footnote System — updated 2026-03-23)

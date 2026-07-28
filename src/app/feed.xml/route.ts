@@ -1,8 +1,8 @@
-import { getAllArticles } from '@/lib/content';
+import { getAllArticles, isIndexableArticle } from '@/lib/content';
 import { siteConfig } from '@/config/site';
 
 export async function GET() {
-  const articles = getAllArticles();
+  const articles = getAllArticles().filter(isIndexableArticle);
 
   const items = articles
     .slice(0, 20)

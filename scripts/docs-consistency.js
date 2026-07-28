@@ -37,6 +37,14 @@ const keyFiles = [
   ['src/lib/ai/generate.ts', 'AI generation'],
   ['src/lib/ai/prompts.ts', 'AI prompts'],
   ['src/lib/ai/parse.ts', 'JSON repair'],
+  ['src/lib/ai/stage-provider.ts', 'Stage-specific AI routing'],
+  ['src/lib/editorial-plan.ts', 'Monthly editorial planning'],
+  ['src/lib/editorial-store.ts', 'Editorial plan/draft storage'],
+  ['src/lib/research.ts', 'Deep research and drafting'],
+  ['src/lib/publishing.ts', 'Approval-only publishing'],
+  ['EDITORIAL_WORKFLOW.md', 'Assistant-neutral editorial workflow'],
+  ['AGENTS.md', 'Cross-assistant discovery instructions'],
+  ['.agents/skills/bullorbs-editorial/SKILL.md', 'Optional editorial workflow adapter'],
   ['src/lib/ai/legal.ts', 'Legal audit/scrub'],
   ['src/lib/fmp.ts', 'FMP data layer'],
   ['src/lib/costs.ts', 'Cost tracker'],
@@ -49,6 +57,7 @@ const keyFiles = [
   // Scripts
   ['scripts/seo-validate.js', 'SEO checker'],
   ['scripts/legal-check.js', 'Legal checker'],
+  ['scripts/editorial-artifact-check.js', 'Editorial artifact validator'],
   ['scripts/docs-generate.js', 'Docs generator'],
   // Docs
   ['docs/architecture-decisions.md', 'Architecture decisions'],
@@ -77,9 +86,11 @@ console.log('\n--- Article Count Check ---');
 const contentDir = path.join(ROOT, 'content');
 let roastCount = 0;
 let pickCount = 0;
+let takeCount = 0;
 
 const roastsDir = path.join(contentDir, 'roasts');
 const picksDir = path.join(contentDir, 'picks');
+const takesDir = path.join(contentDir, 'takes');
 
 if (fs.existsSync(roastsDir)) {
   roastCount = fs.readdirSync(roastsDir).filter(f => f.endsWith('.json')).length;
@@ -87,9 +98,12 @@ if (fs.existsSync(roastsDir)) {
 if (fs.existsSync(picksDir)) {
   pickCount = fs.readdirSync(picksDir).filter(f => f.endsWith('.json')).length;
 }
+if (fs.existsSync(takesDir)) {
+  takeCount = fs.readdirSync(takesDir).filter(f => f.endsWith('.json')).length;
+}
 
-const totalArticles = roastCount + pickCount;
-ok(`Found ${totalArticles} articles (${roastCount} roasts, ${pickCount} picks)`);
+const totalArticles = roastCount + pickCount + takeCount;
+ok(`Found ${totalArticles} articles (${roastCount} roasts, ${pickCount} picks, ${takeCount} takes)`);
 
 // Check DEPLOY-STATUS.md has correct count
 const deployStatusPath = path.join(ROOT, 'docs', 'DEPLOY-STATUS.md');
@@ -156,6 +170,10 @@ const criticalRoutes = [
   ['src/app/api/admin/articles/route.ts', '/api/admin/articles'],
   ['src/app/api/admin/costs/route.ts', '/api/admin/costs'],
   ['src/app/api/admin/commit/route.ts', '/api/admin/commit'],
+  ['src/app/api/admin/editorial-plan/route.ts', '/api/admin/editorial-plan'],
+  ['src/app/api/admin/drafts/route.ts', '/api/admin/drafts'],
+  ['src/app/api/cron/monthly-plan/route.ts', '/api/cron/monthly-plan'],
+  ['src/app/api/cron/daily-draft/route.ts', '/api/cron/daily-draft'],
 ];
 
 for (const [filePath, desc] of criticalRoutes) {
@@ -171,7 +189,7 @@ for (const [filePath, desc] of criticalRoutes) {
 
 console.log('\n--- Architecture Decision Checks ---');
 
-// ADR-001: Haiku model (check generate.ts uses haiku)
+// ADR-018/019: approval-first API fallback and assistant-neutral default
 const generatePath = path.join(ROOT, 'src', 'lib', 'ai', 'generate.ts');
 if (fs.existsSync(generatePath)) {
   const genContent = fs.readFileSync(generatePath, 'utf8');
@@ -181,11 +199,32 @@ if (fs.existsSync(generatePath)) {
     warn('ADR-001: generate.ts does not reference Haiku — model may have changed');
   }
 
-  // ADR-003: No web search
-  if (!genContent.includes('web_search') && !genContent.includes('webSearch')) {
-    ok('ADR-003: No web search tool in generation (confirmed)');
+}
+
+const stageProviderPath = path.join(ROOT, 'src', 'lib', 'ai', 'stage-provider.ts');
+if (fs.existsSync(stageProviderPath)) {
+  const stageContent = fs.readFileSync(stageProviderPath, 'utf8');
+  if (stageContent.includes("AIStage = 'plan' | 'research' | 'writer' | 'verify'")) {
+    ok('ADR-018: Four isolated editorial AI stages configured');
   } else {
-    warn('ADR-003: Web search references found in generate.ts — may conflict with ADR');
+    fail('ADR-018: Stage-specific AI routing is incomplete');
+  }
+  if (stageContent.includes("{ type: 'web_search' }")) {
+    ok('ADR-018: Web search is available to the research stage');
+  } else {
+    fail('ADR-018: Deep-research web search is missing');
+  }
+}
+
+const workflowPath = path.join(ROOT, 'EDITORIAL_WORKFLOW.md');
+if (fs.existsSync(workflowPath)) {
+  const workflowContent = fs.readFileSync(workflowPath, 'utf8');
+  if (workflowContent.includes('Never combine an approval boundary') &&
+      workflowContent.includes('Never request, reveal, or store model API keys') &&
+      workflowContent.includes('repository-capable coding')) {
+    ok('ADR-019: Assistant-neutral workflow preserves approvals without model API keys');
+  } else {
+    fail('ADR-019: Assistant-neutral workflow contract is incomplete');
   }
 }
 

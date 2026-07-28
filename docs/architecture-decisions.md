@@ -6,7 +6,7 @@ All major technical decisions documented here for future course-correction.
 
 ## ADR-001: Web Search Removal
 **Date:** 2026-03-08
-**Status:** Implemented
+**Status:** Superseded for approval-first editorial content by ADR-018; retained for legacy/manual tools
 **Context:** Claude's web_search tool costs $0.67/session and inflates input tokens from ~5K to ~125K. With Sonnet 4.5, each article cost ~$1.10. At 500 articles/year = $550/year just for AI.
 **Decision:** Remove web search entirely. Pre-fetch market data from external APIs and inject into prompt.
 **Consequence:** Input tokens drop to ~15K. Need a reliable free data source.
@@ -15,7 +15,7 @@ All major technical decisions documented here for future course-correction.
 
 ## ADR-002: Model Switch — Sonnet to Haiku
 **Date:** 2026-03-08
-**Status:** Implemented
+**Status:** Superseded for approval-first editorial content by ADR-018; retained for legacy/manual tools
 **Context:** Without web search, prompts are much simpler (~15K tokens). Sonnet is overkill. Haiku 4.5 is 3.75x cheaper on input, 3.75x cheaper on output.
 **Decision:** Switch to claude-haiku-4-5-20251001 for all generation.
 **Risk:** Haiku had 30% JSON failure rate WITH web search, but that was due to web search complexity. With structured pre-fetched data, JSON reliability should be fine.
@@ -221,7 +221,7 @@ Article Request (roast or pick)
 
 ## ADR-014: News Takes as 3rd Content Pillar
 **Date:** 2026-03-11
-**Status:** Implemented
+**Status:** Superseded by ADR-018; legacy takes remain accessible but automated briefs are noindex
 **Context:** Roasts and picks require fact-checking with Opus before publishing. Need a faster content type for daily volume. Financial news summarization is lowest risk — restructuring public facts with source links.
 **Decision:** Add "take" content type. Curate news, summarize in plain English, link to original source. Frame through "Bull or BS for investors?" lens. No speculation, no price predictions.
 **Legal model:** Morning Brew / TLDR style (summarize + link + add original commentary).
@@ -260,6 +260,54 @@ Article Request (roast or pick)
 4. **Market Movers (Hotlists)** — top gainers/losers/most active on homepage with tabs.
 **Files:** `src/components/ui/TickerTape.tsx`, `src/components/ui/TradingViewChart.tsx`, `src/components/ui/MarketMovers.tsx`, `src/app/layout.tsx`, `src/app/page.tsx`, `src/app/stock/[ticker]/page.tsx`, `src/app/article/[slug]/page.tsx`
 **Consequence:** Real-time market data at zero cost. Non-clickable overlays on mini chart and ticker tape prevent users bouncing to TradingView. Full chart on stock pages remains interactive. Widgets load client-side (no SSR impact).
+
+---
+
+## ADR-018: Approval-First, Multi-Model Editorial Workflow
+**Date:** 2026-07-28
+**Status:** Implemented
+**Context:** Production accumulated 239 articles, including 166 automated daily briefs, while Search Console showed 52 crawled-but-not-indexed URLs. Generic feed summaries and thin stock pages diluted the evidence-first recommendation-audit product.
+**Decision:**
+1. A planning model creates one assignment per weekday for the following month.
+2. The plan requires operator approval before any research begins.
+3. Deep research uses a separately keyed model with web search and saves a source packet containing at least five sources and two primary sources.
+4. A separately keyed writer may use only that packet.
+5. A separately keyed verifier checks all material claims against the packet.
+6. The publication gate requires a score of at least 80, valid citations, original comparison dimensions, explicit uncertainty, and verifier approval.
+7. Passing drafts remain private until an operator selects **Approve & publish** in `/orange`.
+8. Legacy automated briefs and stock pages without reviewed coverage are excluded from indexing and sitemaps.
+**Files:** `src/lib/ai/stage-provider.ts`, `src/lib/editorial-plan.ts`, `src/lib/research.ts`, `src/lib/quality.ts`, `src/lib/editorial-store.ts`, `src/lib/publishing.ts`, `/api/cron/monthly-plan`, `/api/cron/daily-draft`, and `/orange`.
+**Consequence:** AI and research costs increase, but publication volume can no longer outrun evidence quality or human accountability.
+
+---
+
+## ADR-019: Assistant-Neutral Editorial Workflow by Default
+**Date:** 2026-07-28
+**Status:** Implemented
+**Context:** The operator may use different coding assistants from desktop or
+mobile and does not need the website to purchase and manage four additional
+model API credentials. The monthly-plan and morning-report approval boundaries
+must behave identically across assistants.
+**Decision:**
+1. Store the canonical, vendor-neutral contract in `EDITORIAL_WORKFLOW.md` and
+   expose it through `AGENTS.md`.
+2. Keep `.agents/skills/bullorbs-editorial` as a thin optional discovery adapter
+   that points to the canonical contract instead of duplicating it.
+3. Any repository-capable assistant may perform planning, live web research,
+   packet-constrained writing, verification, and reporting as distinct
+   artifact-backed passes.
+4. Creating a plan and creating a draft always stop for separate operator approval.
+5. Vercel does not schedule model-backed editorial routes in assistant mode.
+6. The existing isolated API implementation remains available only when
+   `EDITORIAL_EXECUTION_MODE=api` is explicitly configured.
+7. Artifacts record the active assistant/model when known and fall back to
+   neutral stage labels.
+8. A deterministic repository script validates plans and drafts regardless of
+   which assistant or execution mode created them.
+**Consequence:** The same prompt and artifacts work with Codex, Claude, DeepSeek,
+Cursor, Copilot, or another capable assistant without an API key or a parallel
+implementation. Fully unattended website execution remains possible, but it is
+opt-in rather than the default.
 
 ---
 

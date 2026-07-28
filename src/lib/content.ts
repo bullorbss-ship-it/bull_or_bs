@@ -40,6 +40,23 @@ export function getArticleBySlug(slug: string): Article | null {
   return null;
 }
 
+export function isIndexableArticle(article: Article): boolean {
+  if (article.editorialReview?.status === 'approved') return true;
+  if (article.tags?.includes('daily-briefing') || article.factChecked !== true) return false;
+  const references = article.content?.references || [];
+  const words = (article.content?.analysis || '').split(/\s+/).filter(Boolean).length;
+  return words >= 500 &&
+    references.length >= 3 &&
+    references.every(reference => {
+      try {
+        const url = new URL(reference.url);
+        return url.protocol === 'https:' || url.protocol === 'http:';
+      } catch {
+        return false;
+      }
+    });
+}
+
 export function getArticlesByType(type: 'roasts' | 'picks' | 'takes'): Article[] {
   const dir = path.join(CONTENT_DIR, type);
   if (!fs.existsSync(dir)) return [];
@@ -68,8 +85,13 @@ export function getArticlesByTicker(ticker: string): Article[] {
   });
 }
 
+export function getPrimaryArticlesByTicker(ticker: string): Article[] {
+  const upper = ticker.toUpperCase();
+  return getAllArticles().filter(article => article.ticker?.toUpperCase() === upper);
+}
+
 export function getAllArticleTickers(): { ticker: string; company: string; articleCount: number }[] {
-  const articles = getAllArticles();
+  const articles = getAllArticles().filter(isIndexableArticle);
   const tickerMap = new Map<string, { company: string; count: number }>();
 
   for (const a of articles) {
@@ -101,8 +123,8 @@ export function getAllArticleTickers(): { ticker: string; company: string; artic
 }
 
 /**
- * Count roasts/picks that haven't been fact-checked yet.
- * Takes are exempt (low risk — just restructured public news).
+ * Legacy generation backlog. New editorial content uses the independent
+ * verifier and approval workflow instead of this boolean-only check.
  */
 export function getUncheckedCount(): number {
   let count = 0;
@@ -122,10 +144,6 @@ export function getUncheckedCount(): number {
 export function saveArticle(article: Article): void {
   if (!article.createdAt) {
     article.createdAt = nowEST();
-  }
-  // Takes are auto-approved (low risk — restructured public news)
-  if (article.type === 'take') {
-    article.factChecked = true;
   }
   const type = article.type === 'roast' ? 'roasts' : article.type === 'take' ? 'takes' : 'picks';
   const dir = path.join(CONTENT_DIR, type);

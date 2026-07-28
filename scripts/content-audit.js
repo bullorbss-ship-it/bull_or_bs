@@ -8,7 +8,7 @@
  * Checks:
  * 1. Learn pages — flags any with "Last verified" date older than 6 months
  * 2. Stock profiles — flags any with lastUpdated older than 3 months
- * 3. Article count summary
+ * 3. Article evidence and approval summary
  */
 
 const fs = require('fs');
@@ -127,9 +127,46 @@ function countArticles(dir) {
 
 const roasts = countArticles(path.join(CONTENT_DIR, 'roasts'));
 const picks = countArticles(path.join(CONTENT_DIR, 'picks'));
+const takes = countArticles(path.join(CONTENT_DIR, 'takes'));
 pass(`Roasts: ${roasts}`);
 pass(`Picks: ${picks}`);
-pass(`Total articles: ${roasts + picks}`);
+pass(`Takes: ${takes}`);
+pass(`Total articles: ${roasts + picks + takes}`);
+
+let legacyBriefings = 0;
+let approvedEditorial = 0;
+let invalidApproved = 0;
+let legacyIndexable = 0;
+for (const type of ['roasts', 'picks', 'takes']) {
+  const dir = path.join(CONTENT_DIR, type);
+  if (!fs.existsSync(dir)) continue;
+  for (const file of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
+    const article = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'));
+    if (article.tags?.includes('daily-briefing') && article.editorialReview?.status !== 'approved') {
+      legacyBriefings++;
+    }
+    if (article.editorialReview?.status === 'approved') {
+      approvedEditorial++;
+      const references = article.content?.references || [];
+      const dataPoints = article.content?.dataPoints || [];
+      const refsValid = references.length >= 3 && references.every(r => /^https?:\/\//.test(r.url || ''));
+      const dataValid = dataPoints.length >= 3 && dataPoints.every(d => d.source && /^https?:\/\//.test(d.sourceUrl || ''));
+      if (!article.factChecked || !refsValid || !dataValid) invalidApproved++;
+    } else if (!article.tags?.includes('daily-briefing') && article.factChecked === true) {
+      const references = article.content?.references || [];
+      const words = (article.content?.analysis || '').split(/\s+/).filter(Boolean).length;
+      if (words >= 500 && references.length >= 3 && references.every(r => /^https?:\/\//.test(r.url || ''))) {
+        legacyIndexable++;
+      }
+    }
+  }
+}
+pass(`${legacyBriefings} legacy daily briefings are excluded from indexing until reviewed`);
+pass(`${approvedEditorial} approval-first editorial articles published`);
+pass(`${legacyIndexable} legacy articles meet the temporary evidence threshold for indexing`);
+if (invalidApproved > 0) {
+  fail(`${invalidApproved} approved editorial articles fail evidence requirements`);
+}
 
 // --- Summary ---
 heading('Audit Summary');

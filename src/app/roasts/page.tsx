@@ -1,4 +1,4 @@
-import { getArticlesByType } from '@/lib/content';
+import { getArticlesByType, isIndexableArticle } from '@/lib/content';
 import ArticleCard from '@/components/article/ArticleCard';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import Link from 'next/link';
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function RoastsPage() {
-  const roasts = getArticlesByType('roasts');
+  const roasts = getArticlesByType('roasts').filter(isIndexableArticle);
 
   return (
     <div className="mx-auto max-w-4xl px-4 sm:px-6 py-10">

@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SubscribeForm from '@/components/forms/SubscribeForm';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'About Bull Or BS',
   description:
-    'Bull Or BS is an AI-driven stock analysis newsletter that shows its full reasoning. We audit popular stock picks and publish transparent, data-driven analysis.',
+    'Bull Or BS audits popular stock picks with source-linked comparisons, documented uncertainty, independent AI verification, and human approval.',
   alternates: { canonical: '/about' },
 };
 
@@ -40,10 +41,10 @@ export default function AboutPage() {
         <h2 className="text-xl font-bold text-foreground pt-4">What We Do</h2>
 
         <p>
-          Every week, our AI scans US (NYSE/NASDAQ) and Canadian (TSX) markets.
-          It evaluates 10-15 candidate stocks, runs them through a rigorous
-          elimination tournament, and publishes the entire process — every stock
-          considered, every stock rejected, and exactly why.
+          We publish comparisons, recommendation audits, and Canadian investing
+          guides. A monthly plan is approved before research begins. Each draft is
+          built from a saved source packet, checked by a separate verification model,
+          and held for human approval before publication.
         </p>
 
         <p>
@@ -56,9 +57,10 @@ export default function AboutPage() {
         <h2 className="text-xl font-bold text-foreground pt-4">Why AI?</h2>
 
         <p>
-          AI doesn&apos;t have a position in the stock. It doesn&apos;t have a fund to promote.
-          It doesn&apos;t write clickbait to sell subscriptions. It just looks at data
-          and reasons through it — and we publish that reasoning transparently.
+          AI helps us compare documents and organize evidence consistently. It can
+          still misunderstand a source or produce an unsupported claim, which is why
+          the research, writing, and verification stages use separate configurations
+          and why publication always requires human approval.
         </p>
 
         <p>
@@ -86,6 +88,18 @@ export default function AboutPage() {
         <p>
           BullOrBS is built in Canada, for investors who want better analysis
           of both US and Canadian markets. No gatekeeping. No paywalls. Just analysis.
+        </p>
+
+        <h2 className="text-xl font-bold text-foreground pt-4">Who Built It</h2>
+
+        <p>
+          The technology and editorial workflow are built and operated by{' '}
+          <a href={siteConfig.creator.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+            {siteConfig.creator.name}
+          </a>
+          , an AI and technology studio led by {siteConfig.creator.founder} in Whitby,
+          Ontario. That background supports the engineering and AI-system work; it
+          does not represent a financial-advisor or investment-management credential.
         </p>
 
         <div className="flex gap-4 pt-4">

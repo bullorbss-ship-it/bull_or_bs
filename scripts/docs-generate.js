@@ -189,7 +189,10 @@ row('Lint', '`npm run lint`', 'Automated');
 row('SAST', '`npm run security`', 'Automated');
 row('SEO', '`npm run seo-check`', 'Automated');
 row('Legal', '`npm run legal-check`', 'Automated');
+row('Content', '`npm run content-audit`', 'Automated');
+row('Editorial', '`npm run editorial-check`', 'Automated');
 row('Docs', '`npm run docs`', 'Automated');
+row('Docs consistency', '`npm run docs-check`', 'Automated');
 lines.push('');
 
 // ─── Tech Stack ─────────────────────────────────────────────────────

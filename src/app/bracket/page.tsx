@@ -30,7 +30,7 @@ export default function BracketPage() {
           Build Your <span className="text-accent">Stock Bracket</span>
         </h1>
         <p className="text-muted text-sm sm:text-base max-w-lg mx-auto">
-          Enter 2-16 tickers and AI will run an elimination tournament, ranking your stocks head-to-head with full reasoning.
+          Enter 2-16 tickers and AI will run an elimination tournament, ranking them head-to-head with an explanation for each result.
         </p>
       </div>
 

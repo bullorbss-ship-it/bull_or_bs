@@ -8,7 +8,7 @@
  * 1. No competitor trademarks in branding/UI (protected zones)
  * 2. All articles pass legal audit (no competitor names in protected fields)
  * 3. Disclaimers present on required components
- * 4. Anonymity — no personal info in codebase
+ * 4. Creator attribution and unintended personal-data leaks
  * 5. Required compliance pages exist (Privacy Policy, Disclaimer, Terms)
  * 6. CASL email compliance (consent language if collecting emails)
  * 7. Footer has required legal links
@@ -162,9 +162,9 @@ for (const { path: relPath, desc } of DISCLAIMER_PAGES) {
   }
 }
 
-// ─── 4. Anonymity check ─────────────────────────────────────────────
+// ─── 4. Creator attribution / leak check ────────────────────────────
 
-console.log('\n--- Anonymity Check ---');
+console.log('\n--- Creator Attribution & Leak Check ---');
 
 // Patterns that should NEVER appear in source code
 const ANON_PATTERNS = [
@@ -177,9 +177,9 @@ const gitConfigPath = path.join(ROOT, '.git', 'config');
 if (fs.existsSync(gitConfigPath)) {
   const gitConfig = fs.readFileSync(gitConfigPath, 'utf8');
   if (gitConfig.includes('bullorbss-ship-it') || gitConfig.includes('bull.or.bss@gmail.com')) {
-    pass('Git config: correct anonymous identity');
+    pass('Git config: correct brand identity');
   } else {
-    warn('Git config: review user identity — may expose personal info');
+    warn('Git config: review commit identity');
   }
 }
 

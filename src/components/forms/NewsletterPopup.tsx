@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { trackEvent } from '@/lib/tracking';
+import { trackSubscription } from '@/lib/tracking';
 
 const STORAGE_KEY = 'bullorbs_popup';
 const VISIT_KEY = 'bullorbs_visited';
@@ -53,7 +53,7 @@ export default function NewsletterPopup() {
         setFormOk(true);
         setFormMsg("You're in. Check your inbox.");
         setEmail('');
-        trackEvent('subscribe', { method: 'email' });
+        trackSubscription('popup');
         onSubscribed();
       } else {
         const data = await res.json();
@@ -139,7 +139,7 @@ export default function NewsletterPopup() {
             Stop guessing.<br />Start fact-checking.
           </h2>
           <p className="text-muted text-sm leading-relaxed">
-            AI-driven stock analysis delivered to your inbox. Every claim checked, every source cited. No paywall.
+            Evidence-backed stock comparisons delivered to your inbox. Independently checked and approved before publication.
           </p>
         </div>
 

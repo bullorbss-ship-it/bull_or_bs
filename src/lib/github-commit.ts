@@ -11,30 +11,45 @@ export async function commitArticleToGitHub(
   article: Article,
   opts: { message?: string } = {},
 ): Promise<CommitResult> {
+  const folder =
+    article.type === 'roast' ? 'roasts' : article.type === 'take' ? 'takes' : 'picks';
+  return commitJsonToGitHub(
+    `content/${folder}/${article.slug}.json`,
+    article,
+    opts.message || `Add ${article.type}: ${article.slug}`,
+  );
+}
+
+export async function commitJsonToGitHub(
+  filePath: string,
+  value: unknown,
+  message: string,
+): Promise<CommitResult> {
+  if (!/^(content\/(roasts|takes|picks)|data\/editorial\/(plans|drafts))\/[a-zA-Z0-9._/-]+\.json$/.test(filePath) ||
+      filePath.includes('..')) {
+    return { ok: false, status: 400, error: 'Invalid repository path' };
+  }
   // Concurrent writers (cron slots, dashboard publishes) race on the branch
   // head — GitHub returns 409 "is at X but expected Y". Retry with backoff.
-  let result = await commitOnce(article, opts);
+  let result = await commitOnce(filePath, value, message);
   for (let attempt = 1; attempt <= 2 && !result.ok && result.status === 409; attempt++) {
     await new Promise(r => setTimeout(r, 1500 * attempt));
-    result = await commitOnce(article, opts);
+    result = await commitOnce(filePath, value, message);
   }
   return result;
 }
 
 async function commitOnce(
-  article: Article,
-  opts: { message?: string } = {},
+  filePath: string,
+  value: unknown,
+  message: string,
 ): Promise<CommitResult> {
   const token = process.env.GITHUB_TOKEN;
   if (!token) {
     return { ok: false, status: 500, error: 'GITHUB_TOKEN not configured' };
   }
 
-  const folder =
-    article.type === 'roast' ? 'roasts' : article.type === 'take' ? 'takes' : 'picks';
-  const filePath = `content/${folder}/${article.slug}.json`;
-  const body = JSON.stringify(article, null, 2);
-  const message = opts.message || `Add ${article.type}: ${article.slug}`;
+  const body = JSON.stringify(value, null, 2);
 
   try {
     let sha: string | undefined;

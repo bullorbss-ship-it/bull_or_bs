@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { getResearchPrompt, getNewsResearchPrompt } from '@/lib/ai/research-prompt';
+import EditorialWorkflow from '@/components/admin/EditorialWorkflow';
 
 interface ArticleData {
   slug: string;
@@ -86,7 +87,7 @@ interface GenerateState {
   emailSent?: boolean;
 }
 
-type Tab = 'generate' | 'articles' | 'costs' | 'subscribers';
+type Tab = 'editorial' | 'generate' | 'articles' | 'costs' | 'subscribers';
 
 export default function AdminPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -95,7 +96,7 @@ export default function AdminPage() {
   const [articles, setArticles] = useState<ArticleData[]>([]);
   const [costs, setCosts] = useState<CostSummary | null>(null);
   const [loading, setLoading] = useState(false);
-  const [tab, setTab] = useState<Tab>('generate');
+  const [tab, setTab] = useState<Tab>('editorial');
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
@@ -243,6 +244,16 @@ export default function AdminPage() {
       {/* Tabs */}
       <div className="flex gap-1 mb-6 border-b border-card-border">
         <button
+          onClick={() => setTab('editorial')}
+          className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
+            tab === 'editorial'
+              ? 'border-accent text-accent'
+              : 'border-transparent text-muted hover:text-foreground'
+          }`}
+        >
+          Editorial
+        </button>
+        <button
           onClick={() => setTab('generate')}
           className={`px-4 py-2.5 text-sm font-medium border-b-2 transition-colors ${
             tab === 'generate'
@@ -284,6 +295,7 @@ export default function AdminPage() {
         </button>
       </div>
 
+      {tab === 'editorial' && <EditorialWorkflow />}
       {tab === 'generate' && <GenerateTab onGenerated={() => { loadAll(); setTab('articles'); }} />}
       {tab === 'articles' && <ArticlesTab articles={articles} getQualityScore={getQualityScore} onRefresh={loadAll} />}
       {tab === 'costs' && <CostsTab costs={costs} />}

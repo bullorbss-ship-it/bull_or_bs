@@ -1,0 +1,46 @@
+{
+  "source": "Google Search Console export supplied 2026-07-28",
+  "issue": "Crawled - currently not indexed",
+  "totalUrls": 52,
+  "byType": {
+    "stock": 33,
+    "article": 16,
+    "learn": 1,
+    "og": 1,
+    "_next": 1
+  },
+  "wwwUrls": 22,
+  "duplicateCanonicalPaths": 12,
+  "failedUrls": 3,
+  "analytics": {
+    "period": "2026-06-30 through 2026-07-27",
+    "newUsers": 412,
+    "returningUsers": 25,
+    "activeUsers": 415,
+    "channelNewUsers": {
+      "direct": 407,
+      "organicSearch": 2,
+      "organicSocial": 2,
+      "aiAssistant": 1
+    },
+    "singaporeActiveUsers": 336,
+    "singaporeSharePercent": 81,
+    "qualifiedLeads": 0,
+    "convertedLeads": 0,
+    "storedSubscribers": 6,
+    "topOrganicImpressionPages": {
+      "/stock/ivv": 134,
+      "/article/ai-screenshot-pick-2026-03-11": 21,
+      "/stock/vwagy": 14
+    }
+  },
+  "decisions": [
+    "Only stock pages with reviewed editorial coverage remain indexable and in the sitemap.",
+    "Legacy automated daily briefs remain accessible but are noindex and excluded from public listings and the sitemap.",
+    "The www host permanently redirects to the apex host in application configuration.",
+    "Dynamic OG images return an X-Robots-Tag noindex header.",
+    "Previously failed article URLs returned HTTP 200 during the 2026-07-28 audit.",
+    "Traffic totals are not treated as an audience baseline because 81% of active users were attributed to Singapore and 99% of channel-attributed new users were Direct.",
+    "Successful newsletter submissions now emit GA4 generate_lead events because six stored subscribers were not represented in the zero-lead analytics report."
+  ]
+}

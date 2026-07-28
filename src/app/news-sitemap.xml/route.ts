@@ -1,8 +1,8 @@
-import { getAllArticles } from '@/lib/content';
+import { getAllArticles, isIndexableArticle } from '@/lib/content';
 import { siteConfig } from '@/config/site';
 
 export function GET() {
-  const articles = getAllArticles();
+  const articles = getAllArticles().filter(isIndexableArticle);
 
   // Google News sitemaps should only include articles from last 2 days
   const twoDaysAgo = new Date();

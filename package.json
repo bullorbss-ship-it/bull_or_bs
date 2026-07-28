@@ -8,25 +8,27 @@
     "start": "next start",
     "lint": "eslint",
     "type-check": "tsc --noEmit",
-    "security": "npm audit --audit-level=moderate && npx eslint src/ --quiet",
+    "security": "npm audit --omit=dev --audit-level=moderate && npx eslint src/ --quiet",
     "seo-check": "node scripts/seo-validate.js",
     "legal-check": "node scripts/legal-check.js",
     "docs": "node scripts/docs-generate.js",
     "docs-check": "node scripts/docs-consistency.js",
     "content-audit": "node scripts/content-audit.js",
-    "pre-deploy": "npm run type-check && npm run lint && npm run security && npm run seo-check && npm run legal-check && npm run content-audit && npm run docs && npm run docs-check"
+    "editorial-check": "node scripts/editorial-workflow-check.js && node scripts/editorial-artifact-check.js",
+    "pre-deploy": "npm run type-check && npm run lint && npm run security && npm run seo-check && npm run legal-check && npm run content-audit && npm run editorial-check && npm run docs && npm run docs-check"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
     "@types/nodemailer": "^7.0.11",
-    "next": "^16.1.7",
-    "nodemailer": "^8.0.1",
+    "next": "^16.2.12",
+    "nodemailer": "^9.0.3",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
   "overrides": {
     "next": {
-      "postcss": ">=8.5.10"
+      "postcss": ">=8.5.24",
+      "sharp": ">=0.35.3"
     }
   },
   "devDependencies": {
@@ -34,8 +36,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.2.12",
     "eslint-plugin-security": "^4.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"

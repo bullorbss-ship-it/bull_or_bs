@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { trackEvent } from '@/lib/tracking';
+import { trackSubscription } from '@/lib/tracking';
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState('');
@@ -24,7 +24,7 @@ export default function SubscribeForm() {
         setStatus('success');
         setMessage('You\'re in. Check your inbox.');
         setEmail('');
-        trackEvent('subscribe', { method: 'email' });
+        trackSubscription('inline');
       } else {
         const data = await res.json();
         setStatus('error');

@@ -61,15 +61,14 @@ export default function EditorialPage() {
               numbers &mdash; it can only work with the verified data provided.
             </li>
             <li>
-              <strong>Fact-check review</strong> &mdash; Every article undergoes a
-              secondary AI review specifically tasked with catching factual errors,
-              outdated figures, and unsupported claims. Flagged items are manually
-              verified against source documents.
+              <strong>Independent verification</strong> &mdash; A separately configured
+              model compares every material claim against the saved research packet.
+              Unsupported claims block publication rather than being silently accepted.
             </li>
             <li>
-              <strong>Publication</strong> &mdash; Only after passing all verification
-              gates is an article published. Every article includes its data points
-              with sources so readers can verify claims independently.
+              <strong>Human approval</strong> &mdash; Passing automated checks creates
+              a private draft, not a public page. An operator must approve the draft
+              in the authenticated dashboard before it is published.
             </li>
           </ol>
         </section>
@@ -86,7 +85,7 @@ export default function EditorialPage() {
             <li>
               <strong>AI Picks</strong> &mdash; Elimination tournaments where AI
               compares multiple stocks head-to-head on valuation, catalysts, risks,
-              and momentum. Full reasoning is shown for every elimination.
+              and momentum. The evidence-based reason is shown for every elimination.
             </li>
             <li>
               <strong>News Takes</strong> &mdash; Plain-English summaries of financial
@@ -116,15 +115,28 @@ export default function EditorialPage() {
             limitations acknowledged:
           </p>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Every page on {siteConfig.name} is clearly marked as AI-generated.</li>
-            <li>Our AI models are constrained to work only with verified data &mdash;
-              they cannot browse the internet or access real-time information.</li>
+            <li>Research and drafting are AI-assisted and use separately configured models and API keys.</li>
+            <li>The research stage may search the web, but the writing stage receives
+              only the saved source packet and may not add facts from model memory.</li>
+            <li>AI-generated drafts are never published without explicit human approval.</li>
             <li>We publish our{' '}
               <Link href="/methodology" className="text-accent hover:underline">full methodology</Link>
               {' '}so readers understand exactly how analysis is produced.</li>
             <li>AI limitations are disclosed: models can misinterpret context,
               and qualitative judgments are opinions, not facts.</li>
           </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-foreground mb-3">Creator Transparency</h2>
+          <p>
+            The technology and editorial system are built by{' '}
+            <a href={siteConfig.creator.url} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
+              {siteConfig.creator.name}
+            </a>
+            , led by {siteConfig.creator.founder}. This establishes responsibility for
+            the AI and software workflow; it is not presented as an investment credential.
+          </p>
         </section>
 
         <section>

@@ -1,5 +1,5 @@
 # BullOrBS — Design Queue & Project Tracker
-**Last updated: 2026-06-10**
+**Last updated: 2026-07-28**
 
 ---
 
@@ -10,26 +10,52 @@
 
 ---
 
-## Current Sprint: SEO Fixes + UX Polish + Content Volume
+## Current Sprint: Quality Recovery + Approval-First Editorial Automation
 
 ### Up Next (Priority Order)
 | # | Task | Why | Effort |
 |---|------|-----|--------|
-| 1 | **Add 15-20 Indian tickers** | India traffic signal — test the market | 30 min |
-| 2 | **Pump 5-10 India-focused takes** | Validate India audience with content | 1 hr |
-| 3 | **Scrub git history** | Personal name + emails in history of public repo | 30 min |
-| 4 | **Fact-check backlog** | 20 roasts/picks have 0 Opus fact-checks | Ongoing |
-| 5 | **Reddit karma building** | Account too new — need 2-3 weeks of comments | Ongoing |
-| 6 | **Double down on Reddit** | Best traffic source (25 users). Post NBIS-style content | Ongoing |
-| 7 | **Compare pages** (/compare/xeqt-vs-veqt) | High SEO value, head-to-head format | 2 hrs |
-| 8 | **More learn guides** | /learn/etf-basics, /learn/index-investing | 1 hr each |
-| 9 | ~~Mobile hamburger menu~~ | DONE — menu existed; drawer clip bug fixed 2026-06-09 | — |
-| 10 | **Beehiiv migration** | Move subscribers off JSON file | 1 hr |
-| 11 | **Outbound click tracking** | GA4 custom event for external link clicks — real bounce data | 30 min |
+| 1 | **Review the CASH vs CBIL vs PSA test draft** | Confirm research depth, comparison usefulness, voice, and approval report before publication | 20 min |
+| 2 | **Test an optional coding-assistant scheduled task** | Confirm a morning run can return to the same project chat | 30 min |
+| 3 | **Deploy and verify indexing controls** | Confirm daily briefs/thin stocks emit noindex and sitemap is reduced | 45 min |
+| 4 | **Submit sitemap and validate sample URLs in GSC** | Move excluded URLs into intentional noindex/canonical states | 30 min |
+| 5 | **Audit the 16 GSC article URLs** | Improve or retain noindex based on evidence quality | Ongoing |
+| 6 | **Configure GA4 bot/internal-traffic filters** | 81% of active users were attributed to Singapore and 99% of channel-attributed new users were Direct | 30 min |
+| 7 | **Validate GA4 `generate_lead` in DebugView** | Six stored subscribers were absent from the zero-lead export | 20 min |
+| 8 | **Build GA4 conversion dashboard** | Join GSC discovery to engagement and subscription behavior | 1 hr |
+| 9 | **Reddit distribution for approved comparisons** | Best demonstrated referral source | Ongoing |
+| 10 | **Scrub historical unintended identity data** | Creator is now public, but unrelated private data still must be removed | 30 min |
 
 ---
 
 ## Done (Recent Sessions)
+
+### Session: 2026-07-28 (Quality Recovery + Approval-First Editorial System)
+- [x] Synced 163 production commits; current inventory is 239 articles, including 166 legacy automated daily briefs
+- [x] Replaced direct daily auto-publication with a repository-operated workflow
+- [x] Made assistant-operated mode the default; no external model API keys required
+- [x] Added a canonical `EDITORIAL_WORKFLOW.md` contract runnable by any repository-capable coding assistant
+- [x] Added neutral `AGENTS.md` discovery plus a thin optional `.agents` skill adapter
+- [x] Retained isolated plan/research/writer/verifier API routing as an optional unattended mode
+- [x] Deep research uses web search and requires 5 sources including 2 primary sources
+- [x] Writer receives only the saved research packet; independent verifier checks all material claims
+- [x] Added Git-backed private plans/drafts, morning approval emails, and `/orange` approval UI
+- [x] Direct admin publishing blocked; approval quality gate is mandatory
+- [x] Legacy automated briefs are noindex and removed from homepage/listings/feed/sitemaps
+- [x] Thin stock pages without reviewed coverage are noindex and omitted from sitemap
+- [x] Sitemap modification dates now reflect actual content changes
+- [x] Added permanent www→apex application redirect and noindex header for `/og`
+- [x] Analyzed GSC export: 52 URLs, 33 stock, 16 article, 22 www, 12 duplicate paths
+- [x] Added Local Tech Edge creator attribution with explicit non-financial-credential clarification
+- [x] Updated public methodology/editorial promises to match the real workflow
+- [x] Added GA4 outbound-link tracking plus 50% and 90% article scroll events
+- [x] Analyzed the lead export: 412 new users, 407 Direct, 336/415 active users from Singapore, zero reported leads/conversions
+- [x] Reconciled six stored subscribers against the zero-lead report and added the standard GA4 `generate_lead` event
+- [x] Added `.agents/skills/bullorbs-editorial` with explicit plan and publication approval boundaries
+- [x] Added deterministic editorial plan/draft artifact validation
+- [x] Generated the August 2026 plan: 21 weekdays, 13 comparisons, 4 recommendation audits, and 4 Canadian guides; pending owner approval
+- [x] Approved the August 2026 plan with all 21 assignments remaining private until their draft gates pass
+- [x] Ran the first assignment early as an end-to-end test: CASH vs CBIL vs PSA, 11 primary sources, verifier pass, 100/100 quality score, pending draft approval
 
 ### Session: 2026-06-10 (Briefing First Run: Fixes + Full-Length Format)
 - First live cron run: 3/4 briefs published; geopolitics slot failed; then the Vercel deploy broke
@@ -132,32 +158,34 @@
 ## Content Scoreboard
 | Type | Count | Target | Pace |
 |------|-------|--------|------|
-| Roasts | 14 | 50 by Month 2 | 1-2/week |
-| Picks | 7 | 20 by Month 2 | 1/week |
-| Takes | 34 | 100 by Month 2 | 3-4/day |
-| **Total** | **55** | **170** | |
-| Stock pages | 115 + dynamic | 200+ | Add with articles |
+| Roasts | 19 | Quality over volume | Approval only |
+| Picks | 7 | Quality over volume | Approval only |
+| Takes | 213 | Reduce index footprint | Approval only |
+| **Total** | **239** | No volume target | |
+| Legacy daily briefs | 166 | Review/noindex | Auto-publishing disabled |
+| Stock pages | 182 + dynamic | Index only reviewed coverage | Add with articles |
 | Stock profiles | 91 | 200+ | Add with articles |
 | Learn guides | 5 | 10 | 1/week |
 | Fact-checked | 0/20 | 20/20 | Backlog |
 
-## Key Metrics to Watch (GA4 — 2 weeks in)
-- **174 active users** (~145 real, ~30 bots from Council Bluffs/Boardman)
-- **2m 44s avg engagement** — strong for new site
-- **Reddit: 25 users** — best organic channel
-- **Google organic: 3** — expected, domain sandbox
-- **Twitter: 75 sessions but 97% bounce** — needs fixing
-- **Article pace**: 3-4 takes/day + 1-2 roasts-picks/week
+## Current Analytics Baseline (2026-06-30 to 2026-07-27)
+- **415 active / 412 new users**, but this is not a trustworthy human-audience baseline
+- **336 active users from Singapore (81%)** and **407 Direct new users (99% of channel-attributed new users)** indicate automation or unfiltered internal traffic
+- **Organic Search: 2 new users**; Organic Social: 2; AI Assistant: 1
+- **Qualified leads: 0; converted leads: 0**, while the subscriber store contains 6 addresses — the old event name was not feeding the lead report
+- **Top Google impression pages:** `/stock/ivv` 134, screenshot pick 21, `/stock/vwagy` 14; the export contains no organic clicks
+- Treat search impressions, engaged-reader events, and confirmed `generate_lead` events as the recovery baseline after deployment
 
 ## Blocked / Waiting
 | Item | Blocker | Action Needed |
 |------|---------|---------------|
 | Reddit posting | Account too new | Keep commenting, wait 2-3 weeks |
-| Email distribution | GMAIL_APP_PASSWORD not set in Vercel | Add env var |
+| Optional email distribution | GMAIL_APP_PASSWORD not set in Vercel | Only needed if API-mode email reports are enabled |
 | Bracket builder | Feature-flagged (ENABLE_BRACKET) | Enable when ready |
 | Twitter bounce rate | OG/landing page mismatch | Test different tweet formats |
 | Daily topics cron | Paused 2026-04-14 | Restore `crons` entry in vercel.json when ready |
-| Daily briefing cron | Code deployed, `crons: []` | Phase 1 dry-run in prod, then Phase 2 live run, then enable schedule |
+| Approval-first workflow | First CASH vs CBIL vs PSA draft awaits owner review | Review `draft-2026-08-03-cash-vs-cbil-vs-psa`; approve and publish, request revisions, or reject |
+| Analytics trust | Bot/internal traffic filters are not configured in GA4 | Exclude known internal and data-centre traffic before using active-user totals |
 
 ## Ideas Backlog (Not Prioritized)
 - BullOrBS Chat (AI chatbot, freemium, Month 3+)
@@ -167,4 +195,4 @@
 - Sector landing pages (/sectors/financials)
 - Track record page (/track-record)
 - Newsletter review pages (/newsletter-review/[name])
-- Filter bot traffic in GA4 (Council Bluffs/Boardman IPs)
+- Validate approved comparisons before building dedicated compare routes
