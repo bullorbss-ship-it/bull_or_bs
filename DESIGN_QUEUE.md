@@ -15,16 +15,15 @@
 ### Up Next (Priority Order)
 | # | Task | Why | Effort |
 |---|------|-----|--------|
-| 1 | **Review the CASH vs CBIL vs PSA test draft** | Confirm research depth, comparison usefulness, voice, and approval report before publication | 20 min |
-| 2 | **Test an optional coding-assistant scheduled task** | Confirm a morning run can return to the same project chat | 30 min |
-| 3 | **Deploy and verify indexing controls** | Confirm daily briefs/thin stocks emit noindex and sitemap is reduced | 45 min |
-| 4 | **Submit sitemap and validate sample URLs in GSC** | Move excluded URLs into intentional noindex/canonical states | 30 min |
-| 5 | **Audit the 16 GSC article URLs** | Improve or retain noindex based on evidence quality | Ongoing |
-| 6 | **Configure GA4 bot/internal-traffic filters** | 81% of active users were attributed to Singapore and 99% of channel-attributed new users were Direct | 30 min |
-| 7 | **Validate GA4 `generate_lead` in DebugView** | Six stored subscribers were absent from the zero-lead export | 20 min |
-| 8 | **Build GA4 conversion dashboard** | Join GSC discovery to engagement and subscription behavior | 1 hr |
-| 9 | **Reddit distribution for approved comparisons** | Best demonstrated referral source | Ongoing |
-| 10 | **Scrub historical unintended identity data** | Creator is now public, but unrelated private data still must be removed | 30 min |
+| 1 | **Test an optional coding-assistant scheduled task** | Confirm a morning run can return to the same project chat | 30 min |
+| 2 | **Deploy and verify indexing controls** | Confirm daily briefs/thin stocks emit noindex and sitemap is reduced | 45 min |
+| 3 | **Submit sitemap and validate sample URLs in GSC** | Move excluded URLs into intentional noindex/canonical states | 30 min |
+| 4 | **Audit the 16 GSC article URLs** | Improve or retain noindex based on evidence quality | Ongoing |
+| 5 | **Configure GA4 bot/internal-traffic filters** | 81% of active users were attributed to Singapore and 99% of channel-attributed new users were Direct | 30 min |
+| 6 | **Validate GA4 `generate_lead` in DebugView** | Six stored subscribers were absent from the zero-lead export | 20 min |
+| 7 | **Build GA4 conversion dashboard** | Join GSC discovery to engagement and subscription behavior | 1 hr |
+| 8 | **Reddit distribution for approved comparisons** | Best demonstrated referral source | Ongoing |
+| 9 | **Scrub historical unintended identity data** | Creator is now public, but unrelated private data still must be removed | 30 min |
 
 ---
 
@@ -56,6 +55,7 @@
 - [x] Generated the August 2026 plan: 21 weekdays, 13 comparisons, 4 recommendation audits, and 4 Canadian guides; pending owner approval
 - [x] Approved the August 2026 plan with all 21 assignments remaining private until their draft gates pass
 - [x] Ran the first assignment early as an end-to-end test: CASH vs CBIL vs PSA, 11 primary sources, verifier pass, 100/100 quality score, pending draft approval
+- [x] Approved and published the CASH vs CBIL vs PSA comparison after revalidation and a clean production build
 
 ### Session: 2026-06-10 (Briefing First Run: Fixes + Full-Length Format)
 - First live cron run: 3/4 briefs published; geopolitics slot failed; then the Vercel deploy broke
@@ -159,14 +159,14 @@
 | Type | Count | Target | Pace |
 |------|-------|--------|------|
 | Roasts | 19 | Quality over volume | Approval only |
-| Picks | 7 | Quality over volume | Approval only |
+| Picks | 8 | Quality over volume | Approval only |
 | Takes | 213 | Reduce index footprint | Approval only |
-| **Total** | **239** | No volume target | |
+| **Total** | **240** | No volume target | |
 | Legacy daily briefs | 166 | Review/noindex | Auto-publishing disabled |
 | Stock pages | 182 + dynamic | Index only reviewed coverage | Add with articles |
 | Stock profiles | 91 | 200+ | Add with articles |
 | Learn guides | 5 | 10 | 1/week |
-| Fact-checked | 0/20 | 20/20 | Backlog |
+| Fact-checked | 1/21 | 21/21 | Backlog |
 
 ## Current Analytics Baseline (2026-06-30 to 2026-07-27)
 - **415 active / 412 new users**, but this is not a trustworthy human-audience baseline
@@ -184,7 +184,6 @@
 | Bracket builder | Feature-flagged (ENABLE_BRACKET) | Enable when ready |
 | Twitter bounce rate | OG/landing page mismatch | Test different tweet formats |
 | Daily topics cron | Paused 2026-04-14 | Restore `crons` entry in vercel.json when ready |
-| Approval-first workflow | First CASH vs CBIL vs PSA draft awaits owner review | Review `draft-2026-08-03-cash-vs-cbil-vs-psa`; approve and publish, request revisions, or reject |
 | Analytics trust | Bot/internal traffic filters are not configured in GA4 | Exclude known internal and data-centre traffic before using active-user totals |
 
 ## Ideas Backlog (Not Prioritized)

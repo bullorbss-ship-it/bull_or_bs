@@ -2,8 +2,9 @@
   "id": "draft-2026-08-03-cash-vs-cbil-vs-psa",
   "planMonth": "2026-08",
   "planItemId": "2026-08-03-cash-vs-cbil-vs-psa",
-  "status": "pending_approval",
+  "status": "published",
   "createdAt": "2026-07-28T16:53:02.000-04:00",
+  "publishedAt": "2026-07-28T17:04:34.000-04:00",
   "writerModel": "codex/gpt-5:writer",
   "research": {
     "id": "research-2026-08-03-cash-vs-cbil-vs-psa",
@@ -251,7 +252,7 @@
     "description": "Compare CASH, CBIL and PSA on current yield, fees, holdings, liquidity, tax treatment and CDIC coverage before choosing a Canadian cash ETF.",
     "date": "2026-08-03",
     "createdAt": "2026-07-28T16:53:02.000-04:00",
-    "factChecked": false,
+    "factChecked": true,
     "ticker": "CBIL",
     "verdict": "CBIL is the cleanest default for direct federal T-bill exposure; PSA leads on quoted net yield, while CASH leads on verified trading depth.",
     "tags": [
@@ -396,7 +397,8 @@
       ]
     },
     "editorialReview": {
-      "status": "pending",
+      "status": "approved",
+      "approvedAt": "2026-07-28T17:04:34.000-04:00",
       "researchId": "research-2026-08-03-cash-vs-cbil-vs-psa",
       "writerModel": "codex/gpt-5:writer",
       "verifierModel": "codex/gpt-5:verifier",

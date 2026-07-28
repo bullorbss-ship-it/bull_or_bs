@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-07-28T21:03:45.372Z*
+*Auto-generated: 2026-07-28T21:06:05.338Z*
 
 ---
 
@@ -9,9 +9,9 @@
 | Type | Count |
 | --- | --- |
 | Roasts | 19 |
-| Picks | 7 |
+| Picks | 8 |
 | Takes | 213 |
-| **Total** | 239 |
+| **Total** | 240 |
 
 ### Roasts
 
@@ -41,6 +41,7 @@
 
 | Date | Ticker | Title |
 | --- | --- | --- |
+| 2026-08-03 | CBIL | CASH vs CBIL vs PSA: Where Should Canadians Park Cash? |
 | 2026-03-13 | XEQT.TO | XEQT vs VEQT: Which All-Equity ETF Should Canadian Investors |
 | 2026-03-11 | PLTR | PLTR vs. BBAI: David vs. Goliath in the AI-Defense Arms Race |
 | 2026-03-11 | NBIS | Four AI Infrastructure Giants: Which Bet on GPU Cloud Makes  |
