@@ -1,0 +1,116 @@
+{
+  "slug": "take-geopolitics-war-brief-2026-07-28",
+  "type": "take",
+  "title": "Geopolitics & War Brief — July 28, 2026",
+  "description": "The U.S. military is preparing to deploy unmanned systems for the first time in amphibious assault operations, marking a historic shift away from crewed special operations teams [1]. Meanwhile, Taiwan's military lags in AI adoption despite the island's dominance in semiconductor manufacturing—a vulnerability as China races to field AI-enabled weapons systems [5].",
+  "date": "2026-07-28",
+  "category": "Geopolitics & War",
+  "verdict": "Today's briefing reveals a military establishment moving fast on autonomous systems and AI while trying to manage real risks. The U.S. is confident enough in unmanned technology to rethink 80 years of amphibious doctrine, yet careful enough to pause B-52 testing after a crash [1][2]. Taiwan is vulnerable not because it lacks technical skill—it dominates semiconductors—but because adopting AI militarily lags adoption by China [5]. The underlying question: Can democracies and allies coordinate fast enough on AI integration to maintain strategic advantage, or will fragmented adoption and restricted access create openings for adversaries [3][4][5]? The next six months will clarify whether Taiwan accelerates its AI timeline and whether the first unmanned amphibious exercises succeed.",
+  "tags": [
+    "news",
+    "take",
+    "daily-briefing",
+    "geopolitics",
+    "geopolitics & war"
+  ],
+  "content": {
+    "category": "Geopolitics & War",
+    "headline": "Geopolitics & War Brief — July 28, 2026",
+    "summary": "The U.S. military is preparing to deploy unmanned systems for the first time in amphibious assault operations, marking a historic shift away from crewed special operations teams [1]. Meanwhile, Taiwan's military lags in AI adoption despite the island's dominance in semiconductor manufacturing—a vulnerability as China races to field AI-enabled weapons systems [5].",
+    "analysis": "## The Big Story\n\nFor the first time since World War II, the U.S. military is fundamentally rethinking how it launches amphibious assaults. The Navy is moving away from the crewed underwater demolition teams—the legendary predecessors of the Navy SEALs—and toward unmanned systems to conduct the dangerous first-wave missions [1].\n\nHistorically, these teams prepared hostile beaches for invasion: clearing mines, breaching obstacles, mapping terrain, and absorbing the initial enemy fire so that marines and soldiers could land with better odds of survival [1]. It was some of the most dangerous work in military history. Today's shift is practical: send robots instead of humans into the killing zone. But it signals something larger—a military institution willing to completely overturn a tradition stretching back eight decades because the technology now exists to do the job better.\n\nThe stated reasoning is straightforward: unmanned systems reduce risk to personnel while performing the same reconnaissance, obstacle removal, and mine clearance tasks [1]. The Marine Corps has prided itself on \"being first to hit the beach,\" but that ethos is colliding with the reality that unmanned platforms can go first with zero loss of life [1].\n\nWhat makes this significant isn't just the hardware change. It's a signal that future amphibious operations—particularly in the Indo-Pacific, where U.S. strategy increasingly focuses—will be fundamentally different from the crewed assault model. The first waves will be robotic. Humans follow. This matters because potential adversaries are watching. If the U.S. can land unmanned systems at scale, establish a beachhead, and support crewed follow-on forces with reduced casualties, it changes the calculus for defending island chains or responding to regional aggression [1].\n\n## What Else Moved\n\n### Taiwan's AI Weakness in a Race with China\n\nTaiwan produces roughly 54% of the world's advanced semiconductors [5]—the chips that power everything from smartphones to military systems. Yet Taiwan's own military remains in the \"opening stages\" of adopting artificial intelligence [5]. This is a critical mismatch. Beijing is aggressively developing and fielding AI-enabled military capabilities, with Taiwan explicitly in its crosshairs [5]. If conflict erupts, Taiwan would face a People's Liberation Army armed with sophisticated AI systems while the Taiwanese military is still in early experiments. A coalition defense—involving the U.S. and allied forces—would be hamstrung if members lack compatible AI systems to share data across forces [5]. The risk: Taiwan could become the first battlefield where advanced AI-enabled military systems see widespread use, with one side significantly more prepared than the other.\n\n### U.S. Military Pauses B-52 Radar Testing After Deadly Crash\n\nThe Air Force has suspended B-52 radar testing following a fatal incident but plans to resume operations using a second bomber [2]. The service is reviewing its schedule and will adjust as necessary [2]. This development is relatively narrow but reflects the reality that even legacy platforms (the B-52 first flew in 1955) are being modernized with new systems, and that testing these upgrades can carry real risk [2].\n\n### AI Evaluation and Open-Source Alliance Shape Defense Strategy\n\nTwo separate developments on the AI front underscore how deeply the technology is embedding itself in military planning. The National Institute of Standards and Technology (NIST) has unveiled a new AI evaluation platform that will grade models' performance in select areas [3]. Simultaneously, more than 30 companies have formed the Open Secure AI Alliance to ensure continued access to open-source AI models [4]. The second move is notable: companies are organizing to keep open-source AI tools available and secure, a hedge against potential restrictions. For defense and national security applications, access to reliable, evaluated AI models is becoming as strategic as weapons systems themselves [3][4].\n\n## Connecting the Dots\n\nThree distinct stories emerge from today's sources, but they share a common thread: the U.S. military and its allied ecosystem are rapidly digitizing warfare, and the speed of that transition is creating both opportunity and vulnerability.\n\nThe unmanned amphibious assault represents confidence—the U.S. military has the technology to remove humans from the highest-risk moments [1]. The B-52 radar testing and the NIST AI evaluation platform represent the unglamorous work of validation: proving these systems work before deploying them at scale [2][3].\n\nBut Taiwan's story represents the flip side: technology adoption takes time, and if you're on the slower side of that curve while an adversary races ahead, the gap widens in real time [5]. Taiwan manufactures the world's most advanced semiconductors but hasn't equipped its own military with the AI systems those chips could power [5]. The irony is sharp, and the vulnerability is concrete.\n\nWhat connects them is that militaries worldwide are betting on AI and autonomous systems to reduce casualties, increase decision speed, and multiply force effectiveness. The question is no longer whether this happens—it's happening. The question is whether defenses, allies, and coalition partners can keep pace [1][3][4][5].\n\n## What to Watch\n\nMonitor the B-52 radar testing timeline—the Air Force's schedule adjustments will signal how aggressively it's willing to push modernization on legacy platforms [2]. Watch for Taiwan's announced timelines for deploying AI systems in its military branches; any delay increases the asymmetry with China [5]. Pay attention to which companies join or leave the Open Secure AI Alliance and whether governments try to restrict open-source AI access for national security reasons [4]. Finally, watch how the first unmanned amphibious exercises perform; success here could accelerate the shift of other crewed special operations roles into robotic platforms [1].",
+    "risks": [
+      "Taiwan's slow AI adoption could widen the military capability gap with China if Beijing's AI-enabled systems become operational before Taiwan can integrate similar tools [5].",
+      "Restricting open-source AI access for security reasons could fragment the global AI ecosystem and slow coalition interoperability [4].",
+      "Technical failures in unmanned amphibious operations could delay the transition and leave early-wave personnel vulnerable [1]."
+    ],
+    "catalysts": [
+      "Successful unmanned amphibious assault demonstrations could accelerate the modernization of crewed special operations roles across multiple services [1].",
+      "NIST's AI evaluation platform could provide standardized performance data that speeds AI adoption across the Department of Defense [3].",
+      "Taiwan's announcement of accelerated AI deployment timelines would signal defensive readiness and deterrence credibility [5]."
+    ],
+    "dataPoints": [
+      {
+        "label": "Taiwan's global semiconductor share",
+        "value": "~54% of world's advanced semiconductors",
+        "source": "War on the Rocks",
+        "sourceUrl": "https://warontherocks.com/cogs-of-war/taiwans-tech-hurdles-threaten-military-capability-and-potential-coalition-defense/"
+      },
+      {
+        "label": "Svalbard's location",
+        "value": "650 kilometers north of Norway's North Cape",
+        "source": "War on the Rocks",
+        "sourceUrl": "https://warontherocks.com/why-norway-and-finland-should-preserve-two-of-europes-most-important-demilitarized-zones/"
+      },
+      {
+        "label": "Åland Islands composition",
+        "value": "~6,500 islands and reefs",
+        "source": "War on the Rocks",
+        "sourceUrl": "https://warontherocks.com/why-norway-and-finland-should-preserve-two-of-europes-most-important-demilitarized-zones/"
+      },
+      {
+        "label": "Open Secure AI Alliance members",
+        "value": "More than 30 companies",
+        "source": "Defense One",
+        "sourceUrl": "https://www.defenseone.com/business/2026/07/over-30-companies-form-open-source-ai-alliance/415043/"
+      }
+    ],
+    "finalVerdict": "Today's briefing reveals a military establishment moving fast on autonomous systems and AI while trying to manage real risks. The U.S. is confident enough in unmanned technology to rethink 80 years of amphibious doctrine, yet careful enough to pause B-52 testing after a crash [1][2]. Taiwan is vulnerable not because it lacks technical skill—it dominates semiconductors—but because adopting AI militarily lags adoption by China [5]. The underlying question: Can democracies and allies coordinate fast enough on AI integration to maintain strategic advantage, or will fragmented adoption and restricted access create openings for adversaries [3][4][5]? The next six months will clarify whether Taiwan accelerates its AI timeline and whether the first unmanned amphibious exercises succeed.",
+    "references": [
+      {
+        "id": 1,
+        "source": "War on the Rocks — The First Waves of Amphibious Assault Will Be Unmanned",
+        "url": "https://warontherocks.com/the-first-waves-of-amphibious-assault-will-be-unmanned/"
+      },
+      {
+        "id": 2,
+        "source": "Defense One — Air Force will resume B-52 radar testing with second bomber after deadly crash",
+        "url": "https://www.defenseone.com/defense-systems/2026/07/air-force-will-resume-b-52-radar-testing-second-bomber-following-deadly-crash/415040/"
+      },
+      {
+        "id": 3,
+        "source": "Defense One — NIST unveils new AI evaluation platform",
+        "url": "https://www.defenseone.com/technology/2026/07/nist-unveils-new-ai-evaluation-platform/415044/"
+      },
+      {
+        "id": 4,
+        "source": "Defense One — More than 30 companies form open-source AI alliance",
+        "url": "https://www.defenseone.com/business/2026/07/over-30-companies-form-open-source-ai-alliance/415043/"
+      },
+      {
+        "id": 5,
+        "source": "War on the Rocks — Taiwan's Tech Hurdles Threaten Military Capability and Potential Coalition Defense",
+        "url": "https://warontherocks.com/cogs-of-war/taiwans-tech-hurdles-threaten-military-capability-and-potential-coalition-defense/"
+      }
+    ],
+    "imageSearchTerms": [
+      "unmanned drone amphibious landing beach reconnaissance",
+      "Taiwan semiconductor chip manufacturing defense strategy",
+      "military AI artificial intelligence defense operations"
+    ],
+    "candidates": [],
+    "newsSource": "6 sources",
+    "newsUrl": "https://warontherocks.com/the-first-waves-of-amphibious-assault-will-be-unmanned/"
+  },
+  "heroImage": {
+    "url": "https://images.unsplash.com/photo-1759340875604-84a9d7473b21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwyfHx1bm1hbm5lZCUyMGRyb25lJTIwYW1waGliaW91cyUyMGxhbmRpbmclMjBiZWFjaCUyMHJlY29ubmFpc3NhbmNlfGVufDF8MHx8fDE3ODUyMzI4NTR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+    "photographer": "Loris Boulinguez",
+    "photographerUrl": "https://unsplash.com/@cli_k",
+    "unsplashUrl": "https://unsplash.com/photos/airplane-flying-over-the-ocean-towards-land-vSaCOPZC9CI"
+  },
+  "inlineImages": [
+    {
+      "url": "https://images.unsplash.com/photo-1766933680546-4b3de9e10013?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHw0fHxUYWl3YW4lMjBzZW1pY29uZHVjdG9yJTIwY2hpcCUyMG1hbnVmYWN0dXJpbmclMjBkZWZlbnNlJTIwc3RyYXRlZ3l8ZW58MXwwfHx8MTc4NTIzMjg1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Patrik Aradi",
+      "photographerUrl": "https://unsplash.com/@apatrik",
+      "unsplashUrl": "https://unsplash.com/photos/taiwanese-flag-hangs-near-modern-buildings-under-sunlight-KrxqqCA0Tag"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1762530351269-b244c829821e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MDAyMjV8MHwxfHNlYXJjaHwzfHxUYWl3YW4lMjBzZW1pY29uZHVjdG9yJTIwY2hpcCUyMG1hbnVmYWN0dXJpbmclMjBkZWZlbnNlJTIwc3RyYXRlZ3l8ZW58MXwwfHx8MTc4NTIzMjg1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "photographer": "Maxim Klimashin",
+      "photographerUrl": "https://unsplash.com/@maxim_klimashin",
+      "unsplashUrl": "https://unsplash.com/photos/aerial-view-of-a-large-city-square-with-buildings-NaYqokJ7lzk"
+    }
+  ],
+  "createdAt": "2026-07-28T06:00:55.000-04:00",
+  "factChecked": true
+}
