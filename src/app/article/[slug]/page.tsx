@@ -64,9 +64,19 @@ function getScoreColor(grade: string): string {
  * Generate an SEO-optimized title for search results.
  * Catchy headline stays as the on-page H1, but <title> targets search intent.
  */
-function getSeoTitle(article: { type: string; ticker?: string; title: string; verdict?: string }): string {
+function getSeoTitle(article: {
+  type: string;
+  ticker?: string;
+  title: string;
+  verdict?: string;
+  editorialReview?: { status: 'pending' | 'approved' | 'rejected' };
+}): string {
   const ticker = article.ticker;
   const year = new Date().getFullYear();
+
+  if (article.editorialReview?.status === 'approved') {
+    return article.title;
+  }
 
   if (article.type === 'roast' && ticker) {
     // Extract grade for title
@@ -94,6 +104,19 @@ function getReadingTime(text: string): number {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+function formatArticleDate(
+  value: string,
+  options: Intl.DateTimeFormatOptions,
+): string {
+  const date = /^\d{4}-\d{2}-\d{2}$/.test(value)
+    ? new Date(`${value}T12:00:00Z`)
+    : new Date(value);
+  return date.toLocaleDateString('en-US', {
+    ...options,
+    timeZone: 'America/Toronto',
+  });
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -109,6 +132,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!article) return {};
 
   const isTake = article.type === 'take';
+  const isApprovedEditorial = article.editorialReview?.status === 'approved';
   const grade = isTake ? '' : getGradeFromVerdict(article.verdict || article.content?.finalVerdict || '');
   const seoTitle = getSeoTitle({ ...article, verdict: article.verdict || article.content?.finalVerdict });
 
@@ -118,13 +142,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: seoTitle,
     description: article.description,
-    keywords: [
-      article.ticker ? `${article.ticker} stock analysis` : '',
-      article.ticker ? `should I buy ${article.ticker}` : '',
-      'AI stock analysis',
-      'stock pick review',
-      ...article.tags,
-    ].filter(Boolean),
+    keywords: isApprovedEditorial
+      ? [article.title, ...article.tags]
+      : [
+          article.ticker ? `${article.ticker} stock analysis` : '',
+          article.ticker ? `should I buy ${article.ticker}` : '',
+          'AI stock analysis',
+          'stock pick review',
+          ...article.tags,
+        ].filter(Boolean),
     alternates: {
       canonical: `/article/${article.slug}`,
       types: feedAlternates,
@@ -167,12 +193,21 @@ export default async function ArticlePage({ params }: PageProps) {
   const { content } = article;
   const isRoast = article.type === 'roast';
   const isTake = article.type === 'take';
+  const isApprovedEditorial = article.editorialReview?.status === 'approved';
+  const comparisonTickers = content.candidates
+    ?.map(candidate => candidate.ticker)
+    .filter(Boolean) || [];
+  const comparisonQuestion = comparisonTickers.length > 1
+    ? `Which is better: ${comparisonTickers.slice(0, -1).join(', ')}, or ${comparisonTickers.at(-1)}?`
+    : null;
 
   const faqQuestions = [
     {
-      question: article.ticker
-        ? `Should you buy ${article.ticker} stock?`
-        : 'What stocks should you buy this week?',
+      question: isApprovedEditorial && comparisonQuestion
+        ? comparisonQuestion
+        : article.ticker
+          ? `Should you buy ${article.ticker} stock?`
+          : 'What stocks should you buy this week?',
       answer: content.finalVerdict,
     },
     ...(isRoast && content.foolClaim
@@ -252,7 +287,7 @@ export default async function ArticlePage({ params }: PageProps) {
       <Breadcrumbs items={[
         { label: 'Home', href: '/' },
         { label: isRoast ? 'Roasts' : isTake ? 'News' : 'Picks', href: isRoast ? '/roasts' : isTake ? '/takes' : '/picks' },
-        { label: article.ticker || article.slug },
+        { label: isApprovedEditorial ? article.title : article.ticker || article.slug },
       ]} />
 
       {/* Hero Image */}
@@ -324,7 +359,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </h1>
             <div className="flex flex-wrap items-center gap-2">
               <time className="text-xs font-mono text-muted" dateTime={article.date}>
-                {new Date(article.date).toLocaleDateString('en-US', {
+                {formatArticleDate(article.date, {
                   weekday: 'long',
                   month: 'long',
                   day: 'numeric',
@@ -354,7 +389,7 @@ export default async function ArticlePage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: linkifyTickers(inlineFormat(content.summary || ''), articleTickers) }}
         />
         <p className="text-xs text-muted mt-3 font-mono">
-          Data sourced {new Date(article.date).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}. Verify current figures before making investment decisions.
+          Data sourced {formatArticleDate(article.date, { month: 'long', year: 'numeric' })}. Verify current figures before making investment decisions.
         </p>
       </div>
 
