@@ -12,5 +12,12 @@
     "exchange": "TSX",
     "sector": "ETF",
     "country": "CA"
+  },
+  {
+    "ticker": "XUS",
+    "company": "iShares Core S&P 500 Index ETF",
+    "exchange": "TSX",
+    "sector": "ETF",
+    "country": "CA"
   }
 ]
