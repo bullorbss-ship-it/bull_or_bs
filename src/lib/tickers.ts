@@ -53,7 +53,7 @@ export const TSX_TICKERS: TickerInfo[] = [
   { ticker: 'ZEB', company: 'BMO Equal Weight Banks Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'ZAG', company: 'BMO Aggregate Bond Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'ZWB', company: 'BMO Covered Call Canadian Banks ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
-  { ticker: 'XEI', company: 'iShares Core MSCI Canadian Quality Dividend Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
+  { ticker: 'XEI', company: 'iShares S&P/TSX Composite High Dividend Index ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'ZDV', company: 'BMO Canadian Dividend ETF', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'VGRO', company: 'Vanguard Growth ETF Portfolio', exchange: 'TSX', sector: 'ETF', country: 'CA' },
   { ticker: 'VBAL', company: 'Vanguard Balanced ETF Portfolio', exchange: 'TSX', sector: 'ETF', country: 'CA' },

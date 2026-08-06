@@ -1,0 +1,142 @@
+{
+  "slug": "vdy-vs-xei-vs-zdv-least-concentrated-canadian-dividend-etf-2026-08-06",
+  "type": "pick",
+  "title": "VDY vs XEI vs ZDV: Which Canadian Dividend ETF Is Least Concentrated?",
+  "description": "Compare VDY, XEI and ZDV using a bank, energy, telecom, utilities and top-ten concentration heat map, plus fees, yield and five-year return.",
+  "date": "2026-08-06",
+  "createdAt": "2026-08-06T09:36:00.000-04:00",
+  "factChecked": true,
+  "ticker": "XEI",
+  "verdict": "XEI is the least concentrated on current single-stock, top-ten, and sector evidence; ZDV is close, while VDY is a concentrated financials-and-energy portfolio.",
+  "tags": [
+    "editorial-research",
+    "comparison",
+    "vdy",
+    "xei",
+    "zdv",
+    "dividends",
+    "canada"
+  ],
+  "content": {
+    "headline": "VDY vs XEI vs ZDV: XEI Has the Broadest Dividend Risk Budget",
+    "summary": "XEI has the lowest largest-position weight, the lowest top-ten concentration, and the most balanced financials-energy split. ZDV is a close second; VDY is materially more concentrated despite the strongest recent five-year return.",
+    "candidates": [
+      {
+        "ticker": "VDY",
+        "company": "Vanguard FTSE Canadian High Dividend Yield Index ETF",
+        "status": "considered",
+        "reasonConsidered": "A 0.22% MER, monthly distributions, large scale, and the strongest five-year historical return of the three.",
+        "reasonEliminated": "Financials were 60.7%, the top ten were 69.7%, and Royal Bank alone was 16.4%, making VDY the least diversified by the tested concentration measures.",
+        "score": 6.8
+      },
+      {
+        "ticker": "XEI",
+        "company": "iShares S&P/TSX Composite High Dividend Index ETF",
+        "status": "selected",
+        "reasonConsidered": "The lowest largest-stock weight, the lowest top-ten total, the broadest holdings count, a balanced financials-energy split, and a 0.22% MER.",
+        "score": 8.9
+      },
+      {
+        "ticker": "ZDV",
+        "company": "BMO Canadian Dividend ETF",
+        "status": "considered",
+        "reasonConsidered": "A rules-based portfolio with top-ten concentration close to XEI and less sector concentration than VDY.",
+        "reasonEliminated": "Its largest stock and financials weight were higher than XEI's, while its 0.39% MER was the highest of the group.",
+        "score": 8.2
+      }
+    ],
+    "winner": {
+      "ticker": "XEI",
+      "company": "iShares S&P/TSX Composite High Dividend Index ETF",
+      "status": "selected",
+      "reasonConsidered": "The strongest current evidence of diversification across individual holdings and major Canadian dividend sectors without a fee premium over VDY.",
+      "score": 8.9
+    },
+    "analysis": "## Quick answer\n\nXEI is the least concentrated of these three Canadian dividend ETFs on the measures investors can verify directly. Its largest holding was 5.41%, its top ten totalled 45.31%, and its two dominant sectors were split relatively evenly between financials and energy.[3][4] ZDV was close on top-ten concentration but carried a larger single-stock weight and a heavier financials allocation. VDY was the clear outlier: 60.7% financials, 69.7% in its top ten, and 16.4% in Royal Bank.[2]\n\nLeast concentrated does not mean guaranteed to outperform. VDY actually delivered the highest five-year historical return through June 30, 2026.[2] The concentration audit answers a risk-budget question: how much of the portfolio's outcome depends on a small set of Canadian banks, energy companies, and other dividend payers?\n\n## Concentration heat map\n\n| Measure | VDY | XEI | ZDV | Lowest concentration |\n|---|---:|---:|---:|---|\n| Largest holding | 16.40% | 5.41% | 8.66% | XEI |\n| Top ten | 69.70% | 45.31% | 45.55% | XEI |\n| Financials | 60.70% | 31.18% | 39.10% | XEI |\n| Energy | 26.70% | 29.79% | 23.90% | ZDV |\n| Telecom / communication | 2.60% | 6.88% | 4.88% | VDY |\n| Utilities | 4.50% | 13.48% | 10.40% | VDY |\n| Number of holdings | 60 | 75 | 69 | XEI |\n| MER | 0.22% | 0.22% | 0.39% | VDY / XEI |\n\nThe sector dates require one caveat. VDY and ZDV are June 30 snapshots; XEI's sector weights are from July 24, while its top-ten table is June 30.[2][3][4][6] The issuers also use classification systems whose communication and telecommunications labels are not perfectly identical. The broad gaps are large enough to remain informative, but decimal-level comparisons should not be treated as permanent.\n\n## VDY: a high-dividend portfolio dominated by banks\n\nVDY tracks a market-capitalization-weighted FTSE Canada high-dividend index.[1][2] That design allows large eligible companies to become very large positions. Royal Bank represented 16.4%, Toronto-Dominion 11.5%, and Bank of Montreal 7.1% on June 30. Six financial companies appeared in the top ten, while four energy and pipeline companies filled the remaining positions.[2]\n\nFinancials at 60.7% plus energy at 26.7% left only 12.6% for everything else.[2] This is diversified across 60 stocks in a legal sense, but its economic drivers are narrow. A Canadian investor who already owns bank stocks, an employer pension heavy in financials, or a broad Canadian index may be adding more overlap than the holding count suggests.\n\nThe trade-off has been real historical performance. VDY's five-year annualized NAV return was 18.56%, versus 15.66% for XEI and 15.82% for ZDV.[2][4][6] Strong bank and energy returns can reward concentration. They can also reverse. Past leadership does not make the portfolio less exposed to those sectors.\n\n## XEI: the best balance across visible risks\n\nXEI held 75 securities, the broadest basket here, and charged the same 0.22% MER as VDY.[3][4] Its top ten totalled 45.31%. The largest holdings—TD at 5.41%, Royal Bank at 5.33%, Enbridge at 4.88%, and TC Energy at 4.67%—were much closer to equal than VDY's top weights.[4]\n\nIts sector mix was not broad in an all-market sense: financials and energy still totalled about 61%.[3] That is the unavoidable context of a Canadian high-dividend screen. But the split was balanced at 31.18% financials and 29.79% energy, with 13.48% utilities and 6.88% communication adding meaningful secondary exposure.[3]\n\nXEI also reported a 3.60% distribution yield in the June factsheet and pays monthly.[4] That figure should not be compared mechanically with every issuer's yield label, and it is not guaranteed. The concentration case stands without relying on the yield.\n\n## ZDV: close on top ten, more expensive\n\nZDV is not an index clone. BMO describes a rules-based process that considers dividend growth, yield, payout levels, fundamentals, valuation, and liquidity, with monthly rebalancing in the June factsheet.[5][6] It held 69 securities and spread its top ten across 45.55% of assets, only 0.24 percentage point above XEI by the listed weights.[6]\n\nIts largest holding, Royal Bank, was 8.66%, followed by TD at 7.59% and Bank of Nova Scotia at 5.15%.[6] Financials were 39.10% and energy 23.90%, with utilities and materials providing more balance than VDY.[6] That makes ZDV a credible concentration alternative, especially for an investor who values its selection rules.\n\nThe cost is the weak point. ZDV's MER was 0.39%, versus 0.22% for both rivals.[2][4][6] The 0.17-percentage-point difference equals C$17 annually per C$10,000 before compounding. A rules-based portfolio can justify a different result, but the higher cost needs to be judged against the specific construction benefit rather than assumed away.\n\n## Yield is not diversification\n\nA high distribution rate can come from a concentrated set of mature sectors. It can also move with dividends, portfolio changes, special distributions, and NAV. The reviewed June disclosures showed 3.2% equity dividend yield for VDY, 3.60% distribution yield for XEI, and 2.79% annualized distribution yield for ZDV.[2][4][6] Those labels are not exactly the same calculation.\n\nMore importantly, a cash distribution is not an extra return. The fund's NAV falls by the distribution amount, all else equal. Investors comparing income should examine total return, tax character, dividend sustainability, and overlap with the rest of the portfolio—not just the latest annualized payout.\n\n## What the heat map misses\n\nSector weights do not measure every risk. Canadian banks can share mortgage and credit-cycle exposure even when individual weights are capped. Pipelines, producers, and utilities react differently to commodity prices and interest rates despite sitting near one another in an income portfolio. ZDV's active rules can change holdings between snapshots, while the two index funds change with prices and index reviews.\n\nAccount context also matters. A fund that looks concentrated alone may diversify a portfolio dominated by technology or foreign equities. The same fund may compound home-country bias in a portfolio already heavy in Canadian banks, an owned home, and Canadian-dollar employment income.\n\n## Bottom line\n\nXEI wins this concentration test because it has the lowest single-stock maximum, the lowest top-ten total, the most holdings, and the most even financials-energy split, while matching VDY's 0.22% MER.[3][4] ZDV is a reasonable second and is far less concentrated than VDY, but it costs more and still carries a larger bank weight than XEI. VDY is the deliberate concentrated option: it has produced the strongest recent five-year return, but its risk budget is dominated by Canadian financials and energy.\n\nUse the heat map to inspect portfolio overlap, not to turn a current snapshot into a prediction. Holdings can change, and none of these funds guarantees income or capital preservation.",
+    "risks": [
+      "All three remain concentrated in Canadian financials and energy relative to a global equity portfolio.",
+      "Dividend cuts or weaker bank, pipeline, utility, or energy fundamentals could reduce distributions and prices.",
+      "Holdings and sector weights change after rebalances and market movements.",
+      "Issuer sector classifications and yield definitions are not perfectly identical.",
+      "Historical five-year returns may reward past concentration and do not predict future performance."
+    ],
+    "catalysts": [
+      "Index rebalances or ZDV's monthly rules-based reviews can reduce or increase current concentration.",
+      "Broader dividend growth outside banks and energy could improve sector diversification.",
+      "Fee reductions would change the relative cost of maintaining each portfolio.",
+      "Changes in bank capital returns, energy cash flow, and utility dividends can alter income and portfolio weights."
+    ],
+    "dataPoints": [
+      {
+        "label": "VDY financials and top-ten concentration",
+        "value": "60.7% financials and 69.7% top ten at June 30, 2026",
+        "source": "Vanguard Investments Canada",
+        "sourceUrl": "https://fund-docs.vanguard.com/VDY_FTSE_Canadian_High_Dividend_Yield_Index_ETF_9560_FS_EN_CA.pdf"
+      },
+      {
+        "label": "XEI top-ten concentration",
+        "value": "45.31% at June 30, 2026",
+        "source": "BlackRock Canada",
+        "sourceUrl": "https://www.blackrock.com/ca/individual/en/literature/fact-sheet/xei-ishares-s-p-tsx-composite-high-dividend-index-etf-fund-fact-sheet-en-ca.pdf"
+      },
+      {
+        "label": "ZDV sector concentration",
+        "value": "39.10% financials and 23.90% energy at June 30, 2026",
+        "source": "BMO Global Asset Management",
+        "sourceUrl": "https://df.bmogam.com/assets/static/etf-profiles-pdfs/BMO%20Canadian%20Dividend%20ETF_Factsheet_EN_ZDV.pdf"
+      },
+      {
+        "label": "XEI management expense ratio",
+        "value": "0.22% in the June 2026 factsheet",
+        "source": "BlackRock Canada",
+        "sourceUrl": "https://www.blackrock.com/ca/individual/en/literature/fact-sheet/xei-ishares-s-p-tsx-composite-high-dividend-index-etf-fund-fact-sheet-en-ca.pdf"
+      }
+    ],
+    "finalVerdict": "XEI scores 8.9/10 as the least concentrated current option: its largest holding was 5.41%, top ten were 45.31%, financials were about 31.2%, and it held 75 securities while charging a 0.22% MER. ZDV scores 8.2/10 and is close on top-ten breadth, but its largest holding and financials weight were higher and its MER was 0.39%. VDY scores 6.8/10 for this specific question because 60.7% financials and 69.7% top-ten concentration make it a deliberate sector bet, even though it had the strongest recent five-year return. The result is a concentration audit, not a buy, sell, or return forecast.",
+    "references": [
+      {
+        "id": 1,
+        "source": "Vanguard Canada — VDY product page",
+        "url": "https://www.vanguard.ca/en/product/etf/equity/9560/vanguard-ftse-canadian-high-dividend-yield-index-etf"
+      },
+      {
+        "id": 2,
+        "source": "Vanguard Canada — VDY June 2026 factsheet",
+        "url": "https://fund-docs.vanguard.com/VDY_FTSE_Canadian_High_Dividend_Yield_Index_ETF_9560_FS_EN_CA.pdf"
+      },
+      {
+        "id": 3,
+        "source": "BlackRock Canada — XEI product page",
+        "url": "https://www.blackrock.com/ca/investors/en/products/239846/"
+      },
+      {
+        "id": 4,
+        "source": "BlackRock Canada — XEI June 2026 factsheet",
+        "url": "https://www.blackrock.com/ca/individual/en/literature/fact-sheet/xei-ishares-s-p-tsx-composite-high-dividend-index-etf-fund-fact-sheet-en-ca.pdf"
+      },
+      {
+        "id": 5,
+        "source": "BMO — ZDV product page",
+        "url": "https://www.bmoetfs.ca/etfs/zdv-bmo-canadian-dividend-etf"
+      },
+      {
+        "id": 6,
+        "source": "BMO — ZDV June 2026 factsheet",
+        "url": "https://df.bmogam.com/assets/static/etf-profiles-pdfs/BMO%20Canadian%20Dividend%20ETF_Factsheet_EN_ZDV.pdf"
+      },
+      {
+        "id": 7,
+        "source": "BMO — ZDV ETF Facts",
+        "url": "https://fundfacts.bmo.com/EtfEnglish/BMO_Canadian_Dividend_ETF-EN-CAD_Units.pdf"
+      }
+    ]
+  },
+  "editorialReview": {
+    "status": "approved",
+    "approvedAt": "2026-08-06T09:58:25.000-04:00",
+    "researchId": "research-2026-08-06-vdy-vs-xei-vs-zdv",
+    "writerModel": "codex/gpt-5:writer",
+    "verifierModel": "codex/gpt-5:verifier",
+    "qualityScore": 100
+  }
+}

@@ -1,5 +1,5 @@
 # BullOrBS — Design Queue & Project Tracker
-**Last updated: 2026-07-28**
+**Last updated: 2026-08-06**
 
 ---
 
@@ -28,6 +28,14 @@
 ---
 
 ## Done (Recent Sessions)
+
+### Session: 2026-08-06 (Morning Editorial Catch-Up)
+- [x] Ran one approval-first morning catch-up for the approved August 4, August 5, and August 6 assignments
+- [x] Researched and independently verified VFV vs XUS vs ZSP, IVV vs VOO vs SPYM (formerly SPLG), and VDY vs XEI vs ZDV using current issuer and government sources
+- [x] Added verified XUS and SPYM ticker metadata; retained the approved SPLG plan-item ID while using the live SPYM ticker in the draft
+- [x] Saved three private drafts with 100/100 quality records and zero unsupported verifier claims
+- [x] Owner approved the August 6 VDY vs XEI vs ZDV draft; the article passed the full pre-deploy pipeline and production build for publication
+- [ ] Owner review remains pending for the August 4 and August 5 drafts
 
 ### Session: 2026-07-28 (Quality Recovery + Approval-First Editorial System)
 - [x] Synced 163 production commits; current inventory is 239 articles, including 166 legacy automated daily briefs
