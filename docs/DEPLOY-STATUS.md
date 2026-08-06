@@ -1,6 +1,6 @@
 # BullOrBS Deploy Status
 
-*Auto-generated: 2026-08-06T13:59:02.437Z*
+*Auto-generated: 2026-08-06T19:55:06.091Z*
 
 ---
 
@@ -9,9 +9,9 @@
 | Type | Count |
 | --- | --- |
 | Roasts | 19 |
-| Picks | 9 |
+| Picks | 11 |
 | Takes | 213 |
-| **Total** | 241 |
+| **Total** | 243 |
 
 ### Roasts
 
@@ -42,6 +42,8 @@
 | Date | Ticker | Title |
 | --- | --- | --- |
 | 2026-08-06 | XEI | VDY vs XEI vs ZDV: Which Canadian Dividend ETF Is Least Conc |
+| 2026-08-05 | SPYM | IVV vs VOO vs SPYM (Formerly SPLG) for Canadians |
+| 2026-08-04 | VFV | VFV vs XUS vs ZSP: Which Canadian S&P 500 ETF Is Actually Ch |
 | 2026-08-03 | CBIL | CASH vs CBIL vs PSA: Where Should Canadians Park Cash? |
 | 2026-03-13 | XEQT.TO | XEQT vs VEQT: Which All-Equity ETF Should Canadian Investors |
 | 2026-03-11 | PLTR | PLTR vs. BBAI: David vs. Goliath in the AI-Defense Arms Race |

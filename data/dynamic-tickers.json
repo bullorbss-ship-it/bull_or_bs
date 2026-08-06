@@ -12,5 +12,19 @@
     "exchange": "TSX",
     "sector": "ETF",
     "country": "CA"
+  },
+  {
+    "ticker": "XUS",
+    "company": "iShares Core S&P 500 Index ETF",
+    "exchange": "TSX",
+    "sector": "ETF",
+    "country": "CA"
+  },
+  {
+    "ticker": "SPYM",
+    "company": "State Street SPDR Portfolio S&P 500 ETF",
+    "exchange": "NYSE",
+    "sector": "ETF",
+    "country": "US"
   }
 ]

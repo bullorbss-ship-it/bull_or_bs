@@ -33,9 +33,9 @@
 - [x] Ran one approval-first morning catch-up for the approved August 4, August 5, and August 6 assignments
 - [x] Researched and independently verified VFV vs XUS vs ZSP, IVV vs VOO vs SPYM (formerly SPLG), and VDY vs XEI vs ZDV using current issuer and government sources
 - [x] Added verified XUS and SPYM ticker metadata; retained the approved SPLG plan-item ID while using the live SPYM ticker in the draft
-- [x] Saved three private drafts with 100/100 quality records and zero unsupported verifier claims
-- [x] Owner approved the August 6 VDY vs XEI vs ZDV draft; the article passed the full pre-deploy pipeline and production build for publication
-- [ ] Owner review remains pending for the August 4 and August 5 drafts
+- [x] Saved three drafts with 100/100 quality records and zero unsupported verifier claims
+- [x] Owner approved all August 4-6 catch-up drafts; each article passed the approval gate and was moved into the publication set
+- [x] All three comparisons, including August 4-5, passed the required pre-deploy pipeline and production build
 
 ### Session: 2026-07-28 (Quality Recovery + Approval-First Editorial System)
 - [x] Synced 163 production commits; current inventory is 239 articles, including 166 legacy automated daily briefs
@@ -167,14 +167,14 @@
 | Type | Count | Target | Pace |
 |------|-------|--------|------|
 | Roasts | 19 | Quality over volume | Approval only |
-| Picks | 8 | Quality over volume | Approval only |
+| Picks | 11 | Quality over volume | Approval only |
 | Takes | 213 | Reduce index footprint | Approval only |
-| **Total** | **240** | No volume target | |
+| **Total** | **243** | No volume target | |
 | Legacy daily briefs | 166 | Review/noindex | Auto-publishing disabled |
 | Stock pages | 182 + dynamic | Index only reviewed coverage | Add with articles |
 | Stock profiles | 91 | 200+ | Add with articles |
 | Learn guides | 5 | 10 | 1/week |
-| Fact-checked | 1/21 | 21/21 | Backlog |
+| Fact-checked | 4/21 | 21/21 | Backlog |
 
 ## Current Analytics Baseline (2026-06-30 to 2026-07-27)
 - **415 active / 412 new users**, but this is not a trustworthy human-audience baseline

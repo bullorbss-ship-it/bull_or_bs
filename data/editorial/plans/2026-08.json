@@ -27,7 +27,7 @@
       "tickers": ["VFV", "XUS", "ZSP"],
       "whyNow": "Mid-year fund reports provide a clean point to compare realized tracking and costs instead of relying only on headline MERs.",
       "uniqueAsset": "Five-year all-in cost and tracking-difference table for a C$10,000 holding",
-      "status": "planned"
+      "status": "published"
     },
     {
       "id": "2026-08-05-ivv-vs-voo-vs-splg",
@@ -39,7 +39,7 @@
       "tickers": ["IVV", "VOO", "SPLG"],
       "whyNow": "The existing IVV page earned 134 Google impressions but no clicks, showing demand that a decision-focused comparison can answer better.",
       "uniqueAsset": "Break-even calculator combining MER, spread, FX conversion, and RRSP withholding treatment",
-      "status": "planned"
+      "status": "published"
     },
     {
       "id": "2026-08-06-vdy-vs-xei-vs-zdv",

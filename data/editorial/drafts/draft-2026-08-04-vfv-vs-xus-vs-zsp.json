@@ -1,0 +1,315 @@
+{
+  "id": "draft-2026-08-04-vfv-vs-xus-vs-zsp",
+  "planMonth": "2026-08",
+  "planItemId": "2026-08-04-vfv-vs-xus-vs-zsp",
+  "status": "published",
+  "createdAt": "2026-08-06T09:36:00.000-04:00",
+  "publishedAt": "2026-08-06T15:54:20.000-04:00",
+  "writerModel": "codex/gpt-5:writer",
+  "research": {
+    "id": "research-2026-08-04-vfv-vs-xus-vs-zsp",
+    "planItemId": "2026-08-04-vfv-vs-xus-vs-zsp",
+    "researchedAt": "2026-08-06T09:36:00.000-04:00",
+    "model": "codex/gpt-5:research",
+    "summary": "VFV, XUS, and ZSP all report a 0.09% MER and provide unhedged Canadian-dollar exposure to the S&P 500, but their implementation differs. VFV primarily holds VOO, XUS primarily holds IVV, and ZSP directly holds the index securities. For the five years ended June 30, 2026, issuer-reported annualized NAV returns were approximately 16.15% for VFV, 16.13% for XUS, and 16.14% for ZSP. A C$10,000 holding would therefore have ended near C$21,140, C$21,122, and C$21,130, respectively, before investor-specific trading costs and tax. VFV combines the narrowest reported historical average spread, the largest asset base, and the highest five-year ending value, but the differences are too small to support a universal recommendation.",
+    "comparisonDimensions": [
+      {
+        "label": "Headline fund cost",
+        "values": {
+          "VFV": "0.08% management fee and 0.09% MER.",
+          "XUS": "0.08% management fee and 0.09% MER.",
+          "ZSP": "0.08% management fee and 0.09% MER."
+        },
+        "interpretation": "The published MER is a three-way tie. Fee tables alone do not identify a cheapest fund.",
+        "sourceIds": [2, 5, 8]
+      },
+      {
+        "label": "Five-year investor outcome to June 30, 2026",
+        "values": {
+          "VFV": "16.15% annualized NAV return; about C$21,139.57 from C$10,000.",
+          "XUS": "111.22% cumulative NAV return, equivalent to about 16.13% annualized; C$21,122.00 from C$10,000.",
+          "ZSP": "16.14% annualized portfolio return; about C$21,130.47 from C$10,000."
+        },
+        "interpretation": "Only C$17.57 separated the highest and lowest ending values. That is smaller than many one-time commissions or poorly executed round trips.",
+        "sourceIds": [2, 4, 8]
+      },
+      {
+        "label": "Tracking against each issuer's stated benchmark",
+        "values": {
+          "VFV": "16.15% versus 16.25% benchmark annualized over five years: about -0.10 percentage point per year.",
+          "XUS": "111.22% versus 110.30% benchmark cumulative over five years: about +0.92 percentage point cumulative.",
+          "ZSP": "16.14% versus 16.53% benchmark annualized over five years: about -0.39 percentage point per year."
+        },
+        "interpretation": "XUS looks strongest against its own displayed benchmark, but benchmark return conventions and fund structures are not guaranteed identical across issuers. The comparison is diagnostic, not a clean league table.",
+        "sourceIds": [2, 4, 8]
+      },
+      {
+        "label": "Trading-cost evidence",
+        "values": {
+          "VFV": "0.018% average bid-ask spread and 793,279 average daily units for the 12 months ended May 31, 2026.",
+          "XUS": "0.03% average bid-ask spread and 736,152 average daily units for the 12 months ended April 30, 2026.",
+          "ZSP": "0.02% average bid-ask spread and 1,146,487 average daily units for calendar 2025."
+        },
+        "interpretation": "All three had tight historical spreads. VFV's disclosed average was narrowest, while ZSP had the highest disclosed average unit volume. The periods differ and live quotes still control execution.",
+        "sourceIds": [3, 6, 9]
+      },
+      {
+        "label": "Portfolio implementation and distributions",
+        "values": {
+          "VFV": "Primarily holds the U.S.-domiciled Vanguard S&P 500 ETF, VOO; pays quarterly.",
+          "XUS": "Primarily holds the U.S.-domiciled iShares Core S&P 500 ETF, IVV; pays semi-annually.",
+          "ZSP": "Directly holds S&P 500 constituent securities; pays quarterly."
+        },
+        "interpretation": "VFV and XUS are fund-of-fund wrappers; ZSP is direct replication. The structure can affect withholding, operational tracking, and disclosure, even when market exposure is similar.",
+        "sourceIds": [2, 6, 7, 8]
+      },
+      {
+        "label": "Scale and securities-lending disclosure",
+        "values": {
+          "VFV": "C$34.1 billion of assets at June 30, 2026; the Canadian prospectus said the funds did not then engage in securities lending, while the underlying VOO fund may have separate activity.",
+          "XUS": "About C$13.0 billion of assets in July 2026; the 2025 management report said XUS did not engage in securities lending during the year.",
+          "ZSP": "C$24.4 billion of assets and 505 securities at June 30, 2026; reviewed current facts did not provide a directly comparable securities-lending offset."
+        },
+        "interpretation": "No comparable current lending-income series was available across all three, so securities lending was not used to manufacture a winner.",
+        "sourceIds": [1, 7, 8, 10]
+      }
+    ],
+    "keyFindings": [
+      "All three ETFs report the same 0.09% MER.",
+      "Five-year C$10,000 ending values were separated by less than C$18 using issuer-reported returns through June 30, 2026.",
+      "VFV had the narrowest disclosed historical average bid-ask spread at 0.018% and the largest current asset base.",
+      "XUS showed the strongest result relative to its own displayed benchmark, although cross-issuer benchmark conventions limit direct comparison.",
+      "ZSP is the direct-holding implementation; VFV and XUS mainly wrap VOO and IVV, respectively.",
+      "Securities-lending income was not disclosed on a sufficiently comparable basis to rank the funds."
+    ],
+    "uncertainties": [
+      "The issuers' benchmark series may differ in tax, timing, and return-calculation conventions even though each references the S&P 500.",
+      "Average bid-ask spreads cover different historical periods and do not predict the quote available for a specific order.",
+      "The five-year outcome excludes an investor's commissions, tax treatment, purchase timing, and premium or discount to NAV.",
+      "VFV and XUS obtain most exposure through U.S.-listed underlying funds, so some operational and securities-lending effects occur below the Canadian wrapper.",
+      "Past tracking differences can change and are not a forecast of future tracking.",
+      "Distribution frequency affects cash-flow timing but not economic total return when distributions are reinvested."
+    ],
+    "sources": [
+      {
+        "id": 1,
+        "title": "Vanguard S&P 500 Index ETF — VFV",
+        "publisher": "Vanguard Investments Canada",
+        "url": "https://www.vanguard.ca/en/product/etf/equity/9563/vanguard-sp-500-index-etf",
+        "publishedAt": "2026-08-06",
+        "sourceType": "primary",
+        "claims": ["VFV objective, structure, assets, prices, and distribution information"]
+      },
+      {
+        "id": 2,
+        "title": "VFV Factsheet — June 30, 2026",
+        "publisher": "Vanguard Investments Canada",
+        "url": "https://fund-docs.vanguard.com/VFV_SandP_500_Index_ETF_9563_FS_EN_CA.pdf",
+        "publishedAt": "2026-06-30",
+        "sourceType": "primary",
+        "claims": ["VFV fee, MER, assets, structure, and five-year fund and benchmark returns"]
+      },
+      {
+        "id": 3,
+        "title": "VFV ETF Facts — July 16, 2026",
+        "publisher": "Vanguard Investments Canada",
+        "url": "https://fund-docs.vanguard.com/VFV_SnP_500_Index_ETF_ETF_9563_EN_FACTS.pdf",
+        "publishedAt": "2026-07-16",
+        "sourceType": "primary",
+        "claims": ["VFV 0.018% average spread, average daily volume, MER, and distribution frequency"]
+      },
+      {
+        "id": 4,
+        "title": "iShares Core S&P 500 Index ETF — XUS",
+        "publisher": "BlackRock Canada",
+        "url": "https://www.blackrock.com/ca/investors/en/products/251422/ishares-sp-500-index-etf",
+        "publishedAt": "2026-07-24",
+        "sourceType": "primary",
+        "claims": ["XUS objective, current assets, holdings count, distributions, and five-year cumulative fund and benchmark returns"]
+      },
+      {
+        "id": 5,
+        "title": "XUS Fund Factsheet — June 2026",
+        "publisher": "BlackRock Canada",
+        "url": "https://www.blackrock.com/ca/individual/en/literature/fact-sheet/xus-ishares-core-s-p-500-index-etf-fund-fact-sheet-en-ca.pdf",
+        "publishedAt": "2026-06-30",
+        "sourceType": "primary",
+        "claims": ["XUS fee, MER, portfolio structure, distributions, and performance"]
+      },
+      {
+        "id": 6,
+        "title": "XUS ETF Facts — June 19, 2026",
+        "publisher": "BlackRock Canada",
+        "url": "https://www.blackrock.com/ca/institutional/en/literature/etf-summary/xus-facts-en-ca.pdf",
+        "publishedAt": "2026-06-19",
+        "sourceType": "primary",
+        "claims": ["XUS 0.03% average spread, average daily volume, MER, fund-of-fund implementation, and semi-annual distributions"]
+      },
+      {
+        "id": 7,
+        "title": "XUS Annual Management Report of Fund Performance — 2025",
+        "publisher": "BlackRock Canada",
+        "url": "https://www.blackrock.com/ca/individual/en/literature/annual-mrfp/mrfp-xus-en-ca.pdf",
+        "publishedAt": "2025-12-31",
+        "sourceType": "primary",
+        "claims": ["XUS held IVV, 2025 tracking contributors, fee cap, and no Canadian-wrapper securities lending during 2025"]
+      },
+      {
+        "id": 8,
+        "title": "ZSP Factsheet — June 30, 2026",
+        "publisher": "BMO Global Asset Management",
+        "url": "https://df.bmogam.com/assets/static/etf-profiles-pdfs/BMO%20S%26P%20500%20Index%20ETF_Factsheet_EN_ZSP.pdf",
+        "publishedAt": "2026-06-30",
+        "sourceType": "primary",
+        "claims": ["ZSP direct replication, fees, assets, securities count, distributions, and five-year fund and benchmark returns"]
+      },
+      {
+        "id": 9,
+        "title": "ZSP ETF Facts — January 23, 2026",
+        "publisher": "BMO Asset Management",
+        "url": "https://fundfacts.bmo.com/EtfEnglish/BMO_S%26P_500_Index_ETF-EN-CAD_Units.pdf",
+        "publishedAt": "2026-01-23",
+        "sourceType": "primary",
+        "claims": ["ZSP 0.02% average spread, average daily volume, MER, and quarterly distributions"]
+      },
+      {
+        "id": 10,
+        "title": "VFV Annual Management Report of Fund Performance — 2025",
+        "publisher": "Vanguard Investments Canada",
+        "url": "https://fund-docs.vanguard.com/VFV_MRFP_EN.pdf",
+        "publishedAt": "2025-12-31",
+        "sourceType": "primary",
+        "claims": ["VFV primarily invested in VOO and its 2025 return lag reflected fees and expenses"]
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "model": "codex/gpt-5:verifier",
+    "checkedAt": "2026-08-06T09:36:00.000-04:00",
+    "issues": [],
+    "unsupportedClaims": []
+  },
+  "quality": {
+    "score": 100,
+    "issues": [],
+    "passed": true,
+    "breakdown": {
+      "evidence": 25,
+      "originality": 25,
+      "intent": 15,
+      "transparency": 15,
+      "freshness": 10,
+      "usability": 10
+    }
+  },
+  "article": {
+    "slug": "vfv-vs-xus-vs-zsp-cheapest-canadian-sp-500-etf-2026-08-04",
+    "type": "pick",
+    "title": "VFV vs XUS vs ZSP: Which Canadian S&P 500 ETF Is Actually Cheapest?",
+    "description": "VFV, XUS and ZSP all charge a 0.09% MER. Compare five-year tracking, spreads, fund structure and a C$10,000 outcome before choosing a wrapper.",
+    "date": "2026-08-04",
+    "createdAt": "2026-08-06T09:36:00.000-04:00",
+    "factChecked": true,
+    "ticker": "VFV",
+    "verdict": "VFV has the best observable all-in cost case today, but the five-year result is effectively a three-way tie and live execution can reverse it.",
+    "tags": ["editorial-research", "comparison", "vfv", "xus", "zsp", "sp-500"],
+    "content": {
+      "headline": "VFV vs XUS vs ZSP: The MER Is a Tie, So Tracking and Trading Decide",
+      "summary": "All three report a 0.09% MER. VFV edges the scorecard with the narrowest disclosed average spread, the largest scale, and the highest five-year C$10,000 ending value, but only C$17.57 separated all three.",
+      "candidates": [
+        {
+          "ticker": "VFV",
+          "company": "Vanguard S&P 500 Index ETF",
+          "status": "selected",
+          "reasonConsidered": "Same 0.09% MER as its peers, the largest asset base, a 0.018% disclosed average spread, and the highest five-year ending value in the common-date test.",
+          "score": 8.6
+        },
+        {
+          "ticker": "XUS",
+          "company": "iShares Core S&P 500 Index ETF",
+          "status": "considered",
+          "reasonConsidered": "Same MER, strong tracking against its displayed benchmark, large scale, and an IVV fund-of-fund structure.",
+          "reasonEliminated": "Its disclosed historical average spread was wider and its five-year ending value was marginally lower, although neither gap is decisive.",
+          "score": 8.5
+        },
+        {
+          "ticker": "ZSP",
+          "company": "BMO S&P 500 Index ETF",
+          "status": "considered",
+          "reasonConsidered": "Same MER, direct index replication, substantial assets, and the highest disclosed average unit volume.",
+          "reasonEliminated": "Its issuer-reported five-year benchmark lag was the widest of the three and it did not lead the C$10,000 outcome.",
+          "score": 8.2
+        }
+      ],
+      "winner": {
+        "ticker": "VFV",
+        "company": "Vanguard S&P 500 Index ETF",
+        "status": "selected",
+        "reasonConsidered": "The strongest combined evidence on spread, scale, and realized five-year investor outcome, with a narrow margin that does not justify switching an existing low-cost holding by itself.",
+        "score": 8.6
+      },
+      "analysis": "## Quick answer\n\nVFV is the narrow winner in this specific cost audit, not because its management expense ratio is lower—it is not—but because it combines the tightest disclosed historical average spread, the largest asset base, and the highest five-year ending value. The more important answer is that VFV, XUS, and ZSP are economically close enough that trading costs, brokerage features, and taxes can outweigh the observed difference.\n\nAll three issuers report a 0.09% MER.[2][5][8] That costs about C$9 annually per C$10,000 before compounding. A fee-only comparison therefore produces a three-way tie. The decision starts to become useful only after adding realized returns, tracking, spreads, and fund structure.\n\n## Five-year all-in outcome\n\nThe following table uses each issuer's NAV or portfolio total return for the five years ended June 30, 2026. It assumes C$10,000 was invested at NAV, distributions were reinvested, and no commission or personal tax applied.\n\n| Measure | VFV | XUS | ZSP |\n|---|---:|---:|---:|\n| Reported MER | 0.09% | 0.09% | 0.09% |\n| Five-year annualized return | 16.15% | about 16.13% | 16.14% |\n| C$10,000 ending value | C$21,139.57 | C$21,122.00 | C$21,130.47 |\n| Disclosed historical average spread | 0.018% | 0.03% | 0.02% |\n| Implementation | Mainly holds VOO | Mainly holds IVV | Direct securities |\n| Distribution frequency | Quarterly | Semi-annual | Quarterly |\n\nXUS publishes a five-year cumulative return of 111.22%, which converts to roughly 16.13% annualized.[4] VFV reported 16.15% and ZSP 16.14% annualized.[2][8] The result is almost comically tight: C$17.57 separated the highest and lowest ending balances after five years. That is 0.18% of the original investment in total, not per year.\n\nThis table does not say VFV will lead next. It says an investor should be skeptical of claims that one of these wrappers is dramatically cheaper. A C$10 commission on both entry and exit would exceed the full historical gap. Selling an existing holding to chase a few basis points can also create tax or market-timing costs.\n\n## Tracking is useful—and easy to misuse\n\nVFV's five-year NAV return was 16.15% against 16.25% for its displayed benchmark, a lag of about 0.10 percentage point per year.[2] ZSP reported 16.14% against 16.53%, a larger 0.39-point annual gap.[8] XUS reported 111.22% cumulative versus 110.30% for its benchmark, an apparent 0.92-point cumulative lead.[4]\n\nThat makes XUS look like the tracking champion, but it is not safe to subtract these rows as though all issuers used an identical benchmark calculation. Index tax treatment, valuation timing, currency translation, and linked series can vary. The funds also have different structures. The honest conclusion is that XUS tracked its own displayed benchmark very well, VFV's lag was close to its fee, and ZSP's reported gap deserves monitoring. It is not proof that XUS will outperform the other two.\n\n## The spread and liquidity test\n\nVFV's July ETF Facts reported a 0.018% average bid-ask spread and 793,279 average daily units for the 12 months ended May 31.[3] XUS reported 0.03% and 736,152 units for the year ended April 30.[6] ZSP reported 0.02% and 1,146,487 units during 2025.[9]\n\nOn C$10,000, those average one-way spreads represent roughly C$1.80, C$3.00, and C$2.00 if applied mechanically. They are historical averages across different periods, not executable quotes. A volatile open, a U.S. market holiday, or trading while the underlying U.S. stocks are closed can widen a Canadian S&P 500 ETF's spread. A limit order during overlapping Canadian and U.S. market hours is more important than a tiny ranking difference in an old average.\n\nZSP's higher unit volume does not automatically make it the most liquid. ETF liquidity also comes from the underlying S&P 500 securities and market makers' creation and redemption activity. Still, all three disclosures indicate active, tight markets rather than a material liquidity warning.\n\n## Structure: VOO, IVV, or direct holdings\n\nVFV obtains most of its exposure through Vanguard's U.S.-listed VOO, while XUS primarily uses BlackRock's IVV.[2][6][7] ZSP directly holds the index constituents.[8] A fund-of-fund structure can make portfolio operations efficient, but it adds an underlying fund layer. The issuers cap or report fees so the published Canadian-wrapper MER remains the relevant headline cost.\n\nDirect replication does not guarantee better tracking. It changes where trading, tax, cash drag, and securities-lending effects occur. XUS's 2025 report said the Canadian wrapper did not lend securities.[7] Vanguard's Canadian disclosure similarly did not provide a comparable lending-income offset for VFV, while activity may occur in the underlying U.S. fund. The reviewed ZSP materials did not expose a comparable current lending contribution. With no consistent three-fund dataset, assigning imaginary basis-point benefits would reduce rather than improve the analysis.\n\nDistribution timing differs but is not a return advantage by itself. VFV and ZSP pay quarterly; XUS pays semi-annually.[2][5][8] An investor who needs frequent cash may prefer quarterly payments. An investor who reinvests automatically should focus on total return and any brokerage reinvestment constraints.\n\n## What would change the result\n\nVFV's edge rests on measurements that can move. XUS could retain better benchmark-relative tracking. ZSP's direct replication could close its reported gap. Live spreads can reverse the historical order on any given trade. Fee waivers can also change, and foreign withholding or taxable distributions depend on account and fund structure.\n\nThe strongest reason not to switch is the tiny observed gap. In a taxable account, realizing a capital gain can overwhelm years of basis-point differences. In any account, being out of the market during a transfer can matter more than C$18 over five years. This comparison is most useful for a new contribution or for monitoring an existing fund—not as a sell signal.\n\n## Bottom line\n\nVFV earns the highest score because the available evidence is consistently good: a 0.09% MER, the narrowest disclosed average spread, very large scale, and the highest ending value in the common-date five-year test.[1][2][3] XUS is nearly tied and has the best issuer-reported tracking result against its own benchmark. ZSP offers direct replication and strong disclosed trading volume.\n\nChoose based on the live quote, brokerage costs, distribution preference, and account consequences. If one of the three is already held efficiently, the data does not support paying tax or commissions merely to chase this ranking.",
+      "risks": [
+        "All three hold U.S. large-cap equities and can experience substantial market losses despite low fees.",
+        "Canadian-dollar returns remain exposed to CAD/USD movements because these classes are not currency hedged.",
+        "Historical average spreads and tracking differences can change and may not match a future trade.",
+        "Benchmark calculation differences make cross-issuer tracking comparisons imperfect.",
+        "Switching funds can create commissions, time out of market, or taxable capital gains larger than the observed cost gap."
+      ],
+      "catalysts": [
+        "A sustained narrowing or widening of tracking difference could separate funds that currently look tied.",
+        "Future fee reductions or waivers would directly change the annual cost ranking.",
+        "Growth in assets and market-making activity can improve execution quality.",
+        "Changes to fund structure, tax treatment, or securities-lending practice could affect realized tracking."
+      ],
+      "dataPoints": [
+        {
+          "label": "VFV five-year NAV return",
+          "value": "16.15% annualized through June 30, 2026",
+          "source": "Vanguard Investments Canada",
+          "sourceUrl": "https://fund-docs.vanguard.com/VFV_SandP_500_Index_ETF_9563_FS_EN_CA.pdf"
+        },
+        {
+          "label": "XUS five-year cumulative return",
+          "value": "111.22% through June 30, 2026",
+          "source": "BlackRock Canada",
+          "sourceUrl": "https://www.blackrock.com/ca/investors/en/products/251422/ishares-sp-500-index-etf"
+        },
+        {
+          "label": "ZSP five-year portfolio return",
+          "value": "16.14% annualized through June 30, 2026",
+          "source": "BMO Global Asset Management",
+          "sourceUrl": "https://df.bmogam.com/assets/static/etf-profiles-pdfs/BMO%20S%26P%20500%20Index%20ETF_Factsheet_EN_ZSP.pdf"
+        },
+        {
+          "label": "VFV historical average bid-ask spread",
+          "value": "0.018% for the 12 months ended May 31, 2026",
+          "source": "Vanguard Investments Canada",
+          "sourceUrl": "https://fund-docs.vanguard.com/VFV_SnP_500_Index_ETF_ETF_9563_EN_FACTS.pdf"
+        }
+      ],
+      "finalVerdict": "VFV is the best-supported all-in cost pick today, scoring 8.6/10 on the combined evidence of fee, spread, scale, and realized outcome. That is a monitoring conclusion, not a buy or sell directive. XUS and ZSP finished within C$18 of VFV on a five-year C$10,000 test, so a live spread, commission, tax bill, or time out of market can reverse the result. XUS deserves credit for strong issuer-reported tracking, while ZSP offers direct holdings and high disclosed unit volume. For an existing position, the evidence favours avoiding an unnecessary switch; for new money, compare the executable quote and brokerage terms before choosing.",
+      "references": [
+        {"id": 1, "source": "Vanguard Canada — VFV product page", "url": "https://www.vanguard.ca/en/product/etf/equity/9563/vanguard-sp-500-index-etf"},
+        {"id": 2, "source": "Vanguard Canada — VFV June 2026 factsheet", "url": "https://fund-docs.vanguard.com/VFV_SandP_500_Index_ETF_9563_FS_EN_CA.pdf"},
+        {"id": 3, "source": "Vanguard Canada — VFV ETF Facts", "url": "https://fund-docs.vanguard.com/VFV_SnP_500_Index_ETF_ETF_9563_EN_FACTS.pdf"},
+        {"id": 4, "source": "BlackRock Canada — XUS product page", "url": "https://www.blackrock.com/ca/investors/en/products/251422/ishares-sp-500-index-etf"},
+        {"id": 5, "source": "BlackRock Canada — XUS factsheet", "url": "https://www.blackrock.com/ca/individual/en/literature/fact-sheet/xus-ishares-core-s-p-500-index-etf-fund-fact-sheet-en-ca.pdf"},
+        {"id": 6, "source": "BlackRock Canada — XUS ETF Facts", "url": "https://www.blackrock.com/ca/institutional/en/literature/etf-summary/xus-facts-en-ca.pdf"},
+        {"id": 7, "source": "BlackRock Canada — XUS 2025 management report", "url": "https://www.blackrock.com/ca/individual/en/literature/annual-mrfp/mrfp-xus-en-ca.pdf"},
+        {"id": 8, "source": "BMO — ZSP June 2026 factsheet", "url": "https://df.bmogam.com/assets/static/etf-profiles-pdfs/BMO%20S%26P%20500%20Index%20ETF_Factsheet_EN_ZSP.pdf"},
+        {"id": 9, "source": "BMO — ZSP ETF Facts", "url": "https://fundfacts.bmo.com/EtfEnglish/BMO_S%26P_500_Index_ETF-EN-CAD_Units.pdf"},
+        {"id": 10, "source": "Vanguard Canada — VFV 2025 management report", "url": "https://fund-docs.vanguard.com/VFV_MRFP_EN.pdf"}
+      ]
+    },
+    "editorialReview": {
+      "status": "approved",
+      "approvedAt": "2026-08-06T15:54:20.000-04:00",
+      "researchId": "research-2026-08-04-vfv-vs-xus-vs-zsp",
+      "writerModel": "codex/gpt-5:writer",
+      "verifierModel": "codex/gpt-5:verifier",
+      "qualityScore": 100
+    }
+  }
+}
